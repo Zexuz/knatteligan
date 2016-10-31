@@ -35,6 +35,25 @@
   <ItemGroup>
     <Content Include="README.md" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain" />
+    <Folder Include="Domain\Enteties" />
+    <Folder Include="Helpers" />
+    <Folder Include="Services" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Domain\Enteties\Coach.cs" />
+    <Compile Include="Domain\Enteties\League.cs" />
+    <Compile Include="Domain\Enteties\Match.cs" />
+    <Compile Include="Domain\Enteties\Person.cs" />
+    <Compile Include="Domain\Enteties\Player.cs" />
+    <Compile Include="Domain\Enteties\Team.cs" />
+    <Compile Include="Domain\Enteties\TeamPerson.cs" />
+    <Compile Include="Repos\LeagueRepo.cs" />
+    <Compile Include="Repos\MatchRepo.cs" />
+    <Compile Include="Repos\PersonRepo.cs" />
+    <Compile Include="Repos\TeamRepo.cs" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

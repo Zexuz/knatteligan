@@ -6,6 +6,7 @@ namespace knatteligan.Domain.Entities
     {
         public TeamPerson(string name, DateTime dateOfBirth) : base(name, dateOfBirth)
         {
+
         }
     }
 }

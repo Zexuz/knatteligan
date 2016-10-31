@@ -2,8 +2,6 @@
 {
     public class League
     {
-
-
         public string Name { get; set; }
     }
 }

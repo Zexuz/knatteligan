@@ -1,12 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using knatteligan.Domain.Entities;
 
 namespace knatteligan.Services
 {
-    class PersonService
+    public class PersonService
     {
+        public Player CreatePlayer(string name, DateTime dOb)
+        {
+            var player = new Player(name, dOb)
+            {
+                Id = Guid.NewGuid()
+            };
+
+            return player;
+        }
     }
 }

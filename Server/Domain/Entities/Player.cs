@@ -4,6 +4,8 @@ namespace knatteligan.Domain.Entities
 {
     public class Player : TeamPerson
     {
+        public Guid Id { get; set; }
+
         public Player(string name, DateTime dateOfBirth) : base(name, dateOfBirth)
         {
         }

@@ -6,7 +6,10 @@ namespace knatteligan.Services
 {
     public class PersonService
     {
-        //public Player CreatePlayer(string name, DateTime dOb)
+        private PersonRepository Repository
+        {
+            get { return PersonRepository.Instance; }
+        }
 
         public void CreatePlayer(Player player)
         {
@@ -16,9 +19,6 @@ namespace knatteligan.Services
         {
             repository.EditPerson(player);
         }
-        private PersonRepository Repository
-        {
-            get { return PersonRepository.Instance; }
-        }
+
     }
 }

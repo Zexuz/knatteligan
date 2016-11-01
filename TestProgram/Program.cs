@@ -10,25 +10,25 @@ namespace TestProgram
     {
         static void Main(string[] args)
         {
-            var leagueRepository = new LeagueRepository();
-            var teamRepository = new TeamRepository();
+            //var leagueRepository = new LeagueRepository();
+            //var teamRepository = new TeamRepository();
 
-            var player1 = new Player("Wayne Rooney", new DateTime(2015-03-03));
+            //var player1 = new Player("Wayne Rooney", new DateTime(2015-03-03));
 
-            var teamPersonList = new List<TeamPerson> { player1 };
+            //var teamPersonList = new List<TeamPerson> { player1 };
 
-            var team1 = new Team(new TeamOrLeagueName("Manchester United"), teamPersonList);
+            //var team1 = new Team(new TeamOrLeagueName("Manchester United"), teamPersonList);
 
-            var teamList = new List<Team>{team1};
+            //var teamList = new List<Team>{team1};
 
-            teamRepository.ChangeTeamName(team1, new TeamOrLeagueName("Liverpool"));
+            //teamRepository.ChangeTeamName(team1, new TeamOrLeagueName("Liverpool"));
 
-            var league1 = new League(new TeamOrLeagueName("Premier League"), teamList);
+            //var league1 = new League(new TeamOrLeagueName("Premier League"), teamList);
 
 
 
-            Console.WriteLine(team1.Name.Value);
-            Console.ReadLine();
+            //Console.WriteLine(team1.Name.Value);
+            //Console.ReadLine();
 
         }
     }

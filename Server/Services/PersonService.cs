@@ -1,12 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using knatteligan.Domain.Entities;
+using knatteligan.Repositories;
 
 namespace knatteligan.Services
 {
-    class PersonService
+    public class PersonService
     {
+        //public Player CreatePlayer(string name, DateTime dOb)
+
+        public void CreatePlayer(Player player)
+        {
+            repository.CreatePerson(player);
+        }
+        public void EditPlayer(Player player)
+        {
+            repository.EditPerson(player);
+        }
+        private PersonRepository Repository
+        {
+            get { return PersonRepository.Instance; }
+        }
     }
 }

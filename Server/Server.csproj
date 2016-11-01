@@ -45,6 +45,7 @@
     <Compile Include="Domain\Entities\TeamPerson.cs" />
     <Compile Include="Domain\ValueObjects\InvalidPersonalIdException.cs" />
     <Compile Include="Domain\ValueObjects\PersonalId.cs" />
+    <Compile Include="Domain\ValueObjects\PhoneNumber.cs" />
     <Compile Include="Domain\ValueObjects\TeamOrLeagueName.cs" />
     <Compile Include="Repositories\LeagueRepository.cs" />
     <Compile Include="Repositories\MatchRepository.cs" />

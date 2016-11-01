@@ -3,6 +3,7 @@ using knatteligan.Domain.Entities;
 using knatteligan.Repositories;
 using System.Collections;
 using System.Collections.Generic;
+using knatteligan.Domain.ValueObjects;
 
 namespace knatteligan.Services
 {

@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
+=======
+using System.Collections.Generic;
+using knatteligan.Domain.Entities;
+>>>>>>> Started working on PersonRepo
 
 namespace knatteligan.Repositories
 {
@@ -11,6 +16,7 @@ namespace knatteligan.Repositories
 
         private static PersonRepository _instance;
 
+<<<<<<< HEAD
         public static PersonRepository GetInstance()
         {
             return _instance ?? (_instance = new PersonRepository());
@@ -28,6 +34,16 @@ namespace knatteligan.Repositories
         }
 
         internal void CreateCoach(PersonName name, PhoneNumber phoneNumber, Email email)
+=======
+        public List<Person> AllPerson { get; set; }
+
+        public PersonRepository()
+        {
+        }
+
+
+        public static PersonRepository Instance
+>>>>>>> Started working on PersonRepo
         {
             var coach = new Coach(name, phoneNumber, email);
             _people.Add(coach);

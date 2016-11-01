@@ -9,19 +9,14 @@ namespace knatteligan.Domain.ValueObjects
 
         public TeamOrLeagueName(string name)
         {
-            if (IsLeagueName(name))
-            {
-                Value = name;
-            }
-            //TODO: Better exception.
-            else
-            {
+            if (!IsTeamOrLeagueName(name))
                 throw new Exception("Bad name.");
-            }
+
+                Value = name;
         }
 
         //TODO: Better regex.
-        private static bool IsLeagueName(string name)
+        private static bool IsTeamOrLeagueName(string name)
         {
             return Regex.IsMatch(name, @"[a-öA-Ö ]+");
         }

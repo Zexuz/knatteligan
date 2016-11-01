@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using knatteligan.Domain.Entities;
+using knatteligan.Domain.ValueObjects;
 
 namespace knatteligan.Repositories
 {
@@ -14,7 +16,7 @@ namespace knatteligan.Repositories
             return _instance ?? (_instance = new TeamRepository());
         }
 
-        public IEnumerable<Team> GetAllLeagues()
+        public IEnumerable<Team> GetAllTeams()
         {
             return _teams;
         }
@@ -29,9 +31,19 @@ namespace knatteligan.Repositories
             _teams.Remove(team);
         }
 
-        public void AddPlayerToTeam(Player player)
+        public void AddPlayerToTeam(Team team, Player player)
         {
-            
+            team.TeamPersons.Add(player);
+        }
+
+        public void RemovePlayerFromTeam(Team team, Player player)
+        {
+            team.TeamPersons.Remove(player);
+        }
+
+        public void ChangeTeamName(Team team, TeamOrLeagueName newName)
+        {
+            team.Name = newName;
         }
 
     }

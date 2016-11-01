@@ -11,6 +11,7 @@ namespace TestProgram
         static void Main(string[] args)
         {
             var leagueRepository = new LeagueRepository();
+            var teamRepository = new TeamRepository();
 
             var player1 = new Player("Wayne Rooney", new DateTime(2015-03-03));
 
@@ -20,9 +21,13 @@ namespace TestProgram
 
             var teamList = new List<Team>{team1};
 
+            teamRepository.ChangeTeamName(team1, new TeamOrLeagueName("Liverpool"));
+
             var league1 = new League(new TeamOrLeagueName("Premier League"), teamList);
 
-            Console.WriteLine(league1.Name.Value);
+
+
+            Console.WriteLine(team1.Name.Value);
             Console.ReadLine();
 
         }

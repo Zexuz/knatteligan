@@ -44,7 +44,6 @@
     <Compile Include="Domain\Entities\Team.cs" />
     <Compile Include="Domain\Entities\TeamPerson.cs" />
     <Compile Include="Domain\ValueObjects\TeamOrLeagueName.cs" />
-    <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\LeagueRepository.cs" />
     <Compile Include="Repositories\MatchRepository.cs" />
     <Compile Include="Repositories\PersonRepository.cs" />

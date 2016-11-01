@@ -24,9 +24,5 @@ namespace knatteligan.Repositories
             _leagues.Add(league);
         }
 
-        //TODO: Remove league?
-
-        
-
     }
 }

@@ -37,6 +37,7 @@
     <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomExceptions\InvalidPersonNameException.cs" />
     <Compile Include="Domain\Entities\Coach.cs" />
     <Compile Include="Domain\Entities\League.cs" />
     <Compile Include="Domain\Entities\Match.cs" />
@@ -50,10 +51,12 @@
     <Compile Include="Domain\ValueObjects\PersonalId.cs" />
     <Compile Include="Domain\ValueObjects\PhoneNumber.cs" />
     <Compile Include="Domain\ValueObjects\TeamOrLeagueName.cs" />
-    <Compile Include="Exceptions\InvalidPersonNameException.cs" />
+    <Compile Include="Helpers\Serialiser.cs" />
+    <Compile Include="Repositories\IRepositori.cs" />
     <Compile Include="Repositories\LeagueRepository.cs" />
     <Compile Include="Repositories\MatchRepository.cs" />
     <Compile Include="Repositories\PersonRepository.cs" />
+    <Compile Include="Repositories\Repositori.cs" />
     <Compile Include="Repositories\TeamRepository.cs" />
     <Compile Include="Services\LeagueService.cs" />
     <Compile Include="Services\MatchService.cs" />

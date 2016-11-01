@@ -25,15 +25,7 @@ namespace Testing
         [Test]
         public void AddPlayers()
         {
-            /*
 
-                                    Assert.AreEqual(0,_players.Count);
-
-                        var player = _personServive.CreatePlayer("Robin Edbom",new DateTime(1996,11,01) );
-                        _players.Add(player);
-
-                        Assert.AreEqual(1,_players.Count);
-                         */
         }
     }
 }

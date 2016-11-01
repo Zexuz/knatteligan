@@ -16,26 +16,29 @@ namespace knatteligan.Services
             _personRepository = PersonRepository.GetInstance();
         }
 
-        public void CreatePlayer(PersonName name, DateTime dob)
+        public void CreatePlayer(PersonName name, PersonalId personId)
         {
-            _personRepository.CreatePlayer(name, dob);
+            _personRepository.CreatePlayer(name, personId);
         }
-        public void EditPlayer(Player player, string name, DateTime dob)
+
+        public void EditPlayer(Player player, PersonName name, PersonalId personId)
         {
-            _personRepository.EditPlayer(player, name, dob);
+            _personRepository.EditPlayer(player, name, personId);
         }
-        public void CreateCoach(PersonName name, PhoneNumber phoneNumber, Email email)
+
+        public void CreateCoach(PersonName name, PersonalId personId, PhoneNumber phoneNumber, Email email)
         {
-            _personRepository.CreateCoach(name, phoneNumber, email);
+            _personRepository.CreateCoach(name, personId, phoneNumber, email);
         }
+
         public void EditCoach(Coach coach, PersonName name, PhoneNumber phoneNumber, Email email)
         {
             _personRepository.EditCoach(coach, name, phoneNumber, email);
         }
+
         public IEnumerable<Person> GetAllPeople()
         {
             return _personRepository.GetAllPeople();
         }
-
     }
 }

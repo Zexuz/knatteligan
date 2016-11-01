@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
-using System;
 using System.Collections.Generic;
-=======
-using System.Collections.Generic;
-using knatteligan.Domain.Entities;
->>>>>>> Started working on PersonRepo
 
 namespace knatteligan.Repositories
 {
@@ -16,38 +10,33 @@ namespace knatteligan.Repositories
 
         private static PersonRepository _instance;
 
-<<<<<<< HEAD
         public static PersonRepository GetInstance()
         {
             return _instance ?? (_instance = new PersonRepository());
         }
 
-        internal void CreatePlayer(PersonName name, DateTime dob)
+        internal void CreatePlayer(PersonName name, PersonalId dob)
         {
             var player = new Player(name, dob);
             _people.Add(player);
         }
-        internal void EditPlayer(Player player, PersonName name, DateTime dob)
+
+        internal void EditPlayer(Player player, PersonName name, PersonalId dob)
         {
             player.Name = name;
-            player.DateOfBirth = dob;
+            player.PersonId = dob;
         }
 
-        internal void CreateCoach(PersonName name, PhoneNumber phoneNumber, Email email)
-=======
-        public List<Person> AllPerson { get; set; }
-
-        public PersonRepository()
+        internal void CreateCoach(PersonName name, PersonalId personalId, PhoneNumber phoneNumber, Email email)
         {
-        }
-
-
-        public static PersonRepository Instance
->>>>>>> Started working on PersonRepo
-        {
-            var coach = new Coach(name, phoneNumber, email);
+            var coach = new Coach(name, personalId, phoneNumber, email);
             _people.Add(coach);
         }
+
+        public List<Person> AllPerson { get; set; }
+
+
+        public static PersonRepository Instance;
 
         internal void EditCoach(Coach coach, PersonName name, PhoneNumber phoneNumber, Email email)
         {
@@ -55,10 +44,10 @@ namespace knatteligan.Repositories
             coach.PhoneNumber = phoneNumber;
             coach.Email = email;
         }
+
         public IEnumerable<Person> GetAllPeople()
         {
             return _people;
         }
-        
     }
 }

@@ -12,7 +12,7 @@ namespace knatteligan.Domain.ValueObjects
         {
             if (!IsValid(dateOfBirth, lastFour))
             {
-                throw new InvalidPersonalId("The personal id is not valid");
+                throw new InvalidPersonalIdException("The personal id is not valid");
             }
 
             DateOfBirth = dateOfBirth;
@@ -26,13 +26,6 @@ namespace knatteligan.Domain.ValueObjects
             var regEx = new Regex(@"\d{4}-\d{2}-\d{2}-\d{4}");
 
             return regEx.IsMatch(personalId);
-        }
-    }
-
-    public class InvalidPersonalId : Exception
-    {
-        public InvalidPersonalId(string str) : base(str)
-        {
         }
     }
 }

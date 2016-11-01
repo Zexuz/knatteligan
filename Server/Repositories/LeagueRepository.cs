@@ -23,6 +23,5 @@ namespace knatteligan.Repositories
         {
             _leagues.Add(league);
         }
-
     }
 }

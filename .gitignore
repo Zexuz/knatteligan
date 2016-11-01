@@ -3,3 +3,7 @@
 ################################################################################
 
 /Server/bin/Debug
+/Server/obj/Debug/knatteligan.dll
+/Server/obj/Debug/knatteligan.pdb
+/Server/obj/Debug/Server.csproj.FileListAbsolute.txt
+/Server/obj/Debug/Server.csprojResolveAssemblyReference.cache

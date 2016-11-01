@@ -1,4 +1,5 @@
 using knatteligan.Domain.Entities;
+using knatteligan.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 

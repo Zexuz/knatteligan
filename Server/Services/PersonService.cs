@@ -1,24 +1,41 @@
 ﻿using System;
 using knatteligan.Domain.Entities;
 using knatteligan.Repositories;
+using System.Collections;
+using System.Collections.Generic;
+using knatteligan.Domain.ValueObjects;
 
 namespace knatteligan.Services
 {
     public class PersonService
     {
-        //public Player CreatePlayer(string name, DateTime dOb)
+        private readonly PersonRepository _personRepository;
 
-        public void CreatePlayer(Player player)
+        public PersonService()
         {
-            //repository.CreatePerson(player);
+            _personRepository = PersonRepository.GetInstance();
         }
-        public void EditPlayer(Player player)
+
+        public void CreatePlayer(PersonName name, DateTime dob)
         {
-            //repository.EditPerson(player);
+            _personRepository.CreatePlayer(name, dob);
         }
-        private PersonRepository Repository
+        public void EditPlayer(Player player, string name, DateTime dob)
         {
-            get { return PersonRepository.Instance; }
+            _personRepository.EditPlayer(player, name, dob);
         }
+        public void CreateCoach(PersonName name, PhoneNumber phoneNumber, Email email)
+        {
+            _personRepository.CreateCoach(name, phoneNumber, email);
+        }
+        public void EditCoach(Coach coach, PersonName name, PhoneNumber phoneNumber, Email email)
+        {
+            _personRepository.EditCoach(coach, name, phoneNumber, email);
+        }
+        public IEnumerable<Person> GetAllPeople()
+        {
+            return _personRepository.GetAllPeople();
+        }
+
     }
 }

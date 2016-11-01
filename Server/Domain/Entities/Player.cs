@@ -1,12 +1,11 @@
-﻿using System;
+﻿using knatteligan.Domain.ValueObjects;
 
 namespace knatteligan.Domain.Entities
 {
     public class Player : TeamPerson
     {
         
-
-        public Player(string name, DateTime dateOfBirth) : base(name, dateOfBirth)
+        public Player(PersonName name, PersonalId personId) : base(name, personId)
         {
         }
     }

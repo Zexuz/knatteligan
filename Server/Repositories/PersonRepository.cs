@@ -1,75 +1,71 @@
+using System;
+
 using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
-using System;
+
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 
-namespace knatteligan.Repositories
-{
-    public class PersonRepository
-    {
+namespace knatteligan.Repositories {
+
+    public class PersonRepository {
+
         List<Person> _people = new List<Person>();
         private string fileName;
 
         private static PersonRepository _instance;
-        public PersonRepository()
-        {
+
+        public PersonRepository() {
             var path = Directory.GetCurrentDirectory();
             path = Directory.GetParent(path).Parent.FullName;
             fileName = new Uri(Path.Combine(path, "Persons.xml")).LocalPath;
             Load();
         }
 
-        public static PersonRepository GetInstance()
-        {
+        public static PersonRepository GetInstance() {
             return _instance ?? (_instance = new PersonRepository());
         }
 
-        internal void CreatePlayer(PersonName name, DateTime dob)
-        {
+        internal void CreatePlayer(PersonName name, PersonalId dob) {
             var player = new Player(name, dob);
             _people.Add(player);
         }
-        internal void EditPlayer(Player player, PersonName name, DateTime dob)
-        {
+
+        internal void EditPlayer(Player player, PersonName name, PersonalId dob) {
             player.Name = name;
-            player.DateOfBirth = dob;
+            player.PersonId = dob;
         }
 
-        internal void CreateCoach(PersonName name, PhoneNumber phoneNumber, Email email)
-        {
-            var coach = new Coach(name, phoneNumber, email);
+        internal void CreateCoach(PersonName name, PersonalId personalId, PhoneNumber phoneNumber, Email email) {
+            var coach = new Coach(name, personalId, phoneNumber, email);
             _people.Add(coach);
         }
 
-        internal void EditCoach(Coach coach, PersonName name, PhoneNumber phoneNumber, Email email)
-        {
+        internal void EditCoach(Coach coach, PersonName name, PhoneNumber phoneNumber, Email email) {
             coach.Name = name;
             coach.PhoneNumber = phoneNumber;
             coach.Email = email;
         }
-        public IEnumerable<Person> GetAllPeople()
-        {
+
+        public IEnumerable<Person> GetAllPeople() {
             return _people;
         }
-        internal void Save()
-        {
+
+        internal void Save() {
             XmlSerializer serializer = new XmlSerializer(typeof(List<Person>));
-            using (Stream stream = File.Open(fileName, FileMode.Create))
-            {
+            using (Stream stream = File.Open(fileName, FileMode.Create)) {
                 serializer.Serialize(stream, _people);
             }
         }
 
-        private void Load()
-        {
-            using (Stream stream = File.Open(fileName, FileMode.Open))
-            {
+        private void Load() {
+            using (Stream stream = File.Open(fileName, FileMode.Open)) {
                 XmlSerializer serializer = new XmlSerializer(typeof(List<Person>));
-                _people = (List<Person>)serializer.Deserialize(stream);
+                _people = (List<Person>) serializer.Deserialize(stream);
             }
         }
 
     }
+
 }

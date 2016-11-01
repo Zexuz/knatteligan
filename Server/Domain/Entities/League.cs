@@ -23,6 +23,6 @@ namespace knatteligan.Domain.Entities
             Teams = teams;
         }
 
-       
+
     }
 }

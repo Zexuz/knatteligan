@@ -10,11 +10,11 @@ namespace knatteligan.Services
 
         public void CreatePlayer(Player player)
         {
-            repository.CreatePerson(player);
+            //repository.CreatePerson(player);
         }
         public void EditPlayer(Player player)
         {
-            repository.EditPerson(player);
+            //repository.EditPerson(player);
         }
         private PersonRepository Repository
         {

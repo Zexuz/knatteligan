@@ -1,17 +1,18 @@
 ﻿using System;
+using knatteligan.Domain.ValueObjects;
 
 namespace knatteligan.Domain.Entities
 {
     public class Person
     {
-        public string Name { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public PersonName Name { get; set; }
+        public PersonalId PersonId { get; set; }
         public Guid Id { get; set; }
 
-        public Person(string name, DateTime dateOfBirth)
+        public Person(PersonName name, PersonalId personId)
         {
             Name = name;
-            DateOfBirth = dateOfBirth;
+            PersonId = personId;
             Id = Guid.NewGuid();
         }
     }

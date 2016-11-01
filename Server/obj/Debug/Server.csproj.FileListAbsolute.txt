@@ -1,5 +1,0 @@
-C:\Users\Leon\Source\Repos\knatteligan\Server\bin\Debug\knatteligan.dll
-C:\Users\Leon\Source\Repos\knatteligan\Server\bin\Debug\knatteligan.pdb
-C:\Users\Leon\Source\Repos\knatteligan\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
-C:\Users\Leon\Source\Repos\knatteligan\Server\obj\Debug\knatteligan.dll
-C:\Users\Leon\Source\Repos\knatteligan\Server\obj\Debug\knatteligan.pdb

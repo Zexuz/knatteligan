@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3CE4D018-5F10-4A93-86C0-4FD3151D745B}</ProjectGuid>
-    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{D98F1A97-DD12-4AC9-8776-DB38AE416AD2}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>knatteligan</RootNamespace>
-    <AssemblyName>knatteligan</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>TestProgram</RootNamespace>
+    <AssemblyName>TestProgram</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,31 +33,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Domain\ValueObjects\" />
-    <Folder Include="Helpers\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Domain\Entities\Coach.cs" />
-    <Compile Include="Domain\Entities\League.cs" />
-    <Compile Include="Domain\Entities\Match.cs" />
-    <Compile Include="Domain\Entities\Person.cs" />
-    <Compile Include="Domain\Entities\Player.cs" />
-    <Compile Include="Domain\Entities\Team.cs" />
-    <Compile Include="Domain\Entities\TeamPerson.cs" />
-    <Compile Include="Domain\ValueObjects\InvalidPersonalIdException.cs" />
-    <Compile Include="Domain\ValueObjects\PersonalId.cs" />
-    <Compile Include="Domain\ValueObjects\TeamOrLeagueName.cs" />
-    <Compile Include="Repositories\LeagueRepository.cs" />
-    <Compile Include="Repositories\MatchRepository.cs" />
-    <Compile Include="Repositories\PersonRepository.cs" />
-    <Compile Include="Repositories\TeamRepository.cs" />
-    <Compile Include="Services\LeagueService.cs" />
-    <Compile Include="Services\MatchService.cs" />
-    <Compile Include="Services\PersonService.cs" />
-    <Compile Include="Services\TeamService.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Server\Server.csproj">
+      <Project>{3ce4d018-5f10-4a93-86c0-4fd3151d745b}</Project>
+      <Name>Server</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

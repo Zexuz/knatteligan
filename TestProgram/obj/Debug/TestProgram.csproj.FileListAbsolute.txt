@@ -1,0 +1,8 @@
+C:\Users\Leon\Source\Repos\knatteligan\TestProgram\bin\Debug\TestProgram.exe.config
+C:\Users\Leon\Source\Repos\knatteligan\TestProgram\bin\Debug\TestProgram.exe
+C:\Users\Leon\Source\Repos\knatteligan\TestProgram\bin\Debug\TestProgram.pdb
+C:\Users\Leon\Source\Repos\knatteligan\TestProgram\bin\Debug\knatteligan.dll
+C:\Users\Leon\Source\Repos\knatteligan\TestProgram\bin\Debug\knatteligan.pdb
+C:\Users\Leon\Source\Repos\knatteligan\TestProgram\obj\Debug\TestProgram.csprojResolveAssemblyReference.cache
+C:\Users\Leon\Source\Repos\knatteligan\TestProgram\obj\Debug\TestProgram.exe
+C:\Users\Leon\Source\Repos\knatteligan\TestProgram\obj\Debug\TestProgram.pdb

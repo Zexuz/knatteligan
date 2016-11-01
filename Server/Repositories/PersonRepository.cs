@@ -2,14 +2,24 @@ using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace knatteligan.Repositories
 {
     public class PersonRepository
     {
         List<Person> _people = new List<Person>();
+        private string fileName;
 
         private static PersonRepository _instance;
+        public PersonRepository()
+        {
+            var path = Directory.GetCurrentDirectory();
+            path = Directory.GetParent(path).Parent.FullName;
+            fileName = new Uri(Path.Combine(path, "Persons.xml")).LocalPath;
+            Load();
+        }
 
         public static PersonRepository GetInstance()
         {
@@ -43,6 +53,23 @@ namespace knatteligan.Repositories
         {
             return _people;
         }
-        
+        internal void Save()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Person>));
+            using (Stream stream = File.Open(fileName, FileMode.Create))
+            {
+                serializer.Serialize(stream, _people);
+            }
+        }
+
+        private void Load()
+        {
+            using (Stream stream = File.Open(fileName, FileMode.Open))
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Person>));
+                _people = (List<Person>)serializer.Deserialize(stream);
+            }
+        }
+
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace knatteligan.Services
 {
-    class LeagueService
+    public class LeagueService
     {
     }
 }

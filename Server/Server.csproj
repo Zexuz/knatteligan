@@ -33,11 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Domain\ValueObjects" />
     <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\Entities\Coach.cs" />
+    <Compile Include="Domain\Entities\Goal.cs" />
     <Compile Include="Domain\Entities\League.cs" />
     <Compile Include="Domain\Entities\Match.cs" />
     <Compile Include="Domain\Entities\Person.cs" />

@@ -9,12 +9,13 @@ namespace knatteligan.Domain.Entities
         public Guid Guid { get; set; }
         public TeamOrLeagueName Name { get; set; }
         public List<TeamPerson> TeamPersons { get; set; }
+        public List<Goal> Goals { get; set; }
 
-        public Team(TeamOrLeagueName name, List<TeamPerson> teamPersons)
+        public Team(TeamOrLeagueName name)
         {
             Guid = Guid.NewGuid();
             Name = name;
-            TeamPersons = teamPersons;
+            
         }
     }
 }

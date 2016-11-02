@@ -1,2 +1,2 @@
 # knatteligan
-# Days without merge conflicts: 0
+# Days without merge conflicts: 1

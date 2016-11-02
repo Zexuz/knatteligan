@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Server\Server.csproj">
-      <Project>{3CE4D018-5F10-4A93-86C0-4FD3151D745B}</Project>
+      <Project>{3ce4d018-5f10-4a93-86c0-4fd3151d745b}</Project>
       <Name>Server</Name>
     </ProjectReference>
   </ItemGroup>

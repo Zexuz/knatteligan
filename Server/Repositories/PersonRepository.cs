@@ -11,6 +11,8 @@ namespace knatteligan.Repositories {
         private List<Person> _people = new List<Person>();
         private readonly string _fileName;
 
+        
+
         private static PersonRepository _instance;
 
         public PersonRepository() {

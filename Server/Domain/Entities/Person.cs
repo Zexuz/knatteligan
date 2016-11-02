@@ -15,5 +15,9 @@ namespace knatteligan.Domain.Entities
             PersonId = personId;
             Id = Guid.NewGuid();
         }
+
+        public Person() {
+
+        }
     }
 }

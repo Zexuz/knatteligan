@@ -1,70 +1,57 @@
-using System;
+
 using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
+
 using System.Collections.Generic;
-using System.IO;
-using System.Xml.Serialization;
+using System.Linq;
 
 namespace knatteligan.Repositories {
 
     public class PersonRepository : Repository<Person> {
-        private List<Person> _people = new List<Person>();
-        private readonly string _fileName;
 
-        private static PersonRepository _instance;
+        private readonly List<Person> _people;
+        protected override string FilePath { get; }
+
 
         public PersonRepository() {
-            var path = Directory.GetCurrentDirectory();
-            path = Directory.GetParent(path).Parent.FullName;
-            _fileName = new Uri(Path.Combine(path, "Persons.xml")).LocalPath;
-            Load();
+            FilePath = GetFilePath("Perons.xml");
+            _people = Load().ToList();
         }
 
         public static PersonRepository GetInstance() {
-            return _instance ?? (_instance = new PersonRepository());
+            return (PersonRepository) (Repo ?? (Repo = new PersonRepository()));
         }
 
-        internal void CreatePlayer(PersonName name, PersonalId dob) {
+        public void CreatePlayer(PersonName name, PersonalId dob) {
             var player = new Player(name, dob);
-            _people.Add(player);
-            Save();
+            AddAndSavePerson(player);
         }
 
-        internal void EditPlayer(Player player, PersonName name, PersonalId dob) {
+        public void EditPlayer(Player player, PersonName name, PersonalId dob) {
             player.Name = name;
             player.PersonId = dob;
-            Save();
+            AddAndSavePerson(player);
         }
 
-        internal void CreateCoach(PersonName name, PersonalId personalId, PhoneNumber phoneNumber, Email email) {
+        public void CreateCoach(PersonName name, PersonalId personalId, PhoneNumber phoneNumber, Email email) {
             var coach = new Coach(name, personalId, phoneNumber, email);
-            _people.Add(coach);
-            Save();
+            AddAndSavePerson(coach);
         }
 
-        internal void EditCoach(Coach coach, PersonName name, PhoneNumber phoneNumber, Email email) {
+        public void EditCoach(Coach coach, PersonName name, PhoneNumber phoneNumber, Email email) {
             coach.Name = name;
             coach.PhoneNumber = phoneNumber;
             coach.Email = email;
-            Save();
+            AddAndSavePerson(coach);
         }
 
-        public IEnumerable<Person> GetAllPeople() {
+        private void AddAndSavePerson(Person p) {
+            _people.Add(p);
+            Save(_people);
+        }
+
+        public override IEnumerable<Person> GetAll() {
             return _people;
-        }
-
-        internal void Save() {
-            var serializer = new XmlSerializer(typeof(List<Person>));
-            using (Stream stream = File.Open(_fileName, FileMode.Create)) {
-                serializer.Serialize(stream, _people);
-            }
-        }
-
-        private void Load() {
-            using (Stream stream = File.Open(_fileName, FileMode.Open)) {
-                var serializer = new XmlSerializer(typeof(List<Person>));
-                _people = (List<Person>) serializer.Deserialize(stream);
-            }
         }
 
     }

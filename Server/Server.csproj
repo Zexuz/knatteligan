@@ -32,8 +32,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Folder Include="Domain\ValueObjects" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomExceptions\InvalidPersonNameException.cs" />
     <Compile Include="Domain\Entities\Coach.cs" />
     <Compile Include="Domain\Entities\Goal.cs" />
     <Compile Include="Domain\Entities\League.cs" />

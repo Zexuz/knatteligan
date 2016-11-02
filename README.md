@@ -1,2 +1,2 @@
 # knatteligan
-Hello, World!
+# Days without merge conflicts: 0

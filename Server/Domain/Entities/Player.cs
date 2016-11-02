@@ -9,12 +9,14 @@ namespace knatteligan.Domain.Entities
         public List<RedCard> RedCards { get; set; }
         public List<Assist> Assists { get; set; }
 
-        public Player() {
+        public Player()
+        {
 
         }
 
         public Player(PersonName name, PersonalId personId) : base(name, personId)
         {
+
         }
     }
 }

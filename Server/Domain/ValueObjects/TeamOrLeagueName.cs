@@ -12,7 +12,7 @@ namespace knatteligan.Domain.ValueObjects
             if (!IsTeamOrLeagueName(name))
                 throw new Exception("Bad name.");
 
-                Value = name;
+            Value = name;
         }
 
         //TODO: Better regex.

@@ -1,14 +1,14 @@
-﻿using System;
+﻿using knatteligan.Domain.ValueObjects;
 
-using knatteligan.Domain.ValueObjects;
+namespace knatteligan.Domain.Entities
+{
 
-namespace knatteligan.Domain.Entities {
+    public class TeamPerson : Person
+    {
 
-    public class TeamPerson : Person {
+        public TeamPerson() { }
 
-        public TeamPerson() {}
-
-        public TeamPerson(PersonName name, PersonalId personId) : base(name, personId) {}
+        public TeamPerson(PersonName name, PersonalId personId) : base(name, personId) { }
 
     }
 

@@ -11,14 +11,11 @@ namespace knatteligan.Domain.Entities
         public List<Goal> Goals { get; set; }
         public DateTime MatchDate { get; set; }
 
-
         public Match(Team homeTeam, Team awayTeam)
         {
             HomeTeam = homeTeam;
             AwayTeam = awayTeam;
             Guid = new Guid();
-            
-
         }
     }
 }

@@ -15,7 +15,7 @@ namespace knatteligan.Services
 
         public IEnumerable<League> GetAllLeagues()
         {
-            return _leagueRepository.GetAllLeagues();
+            return _leagueRepository.GetAll();
         }
 
         public void AddLeague(League league)

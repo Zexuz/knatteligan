@@ -1,5 +1,3 @@
-using System;
-
 using knatteligan.Domain.ValueObjects;
 
 namespace knatteligan.Domain.Entities {
@@ -15,7 +13,5 @@ namespace knatteligan.Domain.Entities {
             PhoneNumber = phoneNumber;
             Email = email;
         }
-
     }
-
 }

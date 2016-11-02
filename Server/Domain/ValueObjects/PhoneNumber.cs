@@ -11,11 +11,11 @@ namespace knatteligan.Domain.ValueObjects
     {
         public string Value { get; private set; }
 
-        public PhoneNumber (string number)
+        public PhoneNumber(string number)
         {
             if (!isPhoneNumber(number))
             {
-                throw new Exception("Bad phone number");   
+                throw new Exception("Bad phone number");
             }
             Value = number;
         }

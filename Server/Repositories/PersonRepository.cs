@@ -29,22 +29,26 @@ namespace knatteligan.Repositories {
         internal void CreatePlayer(PersonName name, PersonalId dob) {
             var player = new Player(name, dob);
             _people.Add(player);
+            Save();
         }
 
         internal void EditPlayer(Player player, PersonName name, PersonalId dob) {
             player.Name = name;
             player.PersonId = dob;
+            Save();
         }
 
         internal void CreateCoach(PersonName name, PersonalId personalId, PhoneNumber phoneNumber, Email email) {
             var coach = new Coach(name, personalId, phoneNumber, email);
             _people.Add(coach);
+            Save();
         }
 
         internal void EditCoach(Coach coach, PersonName name, PhoneNumber phoneNumber, Email email) {
             coach.Name = name;
             coach.PhoneNumber = phoneNumber;
             coach.Email = email;
+            Save();
         }
 
         public IEnumerable<Person> GetAllPeople() {

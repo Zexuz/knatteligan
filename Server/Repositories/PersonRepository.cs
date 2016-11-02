@@ -7,11 +7,9 @@ using System.Xml.Serialization;
 
 namespace knatteligan.Repositories {
 
-    public class PersonRepository {
+    public class PersonRepository : Repository<Person> {
         private List<Person> _people = new List<Person>();
         private readonly string _fileName;
-
-        
 
         private static PersonRepository _instance;
 

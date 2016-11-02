@@ -10,7 +10,7 @@ namespace knatteligan.Repositories
     public class TeamRepository
     {
         private List<Team> _teams = new List<Team>();
-        private string _fileName;
+        private readonly string _fileName;
         private static TeamRepository _instance;
 
         public TeamRepository()

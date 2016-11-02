@@ -32,9 +32,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Helpers" />
+  </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Compile Include="CustomExceptions\InvalidNumberOfTeamsException.cs" />
     <Compile Include="CustomExceptions\InvalidPersonNameException.cs" />
     <Compile Include="Domain\Entities\Coach.cs" />
     <Compile Include="Domain\Entities\Goal.cs" />

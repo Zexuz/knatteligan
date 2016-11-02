@@ -51,6 +51,7 @@
     <Compile Include="Domain\ValueObjects\PhoneNumber.cs" />
     <Compile Include="Domain\ValueObjects\TeamOrLeagueName.cs" />
     <Compile Include="Helpers\CreateSeriesSchedule.cs" />
+    <Compile Include="Helpers\Serializer.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\LeagueRepository.cs" />
     <Compile Include="Repositories\MatchRepository.cs" />

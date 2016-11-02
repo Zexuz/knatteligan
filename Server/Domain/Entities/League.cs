@@ -12,11 +12,8 @@ namespace knatteligan.Domain.Entities
         public List<Match> Matches { get; set; }
         public DateTime StartDate { get; set; }
 
-
-
         public League()
         {
-
         }
 
         public League(TeamOrLeagueName name, List<Team> teams)
@@ -25,7 +22,5 @@ namespace knatteligan.Domain.Entities
             Name = name;
             Teams = teams;
         }
-
-
     }
 }

@@ -16,7 +16,7 @@ namespace knatteligan.Services
 
         public IEnumerable<Team> GetAllTeams()
         {
-            return _teamRepository.GetAllTeams();
+            return _teamRepository.GetAll();
         }
 
         public void AddTeam(Team team)

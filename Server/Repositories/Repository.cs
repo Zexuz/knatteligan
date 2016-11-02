@@ -1,27 +1,35 @@
-﻿using System.Collections.Generic;
-
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using knatteligan.Helpers;
 
-namespace knatteligan.Repositories {
+namespace knatteligan.Repositories
+{
 
-    public abstract class Repository<T> : IRepository<T> {
+    public abstract class Repository<T> : IRepository<T>
+    {
 
         protected static Repository<T> Repo;
         protected abstract string FilePath { get; }
 
-        public abstract void Add();
         public abstract IEnumerable<T> GetAll();
-        public abstract IRepository<T> GetInstace();
 
-        public void Save(List<T> list) {
-            Serialiser<T>.SaveDataToFile(list, FilePath);
+        public string GetFilePath(string fileName)
+        {
+            var path = Directory.GetCurrentDirectory();
+            path = Directory.GetParent(path).Parent.FullName;
+            return new Uri(Path.Combine(path, "Matches.xml")).LocalPath;
+        }
+
+        public void Save(List<T> list)
+        {
+            Serializer<T>.SaveDataToFile(list, FilePath);
             Load();
         }
 
-        public IEnumerable<T> Load() {
-            return Serialiser<T>.GetDataFromFile(FilePath);
+        public IEnumerable<T> Load()
+        {
+            return Serializer<T>.GetDataFromFile(FilePath);
         }
-
     }
-
 }

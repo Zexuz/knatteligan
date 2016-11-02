@@ -1,14 +1,13 @@
 using System.Collections.Generic;
 
-namespace knatteligan.Repositories {
+namespace knatteligan.Repositories
+{
 
-    public interface IRepository<T> {
-
-        void Add();
+    public interface IRepository<T>
+    {
         void Save(List<T> list);
-        IEnumerable<T> GetAll();
         IEnumerable<T> Load();
-        IRepository<T> GetInstace();
+        IEnumerable<T> GetAll();
     }
 
 }

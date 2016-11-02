@@ -32,11 +32,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup>
-	  <Folder Include="Domain\ValueObjects" />
-  </ItemGroup>
-
-
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="Domain\Entities\Coach.cs" />
     <Compile Include="Domain\Entities\Goal.cs" />
@@ -52,7 +48,7 @@
     <Compile Include="Domain\ValueObjects\PersonalId.cs" />
     <Compile Include="Domain\ValueObjects\PhoneNumber.cs" />
     <Compile Include="Domain\ValueObjects\TeamOrLeagueName.cs" />
-    <Compile Include="Helpers\Serialiser.cs" />
+    <Compile Include="Helpers\Serializer.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\LeagueRepository.cs" />
     <Compile Include="Repositories\MatchRepository.cs" />

@@ -36,7 +36,7 @@ namespace knatteligan.Services
 
         public IEnumerable<Person> GetAllPeople()
         {
-            return _personRepository.GetAllPeople();
+            return _personRepository.GetAll();
         }
     }
 }

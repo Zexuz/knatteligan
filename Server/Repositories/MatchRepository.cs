@@ -6,7 +6,7 @@ using knatteligan.Domain.Entities;
 
 namespace knatteligan.Repositories {
 
-    public class MatchRepository : Repositori<Match> {
+    public class MatchRepository : Repository<Match> {
 
         protected override string FilePath { get; }
 
@@ -24,11 +24,9 @@ namespace knatteligan.Repositories {
             throw new NotImplementedException();
         }
 
-        public override IRepositori<Match> GetInstace() {
-            if (Repo == null) {
-                Repo = new MatchRepository();
-            }
-            return Repo;
+        public override IRepository<Match> GetInstace()
+        {
+            return Repo ?? (Repo = new MatchRepository());
         }
 
     }

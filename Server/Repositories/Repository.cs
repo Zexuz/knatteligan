@@ -4,14 +4,14 @@ using knatteligan.Helpers;
 
 namespace knatteligan.Repositories {
 
-    public abstract class Repositori<T> : IRepositori<T> {
+    public abstract class Repository<T> : IRepository<T> {
 
-        protected static Repositori<T> Repo;
+        protected static Repository<T> Repo;
         protected abstract string FilePath { get; }
 
         public abstract void Add();
         public abstract IEnumerable<T> GetAll();
-        public abstract IRepositori<T> GetInstace();
+        public abstract IRepository<T> GetInstace();
 
         public void Save(List<T> list) {
             Serialiser<T>.SaveDataToFile(list, FilePath);

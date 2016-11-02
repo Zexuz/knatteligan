@@ -10,6 +10,9 @@ namespace knatteligan.Domain.Entities
         public TeamOrLeagueName Name { get; set; }
         public List<Team> Teams { get; set; }
         public List<Match> Matches { get; set; }
+        public DateTime StartDate { get; set; }
+
+
 
         public League()
         {

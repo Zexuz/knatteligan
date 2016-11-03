@@ -14,7 +14,7 @@ namespace knatteligan.Repositories
 
         public PersonRepository()
         {
-            FilePath = GetFilePath("Perons.xml");
+            FilePath = GetFilePath("Persons.xml");
             _people = Load().ToList();
         }
 

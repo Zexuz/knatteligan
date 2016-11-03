@@ -8,6 +8,10 @@ namespace knatteligan.Domain.ValueObjects
         public DateTime DateOfBirth { get; set; }
         public string LastFour { get; set; }
 
+        public PersonalNumber() {
+
+        }
+
         public PersonalNumber(DateTime dateOfBirth, string lastFour)
         {
             if (!IsValid(dateOfBirth, lastFour))

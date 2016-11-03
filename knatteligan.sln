@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{7B0851C8-37A8-4C93-999C-EB5C3F535413}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnatteliganWPF", "..\..\..\Documents\Iths\c sharp\KnatteliganWPF\KnatteliganWPF\KnatteliganWPF.csproj", "{B2CEC852-2332-4DDE-AF5C-3CE6D5722B84}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnatteliganWPF", "KnatteliganWPF\KnatteliganWPF.csproj", "{B2CEC852-2332-4DDE-AF5C-3CE6D5722B84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		{7B0851C8-37A8-4C93-999C-EB5C3F535413}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B0851C8-37A8-4C93-999C-EB5C3F535413}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B0851C8-37A8-4C93-999C-EB5C3F535413}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B2CEC852-2332-4DDE-AF5C-3CE6D5722B84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B2CEC852-2332-4DDE-AF5C-3CE6D5722B84}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B2CEC852-2332-4DDE-AF5C-3CE6D5722B84}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B2CEC852-2332-4DDE-AF5C-3CE6D5722B84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

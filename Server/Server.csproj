@@ -48,8 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomExceptions\InvalidNumberOfTeamsException.cs" />
-    <Compile Include="Domain\Entities\Assist.cs" />
     <Compile Include="CustomExceptions\InvalidPersonNameException.cs" />
+    <Compile Include="CustomExceptions\InvalidPersonalIdException.cs" />
     <Compile Include="Domain\Entities\Assist.cs" />
     <Compile Include="Domain\Entities\Coach.cs" />
     <Compile Include="Domain\Entities\Goal.cs" />
@@ -60,10 +60,9 @@
     <Compile Include="Domain\Entities\RedCard.cs" />
     <Compile Include="Domain\Entities\Team.cs" />
     <Compile Include="Domain\Entities\TeamPerson.cs" />
-    <Compile Include="Domain\ValueObjects\MatchDate.cs" />
     <Compile Include="Domain\Entities\YellowCard.cs" />
+    <Compile Include="Domain\ValueObjects\MatchDate.cs" />
     <Compile Include="Domain\ValueObjects\PersonName.cs" />
-    <Compile Include="CustomExceptions\InvalidPersonalIdException.cs" />
     <Compile Include="Domain\ValueObjects\Email.cs" />
     <Compile Include="Domain\ValueObjects\PersonalId.cs" />
     <Compile Include="Domain\ValueObjects\PhoneNumber.cs" />
@@ -72,7 +71,6 @@
     <Compile Include="Helpers\CreateSeriesSchedule.cs" />
     <Compile Include="Helpers\Serializer.cs" />
     <Compile Include="Repositories\AssistRepository.cs" />
-    <Compile Include="Domain\Entities\RedCard.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\LeagueRepository.cs" />
     <Compile Include="Repositories\MatchRepository.cs" />
@@ -88,7 +86,6 @@
     <Compile Include="Services\RedCardService.cs" />
     <Compile Include="Services\TeamService.cs" />
     <Compile Include="Services\YellowCardService.cs" />
-    <Compile Include="Domain\Entities\YellowCard.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

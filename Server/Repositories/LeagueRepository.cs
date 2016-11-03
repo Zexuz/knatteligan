@@ -19,7 +19,7 @@ namespace knatteligan.Repositories
             _leagues = Load().ToList();
         }
 
-        public void Add(TeamOrLeagueName name, List<Team> teams )
+        public void Add(LeagueName name, List<Team> teams )
         {
             var league = new League(name, teams);
             AddAndSaveLeague(league);
@@ -27,7 +27,7 @@ namespace knatteligan.Repositories
 
         public void Remove(Guid leagueGuid)
         {
-            var league = _leagues.Find(l => l.Guid == leagueGuid);
+            var league = _leagues.Find(l => l.Id == leagueGuid);
             _leagues.Remove(league);
         }
 

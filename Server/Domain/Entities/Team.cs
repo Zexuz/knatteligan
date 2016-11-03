@@ -6,14 +6,18 @@ namespace knatteligan.Domain.Entities
 {
     public class Team
     {
-        public Guid Guid { get; set; }
-        public TeamOrLeagueName Name { get; set; }
+        public Guid Id { get; set; }
+        public LeagueName Name { get; set; }
         public List<TeamPerson> TeamPersons { get; set; }
 
-        public Team(TeamOrLeagueName name)
+        public Team(LeagueName name)
         {
-            Guid = Guid.NewGuid();
+            Id = Guid.NewGuid();
             Name = name;
+        }
+        public Team()
+        {
+
         }
     }
 }

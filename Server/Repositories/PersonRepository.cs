@@ -23,22 +23,22 @@ namespace knatteligan.Repositories
             return (PersonRepository)(Repo ?? (Repo = new PersonRepository()));
         }
 
-        public void Add(PersonName name, PersonalId dob)
+        public void Add(PersonName name, PersonalNumber dob, Team team)
         {
-            var player = new Player(name, dob);
+            var player = new Player(name, dob, team);
             AddAndSavePerson(player);
         }
 
-        public void Add(PersonName name, PersonalId personalId, PhoneNumber phoneNumber, Email email)
+        public void Add(PersonName name, PersonalNumber personalNumber, PhoneNumber phoneNumber, Email email, Team team)
         {
-            var coach = new Coach(name, personalId, phoneNumber, email);
+            var coach = new Coach(name, personalNumber, phoneNumber, email, team);
             AddAndSavePerson(coach);
         }
 
-        public void Edit(Player player, PersonName name, PersonalId dob)
+        public void Edit(Player player, PersonName name, PersonalNumber dob)
         {
             player.Name = name;
-            player.PersonId = dob;
+            player.PersonalNumber = dob;
             AddAndSavePerson(player);
         }
 

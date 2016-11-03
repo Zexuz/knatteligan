@@ -14,19 +14,19 @@ namespace knatteligan.Services
             _personRepository = PersonRepository.GetInstance();
         }
 
-        public void Add(PersonName name, PersonalId personId)
+        public void Add(PersonName name, PersonalNumber personId, Team team)
         {
-            _personRepository.Add(name, personId);
+            _personRepository.Add(name, personId, team);
         }
 
-        public void Edit(Player player, PersonName name, PersonalId personId)
+        public void Edit(Player player, PersonName name, PersonalNumber personId)
         {
             _personRepository.Edit(player, name, personId);
         }
 
-        public void Add(PersonName name, PersonalId personId, PhoneNumber phoneNumber, Email email)
+        public void Add(PersonName name, PersonalNumber personId, PhoneNumber phoneNumber, Email email, Team team)
         {
-            _personRepository.Add(name, personId, phoneNumber, email);
+            _personRepository.Add(name, personId, phoneNumber, email, team);
         }
 
         public void Edit(Coach coach, PersonName name, PhoneNumber phoneNumber, Email email)

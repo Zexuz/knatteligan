@@ -17,33 +17,28 @@ namespace knatteligan.Repositories
             _teams = Load().ToList();
         }
 
-        public void AddTeam(Team team)
+        public void Add(TeamOrLeagueName name)
         {
-            _teams.Add(team);
-            Save(_teams);
+            var team = new Team(name);
+            AddAndSaveTeam(team);
         }
 
-        public void RemoveTeam(Team team)
+        public void Remove(Team team)
         {
             _teams.Remove(team);
             Save(_teams);
         }
 
-        public void AddPlayerToTeam(Team team, Player player)
-        {
-            team.TeamPersons.Add(player);
-            Save(_teams);
-        }
-
-        public void RemovePlayerFromTeam(Team team, Player player)
-        {
-            team.TeamPersons.Remove(player);
-            Save(_teams);
-        }
 
         public void ChangeTeamName(Team team, TeamOrLeagueName newName)
         {
             team.Name = newName;
+            Save(_teams);
+        }
+
+        private void AddAndSaveTeam(Team team)
+        {
+            _teams.Add(team);
             Save(_teams);
         }
 

@@ -44,6 +44,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Folder Include="Helpers" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomExceptions\InvalidNumberOfTeamsException.cs" />
     <Compile Include="CustomExceptions\InvalidPersonNameException.cs" />
     <Compile Include="Domain\Entities\Assist.cs" />
     <Compile Include="Domain\Entities\Coach.cs" />
@@ -55,6 +59,7 @@
     <Compile Include="Domain\Entities\RedCard.cs" />
     <Compile Include="Domain\Entities\Team.cs" />
     <Compile Include="Domain\Entities\TeamPerson.cs" />
+    <Compile Include="Domain\ValueObjects\MatchDate.cs" />
     <Compile Include="Domain\Entities\YellowCard.cs" />
     <Compile Include="Domain\ValueObjects\PersonName.cs" />
     <Compile Include="CustomExceptions\InvalidPersonalIdException.cs" />

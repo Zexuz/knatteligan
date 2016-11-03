@@ -1,6 +1,5 @@
 ﻿using System;
 using NUnit.Framework;
-using NUnit.Framework.Internal;
 
 namespace Testing
 {
@@ -16,7 +15,6 @@ namespace Testing
             Assert.AreEqual("1136", pId.LastFour);
             Assert.AreEqual(doa, pId.DateOfBirth);
         }
-
 
         [Test]
         public void CheckPersonalIdNotValid()

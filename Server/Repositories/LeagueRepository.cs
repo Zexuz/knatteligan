@@ -1,27 +1,50 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using knatteligan.Domain.Entities;
+using System.Linq;
+using knatteligan.Domain.ValueObjects;
 
 namespace knatteligan.Repositories
 {
-    public class LeagueRepository
+
+    public class LeagueRepository : Repository<League>
     {
-        private readonly List<League> _leagues = new List<League>();
 
-        private static LeagueRepository _instance;
+        protected override string FilePath { get; }
+        private readonly List<League> _leagues;
 
-        public static LeagueRepository GetInstance()
+        public LeagueRepository()
         {
-            return _instance ?? (_instance = new LeagueRepository());
+            FilePath = GetFilePath("League.xml");
+            _leagues = Load().ToList();
         }
 
-        public IEnumerable<League> GetAllLeagues()
+        public void Add(TeamOrLeagueName name, List<Team> teams )
+        {
+            var league = new League(name, teams);
+            AddAndSaveLeague(league);
+        }
+
+        public void Remove(Guid leagueGuid)
+        {
+            var league = _leagues.Find(l => l.Guid == leagueGuid);
+            _leagues.Remove(league);
+        }
+
+        public override IEnumerable<League> GetAll()
         {
             return _leagues;
         }
 
-        public void AddLeague(League league)
+        private void AddAndSaveLeague(League league)
         {
             _leagues.Add(league);
+            Save(_leagues);
+        }
+
+        public static LeagueRepository GetInstance()
+        {
+            return (LeagueRepository)(Repo ?? (Repo = new LeagueRepository()));
         }
     }
 }

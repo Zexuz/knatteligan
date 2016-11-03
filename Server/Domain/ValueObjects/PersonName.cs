@@ -1,3 +1,4 @@
+using System;
 using System.Text.RegularExpressions;
 
 namespace knatteligan.Domain.ValueObjects
@@ -10,7 +11,7 @@ namespace knatteligan.Domain.ValueObjects
         public PersonName(string firstName, string lastName)
         {
             if (!IsName(firstName, lastName))
-                throw new InvalidPersonNameException("Bad name.");
+                throw new Exception("Bad name.");
 
             FirstName = firstName;
             LastName = lastName;

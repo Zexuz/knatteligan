@@ -10,7 +10,7 @@ namespace knatteligan.Domain.ValueObjects
     public class Email
     {
         public string Value { get; private set; }
-        public  Email(string email)
+        public Email(string email)
         {
             if (!isEmail(email))
             {

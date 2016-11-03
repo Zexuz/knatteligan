@@ -9,9 +9,10 @@ namespace knatteligan.Domain.Entities {
 
         public Coach() {}
 
-        public Coach(PersonName name, PersonalId personId, PhoneNumber phoneNumber, Email email) : base(name, personId) {
+        public Coach(PersonName name, PersonalNumber personalNumber, PhoneNumber phoneNumber, Email email, Team team) : base(name, personalNumber, team) {
             PhoneNumber = phoneNumber;
             Email = email;
         }
+
     }
 }

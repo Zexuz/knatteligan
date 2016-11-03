@@ -8,8 +8,18 @@ namespace knatteligan.Domain.Entities
 {
    public class RedCard
     {
-        public Guid guidPlayer { get; set; }
-        public Guid guidMatch { get; set; }
-        public Guid guid { get; set; }
+        public Guid PlayerGuid { get; set; }
+        public Guid MatchGuid { get; set; }
+        public Guid Id { get; set; }
+        public RedCard(Guid playerGuid, Guid matchGuid)
+        {
+            Id = Guid.NewGuid();
+            PlayerGuid = playerGuid;
+            MatchGuid = matchGuid;
+        }
+        public RedCard()
+        {
+
+        }
     }
 }

@@ -3,12 +3,12 @@ using System.Text.RegularExpressions;
 
 namespace knatteligan.Domain.ValueObjects
 {
-    public class PersonalId
+    public class PersonalNumber
     {
         public DateTime DateOfBirth { get; set; }
         public string LastFour { get; set; }
 
-        public PersonalId(DateTime dateOfBirth, string lastFour)
+        public PersonalNumber(DateTime dateOfBirth, string lastFour)
         {
             if (!IsValid(dateOfBirth, lastFour))
             {

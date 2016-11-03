@@ -11,7 +11,7 @@ namespace Testing
         {
             var doa = new DateTime(1996, 11, 07);
 
-            var pId = new knatteligan.Domain.ValueObjects.PersonalId(doa, "1136");
+            var pId = new knatteligan.Domain.ValueObjects.PersonalNumber(doa, "1136");
             Assert.AreEqual("1136", pId.LastFour);
             Assert.AreEqual(doa, pId.DateOfBirth);
         }
@@ -21,7 +21,7 @@ namespace Testing
         {
             var doa = new DateTime(1996, 11, 07);
 
-            TestDelegate testDeligate = () => new knatteligan.Domain.ValueObjects.PersonalId(doa, "sdfgh");
+            TestDelegate testDeligate = () => new knatteligan.Domain.ValueObjects.PersonalNumber(doa, "sdfgh");
             Assert.That(testDeligate, Throws.TypeOf<knatteligan.Domain.ValueObjects.InvalidPersonalIdException>());
         }
 
@@ -30,7 +30,7 @@ namespace Testing
         {
             var doa = new DateTime(2200, 11, 07);
 
-            TestDelegate testDeligate = () => new knatteligan.Domain.ValueObjects.PersonalId(doa, "1136");
+            TestDelegate testDeligate = () => new knatteligan.Domain.ValueObjects.PersonalNumber(doa, "1136");
             Assert.That(testDeligate, Throws.TypeOf<knatteligan.Domain.ValueObjects.InvalidPersonalIdException>());
         }
     }

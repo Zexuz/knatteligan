@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using knatteligan.CustomExceptions;
+
 namespace knatteligan.Helpers
 {
 
@@ -13,47 +15,48 @@ namespace knatteligan.Helpers
             var list = new List<string> { "Team 1", "Team 2", "Team 3", "Team 4" };
 
             var firstHalf = ListMatches(list, false);
-            for (int i = 0; i < firstHalf.Count; i += 2)
-            {
-                firstHalf[i + 1][0].Swap();
-            }
+            SwapAllEvenMatchesAtIndexZero(firstHalf);
 
             var secondHalf = ListMatches(list, true);
-            for (int i = 0; i < secondHalf.Count; i += 2)
-            {
-                secondHalf[i + 1][0].Swap();
-            }
+            SwapAllEvenMatchesAtIndexZero(secondHalf);
 
-            var wholeSeries = firstHalf.ToDictionary(entry => entry.Key,
-                entry => entry.Value);
+            var wholeSeries = firstHalf.ToDictionary(entry => entry.Key, entry => entry.Value);
 
-            for (int i = firstHalf.Count + 1; i < firstHalf.Count * 2 + 1; i++)
-            {
+            //adds the second half to the first half
+            for (int i = firstHalf.Count + 1; i < firstHalf.Count * 2 + 1; i++) {
                 wholeSeries.Add(i, secondHalf[i - firstHalf.Count]);
             }
 
-            foreach (var round in wholeSeries)
-            {
-                Console.WriteLine($"--- Round {round.Key}---");
-                foreach (var match in round.Value)
-                {
-                    Console.WriteLine(match);
-                }
-            }
+            PrintMatches(wholeSeries);
 
             return wholeSeries;
         }
 
+        public void PrintMatches(Dictionary<int, List<Match>> wholeSeries) {
+            foreach (var round in wholeSeries) {
+                Console.WriteLine($"--- Round {round.Key}---");
+                foreach (var match in round.Value) {
+                    Console.WriteLine(match);
+                }
+            }
+        }
 
-        public Dictionary<int, List<Match>> ListMatches(List<string> listTeam, bool revert)
-        {
-            if (listTeam.Count % 2 != 0)
-            {
+        //used to swap all even matches in every first group at index 0 EG team nr 1
+        public void SwapAllEvenMatchesAtIndexZero(Dictionary<int, List<Match>> dictionary) {
+            for (int i = 0; i < dictionary.Count; i += 2) {
+                dictionary[i + 1][0].Swap();
+            }
+        }
+
+
+        public Dictionary<int, List<Match>> ListMatches(List<string> listTeam, bool revert) {
+            if (listTeam.Count % 2 != 0) {
                 listTeam.Add("Bye");
+                throw new InvalidNumberOfTeamsException("There must be a even nunmber of teams to do this!");
             }
 
-            int numDays = (listTeam.Count - 1);
-            int halfSize = listTeam.Count / 2;
+            var numRounds = listTeam.Count - 1;
+            var halfSize = listTeam.Count / 2;
 
             var teams = new List<string>();
 
@@ -64,36 +67,38 @@ namespace knatteligan.Helpers
 
             var rounds = new Dictionary<int, List<Match>>();
 
-            for (int day = 0; day < numDays; day++)
-            {
-                rounds.Add(day + 1, new List<Match>());
+            for (int round = 0; round < numRounds; round++) {
+                var currentRoundNr = round + 1; // round starts @ index 0, our rounds start at 1
 
-                int teamIdx = day % teamsSize;
+                rounds.Add(currentRoundNr, new List<Match>());
 
-                var match = new Match
-                {
+                var currentRound = rounds[currentRoundNr];
+
+                int teamIdx = round % teamsSize;
+
+                var match = new Match {
                     Away = teams[teamIdx],
                     Home = listTeam[0]
                 };
 
-                rounds[day + 1].Add(match);
+                currentRound.Add(match);
+
                 if (revert)
-                    rounds[day + 1][0].Swap();
+                    currentRound[0].Swap();
 
 
-                for (int idx = 1; idx < halfSize; idx++)
-                {
-                    int firstTeam = (day + idx) % teamsSize;
-                    int secondTeam = (day + teamsSize - idx) % teamsSize;
+                for (int idx = 1; idx < halfSize; idx++) {
+                    int firstTeam = (round + idx) % teamsSize;
+                    int secondTeam = (round + teamsSize - idx) % teamsSize;
 
-                    var newMatch = new Match
-                    {
+                    var newMatch = new Match {
                         Away = teams[firstTeam],
                         Home = teams[secondTeam]
                     };
-                    rounds[day + 1].Add(newMatch);
+                    currentRound.Add(newMatch);
+
                     if (revert)
-                        rounds[day + 1][rounds[day + 1].Count - 1].Swap();
+                        currentRound[currentRound.Count - 1].Swap();
                 }
             }
 
@@ -122,4 +127,3 @@ namespace knatteligan.Helpers
     }
 
 }
-

@@ -32,38 +32,62 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\XMLData\Assists.xml" />
+    <Content Include="Resources\XMLData\Goals.xml" />
+    <Content Include="Resources\XMLData\Leagues.xml" />
+    <Content Include="Resources\XMLData\Matches.xml" />
+    <Content Include="Resources\XMLData\Persons.xml" />
+    <Content Include="Resources\XMLData\RedCards.xml" />
+    <Content Include="Resources\XMLData\Teams.xml" />
+    <Content Include="Resources\XMLData\YellowCards.xml" />
+  </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Folder Include="Helpers" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomExceptions\InvalidNumberOfTeamsException.cs" />
     <Compile Include="Domain\Entities\Assist.cs" />
     <Compile Include="CustomExceptions\InvalidPersonNameException.cs" />
+    <Compile Include="Domain\Entities\Assist.cs" />
     <Compile Include="Domain\Entities\Coach.cs" />
     <Compile Include="Domain\Entities\Goal.cs" />
     <Compile Include="Domain\Entities\League.cs" />
     <Compile Include="Domain\Entities\Match.cs" />
     <Compile Include="Domain\Entities\Person.cs" />
     <Compile Include="Domain\Entities\Player.cs" />
+    <Compile Include="Domain\Entities\RedCard.cs" />
     <Compile Include="Domain\Entities\Team.cs" />
     <Compile Include="Domain\Entities\TeamPerson.cs" />
+    <Compile Include="Domain\ValueObjects\MatchDate.cs" />
+    <Compile Include="Domain\Entities\YellowCard.cs" />
     <Compile Include="Domain\ValueObjects\PersonName.cs" />
     <Compile Include="CustomExceptions\InvalidPersonalIdException.cs" />
     <Compile Include="Domain\ValueObjects\Email.cs" />
     <Compile Include="Domain\ValueObjects\PersonalId.cs" />
     <Compile Include="Domain\ValueObjects\PhoneNumber.cs" />
-    <Compile Include="Domain\ValueObjects\TeamOrLeagueName.cs" />
+    <Compile Include="Domain\ValueObjects\TeamName.cs" />
+    <Compile Include="Domain\ValueObjects\LeagueName.cs" />
     <Compile Include="Helpers\CreateSeriesSchedule.cs" />
     <Compile Include="Helpers\Serializer.cs" />
+    <Compile Include="Repositories\AssistRepository.cs" />
     <Compile Include="Domain\Entities\RedCard.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\LeagueRepository.cs" />
     <Compile Include="Repositories\MatchRepository.cs" />
     <Compile Include="Repositories\PersonRepository.cs" />
+    <Compile Include="Repositories\RedCardRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\TeamRepository.cs" />
+    <Compile Include="Repositories\YellowCardRepository.cs" />
+    <Compile Include="Services\AssistService.cs" />
     <Compile Include="Services\LeagueService.cs" />
     <Compile Include="Services\MatchService.cs" />
     <Compile Include="Services\PersonService.cs" />
+    <Compile Include="Services\RedCardService.cs" />
     <Compile Include="Services\TeamService.cs" />
+    <Compile Include="Services\YellowCardService.cs" />
     <Compile Include="Domain\Entities\YellowCard.cs" />
   </ItemGroup>
   <ItemGroup>

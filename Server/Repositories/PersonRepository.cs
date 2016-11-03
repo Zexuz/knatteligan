@@ -23,26 +23,26 @@ namespace knatteligan.Repositories
             return (PersonRepository)(Repo ?? (Repo = new PersonRepository()));
         }
 
-        public void CreatePlayer(PersonName name, PersonalId dob)
+        public void Add(PersonName name, PersonalId dob)
         {
             var player = new Player(name, dob);
             AddAndSavePerson(player);
         }
 
-        public void EditPlayer(Player player, PersonName name, PersonalId dob)
+        public void Add(PersonName name, PersonalId personalId, PhoneNumber phoneNumber, Email email)
+        {
+            var coach = new Coach(name, personalId, phoneNumber, email);
+            AddAndSavePerson(coach);
+        }
+
+        public void Edit(Player player, PersonName name, PersonalId dob)
         {
             player.Name = name;
             player.PersonId = dob;
             AddAndSavePerson(player);
         }
 
-        public void CreateCoach(PersonName name, PersonalId personalId, PhoneNumber phoneNumber, Email email)
-        {
-            var coach = new Coach(name, personalId, phoneNumber, email);
-            AddAndSavePerson(coach);
-        }
-
-        public void EditCoach(Coach coach, PersonName name, PhoneNumber phoneNumber, Email email)
+        public void Edit(Coach coach, PersonName name, PhoneNumber phoneNumber, Email email)
         {
             coach.Name = name;
             coach.PhoneNumber = phoneNumber;
@@ -50,9 +50,23 @@ namespace knatteligan.Repositories
             AddAndSavePerson(coach);
         }
 
-        private void AddAndSavePerson(Person p)
+        private void AddAndSavePerson(Person person)
         {
-            _people.Add(p);
+            _people.Add(person);
+            Save(_people);
+        }
+
+
+        //TODO: Save _teams too.
+        public void AddPlayerToTeam(Team team, Player player)
+        {
+            team.TeamPersons.Add(player);
+            Save(_people);
+        }
+
+        public void RemovePlayerFromTeam(Team team, Player player)
+        {
+            team.TeamPersons.Remove(player);
             Save(_people);
         }
 

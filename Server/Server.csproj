@@ -32,16 +32,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup>
-    <Content Include="Resources\XMLData\Assists.xml" />
-    <Content Include="Resources\XMLData\Goals.xml" />
-    <Content Include="Resources\XMLData\Leagues.xml" />
-    <Content Include="Resources\XMLData\Matches.xml" />
-    <Content Include="Resources\XMLData\Persons.xml" />
-    <Content Include="Resources\XMLData\RedCards.xml" />
-    <Content Include="Resources\XMLData\Teams.xml" />
-    <Content Include="Resources\XMLData\YellowCards.xml" />
-  </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <Folder Include="Helpers" />

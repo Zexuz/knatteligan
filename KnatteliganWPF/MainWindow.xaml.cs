@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Serialization;
+
+using knatteligan.Domain.Entities;
+using knatteligan.Domain.ValueObjects;
+using knatteligan.Repositories;
 
 namespace KnatteliganWPF
 {
@@ -23,6 +29,7 @@ namespace KnatteliganWPF
         public MainWindow()
         {
             InitializeComponent();
+            var x = PersonRepository.GetInstance().GetAll();
         }
         private void CreateLeague_Clicked(object sender, RoutedEventArgs e)
         {

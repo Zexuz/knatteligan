@@ -123,6 +123,22 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\XMLData\Assists.xml" />
+    <Content Include="Resources\XMLData\Goals.xml" />
+    <Content Include="Resources\XMLData\Leagues.xml" />
+    <Content Include="Resources\XMLData\Matches.xml" />
+    <Content Include="Resources\XMLData\Persons.xml" />
+    <Content Include="Resources\XMLData\RedCards.xml" />
+    <Content Include="Resources\XMLData\Teams.xml" />
+    <Content Include="Resources\XMLData\YellowCards.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Server\Server.csproj">
+      <Project>{3CE4D018-5F10-4A93-86C0-4FD3151D745B}</Project>
+      <Name>Server</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

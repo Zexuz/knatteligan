@@ -33,9 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Helpers\" />
+    <Folder Include="Helpers" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomExceptions\InvalidNumberOfTeamsException.cs" />
     <Compile Include="CustomExceptions\InvalidPersonNameException.cs" />
     <Compile Include="Domain\Entities\Assist.cs" />
     <Compile Include="Domain\Entities\Coach.cs" />

@@ -16,27 +16,17 @@ namespace knatteligan.Services
 
         public IEnumerable<Team> GetAllTeams()
         {
-            return _teamRepository.GetAllTeams();
+            return _teamRepository.GetAll();
         }
 
-        public void AddTeam(Team team)
+        public void Add(TeamOrLeagueName name)
         {
-            _teamRepository.AddTeam(team);
+            _teamRepository.Add(name);
         }
 
         public void RemoveTeam(Team team)
         {
-            _teamRepository.RemoveTeam(team);
-        }
-
-        public void AddPlayerToTeam(Team team, Player player)
-        {
-            _teamRepository.AddPlayerToTeam(team, player);
-        }
-
-        public void RemovePlayerFromTeam(Team team, Player player)
-        {
-            team.TeamPersons.Remove(player);
+            _teamRepository.Remove(team);
         }
 
         public void ChangeTeamName(Team team, TeamOrLeagueName newName)

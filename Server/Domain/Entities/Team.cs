@@ -10,11 +10,10 @@ namespace knatteligan.Domain.Entities
         public TeamOrLeagueName Name { get; set; }
         public List<TeamPerson> TeamPersons { get; set; }
 
-        public Team(TeamOrLeagueName name, List<TeamPerson> teamPersons)
+        public Team(TeamOrLeagueName name)
         {
             Guid = Guid.NewGuid();
             Name = name;
-            TeamPersons = teamPersons;
         }
     }
 }

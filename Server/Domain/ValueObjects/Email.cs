@@ -21,7 +21,7 @@ namespace knatteligan.Domain.ValueObjects
 
         private static bool isEmail(string email)
         {
-            return Regex.IsMatch(email, @"^[A - Za - z0 - 9._ % +-] +@[A - Za - z0 - 9.-] +\.[A-Za-z]{2,6}$");
+            return Regex.IsMatch(email, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
         }
     }
 }

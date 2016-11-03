@@ -42,6 +42,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Email.cs" />
     <Compile Include="PersonalId.cs" />
     <Compile Include="PhoneNumberTest.cs" />
     <Compile Include="Players.cs" />

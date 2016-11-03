@@ -20,7 +20,7 @@ namespace knatteligan.Services
             return _leagueRepository.GetAll();
         }
 
-        public void Add(TeamOrLeagueName name, List<Team> teams )
+        public void Add(LeagueName name, List<Team> teams )
         {
             _leagueRepository.Add(name, teams);
         }

@@ -4,8 +4,20 @@ namespace knatteligan.Domain.Entities
 {
     public class Goal
     {
-        public Guid guidPlayer { get; set; }
-        public Guid guidTeam { get; set; }
-        public Guid guid { get; set; }
+        public Guid PlayerGuid { get; set; }
+        public Guid TeamGuid { get; set; }
+        public Guid Id { get; set; }
+
+        public Goal(Guid playerGuid, Guid teamGuid)
+        {
+            Id = Guid.NewGuid();
+            PlayerGuid = playerGuid;
+            TeamGuid = teamGuid;
+
+        }
+        public Goal()
+        {
+
+        }
     }
 }

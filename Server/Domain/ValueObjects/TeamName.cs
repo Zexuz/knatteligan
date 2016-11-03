@@ -3,20 +3,20 @@ using System.Text.RegularExpressions;
 
 namespace knatteligan.Domain.ValueObjects
 {
-    public class TeamOrLeagueName
+    public class TeamName
     {
         public string Value { get; private set; }
 
-        public TeamOrLeagueName(string name)
+        public TeamName(string name)
         {
-            if (!IsTeamOrLeagueName(name))
+            if (!IsTeamName(name))
                 throw new Exception("Bad name.");
 
             Value = name;
         }
 
         //TODO: Better regex.
-        private static bool IsTeamOrLeagueName(string name)
+        private static bool IsTeamName(string name)
         {
             return Regex.IsMatch(name, @"[a-öA-Ö ]+");
         }

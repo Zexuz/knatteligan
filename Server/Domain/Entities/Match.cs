@@ -5,7 +5,7 @@ namespace knatteligan.Domain.Entities
 {
     public class Match
     {
-        public Guid Guid { get; set; }
+        public Guid Id { get; set; }
         public Team HomeTeam { get; set; }
         public Team AwayTeam { get; set; }
         public List<Goal> Goals { get; set; }
@@ -15,7 +15,11 @@ namespace knatteligan.Domain.Entities
         {
             HomeTeam = homeTeam;
             AwayTeam = awayTeam;
-            Guid = new Guid();
+            Id = new Guid();
+        }
+        public Match()
+        {
+
         }
     }
 }

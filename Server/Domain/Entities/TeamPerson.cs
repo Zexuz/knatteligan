@@ -5,10 +5,18 @@ namespace knatteligan.Domain.Entities
 
     public class TeamPerson : Person
     {
+        public Team Team { get; set; }
 
-        public TeamPerson() { }
 
-        public TeamPerson(PersonName name, PersonalId personId) : base(name, personId) { }
+
+        public TeamPerson(PersonName name, PersonalNumber personalNumber, Team team) : base(name, personalNumber)
+        {
+            Team = team;
+        }
+        public TeamPerson()
+        {
+
+        }
 
     }
 

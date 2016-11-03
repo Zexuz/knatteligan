@@ -47,6 +47,7 @@
     <Folder Include="Helpers" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomExceptions\InvalidEmailException.cs" />
     <Compile Include="CustomExceptions\InvalidNumberOfTeamsException.cs" />
     <Compile Include="CustomExceptions\InvalidPersonNameException.cs" />
     <Compile Include="CustomExceptions\InvalidPersonalIdException.cs" />

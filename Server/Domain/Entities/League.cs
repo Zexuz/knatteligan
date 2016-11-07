@@ -12,8 +12,6 @@ namespace knatteligan.Domain.Entities
         public List<Match> Matches { get; set; }
         public DateTime StartDate { get; set; }     
 
-       
-
         public League(LeagueName name, List<Team> teams)
         {
             Id = Guid.NewGuid();

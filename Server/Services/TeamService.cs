@@ -19,7 +19,7 @@ namespace knatteligan.Services
             return _teamRepository.GetAll();
         }
 
-        public void Add(LeagueName name)
+        public void Add(TeamName name)
         {
             _teamRepository.Add(name);
         }
@@ -29,7 +29,7 @@ namespace knatteligan.Services
             _teamRepository.Remove(team);
         }
 
-        public void ChangeTeamName(Team team, LeagueName newName)
+        public void ChangeTeamName(Team team, TeamName newName)
         {
             team.Name = newName;
         }

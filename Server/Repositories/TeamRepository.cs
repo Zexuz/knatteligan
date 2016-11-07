@@ -17,7 +17,7 @@ namespace knatteligan.Repositories
             _teams = Load().ToList();
         }
 
-        public void Add(LeagueName name)
+        public void Add(TeamName name)
         {
             var team = new Team(name);
             AddAndSaveTeam(team);
@@ -30,7 +30,7 @@ namespace knatteligan.Repositories
         }
 
 
-        public void ChangeTeamName(Team team, LeagueName newName)
+        public void ChangeTeamName(Team team, TeamName newName)
         {
             team.Name = newName;
             Save(_teams);

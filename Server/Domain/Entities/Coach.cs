@@ -6,6 +6,7 @@ namespace knatteligan.Domain.Entities {
 
         public Email Email { get; set; }
         public PhoneNumber PhoneNumber { get; set; }
+        //TODO: Skalbart att ha dessa på alla person?
 
         public Coach() {}
 

@@ -48,7 +48,6 @@
     <Compile Include="Domain\Entities\Match.cs" />
     <Compile Include="Domain\Entities\Person.cs" />
     <Compile Include="Domain\Entities\Player.cs" />
-    <Compile Include="Domain\Entities\RedCard.cs" />
     <Compile Include="Domain\Entities\Team.cs" />
     <Compile Include="Domain\Entities\TeamPerson.cs" />
     <Compile Include="Domain\Entities\YellowCard.cs" />

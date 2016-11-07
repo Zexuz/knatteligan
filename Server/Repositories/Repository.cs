@@ -17,8 +17,8 @@ namespace knatteligan.Repositories
         public string GetFilePath(string fileName)
         {
             var path = Directory.GetCurrentDirectory();
-            path = Directory.GetParent(path).Parent.FullName;
-            return new Uri(Path.Combine(path, "Matches.xml")).LocalPath;
+            path = Directory.GetParent(path).Parent.FullName+"//Resources//XMLData";
+            return new Uri(Path.Combine(path, fileName)).LocalPath;
         }
 
         public void Save(List<T> list)

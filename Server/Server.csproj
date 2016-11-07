@@ -51,9 +51,11 @@
     <Compile Include="Domain\Entities\Assist.cs" />
     <Compile Include="CustomExceptions\InvalidPersonNameException.cs" />
     <Compile Include="Domain\Entities\Coach.cs" />
+    <Compile Include="Domain\Entities\Entity.cs" />
     <Compile Include="Domain\Entities\Goal.cs" />
     <Compile Include="Domain\Entities\League.cs" />
     <Compile Include="Domain\Entities\Match.cs" />
+    <Compile Include="Domain\Entities\MatchEvent.cs" />
     <Compile Include="Domain\Entities\Person.cs" />
     <Compile Include="Domain\Entities\Player.cs" />
     <Compile Include="Domain\Entities\Team.cs" />

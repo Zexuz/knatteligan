@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace knatteligan.Domain.Entities
 {
-    public class Match
+    public class Match:Entity
     {
-        public Guid Id { get; set; }
         public Team HomeTeam { get; set; }
         public Team AwayTeam { get; set; }
         public List<Goal> Goals { get; set; }
@@ -15,7 +14,6 @@ namespace knatteligan.Domain.Entities
         {
             HomeTeam = homeTeam;
             AwayTeam = awayTeam;
-            Id = new Guid();
         }
         public Match()
         {

@@ -26,7 +26,6 @@ namespace knatteligan.Helpers
                 wholeSeries.Add(i, secondHalf[i - firstHalf.Count]);
             }
 
-            PrintMatches(wholeSeries);
 
             return wholeSeries;
         }
@@ -41,14 +40,14 @@ namespace knatteligan.Helpers
         }
 
         //used to swap all even matches in every first group at index 0 EG team nr 1
-        public void SwapAllEvenMatchesAtIndexZero(Dictionary<int, List<Match>> dictionary) {
+        private void SwapAllEvenMatchesAtIndexZero(Dictionary<int, List<Match>> dictionary) {
             for (int i = 0; i < dictionary.Count; i += 2) {
                 dictionary[i + 1][0].Swap();
             }
         }
 
 
-        public Dictionary<int, List<Match>> ListMatches(List<Team> listTeam, bool revert) {
+        private Dictionary<int, List<Match>> ListMatches(List<Team> listTeam, bool revert) {
             if (listTeam.Count % 2 != 0) {
                 throw new InvalidNumberOfTeamsException("There must be a even nunmber of teams to do this!");
             }

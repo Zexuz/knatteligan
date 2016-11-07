@@ -51,6 +51,7 @@
     <Compile Include="Domain\Entities\Team.cs" />
     <Compile Include="Domain\Entities\TeamPerson.cs" />
     <Compile Include="Domain\Entities\YellowCard.cs" />
+    <Compile Include="Domain\Entities\RedCard.cs" />
     <Compile Include="Domain\ValueObjects\MatchDate.cs" />
     <Compile Include="Domain\ValueObjects\PersonName.cs" />
     <Compile Include="Domain\ValueObjects\Email.cs" />

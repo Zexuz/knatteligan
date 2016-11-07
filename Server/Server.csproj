@@ -46,10 +46,10 @@
   <ItemGroup />
   <ItemGroup>
     <Compile Include="CustomExceptions\InvalidNumberOfTeamsException.cs" />
-    <Compile Include="Domain\Entities\GameEvents\Assist.cs" />
+    <Compile Include="Domain\Entities\Assist.cs" />
     <Compile Include="CustomExceptions\InvalidPersonNameException.cs" />
     <Compile Include="Domain\Entities\Coach.cs" />
-    <Compile Include="Domain\Entities\GameEvents\Goal.cs" />
+    <Compile Include="Domain\Entities\Goal.cs" />
     <Compile Include="Domain\Entities\League.cs" />
     <Compile Include="Domain\Entities\Match.cs" />
     <Compile Include="Domain\Entities\Person.cs" />
@@ -67,7 +67,7 @@
     <Compile Include="Helpers\CreateSeriesSchedule.cs" />
     <Compile Include="Helpers\Serializer.cs" />
     <Compile Include="Repositories\AssistRepository.cs" />
-    <Compile Include="Domain\Entities\GameEvents\RedCard.cs" />
+    <Compile Include="Domain\Entities\RedCard.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\LeagueRepository.cs" />
     <Compile Include="Repositories\MatchRepository.cs" />
@@ -83,7 +83,7 @@
     <Compile Include="Services\RedCardService.cs" />
     <Compile Include="Services\TeamService.cs" />
     <Compile Include="Services\YellowCardService.cs" />
-    <Compile Include="Domain\Entities\GameEvents\YellowCard.cs" />
+    <Compile Include="Domain\Entities\YellowCard.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

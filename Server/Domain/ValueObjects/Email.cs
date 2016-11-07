@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
+
+using knatteligan.CustomExceptions;
 
 namespace knatteligan.Domain.ValueObjects
 {
@@ -14,14 +11,14 @@ namespace knatteligan.Domain.ValueObjects
         {
             if (!isEmail(email))
             {
-                throw new Exception("Bad Email");
+                throw new InvalidEmailException("Bad Email");
             }
             Value = email;
         }
 
         private static bool isEmail(string email)
         {
-            return Regex.IsMatch(email, @"^[A - Za - z0 - 9._ % +-] +@[A - Za - z0 - 9.-] +\.[A-Za-z]{2,6}$");
+            return Regex.IsMatch(email, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
         }
     }
 }

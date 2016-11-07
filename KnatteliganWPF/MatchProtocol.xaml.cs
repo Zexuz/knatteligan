@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace KnatteliganWPF
 {
     /// <summary>
-    /// Interaction logic for AddPlayer.xaml
+    /// Interaction logic for MatchProtocol.xaml
     /// </summary>
-    public partial class AddPlayer : Window
+    public partial class MatchProtocol : Window
     {
-        public AddPlayer()
+        public MatchProtocol()
         {
             InitializeComponent();
         }

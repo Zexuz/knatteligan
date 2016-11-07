@@ -8,6 +8,10 @@ namespace knatteligan.Domain.ValueObjects
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
+        public PersonName() {
+
+        }
+
         public PersonName(string firstName, string lastName)
         {
             if (!IsName(firstName, lastName))
@@ -19,7 +23,8 @@ namespace knatteligan.Domain.ValueObjects
 
         private static bool IsName(string firstName, string lastName)
         {
-            const string regExString = "^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð,.'-]{2,30}$";
+            const string regExString =
+                "^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð,.'-]{2,30}$";
             return Regex.IsMatch(firstName, regExString) && Regex.IsMatch(lastName, regExString);
         }
     }

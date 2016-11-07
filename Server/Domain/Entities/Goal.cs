@@ -2,22 +2,25 @@
 
 namespace knatteligan.Domain.Entities
 {
-    public class Goal
+    public sealed class Goal : MatchEvent
     {
-        public Guid PlayerGuid { get; set; }
+        public override Guid PlayerGuid { get; set; }
+        public override Guid MatchGuid { get; set; }
         public Guid TeamGuid { get; set; }
-        public Guid Id { get; set; }
 
         public Goal(Guid playerGuid, Guid teamGuid)
         {
-            Id = Guid.NewGuid();
             PlayerGuid = playerGuid;
             TeamGuid = teamGuid;
-
         }
+
         public Goal()
         {
+        }
 
+        public override MatchEvents GetType()
+        {
+            return MatchEvents.Goal;
         }
     }
 }

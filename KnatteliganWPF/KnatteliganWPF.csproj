@@ -11,7 +11,7 @@
     <AssemblyName>KnatteliganWPF</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
@@ -92,10 +92,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MatchProtocol.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ManageLeague.xaml.cs">
       <DependentUpon>ManageLeague.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MatchProtocol.xaml.cs">
+      <DependentUpon>MatchProtocol.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -122,6 +129,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\XMLData\Assists.xml" />
+    <Content Include="Resources\XMLData\Goals.xml" />
+    <Content Include="Resources\XMLData\Leagues.xml" />
+    <Content Include="Resources\XMLData\Matches.xml" />
+    <Content Include="Resources\XMLData\Persons.xml" />
+    <Content Include="Resources\XMLData\RedCards.xml" />
+    <Content Include="Resources\XMLData\Teams.xml" />
+    <Content Include="Resources\XMLData\YellowCards.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Server\Server.csproj">
+      <Project>{3CE4D018-5F10-4A93-86C0-4FD3151D745B}</Project>
+      <Name>Server</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,7 +4,7 @@ using knatteligan.Domain.ValueObjects;
 
 namespace knatteligan.Domain.Entities
 {
-    public class Team
+    public class Team:Entity
     {
         public Guid Id { get; set; }
         public TeamName Name { get; set; }
@@ -12,7 +12,6 @@ namespace knatteligan.Domain.Entities
         
         public Team(TeamName name)
         {
-            Id = Guid.NewGuid();
             Name = name;
             TeamPersons = new List<TeamPerson>();
         }

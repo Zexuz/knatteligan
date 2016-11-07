@@ -17,9 +17,16 @@ namespace knatteligan.Domain.Entities
             AwayTeam = awayTeam;
             Id = new Guid();
         }
+
         public Match()
         {
+        }
 
+        public void Swap()
+        {
+            var tempTeam = HomeTeam;
+            HomeTeam = AwayTeam;
+            AwayTeam = tempTeam;
         }
     }
 }

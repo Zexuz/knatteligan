@@ -15,9 +15,21 @@ namespace knatteligan.Domain.Entities
             HomeTeam = homeTeam;
             AwayTeam = awayTeam;
         }
+
         public Match()
         {
+        }
 
+        public void Swap()
+        {
+            var tempTeam = HomeTeam;
+            HomeTeam = AwayTeam;
+            AwayTeam = tempTeam;
+        }
+
+        public override string ToString()
+        {
+            return $"{HomeTeam.Name} - {AwayTeam.Name}";
         }
     }
 }

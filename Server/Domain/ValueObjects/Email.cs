@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
+
+using knatteligan.CustomExceptions;
 
 namespace knatteligan.Domain.ValueObjects
 {
@@ -14,7 +11,7 @@ namespace knatteligan.Domain.ValueObjects
         {
             if (!isEmail(email))
             {
-                throw new Exception("Bad Email");
+                throw new InvalidEmailException("Bad Email");
             }
             Value = email;
         }

@@ -41,7 +41,8 @@ namespace KnatteliganWPF
         {
             var manageLeague = new ManageLeague();
             var manageLeagueResult = manageLeague.ShowDialog();
-          
+           
+
         }
     }
 }

@@ -135,6 +135,7 @@
     <Content Include="Resources\XMLData\Goals.xml" />
     <Content Include="Resources\XMLData\Leagues.xml" />
     <Content Include="Resources\XMLData\Matches.xml" />
+    <Content Include="Resources\XMLData\MatchEvents.xml" />
     <Content Include="Resources\XMLData\Persons.xml" />
     <Content Include="Resources\XMLData\RedCards.xml" />
     <Content Include="Resources\XMLData\Teams.xml" />

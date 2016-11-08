@@ -6,7 +6,7 @@ namespace knatteligan.Domain.Entities
 {
     public class Team:Entity
     {
-        public Guid Id { get; set; }
+        //public Guid Id { get; set; }
         public TeamName Name { get; set; }
         public List<TeamPerson> TeamPersons { get; set; }
         

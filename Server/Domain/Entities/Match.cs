@@ -8,6 +8,7 @@ namespace knatteligan.Domain.Entities
         public Team HomeTeam { get; set; }
         public Team AwayTeam { get; set; }
         public DateTime MatchDate { get; set; }
+        public List<MatchEvent> MatchEvents { get; set; }
 
         public Match(Team homeTeam, Team awayTeam)
         {

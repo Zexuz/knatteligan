@@ -23,8 +23,6 @@ namespace KnatteliganWPF
         private readonly TeamService _teamService;
         private readonly PersonService _personService;
 
-
-
         public CreateLeague()
         {
             InitializeComponent();
@@ -34,16 +32,14 @@ namespace KnatteliganWPF
             Teams = new List<Team>();
             DataContext = this;
 
-
-
             var team1 = new Team(new TeamName("team1"));
             var team2 = new Team(new TeamName("team2"));
 
             var player1 = new Player(new PersonName("Zlatan", "Ibra"), new PersonalNumber(new DateTime(1996, 6, 6), "4444"), team1);
             var player2 = new Player(new PersonName("Leon", "Lidneberg"), new PersonalNumber(new DateTime(1996, 6, 6), "4444"), team1);
 
-            _personService.AddPerson(player1);
-            _personService.AddPerson(player2);
+            //_personService.AddPerson(player1);
+            //_personService.AddPerson(player2);
 
             team1.League = League;
             team1.League = League;

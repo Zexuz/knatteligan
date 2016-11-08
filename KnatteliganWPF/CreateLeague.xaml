@@ -11,17 +11,17 @@
     <Window.Resources>
         <converters:LeagueNameToStringConverter x:Key="LeagueNameToStringConverter"/>
     </Window.Resources>
-    <Grid Margin="5">
+    <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="25"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -37,11 +37,9 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1">Enter the League name:</TextBlock>
-
         
         
-        
-        <TextBox Name ="leagueName" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" 
+        <TextBox Name ="leagueName" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
                  ToolTip="{Binding ElementName=leagueName, Path=(Validation.Errors)[0].ErrorContent}">
             <TextBox.Text>
                 <Binding Path="LeagueName" UpdateSourceTrigger="PropertyChanged"
@@ -55,19 +53,15 @@
 
         
         
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3" Margin="0, 5">Add Teams (At least 16 and only even amount)</TextBlock>
         
-        
-        
-        
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3">Add Teams (At least 16 and only even amount)</TextBlock>
-        
-        <ListBox Name="TeamList" Grid.ColumnSpan="4" Grid.RowSpan="4" Grid.Row="4" Grid.Column="0">
+        <ListBox Name="TeamList" Grid.ColumnSpan="4" Grid.RowSpan="5" Grid.Row="4" Grid.Column="0">
             
         </ListBox>
 
-        <Button Grid.Row="8"  Grid.Column="0" Margin="5">Edit</Button>
-        <Button Grid.Row="8" Grid.Column="2" Margin="5" Click="RemoveTeam_Click"  >-</Button>
-        <Button Grid.Row="8" Grid.Column="3"  Margin="5" Click="AddTeam_Clicked">+</Button>
+        <Button Grid.Row="8"  Grid.Column="0" >Edit</Button>
+        <Button Grid.Row="8" Grid.Column="2" Click="RemoveTeam_Click">-</Button>
+        <Button Grid.Row="8" Grid.Column="3" Click="AddTeam_Clicked">+</Button>
 
         <Button Grid.Row="12" Grid.Column="5" Margin="5" Click="CloseCommandHandler_Click" >Cancel</Button>
         <Button Grid.Row="12" Grid.Column="6"  Margin="5" IsEnabled="True" Click="AddLeague_Click" >Next</Button>

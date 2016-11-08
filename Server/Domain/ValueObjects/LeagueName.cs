@@ -5,7 +5,7 @@ namespace knatteligan.Domain.ValueObjects
 {
     public class LeagueName
     {
-        public string Value { get; private set; }
+        public string Value { get;  set; }
 
         public LeagueName(string name)
         {
@@ -13,6 +13,11 @@ namespace knatteligan.Domain.ValueObjects
                 throw new Exception("Bad name.");
 
             Value = name;
+        }
+
+        public LeagueName()
+        {
+            
         }
 
         //TODO: Better regex.

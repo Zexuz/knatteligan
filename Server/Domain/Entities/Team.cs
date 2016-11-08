@@ -7,8 +7,8 @@ namespace knatteligan.Domain.Entities
     public class Team:Entity
     {
         public TeamName Name { get; set; }
-        public List<TeamPerson> TeamPersons { get; set; }
-        //TODO: Goals?
+        public List<Guid> TeamPersons { get; set; }
+        public List<Guid> Goals { get; set; }
 
         public Team() {}
 
@@ -16,7 +16,8 @@ namespace knatteligan.Domain.Entities
         public Team(TeamName name)
         {
             Name = name;
-            TeamPersons = new List<TeamPerson>();
+            TeamPersons = new List<Guid>();
+            Goals = new List<Guid>();
         }
     }
 }

@@ -6,19 +6,17 @@ namespace knatteligan.Domain.Entities
 {
     public class Team:Entity
     {
-        public Guid Id { get; set; }
         public TeamName Name { get; set; }
         public List<TeamPerson> TeamPersons { get; set; }
         //TODO: Goals?
-        
+
+        public Team() {}
+
+
         public Team(TeamName name)
         {
             Name = name;
             TeamPersons = new List<TeamPerson>();
-        }
-        public Team()
-        {
-
         }
     }
 }

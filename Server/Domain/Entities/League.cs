@@ -11,14 +11,12 @@ namespace knatteligan.Domain.Entities
         public List<Match> Matches { get; set; }
         public DateTime StartDate { get; set; }     
 
+        public League() {}
+
         public League(LeagueName name, List<Team> teams)
         {
             Name = name;
             Teams = teams;
-        }
-        public League()
-        {
-
         }
     }
 }

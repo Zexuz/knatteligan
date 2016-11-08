@@ -10,15 +10,13 @@ namespace knatteligan.Domain.Entities
         public DateTime MatchDate { get; set; }
         public List<MatchEvent> MatchEvents { get; set; }
 
+        public Match() {}
+
         public Match(Team homeTeam, Team awayTeam)
         {
             Id = new Guid();
             HomeTeam = homeTeam;
             AwayTeam = awayTeam;
-        }
-
-        public Match()
-        {
         }
 
         public void Swap()

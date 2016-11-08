@@ -7,13 +7,11 @@ namespace knatteligan.Domain.Entities
     {
         public Team Team { get; set; }
 
+        public TeamPerson() {}
+
         public TeamPerson(PersonName name, PersonalNumber personalNumber, Team team) : base(name, personalNumber)
         {
             Team = team;
-        }
-        public TeamPerson()
-        {
-
         }
 
     }

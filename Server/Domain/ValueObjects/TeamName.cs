@@ -21,5 +21,9 @@ namespace knatteligan.Domain.ValueObjects
             return Regex.IsMatch(name, @"[a-öA-Ö ]+");
         }
 
+        public override string ToString() {
+            return Value;
+        }
+
     }
 }

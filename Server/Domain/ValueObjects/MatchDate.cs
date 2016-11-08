@@ -24,5 +24,10 @@ namespace knatteligan.Domain.ValueObjects
         {           
             return matchDate > leagueStartTime && matchDate < endOfLeague;
         }
+
+        public override string ToString() {
+            return Value.ToString("D");
+        }
+
     }
 }

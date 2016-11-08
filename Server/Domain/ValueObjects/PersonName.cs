@@ -27,5 +27,10 @@ namespace knatteligan.Domain.ValueObjects
                 "^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð,.'-]{2,30}$";
             return Regex.IsMatch(firstName, regExString) && Regex.IsMatch(lastName, regExString);
         }
+
+        public override string ToString() {
+            return $"{FirstName} {LastName}";
+        }
+
     }
 }

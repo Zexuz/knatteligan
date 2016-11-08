@@ -5,7 +5,12 @@ namespace knatteligan.Domain.ValueObjects
 {
     public class TeamName
     {
-        public string Value { get; private set; }
+        public string Value { get;  set; }
+
+        public TeamName()
+        {
+            
+        }
 
         public TeamName(string name)
         {

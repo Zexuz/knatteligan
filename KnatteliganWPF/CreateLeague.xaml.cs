@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using knatteligan.Domain.Entities;
+using knatteligan.Domain.ValueObjects;
+using knatteligan.Services;
 
 namespace KnatteliganWPF
 {
@@ -19,17 +11,35 @@ namespace KnatteliganWPF
     /// </summary>
     public partial class CreateLeague : Window
     {
+        //Fuck wpf, really
+        public League League { get; set; }
+        public LeagueName LeagueName { get; set; }
+        public List<Team> Teams { get; set; }
+
+        private readonly LeagueService _leagueService;
+
         public CreateLeague()
         {
             InitializeComponent();
+            _leagueService = new LeagueService();
+            Teams = new List<Team>();
+            DataContext = this;
         }
+
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
             var addTeam = new AddTeam();
-            var addTeamResult = addTeam.ShowDialog();
-           
+            addTeam.ShowDialog();
         }
-        private void CloseCommandHandler_Clicked(object sender, RoutedEventArgs e)
+      
+        private void AddLeague_Click(object sender, RoutedEventArgs e)
+        {
+            League = new League(LeagueName, Teams);
+
+            _leagueService.AddLeague(League);
+        }
+
+        private void CloseCommandHandler_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }

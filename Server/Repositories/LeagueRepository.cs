@@ -15,13 +15,19 @@ namespace knatteligan.Repositories
 
         public LeagueRepository()
         {
-            FilePath = GetFilePath("League.xml");
+            FilePath = GetFilePath("Leagues.xml");
             _leagues = Load().ToList();
         }
 
         public void Add(LeagueName name, List<Team> teams )
         {
             var league = new League(name, teams);
+            AddAndSaveLeague(league);
+        }
+
+        //Leons XD
+        public void AddLeague(League league)
+        {
             AddAndSaveLeague(league);
         }
 

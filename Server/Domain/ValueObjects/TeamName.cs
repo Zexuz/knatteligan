@@ -10,7 +10,7 @@ namespace knatteligan.Domain.ValueObjects
         public TeamName(string name)
         {
             if (!IsTeamName(name))
-                throw new Exception("Bad name.");
+                throw new InvalidTeamNameException("Bad name.");
 
             Value = name;
         }

@@ -15,7 +15,7 @@ namespace knatteligan.Domain.ValueObjects
         public PersonName(string firstName, string lastName)
         {
             if (!IsName(firstName, lastName))
-                throw new Exception("Bad name.");
+                throw new InvalidPersonNameException("Bad name.");
 
             FirstName = firstName;
             LastName = lastName;

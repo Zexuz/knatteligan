@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace knatteligan.Domain.ValueObjects
 {
-    class MatchDate
+    public class MatchDate
     {
 
         public DateTime Value  { get; set; }
@@ -14,7 +10,7 @@ namespace knatteligan.Domain.ValueObjects
         {
             if (!IsValid(matchDate, leagueStartTime, endOfLeague))
             {
-                throw new Exception("Match date is not valid");
+                throw new InvalidMatchDateException("Match date is not valid");
             }
             Value = matchDate;
             
@@ -30,4 +26,5 @@ namespace knatteligan.Domain.ValueObjects
         }
 
     }
+
 }

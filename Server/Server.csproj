@@ -32,13 +32,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Domain\ValueObjects" />
+  </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <Compile Include="CustomExceptions\InvalidEmailException.cs" />
+    <Compile Include="CustomExceptions\InvalidMatchDateException.cs" />
     <Compile Include="CustomExceptions\InvalidNumberOfTeamsException.cs" />
     <Compile Include="CustomExceptions\InvalidPersonNameException.cs" />
     <Compile Include="CustomExceptions\InvalidPersonalIdException.cs" />
+    <Compile Include="CustomExceptions\InvalidPhoneNumberException.cs" />
+    <Compile Include="CustomExceptions\InvalidTeamNameException.cs" />
     <Compile Include="Domain\Entities\Assist.cs" />
     <Compile Include="Domain\Entities\Coach.cs" />
     <Compile Include="Domain\Entities\Entity.cs" />

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KnatteliganWPF"
         mc:Ignorable="d"
-        Title="AddPlayer" Height="400" Width="400">
+        Title="AddPlayer" Height="350" Width="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -19,8 +19,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <!--<RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>-->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -31,16 +31,30 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1">Name:</TextBlock>
-        <TextBox Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2"></TextBox>
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="3">Social security number (YYMMDD)</TextBlock>
-        <TextBox Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="4"></TextBox>
+        
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Margin="10 5 0 0">Name:</TextBlock>
+        <TextBox Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Margin="10 0 0 0"></TextBox>
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3" Margin="10 5 0 0">Social security number:</TextBlock>
+        <TextBox Name="socialSecurityNumber" VerticalContentAlignment="Center" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Margin="10 0 0 0" TextChanged="searchTextBox_TextChanged"/>
+        <TextBlock IsHitTestVisible="False" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Text="YYMMDD-NNNN" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15 5 5 5" Foreground="DarkGray">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=socialSecurityNumber}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <!--<TextBox Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="4" Margin="10 0 0 0"></TextBox>-->
 
 
 
 
-        <Button Grid.Row="12" Grid.Column="5" Margin="5"  Click="CloseCommandHandler_Clicked">Cancel</Button>
-        <Button Grid.Row="12" Grid.Column="7"  Margin="5" >Add </Button>
+        <Button Grid.Row="12" Grid.Column="5" Margin="5" Click="CloseCommandHandler_Clicked">Cancel</Button>
+        <Button Grid.Row="12" Grid.Column="6"  Margin="5">Add</Button>
 
 
     </Grid>

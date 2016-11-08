@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Converters\LeagueNameToStringConverter.cs" />
     <Compile Include="ValidationRules\LeagueNameValidationRule.cs" />
+    <Compile Include="ValidationRules\SocialNumberValidationRule.cs" />
     <Page Include="AddPlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

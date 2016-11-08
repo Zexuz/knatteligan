@@ -60,13 +60,15 @@ namespace knatteligan.Repositories
         //TODO: Save _teams too.
         public void AddPlayerToTeam(Team team, Player player)
         {
-            team.TeamPersons.Add(player);
+            team.TeamPersons.Add(player.Id);
+            _people.Add(player);
             Save(_people);
         }
 
         public void RemovePlayerFromTeam(Team team, Player player)
         {
-            team.TeamPersons.Remove(player);
+            team.TeamPersons.Remove(player.Id);
+            _people.Add(player);
             Save(_people);
         }
 

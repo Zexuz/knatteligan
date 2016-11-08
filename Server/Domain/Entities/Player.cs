@@ -1,5 +1,6 @@
 ﻿using knatteligan.Domain.ValueObjects;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace knatteligan.Domain.Entities
 {
@@ -10,11 +11,10 @@ namespace knatteligan.Domain.Entities
         public List<Assist> Assists { get; set; }
         public List<Goal> Goals { get; set; }
         
-
-        //public Player(PersonName name, PersonalNumber personalNumber)
-        //{
-
-        //}
+        public Player()
+        {
+            
+        }
 
         public Player(PersonName name, PersonalNumber personalNumber, Team team) : base(name, personalNumber, team)
         {

@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
@@ -17,14 +20,45 @@ namespace KnatteliganWPF
         public List<Team> Teams { get; set; }
 
         private readonly LeagueService _leagueService;
+        private readonly TeamService _teamService;
+        private readonly PersonService _personService;
+
+
 
         public CreateLeague()
         {
             InitializeComponent();
             _leagueService = new LeagueService();
+            _teamService = new TeamService();
+            _personService = new PersonService();
             Teams = new List<Team>();
             DataContext = this;
+
+
+
+            var team1 = new Team(new TeamName("team1"));
+            var team2 = new Team(new TeamName("team2"));
+
+            var player1 = new Player(new PersonName("Zlatan", "Ibra"), new PersonalNumber(new DateTime(1996, 6, 6), "4444"), team1);
+            var player2 = new Player(new PersonName("Leon", "Lidneberg"), new PersonalNumber(new DateTime(1996, 6, 6), "4444"), team1);
+
+            _personService.AddPerson(player1);
+            _personService.AddPerson(player2);
+
+            team1.League = League;
+            team1.League = League;
+
+            _teamService.AddTeam(team1);
+            _teamService.AddTeam(team2);
+
+            if (_teamService.GetAllTeams() != null)
+            {
+                Teams = _teamService.GetAllTeams().Where(x => x.League == League).ToList();
+            }
+
+            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
         }
+
 
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
@@ -37,11 +71,26 @@ namespace KnatteliganWPF
             League = new League(LeagueName, Teams);
 
             _leagueService.AddLeague(League);
+
+            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
         }
 
         private void CloseCommandHandler_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void RemoveTeam_Click(object sender, RoutedEventArgs e)
+        {
+            var team = (Team)TeamList.SelectedItem;
+            _teamService.RemoveTeam(team.Id);
+
+            if (_teamService.GetAllTeams() != null)
+            {
+                Teams = _teamService.GetAllTeams().Where(x => x.League == League).ToList();
+            }
+
+            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
         }
     }
 }

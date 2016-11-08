@@ -6,6 +6,7 @@
       <Value>team1</Value>
     </Name>
     <TeamPersons />
+    <Goals />
   </Team>
   <Team>
     <Id>e93c74a5-c70e-4fb1-9854-1f8418ca8494</Id>
@@ -13,6 +14,7 @@
       <Value>team2</Value>
     </Name>
     <TeamPersons />
+    <Goals />
   </Team>
   <Team>
     <Id>cde907a1-00a3-4fd7-aff3-e3803dae1333</Id>
@@ -20,6 +22,7 @@
       <Value>team1</Value>
     </Name>
     <TeamPersons />
+    <Goals />
   </Team>
   <Team>
     <Id>ecc60f15-bc51-4f1c-bad1-8d85a84798c6</Id>
@@ -27,6 +30,7 @@
       <Value>team2</Value>
     </Name>
     <TeamPersons />
+    <Goals />
   </Team>
   <Team>
     <Id>cfd5e722-198d-4ede-bed9-78594ab86265</Id>
@@ -34,6 +38,7 @@
       <Value>team1</Value>
     </Name>
     <TeamPersons />
+    <Goals />
   </Team>
   <Team>
     <Id>d359e82a-4e3e-468b-bc66-4fc49a99b4d3</Id>
@@ -41,6 +46,7 @@
       <Value>team2</Value>
     </Name>
     <TeamPersons />
+    <Goals />
   </Team>
   <Team>
     <Id>709ae60e-05ee-42fb-83dd-fbf4cb155dd0</Id>
@@ -48,6 +54,7 @@
       <Value>team1</Value>
     </Name>
     <TeamPersons />
+    <Goals />
   </Team>
   <Team>
     <Id>1f5cd652-bb27-42e9-a475-697dabf2f59a</Id>
@@ -55,6 +62,7 @@
       <Value>team2</Value>
     </Name>
     <TeamPersons />
+    <Goals />
   </Team>
   <Team>
     <Id>bb0ac429-c2f5-44fd-beee-014ca999b394</Id>
@@ -62,6 +70,7 @@
       <Value>team1</Value>
     </Name>
     <TeamPersons />
+    <Goals />
   </Team>
   <Team>
     <Id>e97b69d6-a652-4e12-ad3b-6b25508c8022</Id>
@@ -69,5 +78,38 @@
       <Value>team2</Value>
     </Name>
     <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>38177479-d6af-4614-85f6-4e6e87eea2dc</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>983335e2-bbd1-4a90-801d-76db0a1a4c86</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>8353db4d-c852-4cde-8ee2-c5aed39892ff</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>08bcd99f-ac77-4ccf-b8b6-2e97a4ec6b2d</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
   </Team>
 </ArrayOfTeam>

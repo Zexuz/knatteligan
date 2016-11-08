@@ -20,7 +20,7 @@ namespace knatteligan.Domain.Entities
         {
             Name = name;
             TeamPersons = new List<Guid>();
-            Goals = new List<>(Guid);
+            Goals = new List<Guid>();
             Id = Guid.NewGuid();
         }
         public override string ToString()

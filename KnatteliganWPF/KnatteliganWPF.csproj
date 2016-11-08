@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="PersonNameToStringConverter.cs" />
     <Compile Include="TeamNameToStringConverter.cs" />
     <Compile Include="TeamNameValidationRule.cs" />
     <Page Include="AddPlayer.xaml">

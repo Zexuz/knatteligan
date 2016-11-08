@@ -26,7 +26,7 @@ namespace KnatteliganWPF
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
             var addTeam = new AddTeam();
-            var addTeamResult = addTeam.ShowDialog();
+            addTeam.ShowDialog();
            
         }
         private void CloseCommandHandler_Clicked(object sender, RoutedEventArgs e)

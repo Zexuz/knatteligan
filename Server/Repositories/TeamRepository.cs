@@ -17,9 +17,8 @@ namespace knatteligan.Repositories
             _teams = Load().ToList();
         }
 
-        public void Add(TeamName name)
+        public void Add(Team team)
         {
-            var team = new Team(name);
             AddAndSaveTeam(team);
         }
 

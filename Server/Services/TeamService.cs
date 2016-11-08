@@ -19,9 +19,9 @@ namespace knatteligan.Services
             return _teamRepository.GetAll();
         }
 
-        public void Add(TeamName name)
+        public void Add(Team team)
         {
-            _teamRepository.Add(name);
+            _teamRepository.Add(team);
         }
 
         public void RemoveTeam(Team team)

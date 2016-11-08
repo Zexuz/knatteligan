@@ -38,5 +38,15 @@ namespace knatteligan.Services
         {
             return _personRepository.GetAll();
         }
+
+        public void AddPlayerToTeam(Team team, Player player)
+        { 
+            _personRepository.AddPlayerToTeam(team, player);
+        }
+
+        public void RemovePlayerFromTeam(Team team, Player player)
+        {
+            _personRepository.RemovePlayerFromTeam(team, player);
+        }
     }
 }

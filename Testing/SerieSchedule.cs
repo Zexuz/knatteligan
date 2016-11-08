@@ -12,7 +12,7 @@ namespace Testing
     {
         private List<Team> _listOfTeams;
 
-        private Dictionary<int, List<Match>> matches;
+        private Dictionary<int, List<Match>> _matches;
 
         [OneTimeSetUp]
         public void Init()
@@ -21,32 +21,32 @@ namespace Testing
             {
                 new Team
                 {
-                    Name = new LeagueName("One")
+                    Name = new TeamName("One")
                 },
                 new Team
                 {
-                    Name = new LeagueName("two")
+                    Name = new TeamName("Two")
                 },
                 new Team
                 {
-                    Name = new LeagueName("tree")
+                    Name = new TeamName("Three")
                 },
                 new Team
                 {
-                    Name = new LeagueName("four")
+                    Name = new TeamName("Four")
                 }
             };
 
             var serieCreateer = new CreateSeriesSchedule();
-            matches = serieCreateer.GetFullSeries(_listOfTeams);
-            serieCreateer.PrintMatches(matches);
+            _matches = serieCreateer.GetFullSeries(_listOfTeams);
+            serieCreateer.PrintMatches(_matches);
         }
 
         [Test]
         public void NrOfRoundsIsCorrect()
         {
             var number = (_listOfTeams.Count - 1) * 2;
-            Assert.AreEqual(number, matches.Count);
+            Assert.AreEqual(number, _matches.Count);
         }
 
         [Test]
@@ -54,9 +54,9 @@ namespace Testing
         {
             var allMatches = new List<Match>();
 
-            foreach (var keys in matches.Keys)
+            foreach (var keys in _matches.Keys)
             {
-                allMatches.AddRange(matches[keys]);
+                allMatches.AddRange(_matches[keys]);
             }
 
             var groupedMatches = allMatches.GroupBy(match => match.HomeTeam);
@@ -69,9 +69,9 @@ namespace Testing
         {
             var allMatches = new List<Match>();
 
-            foreach (var keys in matches.Keys)
+            foreach (var keys in _matches.Keys)
             {
-                allMatches.AddRange(matches[keys]);
+                allMatches.AddRange(_matches[keys]);
             }
 
             var groupedMatches = allMatches.GroupBy(match => match.AwayTeam);

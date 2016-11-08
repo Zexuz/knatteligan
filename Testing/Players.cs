@@ -17,11 +17,5 @@ namespace Testing
             _players = new List<Player>();
             _personServive = new PersonService();
         }
-
-        [Test]
-        public void AddPlayers()
-        {
-
-        }
     }
 }

@@ -31,7 +31,6 @@ namespace knatteligan.Domain.ValueObjects
             var regEx = new Regex(@"\d{4}-\d{2}-\d{2}-\d{4}");
 
             var isValidDate = DateTime.Now > dateTime;
-
             return regEx.IsMatch(personalId) && isValidDate;
         }
     }

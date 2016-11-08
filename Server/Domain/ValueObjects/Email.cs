@@ -9,14 +9,14 @@ namespace knatteligan.Domain.ValueObjects
         public string Value { get; private set; }
         public Email(string email)
         {
-            if (!isEmail(email))
+            if (!IsEmail(email))
             {
                 throw new InvalidEmailException("Bad Email");
             }
             Value = email;
         }
 
-        private static bool isEmail(string email)
+        private static bool IsEmail(string email)
         {
             return Regex.IsMatch(email, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
         }

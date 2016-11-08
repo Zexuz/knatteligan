@@ -42,7 +42,7 @@
                 <Binding Path="TeamName1" UpdateSourceTrigger="PropertyChanged"
                          Converter="{StaticResource TeamNameToStringConverter}">
                     <Binding.ValidationRules>
-                        <validationRules:TeamNameValidationRule/>
+                        <local:TeamNameValidationRule/>
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>

@@ -7,14 +7,12 @@ namespace knatteligan.Domain.Entities
         public override Guid PlayerGuid { get; set; }
         public override Guid MatchGuid { get; set; }
 
+        public YellowCard() {}
+
         public YellowCard(Guid playerGuid, Guid matchGuid)
         {
             PlayerGuid = playerGuid;
             MatchGuid = matchGuid;
-        }
-        public YellowCard()
-        {
-
         }
 
         public override MatchEvents GetType()

@@ -15,7 +15,7 @@ namespace knatteligan.Domain.ValueObjects
         public TeamName(string name)
         {
             if (!IsTeamName(name))
-                throw new Exception("Bad name.");
+                throw new InvalidTeamNameException("Bad name.");
 
             Value = name;
         }
@@ -24,6 +24,10 @@ namespace knatteligan.Domain.ValueObjects
         private static bool IsTeamName(string name)
         {
             return Regex.IsMatch(name, @"[a-öA-Ö ]+");
+        }
+
+        public override string ToString() {
+            return Value;
         }
 
     }

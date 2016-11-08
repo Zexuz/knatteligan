@@ -15,7 +15,7 @@ namespace knatteligan.Domain.ValueObjects
         public PersonName(string firstName, string lastName)
         {
             if (!IsName(firstName, lastName))
-                throw new Exception("Bad name.");
+                throw new InvalidPersonNameException("Bad name.");
 
             FirstName = firstName;
             LastName = lastName;
@@ -27,5 +27,10 @@ namespace knatteligan.Domain.ValueObjects
                 "^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð,.'-]{2,30}$";
             return Regex.IsMatch(firstName, regExString) && Regex.IsMatch(lastName, regExString);
         }
+
+        public override string ToString() {
+            return $"{FirstName} {LastName}";
+        }
+
     }
 }

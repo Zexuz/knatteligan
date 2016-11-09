@@ -18,9 +18,9 @@ using knatteligan.Services;
 namespace KnatteliganWPF
 {
     /// <summary>
-    /// Interaction logic for AddTeam.xaml
+    /// Interaction logic for AddTeamWindow.xaml
     /// </summary>
-    public partial class AddTeam : Window
+    public partial class AddTeamWindow : Window
     {
         public Team Team { get; set; }
 
@@ -38,7 +38,7 @@ namespace KnatteliganWPF
 
         private readonly PersonService _personService;
         private readonly TeamService _teamService;
-        public AddTeam()
+        public AddTeamWindow()
         {
             InitializeComponent();
             _personService = new PersonService();

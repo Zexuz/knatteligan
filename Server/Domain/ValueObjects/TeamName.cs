@@ -19,7 +19,7 @@ namespace knatteligan.Domain.ValueObjects
         //TODO: Better regex.
         private static bool IsTeamName(string name)
         {
-            return Regex.IsMatch(name, @"[a-öA-Ö ]+");
+            return Regex.IsMatch(name, @"^[1-9a-öA-Ö\s]+$"); 
         }
 
         public override string ToString()

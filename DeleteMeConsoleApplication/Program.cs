@@ -59,7 +59,7 @@ namespace DeleteMeConsoleApplication
 
             var firstName = firstNames[GenNewNumber(0, firstNames.Length)];
             var lastName = lastNames[GenNewNumber(0, lastNames.Length)];
-            return new PersonName(firstName, lastName);
+            return new PersonName(firstName);
         }
 
         private static int GenNewNumber(int min, int max)

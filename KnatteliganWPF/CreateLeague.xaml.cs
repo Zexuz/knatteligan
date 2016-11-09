@@ -41,11 +41,9 @@ namespace KnatteliganWPF
             //_personService.AddPerson(player1);
             //_personService.AddPerson(player2);
 
-            team1.League = League;
-            team1.League = League;
 
-            _teamService.AddTeam(team1);
-            _teamService.AddTeam(team2);
+            _teamService.Add(team1);
+            _teamService.Add(team2);
 
             //if (_teamService.GetAllTeams() != null)
             //{
@@ -66,7 +64,7 @@ namespace KnatteliganWPF
         {
             League = new League(LeagueName, Teams);
 
-            _leagueService.AddLeague(League);
+            _leagueService.Add(League);
 
             TeamList.ItemsSource = new ObservableCollection<Guid>(Teams);
         }
@@ -79,7 +77,7 @@ namespace KnatteliganWPF
         private void RemoveTeam_Click(object sender, RoutedEventArgs e)
         {
             var team = (Team)TeamList.SelectedItem;
-            _teamService.RemoveTeam(team.Id);
+            _teamService.RemoveTeam(team);
 
             //if (_teamService.GetAllTeams() != null)
             //{

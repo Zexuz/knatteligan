@@ -5,31 +5,32 @@ namespace knatteligan.Domain.ValueObjects
 {
     public class PersonName
     {
-        public string Value { get; set; }
-        
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
 
         public PersonName() {
 
         }
 
-        public PersonName(string name)
+        public PersonName(string firstName, string lastName)
         {
-            if (!IsName(name))
+            if (!IsName(firstName, lastName))
                 throw new InvalidPersonNameException("Bad name.");
 
-            Value = name;
+            FirstName = firstName;
+            LastName = lastName;
 
         }
 
-        private static bool IsName(string name)
+        private static bool IsName(string firstName, string lastName)
         {
             const string regExString =
                 "^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð,.'-]{2,30}$";
-            return Regex.IsMatch(name, regExString);
+            return Regex.IsMatch(firstName, regExString) && Regex.IsMatch(lastName, regExString);
         }
 
         public override string ToString() {
-            return $"{Value}";
+            return $"{FirstName} {LastName}";
         }
 
     }

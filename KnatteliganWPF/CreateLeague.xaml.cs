@@ -38,8 +38,8 @@ namespace KnatteliganWPF
             var player1 = new Player(new PersonName("Zlatan", "Ibra"), new PersonalNumber(new DateTime(1996, 6, 6), "4444"), team1);
             var player2 = new Player(new PersonName("Leon", "Lidneberg"), new PersonalNumber(new DateTime(1996, 6, 6), "4444"), team1);
 
-            _personService.AddPerson(player1);
-            _personService.AddPerson(player2);
+            _personService.Add(player1);
+            _personService.Add(player2);
 
 
             _teamService.Add(team1);

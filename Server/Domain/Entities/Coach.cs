@@ -15,7 +15,7 @@ namespace knatteligan.Domain.Entities {
             Email = email;
         }
 
-        public new Persons GetType()
+        public override Persons GetType()
         {
             return Persons.Coach;
         }

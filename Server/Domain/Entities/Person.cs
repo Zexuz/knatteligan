@@ -2,31 +2,27 @@
 
 namespace knatteligan.Domain.Entities
 {
-    public class Person:Entity
+    public abstract class Person:Entity
     {
         public PersonName Name { get; set; }
         public PersonalNumber PersonalNumber { get; set; }
 
-        public Person() {}
+        protected Person() {}
 
 
-        public Person(PersonName name, PersonalNumber personalNumber)
+        protected Person(PersonName name, PersonalNumber personalNumber)
         {
             Name = name;
             PersonalNumber = personalNumber;
         }
 
-        public new Persons GetType()
-        {
-            return Persons.Person;
-        }
+        public new abstract Persons GetType();
 
     }
 
     public enum Persons
     {
         Coach,
-        Player,
-        Person
+        Player
     }
 }

@@ -3,13 +3,13 @@
 namespace knatteligan.Domain.Entities
 {
 
-    public class TeamPerson : Person
+    public abstract class TeamPerson : Person
     {
         public Team Team { get; set; }
 
-        public TeamPerson() {}
+        protected TeamPerson() {}
 
-        public TeamPerson(PersonName name, PersonalNumber personalNumber, Team team) : base(name, personalNumber)
+        protected TeamPerson(PersonName name, PersonalNumber personalNumber, Team team) : base(name, personalNumber)
         {
             Team = team;
         }

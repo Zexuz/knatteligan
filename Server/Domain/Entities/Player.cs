@@ -19,7 +19,7 @@ namespace knatteligan.Domain.Entities
         }
 
 
-        public new Persons GetType()
+        public override Persons GetType()
         {
             return Persons.Player;
         }

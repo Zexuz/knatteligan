@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using knatteligan.Domain.Entities;
+using knatteligan.Domain.ValueObjects;
+using knatteligan.Services;
 
 namespace KnatteliganWPF
 {
@@ -19,19 +14,79 @@ namespace KnatteliganWPF
     /// </summary>
     public partial class CreateLeague : Window
     {
+        //Fuck wpf, really
+        public League League { get; set; }
+        public LeagueName LeagueName { get; set; }
+        public List<Team> Teams { get; set; }
+
+        private readonly LeagueService _leagueService;
+        private readonly TeamService _teamService;
+        private readonly PersonService _personService;
+
         public CreateLeague()
         {
             InitializeComponent();
+            _leagueService = new LeagueService();
+            _teamService = new TeamService();
+            _personService = new PersonService();
+            Teams = new List<Team>();
+            DataContext = this;
+
+            var team1 = new Team(new TeamName("team1"));
+            var team2 = new Team(new TeamName("team2"));
+
+            var player1 = new Player(new PersonName("Zlatan", "Ibra"), new PersonalNumber(new DateTime(1996, 6, 6), "4444"), team1);
+            var player2 = new Player(new PersonName("Leon", "Lidneberg"), new PersonalNumber(new DateTime(1996, 6, 6), "4444"), team1);
+
+            //_personService.AddPerson(player1);
+            //_personService.AddPerson(player2);
+
+            team1.League = League;
+            team1.League = League;
+
+            _teamService.AddTeam(team1);
+            _teamService.AddTeam(team2);
+
+            if (_teamService.GetAllTeams() != null)
+            {
+                Teams = _teamService.GetAllTeams().Where(x => x.League == League).ToList();
+            }
+
+            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
         }
+
+
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
             var addTeam = new AddTeam();
-            var addTeamResult = addTeam.ShowDialog();
-           
+            addTeam.ShowDialog();
         }
-        private void CloseCommandHandler_Clicked(object sender, RoutedEventArgs e)
+      
+        private void AddLeague_Click(object sender, RoutedEventArgs e)
+        {
+            League = new League(LeagueName, Teams);
+
+            _leagueService.AddLeague(League);
+
+            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
+        }
+
+        private void CloseCommandHandler_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void RemoveTeam_Click(object sender, RoutedEventArgs e)
+        {
+            var team = (Team)TeamList.SelectedItem;
+            _teamService.RemoveTeam(team.Id);
+
+            if (_teamService.GetAllTeams() != null)
+            {
+                Teams = _teamService.GetAllTeams().Where(x => x.League == League).ToList();
+            }
+
+            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
         }
     }
 }

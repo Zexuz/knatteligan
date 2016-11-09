@@ -5,31 +5,28 @@ using knatteligan.Helpers;
 
 namespace knatteligan.Repositories
 {
-
     public abstract class Repository<T> : IRepository<T>
     {
-
         protected static Repository<T> Repo;
-        protected abstract string FilePath { get; }
 
         public abstract IEnumerable<T> GetAll();
 
-        public string GetFilePath(string fileName)
+        public static string GetFilePath(string fileName)
         {
             var path = Directory.GetCurrentDirectory();
-            path = Directory.GetParent(path).Parent.FullName+"//Resources//XMLData";
-            return new Uri(Path.Combine(path, fileName)).LocalPath;
+            path = $"{Directory.GetParent(path).Parent.FullName}\\Resources\\XMLData\\";
+            var combinedPath = Path.Combine(path, fileName);
+            return new Uri(string.Format("{0}{1}", path, combinedPath)).LocalPath;
         }
 
-        public void Save(List<T> list)
+        public void Save<TSubT>(string filePath, List<TSubT> list)
         {
-            Serializer<T>.SaveDataToFile(list, FilePath);
-            Load();
+            Serializer<TSubT>.SaveDataToFile(list, filePath);
         }
 
-        public IEnumerable<T> Load()
+        public IEnumerable<TSubT> Load<TSubT>(string filePath)
         {
-            return Serializer<T>.GetDataFromFile(FilePath);
+            return Serializer<TSubT>.GetDataFromFile(filePath);
         }
     }
 }

@@ -33,5 +33,10 @@ namespace knatteligan.Domain.ValueObjects
             var isValidDate = DateTime.Now > dateTime;
             return regEx.IsMatch(personalId) && isValidDate;
         }
+
+        public override string ToString() {
+            return $"{DateOfBirth:yyyyMMdd}-{LastFour}";
+        }
+
     }
 }

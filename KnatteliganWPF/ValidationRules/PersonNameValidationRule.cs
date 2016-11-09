@@ -16,7 +16,7 @@ namespace KnatteliganWPF.ValidationRules
 
             try
             {
-                new PersonName(value.ToString(), value.ToString());
+                new PersonName(value.ToString());
                 return new ValidationResult(true, "");
             }
             catch (Exception)

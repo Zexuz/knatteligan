@@ -12,7 +12,7 @@
         <converters:EmailToStringConverter x:Key="EmailToStringConverter"/>
         <converters:TeamNameToStringConverter x:Key="TeamNameToStringConverter"/>
         <converters:PersonNameToStringConverter x:Key="PersonNameToStringConverter"/>
-        <converters:PersonalNumberToStringConverter x:Key="PersonalNumberToStringConverter"/>
+        
         <converters:PhoneNumberToStringConverter x:Key="PhoneNumberToStringConverter"/>
     </Window.Resources>
     <Grid>
@@ -77,7 +77,7 @@
                 <Binding Path="PersonalNumber" UpdateSourceTrigger="PropertyChanged"
                          Converter="{StaticResource PersonalNumberToStringConverter}">
                     <Binding.ValidationRules>
-                        <validationRules:PersonalNumberValidationRule/>
+                        
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>

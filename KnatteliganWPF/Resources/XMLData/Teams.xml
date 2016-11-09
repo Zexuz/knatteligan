@@ -232,4 +232,20 @@
     <TeamPersons />
     <Goals />
   </Team>
+  <Team>
+    <Id>c3736b8e-d125-423f-8c45-7056faa2825a</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>6d4416a9-a4c9-4b50-baaa-49da4b64d64a</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
 </ArrayOfTeam>

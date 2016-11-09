@@ -57,7 +57,6 @@
     </ApplicationDefinition>
     <Compile Include="Converters\LeagueNameToStringConverter.cs" />
     <Compile Include="Converters\PersonNameToStringConverter.cs" />
-    <Compile Include="Converters\PersonalNumberToStringConverter.cs" />
     <Compile Include="Converters\PhoneNumberToStringConverter.cs" />
     <Compile Include="Converters\TeamNameToStringConverter.cs" />
     <Compile Include="ValidationRules\PersonalNumberValidationRule.cs" />

@@ -15,8 +15,8 @@ namespace KnatteliganWPF.Converters
             if (value.GetType() != typeof(PersonName))
                 throw new Exception($"Cannot convert from type {value.GetType()}");
 
-            var firstAndLastName = (PersonName)value;
-            return firstAndLastName.FirstName;
+            var personName = (PersonName) value;
+            return personName;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -27,7 +27,7 @@ namespace KnatteliganWPF.Converters
             if (value.GetType() != typeof(string))
                 throw new Exception($"Connot convert from type {value.GetType()}");
 
-            var personName = new PersonName(value.ToString(), value.ToString());
+            var personName = new PersonName(value.ToString());
             return personName;
         }
     }

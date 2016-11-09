@@ -4,7 +4,7 @@ namespace knatteligan.Domain.ValueObjects
 {
     public class PhoneNumber
     {
-        public string Value { get; private set; }
+        public string Value { get; set; }
 
         public PhoneNumber(string number)
         {
@@ -15,12 +15,18 @@ namespace knatteligan.Domain.ValueObjects
             Value = number;
         }
 
+        public PhoneNumber()
+        {
+
+        }
+
         public static bool IsPhoneNumber(string number)
         {
             return Regex.IsMatch(number, @"^[0]{ 1}[7]{1}[0-9]{8}$");
         }
 
-        public override string ToString() {
+        public override string ToString()
+        {
             return Value;
         }
 

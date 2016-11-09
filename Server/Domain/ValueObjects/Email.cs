@@ -16,12 +16,18 @@ namespace knatteligan.Domain.ValueObjects
             Value = email;
         }
 
+        public Email()
+        {
+            
+        }
+
         private static bool IsEmail(string email)
         {
             return Regex.IsMatch(email, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
         }
 
-        public override string ToString() {
+        public override string ToString()
+        {
             return Value;
         }
 

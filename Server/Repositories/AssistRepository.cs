@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace knatteligan.Repositories
 {
@@ -11,6 +9,7 @@ namespace knatteligan.Repositories
     {
         protected override string FilePath { get; }
         private readonly List<Assist> _assists;
+
         public AssistRepository()
         {
             FilePath = GetFilePath("Assists.xml");

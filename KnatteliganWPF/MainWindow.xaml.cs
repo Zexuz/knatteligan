@@ -18,6 +18,7 @@ using System.Xml.Serialization;
 using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
 using knatteligan.Repositories;
+using knatteligan.Services;
 
 namespace KnatteliganWPF
 {
@@ -26,10 +27,13 @@ namespace KnatteliganWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        LeagueService leagueService;
         public MainWindow()
         {
             InitializeComponent();
-           // var x = PersonRepository.GetInstance().GetAll();
+           // leagueService = new LeagueService();
+          //  leagueList.ItemsSource = leagueService.GetAllLeagues();
+            // var x = PersonRepository.GetInstance().GetAll();
         }
         private void CreateLeague_Clicked(object sender, RoutedEventArgs e)
         {
@@ -43,6 +47,11 @@ namespace KnatteliganWPF
             var manageLeagueResult = manageLeague.ShowDialog();
            
 
+        }
+        private void Matchprotocoll_Clicked(object sender, RoutedEventArgs e)
+        {
+            var matchProtocol = new MatchProtocol();
+            var matchProtocolResult = matchProtocol.ShowDialog();
         }
     }
 }

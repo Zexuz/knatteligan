@@ -19,14 +19,21 @@ namespace KnatteliganWPF
     /// </summary>
     public partial class AddPlayer : Window
     {
+        public string PlayerPersonNr { get; set; }
         public AddPlayer()
         {
             InitializeComponent();
+            DataContext = this;
         }
         private void CloseCommandHandler_Clicked(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("");
             this.Close();
+        }
+
+        public void searchTextBox_TextChanged(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

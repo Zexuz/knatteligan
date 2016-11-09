@@ -41,6 +41,7 @@ namespace knatteligan.Repositories
                 _personService.RemovePerson(teamPerson.Id);
             }
             Save(_teams);
+            //Save personRepo.
         }
 
         public Team FindTeamById(Guid id)

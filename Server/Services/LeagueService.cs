@@ -24,11 +24,6 @@ namespace knatteligan.Services
             _leagueRepository.Add(league);
         }
 
-        //Leons XD
-        public void AddLeague(League league)
-        {
-           _leagueRepository.AddLeague(league);
-        }
 
         public void Remove(Guid leagueGuid)
         {

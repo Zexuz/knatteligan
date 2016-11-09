@@ -12,7 +12,7 @@ namespace knatteligan.Repositories
 
         public LeagueRepository()
         {
-            _leaguePath = GetFilePath("Leagues.xml");
+            _leaguePath = GetFilePath("\\Leagues.xml");
             _leagues = Load<League>(_leaguePath).ToList();
         }
 

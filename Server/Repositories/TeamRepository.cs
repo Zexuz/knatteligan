@@ -12,7 +12,7 @@ namespace knatteligan.Repositories
 
         public TeamRepository()
         {
-            _teamPath = GetFilePath("Teams.xml");
+            _teamPath = GetFilePath("\\Teams.xml");
             _teams = Load<Team>(_teamPath).ToList();
         }
 

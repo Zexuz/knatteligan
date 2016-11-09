@@ -19,8 +19,8 @@ namespace knatteligan.Repositories
 
         public PersonRepository()
         {
-            _playerPath = GetFilePath("\\Person\\Players.xml");
-            _coachPath = GetFilePath("\\Person\\Coaches.xml");
+            _playerPath = GetFilePath("\\Persons\\Players.xml");
+            _coachPath = GetFilePath("\\Persons\\Coaches.xml");
 
             _players = Load<Player>(_playerPath).ToList();
             _coaches = Load<Coach>(_coachPath).ToList();
@@ -54,7 +54,9 @@ namespace knatteligan.Repositories
 
         public void Add(Person person)
         {
-            switch (person.GetType())
+            var type = person.GetType();
+
+            switch (type)
             {
                 case Persons.Coach:
                     AddAndSaveCoach(person);
@@ -62,7 +64,6 @@ namespace knatteligan.Repositories
                 case Persons.Player:
                     AddAndSavePlayer(person);
                     break;
-                case Persons.Person:
                 default:
                     throw new ArgumentOutOfRangeException();
             }

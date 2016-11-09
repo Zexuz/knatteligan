@@ -36,15 +36,120 @@
         <ListBox Grid.ColumnSpan="2" Grid.RowSpan="6" Grid.Row="4" Grid.Column="0">Spelare</ListBox>
         <ListBox Grid.ColumnSpan="2" Grid.RowSpan="6" Grid.Row="4" Grid.Column="4">Spelare</ListBox>
 
+        <TextBlock Grid.Column="2" Grid.Row="5" VerticalAlignment="Center"  HorizontalAlignment="Center" >Goals</TextBlock>
+        <ListBox Name="MålLista"  Grid.Column="3" Grid.Row="5"  HorizontalAlignment="Center">
+
+            <ListBoxItem>1</ListBoxItem>
+            <ListBoxItem>2</ListBoxItem>
+            <ListBoxItem>3</ListBoxItem>
+            <ListBoxItem>4</ListBoxItem>
+            <ListBoxItem>5</ListBoxItem>
+            <ListBoxItem>6</ListBoxItem>
+            <ListBoxItem>7</ListBoxItem>
+            <ListBoxItem>8</ListBoxItem>
+            <ListBoxItem>9</ListBoxItem>
+            <ListBoxItem>10</ListBoxItem>
+            <ListBoxItem>11</ListBoxItem>
+            <ListBoxItem>12</ListBoxItem>
+            <ListBoxItem>13</ListBoxItem>
+            <ListBoxItem>14</ListBoxItem>
+            <ListBoxItem>15</ListBoxItem>
+            <ListBoxItem>16</ListBoxItem>
+            <ListBoxItem>17</ListBoxItem>
+            <ListBoxItem>18</ListBoxItem>
+            <ListBoxItem>19</ListBoxItem>
+            <ListBoxItem>20</ListBoxItem>
+
+        </ListBox>
+
+        <TextBlock Grid.Column="2" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center" >Assists</TextBlock>
+        <ListBox Grid.Column="3" Grid.Row="6"  HorizontalAlignment="Center">
+
+            <ListBoxItem>1</ListBoxItem>
+            <ListBoxItem>2</ListBoxItem>
+            <ListBoxItem>3</ListBoxItem>
+            <ListBoxItem>4</ListBoxItem>
+            <ListBoxItem>5</ListBoxItem>
+            <ListBoxItem>6</ListBoxItem>
+            <ListBoxItem>7</ListBoxItem>
+            <ListBoxItem>8</ListBoxItem>
+            <ListBoxItem>9</ListBoxItem>
+            <ListBoxItem>10</ListBoxItem>
+            <ListBoxItem>11</ListBoxItem>
+            <ListBoxItem>12</ListBoxItem>
+            <ListBoxItem>13</ListBoxItem>
+            <ListBoxItem>14</ListBoxItem>
+            <ListBoxItem>15</ListBoxItem>
+            <ListBoxItem>16</ListBoxItem>
+            <ListBoxItem>17</ListBoxItem>
+            <ListBoxItem>18</ListBoxItem>
+            <ListBoxItem>19</ListBoxItem>
+            <ListBoxItem>20</ListBoxItem>
+
+        </ListBox>
+
+        <TextBlock Grid.Column="2" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Center" >Yellow Cards</TextBlock>
+        <ListBox Grid.Column="3" Grid.Row="7"  HorizontalAlignment="Center">
+
+            <ListBoxItem>1</ListBoxItem>
+            <ListBoxItem>2</ListBoxItem>
+            <ListBoxItem>3</ListBoxItem>
+            <ListBoxItem>4</ListBoxItem>
+            <ListBoxItem>5</ListBoxItem>
+            <ListBoxItem>6</ListBoxItem>
+            <ListBoxItem>7</ListBoxItem>
+            <ListBoxItem>8</ListBoxItem>
+            <ListBoxItem>9</ListBoxItem>
+            <ListBoxItem>10</ListBoxItem>
+            <ListBoxItem>11</ListBoxItem>
+            <ListBoxItem>12</ListBoxItem>
+            <ListBoxItem>13</ListBoxItem>
+            <ListBoxItem>14</ListBoxItem>
+            <ListBoxItem>15</ListBoxItem>
+            <ListBoxItem>16</ListBoxItem>
+            <ListBoxItem>17</ListBoxItem>
+            <ListBoxItem>18</ListBoxItem>
+            <ListBoxItem>19</ListBoxItem>
+            <ListBoxItem>20</ListBoxItem>
+
+        </ListBox>
+
+        <TextBlock Grid.Column="2" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Center" >Red Cards</TextBlock>
+        <ListBox Grid.Column="3" Grid.Row="8"  HorizontalAlignment="Center">
+
+            <ListBoxItem>1</ListBoxItem>
+            <ListBoxItem>2</ListBoxItem>
+            <ListBoxItem>3</ListBoxItem>
+            <ListBoxItem>4</ListBoxItem>
+            <ListBoxItem>5</ListBoxItem>
+            <ListBoxItem>6</ListBoxItem>
+            <ListBoxItem>7</ListBoxItem>
+            <ListBoxItem>8</ListBoxItem>
+            <ListBoxItem>9</ListBoxItem>
+            <ListBoxItem>10</ListBoxItem>
+            <ListBoxItem>11</ListBoxItem>
+            <ListBoxItem>12</ListBoxItem>
+            <ListBoxItem>13</ListBoxItem>
+            <ListBoxItem>14</ListBoxItem>
+            <ListBoxItem>15</ListBoxItem>
+            <ListBoxItem>16</ListBoxItem>
+            <ListBoxItem>17</ListBoxItem>
+            <ListBoxItem>18</ListBoxItem>
+            <ListBoxItem>19</ListBoxItem>
+            <ListBoxItem>20</ListBoxItem>
+
+        </ListBox>
+
+
         <DatePicker Grid.ColumnSpan="2" Grid.Column="2" ></DatePicker>
-        
-
-        <Button Grid.Row="10"  Grid.Column="2" Grid.RowSpan="1"  Margin="5">Clear</Button>
-        <Button Grid.Row="10" Grid.Column="3" Margin="5"  >Update</Button>
 
 
-        <Button Grid.Row="12" Grid.Column="3" Margin="5" Grid.ColumnSpan="2" Click="MainWindow_Clicked">Cancel</Button>
-        <Button Grid.Row="12" Grid.Column="5"  Margin="5" Grid.ColumnSpan="2"  >Save</Button>
+        <Button Grid.Row="10"  Grid.Column="2" Grid.RowSpan="1"  Margin="5" Click="Clear_Click">Clear</Button>
+        <Button Grid.Row="10" Grid.Column="3" Margin="5" Click="Update_Clicked" >Update</Button>
+
+
+        <Button Grid.Row="12" Grid.Column="3" Margin="5" Grid.ColumnSpan="2" Click="Cancel_Clicked">Cancel</Button>
+        <Button Grid.Row="12" Grid.Column="5"  Margin="5" Grid.ColumnSpan="2"  Click="Save_Click">Save</Button>
 
 
     </Grid>

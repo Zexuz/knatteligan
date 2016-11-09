@@ -84,8 +84,9 @@ namespace KnatteliganWPF
             if (_teamService.GetAllTeams() != null)
             {
                 Teams = _teamService.GetAllTeams().Where(x => x.League == League).ToList();
-       }
+            }
 
-        TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
+            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
         }
     }
+}

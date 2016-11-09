@@ -22,7 +22,7 @@ namespace KnatteliganWPF
     /// </summary>
     public partial class MatchProtocol : Window
     {
-
+        
         public Player player { get; set; }
         public Team team { get; set; }
         public Match match { get; set; }
@@ -55,7 +55,9 @@ namespace KnatteliganWPF
 
             for (int i = 0; i < goalResult; i++)
             {
-                player.Goals.Add(new Goal(player.Id, team.Id));
+                var goal = new Goal(player.Id, team.Id);
+                MatchEventRepository.GetInstance().Add(goal);
+                player.MatchEvents.Add(goal.Id);
 
             }
 
@@ -64,7 +66,10 @@ namespace KnatteliganWPF
 
             for (int i = 0; i < assistResult; i++)
             {
-                player.Assists.Add(new Assist(player.Id, match.Id));
+
+                var assist = new Assist(player.Id, team.Id);
+                MatchEventRepository.GetInstance().Add(assist);
+                player.MatchEvents.Add(assist.Id);
 
             }
 
@@ -73,7 +78,9 @@ namespace KnatteliganWPF
 
             for (int i = 0; i < yellowCardResult; i++)
             {
-                player.YellowCards.Add(new YellowCard(player.Id, match.Id));
+                var yellowCard = new YellowCard(player.Id, team.Id);
+                MatchEventRepository.GetInstance().Add(yellowCard);
+                player.MatchEvents.Add(yellowCard.Id);
 
             }
 
@@ -82,7 +89,9 @@ namespace KnatteliganWPF
 
             for (int i = 0; i < redCardResult; i++)
             {
-                player.RedCards.Add(new RedCard(player.Id, match.Id));
+                var redCard = new RedCard(player.Id, team.Id);
+                MatchEventRepository.GetInstance().Add(redCard);
+                player.MatchEvents.Add(redCard.Id);
 
             }
 

@@ -29,5 +29,6 @@
         <ListBox Grid.Row="6"    FontWeight="Bold" MouseDoubleClick="ManageLeague_Clicked">Pojkar 16 småland</ListBox>
         <!--<ListBox Grid.Row="7" Name="leagueList" MouseDoubleClick="ManageLeague_Clicked"></ListBox>-->
         <Button Grid.Column="1" Margin="176,154,59,-178" Grid.Row="7" Click="CreateLeague_Clicked">Create a new league</Button>
+        <Button Grid.Column="1" Margin="23,154,212,-178" Grid.Row="7" Click="Matchprotocoll_Clicked">Go to Mathprotocoll</Button>
     </Grid>
 </Window>

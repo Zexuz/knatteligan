@@ -38,8 +38,8 @@ namespace KnatteliganWPF
             var player1 = new Player(new PersonName("Zlatan", "Ibra"), new PersonalNumber(new DateTime(1996, 6, 6), "4444"), team1);
             var player2 = new Player(new PersonName("Leon", "Lidneberg"), new PersonalNumber(new DateTime(1996, 6, 6), "4444"), team1);
 
-            //_personService.AddPerson(player1);
-            //_personService.AddPerson(player2);
+            _personService.AddPerson(player1);
+            _personService.AddPerson(player2);
 
             team1.League = League;
             team1.League = League;
@@ -61,7 +61,7 @@ namespace KnatteliganWPF
             var addTeam = new AddTeam();
             addTeam.ShowDialog();
         }
-      
+
         private void AddLeague_Click(object sender, RoutedEventArgs e)
         {
             League = new League(LeagueName, Teams);
@@ -84,9 +84,8 @@ namespace KnatteliganWPF
             if (_teamService.GetAllTeams() != null)
             {
                 Teams = _teamService.GetAllTeams().Where(x => x.League == League).ToList();
-            }
+       }
 
-            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
+        TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
         }
     }
-}

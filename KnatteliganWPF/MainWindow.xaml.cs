@@ -48,5 +48,10 @@ namespace KnatteliganWPF
            
 
         }
+        private void Matchprotocoll_Clicked(object sender, RoutedEventArgs e)
+        {
+            var matchProtocol = new MatchProtocol();
+            var matchProtocolResult = matchProtocol.ShowDialog();
+        }
     }
 }

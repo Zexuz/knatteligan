@@ -21,9 +21,8 @@ namespace knatteligan.Repositories
             _personService = new PersonService();
         }
 
-        public void Add(TeamName name)
+        public void Add(Team team)
         {
-            var team = new Team(name);
             AddAndSaveTeam(team);
         }
 

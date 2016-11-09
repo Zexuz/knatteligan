@@ -10,13 +10,13 @@ namespace knatteligan.Repositories
     public class LeagueRepository : Repository<League>
     {
 
-        protected override string FilePath { get; }
+        protected string FilePath { get; }
         private readonly List<League> _leagues;
 
         public LeagueRepository()
         {
             FilePath = GetFilePath("League.xml");
-            _leagues = Load().ToList();
+            //_leagues = Load().ToList();
         }
 
         public void Add(LeagueName name, List<Guid> teams )
@@ -39,7 +39,7 @@ namespace knatteligan.Repositories
         private void AddAndSaveLeague(League league)
         {
             _leagues.Add(league);
-            Save(_leagues);
+            //Save(_leagues);
         }
 
         public static LeagueRepository GetInstance()

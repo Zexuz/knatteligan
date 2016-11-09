@@ -10,12 +10,12 @@ namespace knatteligan.Repositories
     {
 
         private readonly List<Person> _people;
-        protected override string FilePath { get; }
+        protected string FilePath { get; }
 
         public PersonRepository()
         {
             FilePath = GetFilePath("Persons.xml");
-            _people = Load().ToList();
+            //_people = Load().ToList();
         }
 
         public static PersonRepository GetInstance()
@@ -53,7 +53,7 @@ namespace knatteligan.Repositories
         private void AddAndSavePerson(Person person)
         {
             _people.Add(person);
-            Save(_people);
+            //Save(_people);
         }
 
 
@@ -62,14 +62,14 @@ namespace knatteligan.Repositories
         {
             team.TeamPersons.Add(player.Id);
             _people.Add(player);
-            Save(_people);
+            //          Save(_people);
         }
 
         public void RemovePlayerFromTeam(Team team, Player player)
         {
             team.TeamPersons.Remove(player.Id);
             _people.Add(player);
-            Save(_people);
+//            Save(_people);
         }
 
         public override IEnumerable<Person> GetAll()

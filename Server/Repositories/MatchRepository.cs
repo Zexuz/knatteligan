@@ -9,7 +9,7 @@ namespace knatteligan.Repositories
     {
 
         private readonly List<Match> _matches;
-        protected override string FilePath { get; }
+        protected  string FilePath { get; }
 
         private MatchRepository()
         {
@@ -26,7 +26,7 @@ namespace knatteligan.Repositories
         private void AddAndSaveMatch(Match match)
         {
             _matches.Add(match);
-            Save(_matches);
+            //Save(_matches);
         }
 
         public override IEnumerable<Match> GetAll()

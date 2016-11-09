@@ -5,8 +5,8 @@ namespace knatteligan.Repositories
 
     public interface IRepository<T>
     {
-        void Save(List<T> list);
-        IEnumerable<T> Load();
+        void Save<TSubT>(string filePath,List<TSubT> list);
+        IEnumerable<TSubT> Load<TSubT>(string filePath);
         IEnumerable<T> GetAll();
     }
 

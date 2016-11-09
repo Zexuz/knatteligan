@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
 using knatteligan.Repositories;
@@ -19,14 +20,14 @@ namespace knatteligan.Services
             return _teamRepository.GetAll();
         }
 
-        public void Add(TeamName name)
+        public void Add(Team team)
         {
-            _teamRepository.Add(name);
+            _teamRepository.Add(team);
         }
 
         public void RemoveTeam(Team team)
         {
-            _teamRepository.Remove(team);
+            throw new NotImplementedException();
         }
 
         public void ChangeTeamName(Team team, TeamName newName)

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using knatteligan.Domain.Entities;
-using knatteligan.Domain.ValueObjects;
 using knatteligan.Repositories;
 
 namespace knatteligan.Services
@@ -20,14 +19,14 @@ namespace knatteligan.Services
             return _leagueRepository.GetAll();
         }
 
-        public void Add(LeagueName name, List<Guid> teams )
+        public void Add(League league)
         {
-            _leagueRepository.Add(name, teams);
+            _leagueRepository.Add(league);
         }
 
         public void Remove(Guid leagueGuid)
         {
-            _leagueRepository.Remove(leagueGuid);
+            throw new NotImplementedException();
         }
 
     }

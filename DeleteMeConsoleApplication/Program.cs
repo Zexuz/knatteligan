@@ -14,8 +14,6 @@ namespace DeleteMeConsoleApplication
         public static void Main(string[] args)
         {
 
-            var s = new DataContractSerializer(typeof(Player));
-
             var teamNames = new[] {"Mad Amigos", "Good Saints", "Crazy Mehicans", "Cool Cats", "The wolfs", "Cowboys"};
             var teams = new List<Team>();
 
@@ -23,16 +21,17 @@ namespace DeleteMeConsoleApplication
             {
                 var team = new Team(new TeamName(teamName));
 
-                TeamRepository.GetInstance().Add(team);
                 for (int i = 0; i < 15; i++)
                 {
                     var player = GenareNewPlayer(team);
                     team.TeamPersons.Add(player.Id);
+
+                    PersonRepository.GetInstance().Add(player);
                 }
 
                 teams.Add(team);
+                TeamRepository.GetInstance().Add(team);
             }
-
 
             Console.WriteLine(teams);
         }

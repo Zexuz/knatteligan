@@ -11,6 +11,7 @@
     <Window.Resources>
         <converters:EmailToStringConverter x:Key="EmailToStringConverter"/>
         <converters:TeamNameToStringConverter x:Key="TeamNameToStringConverter"/>
+        <converters:PersonNameToStringConverter x:Key="PersonNameToStringConverter"/>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -59,7 +60,7 @@
                  ToolTip="{Binding ElementName=CoachName, Path=(Validation.Errors)[0].ErrorContent}">
             <TextBox.Text>
                 <Binding Path="PersonName" UpdateSourceTrigger="PropertyChanged"
-                         Converter="{StaticResource TeamNameToStringConverter}">
+                         Converter="{StaticResource PersonNameToStringConverter}">
                     <Binding.ValidationRules>
                         <validationRules:TeamNameValidationRule/>
                     </Binding.ValidationRules>

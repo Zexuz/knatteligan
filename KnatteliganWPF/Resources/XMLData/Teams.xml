@@ -152,4 +152,68 @@
     <TeamPersons />
     <Goals />
   </Team>
+  <Team>
+    <Id>48325f81-82e8-4e73-bfed-d1fb5e4e618e</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>e38c28b6-26d9-452e-85aa-814a0a2bb068</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>9cdd8c45-2e43-4ff4-966c-32efbfd50a8b</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>59768fa7-6cf1-41ed-9e82-1920c298085d</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>634b204f-637e-4a95-987f-8e1a08bb253c</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>11798a48-cd44-4507-9530-d65fedf5a88c</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>8e732c3b-90cb-4884-b3ec-e43d39054daa</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>034b6d68-5f93-41a8-822e-5c19eeea798c</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
 </ArrayOfTeam>

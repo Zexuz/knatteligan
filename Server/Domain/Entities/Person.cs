@@ -2,15 +2,14 @@
 
 namespace knatteligan.Domain.Entities
 {
-    public abstract class Person:Entity
+    public class Person : Entity
     {
         public PersonName Name { get; set; }
         public PersonalNumber PersonalNumber { get; set; }
 
-        protected Person() {}
+        public Person() { }
 
-
-        protected Person(PersonName name, PersonalNumber personalNumber)
+        public Person(PersonName name, PersonalNumber personalNumber)
         {
             Name = name;
             PersonalNumber = personalNumber;

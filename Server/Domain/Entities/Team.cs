@@ -7,17 +7,20 @@ namespace knatteligan.Domain.Entities
     public class Team:Entity
     {
         public TeamName Name { get; set; }
-        public List<Guid> TeamPersons { get; set; }
-        public List<Guid> Goals { get; set; }
+        //TODO: League necessary?
+        public List<Guid> TeamPersons { get; set; } = new List<Guid>();
+        public List<Guid> Goals { get; set; } = new List<Guid>();
 
-        public Team() {}
+        public Team() { }
 
 
         public Team(TeamName name)
         {
             Name = name;
-            TeamPersons = new List<Guid>();
-            Goals = new List<Guid>();
+        }
+        public override string ToString()
+        {
+            return Name.Value;
         }
     }
 }

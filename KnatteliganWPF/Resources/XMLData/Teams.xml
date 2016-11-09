@@ -1,147 +1,139 @@
 <?xml version="1.0"?>
 <ArrayOfTeam xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Team>
-    <Id>9df5193d-ccae-4b58-bce7-ee8de5283ddc</Id>
+    <Id>6278ed56-cdbe-44bc-a1a5-1da0d0510027</Id>
     <Name>
-      <Value>Mad Amigos</Value>
+      <Value>team1</Value>
     </Name>
-    <TeamPersons>
-      <guid>8c1f10ce-7143-44b8-9d70-41b54d140ac7</guid>
-      <guid>41fc53b5-cfd0-43a9-8b9c-9ff074d05bee</guid>
-      <guid>c23cf96f-bbe9-4fee-9d2a-b03341cc3ca9</guid>
-      <guid>8a3e8adc-9f73-4b14-8c7d-c0aabc5af8d7</guid>
-      <guid>e6a703aa-8e72-40a2-908d-0a050301f81a</guid>
-      <guid>45ad006a-95f2-4bc8-8826-376920d703ff</guid>
-      <guid>abcd10ab-4a6b-4128-8394-69b081754b4a</guid>
-      <guid>7a660829-ccbf-4eb6-ae18-bcd42a44d786</guid>
-      <guid>6eb51b54-0178-4563-aba9-b82de6ce51e1</guid>
-      <guid>9a239c23-17fb-4bca-add2-e48eb96057f4</guid>
-      <guid>2aa37b0c-c6f0-4236-8f8d-6726cb3fc1c6</guid>
-      <guid>14adc8d2-2a65-43b3-adb7-303953a38ff1</guid>
-      <guid>7d6a6244-4b13-49b4-aac7-94d89e0af5a0</guid>
-      <guid>943715b4-1e3b-4e1f-9996-f38fd582257d</guid>
-      <guid>7f37f2ac-506a-4f4f-9bbc-148ed928bbf0</guid>
-    </TeamPersons>
+    <TeamPersons />
     <Goals />
   </Team>
   <Team>
-    <Id>471fcc16-fd4c-4f16-be8c-cae20e3b687b</Id>
+    <Id>e93c74a5-c70e-4fb1-9854-1f8418ca8494</Id>
     <Name>
-      <Value>Good Saints</Value>
+      <Value>team2</Value>
     </Name>
-    <TeamPersons>
-      <guid>6cfbba6c-2f4b-4ad7-b23e-ebef318b2e90</guid>
-      <guid>d440c15a-58fd-4644-87ba-56e2bb8d7f6f</guid>
-      <guid>fae50d3a-92c5-4873-8495-c210934b281f</guid>
-      <guid>5d2297af-dec0-41ad-83b1-9a473e9cb7fb</guid>
-      <guid>47e3cee9-c78c-40cb-b124-40c04a5371e1</guid>
-      <guid>508025b8-8be8-43b4-ae89-5561e094dd7e</guid>
-      <guid>e5f763f9-d1bd-4955-824f-3856c01ba2ad</guid>
-      <guid>9252b03a-8313-490e-9ab5-5815008320d1</guid>
-      <guid>b7b186ed-7597-42fe-a877-8ca0054cc7c4</guid>
-      <guid>c57a2599-216b-4f08-b1a2-854f5574e136</guid>
-      <guid>e1c466b0-8c53-4eab-a23d-610d5ebe1080</guid>
-      <guid>ffa996b0-b48f-44f7-bc5e-ca53ef0df461</guid>
-      <guid>1ba11480-d32b-48e9-a39e-b33fb1ee6664</guid>
-      <guid>83f195d3-7310-475f-bd66-7ba2f2962e19</guid>
-      <guid>cb03c9f9-69e9-43e7-8d2a-c3f1c6a594ce</guid>
-    </TeamPersons>
+    <TeamPersons />
     <Goals />
   </Team>
   <Team>
-    <Id>3cd4565e-9365-4986-a513-37190f6e3036</Id>
+    <Id>cde907a1-00a3-4fd7-aff3-e3803dae1333</Id>
     <Name>
-      <Value>Crazy Mehicans</Value>
+      <Value>team1</Value>
     </Name>
-    <TeamPersons>
-      <guid>e9f85522-95b8-449d-bdcb-95f3fd7299dc</guid>
-      <guid>922f47f9-c0ef-4aaf-9ae4-1ef72d072cae</guid>
-      <guid>a531ad9d-2bf8-41a2-9aa8-679446762049</guid>
-      <guid>33d4e700-f0f9-4e04-b6f5-0a101592a096</guid>
-      <guid>d3d86f96-5f06-4750-8e5e-4ff2024fccdb</guid>
-      <guid>fc462093-5d57-4d62-93c9-efd5ba6c216c</guid>
-      <guid>cfacd495-44d4-4f40-b22d-d210d851fcab</guid>
-      <guid>8a76b693-42e2-4972-a60b-7423eb182e4e</guid>
-      <guid>52cb1000-04c4-45ab-a4ed-6a2762b448d4</guid>
-      <guid>ee6f5ded-4716-41c2-b936-94e8e0ce4822</guid>
-      <guid>c66cd0a8-de54-4ec1-853c-c59fd76c9ab8</guid>
-      <guid>60903be2-e0a4-43bd-9002-0c46f93bc24d</guid>
-      <guid>47a320ed-d53d-4f21-94fd-8dcedbb1be4e</guid>
-      <guid>7fa24cbe-2e06-4ca8-a731-6a7cea2930cb</guid>
-      <guid>ab2fd00b-e5dc-4816-a175-5c54ac8dfb68</guid>
-    </TeamPersons>
+    <TeamPersons />
     <Goals />
   </Team>
   <Team>
-    <Id>7ea27598-6cee-4b59-b4cc-6e1cddc6368c</Id>
+    <Id>ecc60f15-bc51-4f1c-bad1-8d85a84798c6</Id>
     <Name>
-      <Value>Cool Cats</Value>
+      <Value>team2</Value>
     </Name>
-    <TeamPersons>
-      <guid>0f070b3c-97b7-4d5d-9ede-dc43d5d0f0a2</guid>
-      <guid>f76e43cd-8389-44c2-8313-bbe493a4d591</guid>
-      <guid>d29c8365-60c7-402d-b152-e61430f36237</guid>
-      <guid>c87b4586-3295-4b05-930c-4a3cd6e75bc0</guid>
-      <guid>5f1b7b49-b2c7-4c39-a025-e697768c05a2</guid>
-      <guid>dc2eae67-b4aa-4465-b687-0e880e7a46df</guid>
-      <guid>ca29606c-03e6-44e8-8b86-0cc910c58b76</guid>
-      <guid>b72ca0f1-a7c1-495f-bbd7-e4714737bc5c</guid>
-      <guid>9b3f2060-bcbc-4cb9-8ec5-f8c8a9d2e1d8</guid>
-      <guid>468b9fa1-1e92-4b56-9e48-32ed2d8cfc99</guid>
-      <guid>a0867c49-a3be-4101-a9e5-5e14d5c9e4b2</guid>
-      <guid>cabaad00-a9a6-42ce-81e0-6f9e86623eef</guid>
-      <guid>e422c4db-49c9-4af6-9592-f375d806f456</guid>
-      <guid>cdcaa18c-2d73-41f1-9f15-5ee595d84a27</guid>
-      <guid>c92e15b4-344a-4867-b3fe-b6b9eac1a5f2</guid>
-    </TeamPersons>
+    <TeamPersons />
     <Goals />
   </Team>
   <Team>
-    <Id>d40c06dd-0090-4ac4-878a-14cdcd6b5bc7</Id>
+    <Id>cfd5e722-198d-4ede-bed9-78594ab86265</Id>
     <Name>
-      <Value>The wolfs</Value>
+      <Value>team1</Value>
     </Name>
-    <TeamPersons>
-      <guid>a4ffac7d-9be8-41a5-8df5-34af69f8685c</guid>
-      <guid>45e11d77-71f0-4acb-a6aa-0ce27353d09f</guid>
-      <guid>2d0123e4-f22c-4fd8-bfb5-b74cdcc812da</guid>
-      <guid>26d3e6a6-0563-41b3-9cec-46fc41861a4d</guid>
-      <guid>5b776c11-e987-48f4-be73-a8ea2a6b5037</guid>
-      <guid>404a11d5-e58d-42c7-aae4-1ed7905768cc</guid>
-      <guid>867692cb-3431-41c1-830e-248c2b45fa85</guid>
-      <guid>270b9fa7-ff36-4689-ab30-2602c5ca01b0</guid>
-      <guid>5d71f68b-c679-49c6-980c-5cafb72ed85a</guid>
-      <guid>d418fc41-8ecc-4797-ba05-e5ffb81ae264</guid>
-      <guid>5fe3dd0f-dd54-46ba-bbad-c2536e877ca7</guid>
-      <guid>d66c8e5b-4aaa-4fce-ae8c-46e45b5a099c</guid>
-      <guid>e3ef4ebf-4840-4c7d-83a4-e935abcbbd8a</guid>
-      <guid>39cd432d-0ee8-4ece-b0dd-5525d178408c</guid>
-      <guid>4963d0af-53f7-4a42-942d-892b0db01382</guid>
-    </TeamPersons>
+    <TeamPersons />
     <Goals />
   </Team>
   <Team>
-    <Id>065471af-d691-46cf-b530-d5475b2d3a09</Id>
+    <Id>d359e82a-4e3e-468b-bc66-4fc49a99b4d3</Id>
     <Name>
-      <Value>Cowboys</Value>
+      <Value>team2</Value>
     </Name>
-    <TeamPersons>
-      <guid>b3f97d88-2cf5-4853-b3f0-5bdb12d3fc76</guid>
-      <guid>e32dbe7d-adf7-449a-9e06-3849e80006bd</guid>
-      <guid>87684075-6c1d-4eec-ad50-b313e9325c29</guid>
-      <guid>3a3b489f-d58b-4225-8e9b-52c6bc1253f4</guid>
-      <guid>5b9e2a1f-287b-4307-aaac-aaab1127e57b</guid>
-      <guid>589a5304-a7b0-4e14-bb9f-dfd1b7db90bf</guid>
-      <guid>158add74-32b6-4165-bc39-536fc2e9a293</guid>
-      <guid>d93e595f-e068-4cb9-b888-d91dfb2a437c</guid>
-      <guid>68946365-f5b4-40e0-8ad1-ed6d3111f53b</guid>
-      <guid>75fa0e8b-f261-49e1-9fe3-a427b725298e</guid>
-      <guid>124c4c3c-878b-4037-8d6c-7e56be442fb5</guid>
-      <guid>a0cd499e-e1a9-4012-bc51-25ae7802cc1e</guid>
-      <guid>73ae1fee-7dca-4947-b409-3c3d6fcdca57</guid>
-      <guid>d2d98b9f-03da-4794-b131-cb6cf76539a0</guid>
-      <guid>388ed931-7a61-4fe4-9081-b2e392327058</guid>
-    </TeamPersons>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>709ae60e-05ee-42fb-83dd-fbf4cb155dd0</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>1f5cd652-bb27-42e9-a475-697dabf2f59a</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>bb0ac429-c2f5-44fd-beee-014ca999b394</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>e97b69d6-a652-4e12-ad3b-6b25508c8022</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>38177479-d6af-4614-85f6-4e6e87eea2dc</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>983335e2-bbd1-4a90-801d-76db0a1a4c86</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>8353db4d-c852-4cde-8ee2-c5aed39892ff</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>08bcd99f-ac77-4ccf-b8b6-2e97a4ec6b2d</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>fc6afaf7-3573-445f-a321-a188a9dd992f</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>98346ee0-e9dc-4e4c-a55b-6ca08e5cce03</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>e5ac183f-2311-4609-81c7-7bb871d379b7</Id>
+    <Name>
+      <Value>Manu</Value>
+    </Name>
+    <TeamPersons />
     <Goals />
   </Team>
 </ArrayOfTeam>

@@ -4,8 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KnatteliganWPF"
+        xmlns:validationRules="clr-namespace:KnatteliganWPF.ValidationRules"
+        xmlns:converters="clr-namespace:KnatteliganWPF.Converters"
         mc:Ignorable="d"
         Title="AddTeam" Height="400" Width="400">
+    <Window.Resources>
+        <converters:EmailToStringConverter x:Key="EmailToStringConverter"/>
+        <converters:TeamNameToStringConverter x:Key="TeamNameToStringConverter"/>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -32,25 +38,60 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1">Teamname:</TextBlock>
-        <TextBox Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2"></TextBox>
+        <TextBox Name="TeamName" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2"
+                 ToolTip="{Binding ElementName=TeamName, Path=(Validation.Errors)[0].ErrorContent}">
+            <TextBox.Text>
+                <Binding Path="TeamName1" UpdateSourceTrigger="PropertyChanged"
+                         Converter="{StaticResource TeamNameToStringConverter}">
+                    <Binding.ValidationRules>
+                        <validationRules:TeamNameValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+                 
+        
         <TextBlock Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3">Players</TextBlock>
         <ListBox Grid.ColumnSpan="4" Grid.RowSpan="4" Grid.Row="4" Grid.Column="0">Här i ska våra lag vara</ListBox>
 
-        <TextBlock Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="2">Coach</TextBlock>
-        <TextBox Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="3"></TextBox>
+        <TextBlock Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="2">Coach name</TextBlock>
+        <TextBox Name="CoachName" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="3"
+                 ToolTip="{Binding ElementName=CoachName, Path=(Validation.Errors)[0].ErrorContent}">
+            <TextBox.Text>
+                <Binding Path="PersonName" UpdateSourceTrigger="PropertyChanged"
+                         Converter="{StaticResource TeamNameToStringConverter}">
+                    <Binding.ValidationRules>
+                        <validationRules:TeamNameValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
 
-        <TextBlock Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="4">PhoneNo</TextBlock>
+            <TextBlock Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="4">Personal number</TextBlock>
         <TextBox Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="5"></TextBox>
 
-        <TextBlock Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="6">Email</TextBlock>
+        <TextBlock Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="6">PhoneNo</TextBlock>
         <TextBox Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="7"></TextBox>
+
+        <TextBlock Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="8">Email</TextBlock>
+        <TextBox Name="CoachEmail" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="9"
+        ToolTip="{Binding ElementName=CoachEmail, Path=(Validation.Errors)[0].ErrorContent}">
+        <TextBox.Text>
+            <Binding Path="EmailAddress" UpdateSourceTrigger="PropertyChanged"
+                         Converter="{StaticResource EmailToStringConverter}">
+                <Binding.ValidationRules>
+                    <validationRules:EmailValidationRule/>
+                </Binding.ValidationRules>
+            </Binding>
+        </TextBox.Text>
+        </TextBox>
 
         <Button Grid.Row="8"  Grid.Column="0" Grid.RowSpan="1"  Margin="5">Edit</Button>
         <Button Grid.Row="8" Grid.Column="2" Margin="5"  >-</Button>
         <Button Grid.Row="8" Grid.Column="3"  Margin="5" Click=" AddPlayer_Clicked">+</Button>
 
         <Button Grid.Row="12" Grid.Column="3" Margin="5" Grid.ColumnSpan="2" Click="CloseCommandHandler_Clicked">Cancel</Button>
-        <Button Grid.Row="12" Grid.Column="5"  Margin="5" Grid.ColumnSpan="2"  >Add team</Button>
+        <Button Grid.Row="12" Grid.Column="5"  Margin="5" Grid.ColumnSpan="2" Click="ButtonBase_OnClick"  >Add team</Button>
 
     </Grid>
 </Window>

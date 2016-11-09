@@ -17,7 +17,7 @@ namespace KnatteliganWPF
         //Fuck wpf, really
         public League League { get; set; }
         public LeagueName LeagueName { get; set; }
-        public List<Team> Teams { get; set; }
+        public List<Guid> Teams { get; set; }
 
         private readonly LeagueService _leagueService;
         private readonly TeamService _teamService;
@@ -29,7 +29,7 @@ namespace KnatteliganWPF
             _leagueService = new LeagueService();
             _teamService = new TeamService();
             _personService = new PersonService();
-            Teams = new List<Team>();
+            Teams = new List<Guid>();
             DataContext = this;
 
             var team1 = new Team(new TeamName("team1"));
@@ -47,12 +47,12 @@ namespace KnatteliganWPF
             _teamService.AddTeam(team1);
             _teamService.AddTeam(team2);
 
-            if (_teamService.GetAllTeams() != null)
-            {
-                Teams = _teamService.GetAllTeams().Where(x => x.League == League).ToList();
-            }
+            //if (_teamService.GetAllTeams() != null)
+            //{
+            //    Teams = _teamService.GetAllTeams().Where(x => x.League == League).ToList();
+            //}
 
-            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
+            TeamList.ItemsSource = new ObservableCollection<Guid>(Teams);
         }
 
 
@@ -68,7 +68,7 @@ namespace KnatteliganWPF
 
             _leagueService.AddLeague(League);
 
-            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
+            TeamList.ItemsSource = new ObservableCollection<Guid>(Teams);
         }
 
         private void CloseCommandHandler_Click(object sender, RoutedEventArgs e)
@@ -81,12 +81,12 @@ namespace KnatteliganWPF
             var team = (Team)TeamList.SelectedItem;
             _teamService.RemoveTeam(team.Id);
 
-            if (_teamService.GetAllTeams() != null)
-            {
-                Teams = _teamService.GetAllTeams().Where(x => x.League == League).ToList();
-            }
+            //if (_teamService.GetAllTeams() != null)
+            //{
+            //    Teams = _teamService.GetAllTeams().Where(x => x.League == League).ToList();
+            //}
 
-            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
+            TeamList.ItemsSource = new ObservableCollection<Guid>(Teams);
         }
     }
 }

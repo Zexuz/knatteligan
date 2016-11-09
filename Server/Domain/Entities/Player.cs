@@ -1,8 +1,6 @@
 ﻿using System;
-
 using knatteligan.Domain.ValueObjects;
 using System.Collections.Generic;
-using System.Xml.Serialization;
 
 namespace knatteligan.Domain.Entities
 {

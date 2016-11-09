@@ -2,13 +2,12 @@
 
 namespace knatteligan.Domain.Entities
 {
-   public sealed class RedCard:MatchEvent
+    public sealed class RedCard : MatchEvent
     {
         public override Guid PlayerGuid { get; set; }
         public override Guid MatchGuid { get; set; }
 
-        public RedCard() {}
-
+        public RedCard() { }
 
         public RedCard(Guid playerGuid, Guid matchGuid)
         {
@@ -20,6 +19,5 @@ namespace knatteligan.Domain.Entities
         {
             return MatchEvents.RedCard;
         }
-
     }
 }

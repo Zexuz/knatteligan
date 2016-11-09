@@ -6,13 +6,18 @@ namespace knatteligan.Domain.Entities {
 
         public Email Email { get; set; }
         public PhoneNumber PhoneNumber { get; set; }
-        //TODO: Skalbart att ha dessa på alla person?
+        //TODO: Skalbart att ha dessa pï¿½ alla person?
 
         public Coach() {}
 
         public Coach(PersonName name, PersonalNumber personalNumber, PhoneNumber phoneNumber, Email email, Team team) : base(name, personalNumber, team) {
             PhoneNumber = phoneNumber;
             Email = email;
+        }
+
+        public override Persons GetType()
+        {
+            return Persons.Coach;
         }
 
     }

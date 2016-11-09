@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace knatteligan.Domain.ValueObjects
 {
@@ -7,15 +6,12 @@ namespace knatteligan.Domain.ValueObjects
     {
         public string Value { get;  set; }
 
-        public TeamName()
-        {
-            
-        }
+        public TeamName() {}
 
         public TeamName(string name)
         {
             if (!IsTeamName(name))
-                throw new Exception("Bad name.");
+                throw new InvalidTeamNameException("Bad name.");
 
             Value = name;
         }
@@ -24,6 +20,10 @@ namespace knatteligan.Domain.ValueObjects
         private static bool IsTeamName(string name)
         {
             return Regex.IsMatch(name, @"[a-öA-Ö ]+");
+        }
+
+        public override string ToString() {
+            return Value;
         }
 
     }

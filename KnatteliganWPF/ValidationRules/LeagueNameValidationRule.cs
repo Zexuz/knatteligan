@@ -13,7 +13,6 @@ namespace KnatteliganWPF.ValidationRules
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-
             try
             {
                 new LeagueName(value.ToString());

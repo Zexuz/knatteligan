@@ -7,18 +7,16 @@ namespace knatteligan.Domain.Entities
     public class League:Entity
     {
         public LeagueName Name { get; set; }
-        public List<Team> Teams { get; set; }
-        public List<Match> Matches { get; set; }
+        public List<Guid> Teams { get; set; }
+        public List<Guid> Matches { get; set; }
         public DateTime StartDate { get; set; }     
 
-        public League(LeagueName name, List<Team> teams)
+        public League() {}
+
+        public League(LeagueName name, List<Guid> teams)
         {
             Name = name;
             Teams = teams;
-        }
-        public League()
-        {
-
         }
     }
 }

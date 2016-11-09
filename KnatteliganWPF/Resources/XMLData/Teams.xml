@@ -136,4 +136,20 @@
     <TeamPersons />
     <Goals />
   </Team>
+  <Team>
+    <Id>83ff7379-9da8-4513-9c3f-c281e61aa704</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>76bc9773-becf-43b9-8155-9d17c68f2c52</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
 </ArrayOfTeam>

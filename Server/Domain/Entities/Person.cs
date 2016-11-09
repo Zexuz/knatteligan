@@ -2,7 +2,7 @@
 
 namespace knatteligan.Domain.Entities
 {
-    public class Person : Entity
+    public abstract class Person : Entity
     {
         public PersonName Name { get; set; }
         public PersonalNumber PersonalNumber { get; set; }

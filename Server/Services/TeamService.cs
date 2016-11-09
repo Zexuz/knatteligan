@@ -25,9 +25,9 @@ namespace knatteligan.Services
             _teamRepository.Add(team);
         }
 
-        public void RemoveTeam(Team team)
+        public void Remove(Team team)
         {
-            _teamRepository.RemoveTeam(team);
+            _teamRepository.Remove(team);
         }
 
         public Team FindTeamById(Guid id)

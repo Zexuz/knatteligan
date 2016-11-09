@@ -31,18 +31,25 @@ namespace KnatteliganWPF
         public PhoneNumber PhoneNumber { get; set; }
         public Email EmailAddress { get; set; }
         public List<Player> Players { get; set; }
-        
+
 
         public AddTeamWindow()
         {
             InitializeComponent();
+            PlayerList.ItemsSource = Players;
             DataContext = this;
         }
 
         private void AddPlayer_Clicked(object sender, RoutedEventArgs e)
         {
             var addPlayerWindow = new AddPlayerWindow();
-            addPlayerWindow.ShowDialog();
+            var addPlayerResult = addPlayerWindow.ShowDialog();
+            if (!addPlayerResult.HasValue) return;
+
+            if (Players.Count >= 20)
+            {
+                AddTeamBtn.IsEnabled = true;
+            }
         }
 
         private void CloseCommandHandler_Clicked(object sender, RoutedEventArgs e)
@@ -56,6 +63,22 @@ namespace KnatteliganWPF
 
             DialogResult = true;
             Close();
+        }
+
+        private void RemoveTeam_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditTeam_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PlayerList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            RemoveTeamBtn.IsEnabled = true;
+            EditTeamBtn.IsEnabled = true;
         }
     }
 }

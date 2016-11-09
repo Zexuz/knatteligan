@@ -35,11 +35,11 @@ namespace knatteligan.Repositories
             return (TeamRepository) (Repo ?? (Repo = new TeamRepository()));
         }
 
-        public void RemoveTeam(Team team)
+        public void Remove(Team team)
         {
             _teams.Remove(team);
 
-                foreach (var teamPerson in team.TeamPersons)
+                foreach (var teamPerson in team.TeamPersonIds)
                 {
                     _personService.RemovePlayer(teamPerson);
                     //TODO: Remove coaches

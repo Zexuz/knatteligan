@@ -47,6 +47,7 @@ namespace KnatteliganWPF
 
             _teamService.Add(addTeamWindow.Team);
             Teams = _teamService.GetAllTeams().ToList();
+            //Teams.Add(addTeamWindow.Team);
             TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
 
         }
@@ -66,15 +67,43 @@ namespace KnatteliganWPF
         private void RemoveTeam_Click(object sender, RoutedEventArgs e)
         {
             var team = (Team)TeamList.SelectedItem;
-            _teamService.RemoveTeam(team);
-
+            _teamService.Remove(team);
             Teams = _teamService.GetAllTeams().ToList();
+            //Teams.Remove(team);
             TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            
+            var team = (Team)TeamList.SelectedItem;
+
+            var players = team.TeamPersonIds.Select(teamPersonId => _personService.FindPlayerById(teamPersonId))
+                .Where(teamPerson => teamPerson.GetType() == Persons.Player).Cast<Player>().ToList();
+
+            var addTeamWindow = new AddTeamWindow
+            {
+                TeamName = team.Name,
+                Team = team,
+                Players = players
+            };
+
+
+            var addTeamResult = addTeamWindow.ShowDialog();
+            if (!addTeamResult.HasValue) return;
+
+            if (Teams.Count >= 16 && Teams.Count % 2 == 0)
+            {
+                AddLeagueButton.IsEnabled = true;
+            }
+
+            _teamService.Remove(team);
+            Teams.Remove(team);
+
+            //TODO: probably should edit instead of creating new
+            _teamService.Add(addTeamWindow.Team);
+            //Teams = _teamService.GetAllTeams().ToList();
+            Teams.Add(addTeamWindow.Team);
+            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
         }
 
         private void TeamList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

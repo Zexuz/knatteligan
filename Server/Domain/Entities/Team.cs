@@ -4,22 +4,22 @@ using knatteligan.Domain.ValueObjects;
 
 namespace knatteligan.Domain.Entities
 {
-    public class Team:Entity
+    public class Team : Entity
     {
         public TeamName Name { get; set; }
         //TODO: League necessary?
-        public List<Guid> TeamPersons { get; set; } = new List<Guid>();
+        public List<Guid> TeamPersonIds { get; set; } = new List<Guid>();
         public List<Guid> Goals { get; set; } = new List<Guid>();
 
         public Team() { }
 
 
-        public Team(TeamName name, IEnumerable<TeamPerson> teamPersons )
+        public Team(TeamName name, IEnumerable<TeamPerson> teamPersons)
         {
             Name = name;
-            foreach (var teamPerson in teamPersons)
+            foreach (var teamPersonId in teamPersons)
             {
-                TeamPersons.Add(teamPerson.Id);
+                TeamPersonIds.Add(teamPersonId.Id);
             }
         }
         public override string ToString()

@@ -13,18 +13,18 @@ namespace DeleteMeConsoleApplication
     {
         public static void Main(string[] args)
         {
-
             var teamNames = new[] {"Mad Amigos", "Good Saints", "Crazy Mehicans", "Cool Cats", "The wolfs", "Cowboys"};
             var teams = new List<Team>();
 
             foreach (var teamName in teamNames)
             {
-                var team = new Team(new TeamName(teamName));
+                var teamPersons = new List<TeamPerson>();
+                var team = new Team(new TeamName(teamName), teamPersons);
 
-                for (int i = 0; i < 15; i++)
+                for (var i = 0; i < 15; i++)
                 {
                     var player = GenareNewPlayer(team);
-                    team.TeamPersons.Add(player.Id);
+                    teamPersons.Add(player);
 
                     PersonRepository.GetInstance().Add(player);
                 }

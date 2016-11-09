@@ -7,7 +7,7 @@
       <Name>
         <Value>fds</Value>
       </Name>
-      <TeamPersons />
+      <TeamPersonIds />
       <Goals />
     </Team>
   </Coach>
@@ -18,7 +18,7 @@
       <Name>
         <Value>fds</Value>
       </Name>
-      <TeamPersons />
+      <TeamPersonIds />
       <Goals />
     </Team>
   </Coach>
@@ -29,7 +29,7 @@
       <Name>
         <Value>fdssfd</Value>
       </Name>
-      <TeamPersons />
+      <TeamPersonIds />
       <Goals />
     </Team>
   </Coach>
@@ -37,7 +37,7 @@
     <Id>b5c53786-3ebe-4cb9-a2ef-47ad6405b6a4</Id>
     <Team>
       <Id>e00255d5-3bc7-478c-afe5-d3995e0f99d9</Id>
-      <TeamPersons />
+      <TeamPersonIds />
       <Goals />
     </Team>
   </Coach>

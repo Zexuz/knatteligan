@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using System.Windows;
 using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
@@ -11,9 +9,9 @@ using knatteligan.Services;
 namespace KnatteliganWPF
 {
     /// <summary>
-    /// Interaction logic for CreateLeague.xaml
+    /// Interaction logic for CreateLeagueWindow.xaml
     /// </summary>
-    public partial class CreateLeague : Window
+    public partial class CreateLeagueWindow : Window
     {
         public League League { get; set; }
         public LeagueName LeagueName { get; set; }
@@ -23,7 +21,7 @@ namespace KnatteliganWPF
         private readonly TeamService _teamService;
         private readonly PersonService _personService;
 
-        public CreateLeague()
+        public CreateLeagueWindow()
         {
             InitializeComponent();
             _leagueService = new LeagueService();
@@ -35,16 +33,14 @@ namespace KnatteliganWPF
             TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
         }
 
-            var player1 = new Player(new PersonName("Zlatan", "Ibra"), new PersonalNumber(new DateTime(1996, 6, 6), "4444"), team1);
-            var player2 = new Player(new PersonName("Leon", "Lidneberg"), new PersonalNumber(new DateTime(1996, 6, 6), "4444"), team1);
-
+          
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
             var addTeamWindow = new AddTeamWindow();
             var addTeamResult = addTeamWindow.ShowDialog();
             if (!addTeamResult.HasValue) return;
 
-            if (Teams.Count >= 16)
+            if (Teams.Count >= 16 && Teams.Count % 2 == 0)
             {
                 AddLeagueButton.IsEnabled = true;
             }
@@ -74,6 +70,17 @@ namespace KnatteliganWPF
 
             Teams = _teamService.GetAllTeams().ToList();
             TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void TeamList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            EditBtn.IsEnabled = true;
+            RemoveTeamBtn.IsEnabled = true;
         }
     }
 }

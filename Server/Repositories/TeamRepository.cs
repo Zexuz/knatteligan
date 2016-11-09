@@ -39,13 +39,12 @@ namespace knatteligan.Repositories
         {
             _teams.Remove(team);
 
-            var teamPersons = _personService.GetAll().OfType<TeamPerson>().Where(x => x.Team.Id == team.Id);
-
-            foreach (var teamPerson in teamPersons)
-            {
-                _personService.RemovePlayer(teamPerson.Id);
-                //TODO: Remove coaches
-            }
+                foreach (var teamPerson in team.TeamPersons)
+                {
+                    _personService.RemovePlayer(teamPerson);
+                    //TODO: Remove coaches
+                }
+          
 
             Save(_teamPath, _teams);
         }

@@ -41,10 +41,10 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1">Teamname:</TextBlock>
-        <TextBox Name="TeamName" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2"
-                 ToolTip="{Binding ElementName=TeamName, Path=(Validation.Errors)[0].ErrorContent}">
+        <TextBox Name="TeamNameTxt" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2"
+                 ToolTip="{Binding ElementName=TeamNameTxt, Path=(Validation.Errors)[0].ErrorContent}">
             <TextBox.Text>
-                <Binding Path="TeamName1" UpdateSourceTrigger="PropertyChanged"
+                <Binding Path="TeamName" UpdateSourceTrigger="PropertyChanged"
                          Converter="{StaticResource TeamNameToStringConverter}">
                     <Binding.ValidationRules>
                         <validationRules:TeamNameValidationRule/>
@@ -74,8 +74,7 @@
         <TextBox Name="PersonalNumberTextBox" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="5"
                  ToolTip="{Binding ElementName=PersonalNumberTextBox, Path=(Validation.Errors)[0].ErrorContent}">
             <TextBox.Text>
-                <Binding Path="PersonalNumber" UpdateSourceTrigger="PropertyChanged"
-                         Converter="{StaticResource PersonalNumberToStringConverter}">
+                <Binding Path="PersonalNumber" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
                         
                     </Binding.ValidationRules>
@@ -114,7 +113,7 @@
         <Button Grid.Row="8" Grid.Column="3"  Margin="5" Click=" AddPlayer_Clicked">+</Button>
 
         <Button Grid.Row="12" Grid.Column="3" Margin="5" Grid.ColumnSpan="2" Click="CloseCommandHandler_Clicked">Cancel</Button>
-        <Button Grid.Row="12" Grid.Column="5"  Margin="5" Grid.ColumnSpan="2" Click="ButtonBase_OnClick"  >Add team</Button>
+        <Button Grid.Row="12" Grid.Column="5"  Margin="5" Grid.ColumnSpan="2" Click="AddTeam_Clicked">Add team</Button>
 
     </Grid>
 </Window>

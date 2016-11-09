@@ -1,30 +1,6 @@
 <?xml version="1.0"?>
 <ArrayOfTeam xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Team>
-    <Id>9df5193d-ccae-4b58-bce7-ee8de5283ddc</Id>
-    <Name>
-      <Value>Mad Amigos</Value>
-    </Name>
-    <TeamPersons>
-      <guid>8c1f10ce-7143-44b8-9d70-41b54d140ac7</guid>
-      <guid>41fc53b5-cfd0-43a9-8b9c-9ff074d05bee</guid>
-      <guid>c23cf96f-bbe9-4fee-9d2a-b03341cc3ca9</guid>
-      <guid>8a3e8adc-9f73-4b14-8c7d-c0aabc5af8d7</guid>
-      <guid>e6a703aa-8e72-40a2-908d-0a050301f81a</guid>
-      <guid>45ad006a-95f2-4bc8-8826-376920d703ff</guid>
-      <guid>abcd10ab-4a6b-4128-8394-69b081754b4a</guid>
-      <guid>7a660829-ccbf-4eb6-ae18-bcd42a44d786</guid>
-      <guid>6eb51b54-0178-4563-aba9-b82de6ce51e1</guid>
-      <guid>9a239c23-17fb-4bca-add2-e48eb96057f4</guid>
-      <guid>2aa37b0c-c6f0-4236-8f8d-6726cb3fc1c6</guid>
-      <guid>14adc8d2-2a65-43b3-adb7-303953a38ff1</guid>
-      <guid>7d6a6244-4b13-49b4-aac7-94d89e0af5a0</guid>
-      <guid>943715b4-1e3b-4e1f-9996-f38fd582257d</guid>
-      <guid>7f37f2ac-506a-4f4f-9bbc-148ed928bbf0</guid>
-    </TeamPersons>
-    <Goals />
-  </Team>
-  <Team>
     <Id>471fcc16-fd4c-4f16-be8c-cae20e3b687b</Id>
     <Name>
       <Value>Good Saints</Value>

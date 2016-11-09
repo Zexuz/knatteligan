@@ -15,14 +15,15 @@ using System.Windows.Shapes;
 namespace KnatteliganWPF
 {
     /// <summary>
-    /// Interaction logic for AddPlayer.xaml
+    /// Interaction logic for AddPlayerWindow.xaml
     /// </summary>
-    public partial class AddPlayer : Window
+    public partial class AddPlayerWindow : Window
     {
-        public AddPlayer()
+        public AddPlayerWindow()
         {
             InitializeComponent();
         }
+
         private void CloseCommandHandler_Clicked(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("");

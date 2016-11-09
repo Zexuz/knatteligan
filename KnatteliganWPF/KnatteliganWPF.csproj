@@ -63,7 +63,7 @@
     <Compile Include="ValidationRules\PhoneNumberValidationRule.cs" />
     <Compile Include="ValidationRules\TeamNameValidationRule.cs" />
     <Compile Include="ValidationRules\LeagueNameValidationRule.cs" />
-    <Page Include="AddPlayer.xaml">
+    <Page Include="AddPlayerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -71,7 +71,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CreateLeague.xaml">
+    <Page Include="CreateLeagueWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -79,8 +79,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AddPlayer.xaml.cs">
-      <DependentUpon>AddPlayer.xaml</DependentUpon>
+    <Compile Include="AddPlayerWindow.xaml.cs">
+      <DependentUpon>AddPlayerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddTeamWindow.xaml.cs">
       <DependentUpon>AddTeamWindow.xaml</DependentUpon>
@@ -89,8 +89,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CreateLeague.xaml.cs">
-      <DependentUpon>CreateLeague.xaml</DependentUpon>
+    <Compile Include="CreateLeagueWindow.xaml.cs">
+      <DependentUpon>CreateLeagueWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\EmailToStringConverter.cs" />
     <Compile Include="ValidationRules\EmailValidationRule.cs" />

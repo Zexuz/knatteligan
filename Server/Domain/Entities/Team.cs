@@ -14,9 +14,13 @@ namespace knatteligan.Domain.Entities
         public Team() { }
 
 
-        public Team(TeamName name)
+        public Team(TeamName name, IEnumerable<TeamPerson> teamPersons )
         {
             Name = name;
+            foreach (var teamPerson in teamPersons)
+            {
+                TeamPersons.Add(teamPerson.Id);
+            }
         }
         public override string ToString()
         {

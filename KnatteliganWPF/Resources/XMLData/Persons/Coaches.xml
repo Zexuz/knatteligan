@@ -41,4 +41,10 @@
       <Goals />
     </Team>
   </Coach>
+  <Coach>
+    <Id>2b0e30de-d6cb-4b82-9a6e-5034aa0e6b0f</Id>
+  </Coach>
+  <Coach>
+    <Id>f08bf149-c363-454e-aeaf-c201cee96df9</Id>
+  </Coach>
 </ArrayOfCoach>

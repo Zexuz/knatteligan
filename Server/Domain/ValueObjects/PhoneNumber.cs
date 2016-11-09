@@ -4,7 +4,9 @@ namespace knatteligan.Domain.ValueObjects
 {
     public class PhoneNumber
     {
-        public string Value { get; private set; }
+        public string Value { get; set; }
+
+        public PhoneNumber() {}
 
         public PhoneNumber(string number)
         {

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace knatteligan.Domain.ValueObjects
 {
@@ -7,10 +6,7 @@ namespace knatteligan.Domain.ValueObjects
     {
         public string Value { get;  set; }
 
-        public TeamName()
-        {
-            
-        }
+        public TeamName() {}
 
         public TeamName(string name)
         {

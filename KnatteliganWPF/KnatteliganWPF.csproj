@@ -58,9 +58,11 @@
     <Compile Include="Converters\LeagueNameToStringConverter.cs" />
     <Compile Include="Converters\PersonNameToStringConverter.cs" />
     <Compile Include="Converters\PersonalNumberToStringConverter.cs" />
+    <Compile Include="Converters\PhoneNumberToStringConverter.cs" />
     <Compile Include="Converters\TeamNameToStringConverter.cs" />
     <Compile Include="ValidationRules\PersonalNumberValidationRule.cs" />
     <Compile Include="ValidationRules\PersonNameValidationRule.cs" />
+    <Compile Include="ValidationRules\PhoneNumberValidationRule.cs" />
     <Compile Include="ValidationRules\TeamNameValidationRule.cs" />
     <Compile Include="ValidationRules\LeagueNameValidationRule.cs" />
     <Page Include="AddPlayer.xaml">

@@ -9,19 +9,19 @@ using knatteligan.Domain.ValueObjects;
 
 namespace KnatteliganWPF.ValidationRules
 {
-    public class PersonalNumberValidationRule : ValidationRule
+    public class PhoneNumberValidationRule : ValidationRule
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
 
             try
             {
-                new PersonalNumber(value.ToString());
+                new PhoneNumber(value.ToString());
                 return new ValidationResult(true, "");
             }
             catch (Exception)
             {
-                return new ValidationResult(false, "Not a valid personal number.");
+                return new ValidationResult(false, "Not a valid phone number.");
             }
 
 

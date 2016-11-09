@@ -13,6 +13,7 @@
         <converters:TeamNameToStringConverter x:Key="TeamNameToStringConverter"/>
         <converters:PersonNameToStringConverter x:Key="PersonNameToStringConverter"/>
         <converters:PersonalNumberToStringConverter x:Key="PersonalNumberToStringConverter"/>
+        <converters:PhoneNumberToStringConverter x:Key="PhoneNumberToStringConverter"/>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -57,8 +58,8 @@
         <ListBox Grid.ColumnSpan="4" Grid.RowSpan="4" Grid.Row="4" Grid.Column="0">Här i ska våra lag vara</ListBox>
 
         <TextBlock Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="2">Coach name</TextBlock>
-        <TextBox Name="CoachName" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="3"
-                 ToolTip="{Binding ElementName=CoachName, Path=(Validation.Errors)[0].ErrorContent}">
+        <TextBox Name="CoachNameTextBox" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="3"
+                 ToolTip="{Binding ElementName=CoachNameTextBox, Path=(Validation.Errors)[0].ErrorContent}">
             <TextBox.Text>
                 <Binding Path="PersonName" UpdateSourceTrigger="PropertyChanged"
                          Converter="{StaticResource PersonNameToStringConverter}">
@@ -76,18 +77,28 @@
                 <Binding Path="PersonalNumber" UpdateSourceTrigger="PropertyChanged"
                          Converter="{StaticResource PersonalNumberToStringConverter}">
                     <Binding.ValidationRules>
-                        <validationRules:PersonNameValidationRule/>
+                        <validationRules:PersonalNumberValidationRule/>
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>
         </TextBox>
 
             <TextBlock Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="6">PhoneNo</TextBlock>
-        <TextBox Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="7"></TextBox>
+        <TextBox Name="PhoneNumberTextBox" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="7"
+                 ToolTip="{Binding ElementName=PhoneNumberTextBox, Path=(Validation.Errors)[0].ErrorContent}">
+            <TextBox.Text>
+                <Binding Path="PhoneNumber" UpdateSourceTrigger="PropertyChanged"
+                         Converter="{StaticResource PhoneNumberToStringConverter}">
+                    <Binding.ValidationRules>
+                        <validationRules:PhoneNumberValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
 
         <TextBlock Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="8">Email</TextBlock>
-        <TextBox Name="CoachEmail" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="9"
-        ToolTip="{Binding ElementName=CoachEmail, Path=(Validation.Errors)[0].ErrorContent}">
+        <TextBox Name="CoachEmailTextBox" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="9"
+        ToolTip="{Binding ElementName=CoachEmailTextBox, Path=(Validation.Errors)[0].ErrorContent}">
         <TextBox.Text>
             <Binding Path="EmailAddress" UpdateSourceTrigger="PropertyChanged"
                          Converter="{StaticResource EmailToStringConverter}">

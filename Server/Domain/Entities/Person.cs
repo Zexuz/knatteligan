@@ -16,11 +16,17 @@ namespace knatteligan.Domain.Entities
             PersonalNumber = personalNumber;
         }
 
+        public new Persons GetType()
+        {
+            return Persons.Person;
+        }
+
     }
 
     public enum Persons
     {
         Coach,
-        Player
+        Player,
+        Person
     }
 }

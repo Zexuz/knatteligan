@@ -4,7 +4,7 @@ namespace knatteligan.Domain.ValueObjects
 {
     public class TeamName
     {
-        public string Value { get;  set; }
+        public string Value { get; set; }
 
         public TeamName() {}
 
@@ -22,7 +22,8 @@ namespace knatteligan.Domain.ValueObjects
             return Regex.IsMatch(name, @"[a-öA-Ö ]+");
         }
 
-        public override string ToString() {
+        public override string ToString()
+        {
             return Value;
         }
 

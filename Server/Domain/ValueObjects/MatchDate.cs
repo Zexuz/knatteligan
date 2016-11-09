@@ -5,7 +5,7 @@ namespace knatteligan.Domain.ValueObjects
     public class MatchDate
     {
 
-        public DateTime Value  { get; set; }
+        public DateTime Value { get; set; }
         public MatchDate(DateTime matchDate, DateTime leagueStartTime, DateTime endOfLeague)
         {
             if (!IsValid(matchDate, leagueStartTime, endOfLeague))
@@ -13,11 +13,16 @@ namespace knatteligan.Domain.ValueObjects
                 throw new InvalidMatchDateException("Match date is not valid");
             }
             Value = matchDate;
+
+        }
+
+        public MatchDate()
+        {
             
         }
 
         private bool IsValid(DateTime matchDate, DateTime leagueStartTime, DateTime endOfLeague)
-        {           
+        {
             return matchDate > leagueStartTime && matchDate < endOfLeague;
         }
 

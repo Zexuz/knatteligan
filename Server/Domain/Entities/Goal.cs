@@ -8,7 +8,7 @@ namespace knatteligan.Domain.Entities
         public override Guid MatchGuid { get; set; }
         public Guid TeamGuid { get; set; }
 
-        public Goal() {}
+        public Goal() { }
 
         public Goal(Guid playerGuid, Guid teamGuid)
         {

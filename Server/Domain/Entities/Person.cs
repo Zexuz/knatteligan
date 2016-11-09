@@ -1,5 +1,4 @@
-﻿using System;
-using knatteligan.Domain.ValueObjects;
+﻿using knatteligan.Domain.ValueObjects;
 
 namespace knatteligan.Domain.Entities
 {
@@ -17,5 +16,11 @@ namespace knatteligan.Domain.Entities
             PersonalNumber = personalNumber;
         }
 
+    }
+
+    public enum Persons
+    {
+        Coach,
+        Player
     }
 }

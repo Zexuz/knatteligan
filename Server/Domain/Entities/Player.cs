@@ -16,5 +16,11 @@ namespace knatteligan.Domain.Entities
         {
            MatchEvents = new List<Guid>();
         }
+
+
+        public new Persons GetType()
+        {
+            return Persons.Player;
+        }
     }
 }

@@ -62,10 +62,9 @@ namespace KnatteliganWPF
         {
             Team = new Team(TeamName1);
             _teamService.Add(Team);
-            //For coach
-            _personService.Add(PersonName, PersonalNumber, PhoneNumber, EmailAddress, Team);
-            
-            
+            var coach = new Coach(PersonName, PersonalNumber, PhoneNumber, EmailAddress, Team);
+            _personService.AddPerson(coach);
+
         }
     }
 }

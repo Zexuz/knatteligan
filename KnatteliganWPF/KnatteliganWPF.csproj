@@ -56,6 +56,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters\LeagueNameToStringConverter.cs" />
+    <Compile Include="Converters\PersonNameToStringConverter.cs" />
+    <Compile Include="Converters\TeamNameToStringConverter.cs" />
+    <Compile Include="ValidationRules\TeamNameValidationRule.cs" />
     <Compile Include="ValidationRules\LeagueNameValidationRule.cs" />
     <Page Include="AddPlayer.xaml">
       <SubType>Designer</SubType>
@@ -86,8 +89,8 @@
     <Compile Include="CreateLeague.xaml.cs">
       <DependentUpon>CreateLeague.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EmailToStringConverter.cs" />
-    <Compile Include="EmailValidationRule.cs" />
+    <Compile Include="Converters\EmailToStringConverter.cs" />
+    <Compile Include="ValidationRules\EmailValidationRule.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

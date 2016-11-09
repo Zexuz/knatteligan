@@ -4,11 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KnatteliganWPF"
+        xmlns:validationRules="clr-namespace:KnatteliganWPF.ValidationRules"
+        xmlns:converters="clr-namespace:KnatteliganWPF.Converters"
         mc:Ignorable="d"
         Title="AddTeam" Height="400" Width="400">
     <Window.Resources>
-        <local:EmailToStringConverter x:Key="emailToStringConverter"/>
-        <local:TeamNameToStringConverter x:Key="TeamNameToStringConverter"/>
+        <converters:EmailToStringConverter x:Key="EmailToStringConverter"/>
+        <converters:TeamNameToStringConverter x:Key="TeamNameToStringConverter"/>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -42,7 +44,7 @@
                 <Binding Path="TeamName1" UpdateSourceTrigger="PropertyChanged"
                          Converter="{StaticResource TeamNameToStringConverter}">
                     <Binding.ValidationRules>
-                        <local:TeamNameValidationRule/>
+                        <validationRules:TeamNameValidationRule/>
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>
@@ -59,7 +61,7 @@
                 <Binding Path="PersonName" UpdateSourceTrigger="PropertyChanged"
                          Converter="{StaticResource TeamNameToStringConverter}">
                     <Binding.ValidationRules>
-                        <local:TeamNameValidationRule/>
+                        <validationRules:TeamNameValidationRule/>
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>
@@ -76,9 +78,9 @@
         ToolTip="{Binding ElementName=CoachEmail, Path=(Validation.Errors)[0].ErrorContent}">
         <TextBox.Text>
             <Binding Path="EmailAddress" UpdateSourceTrigger="PropertyChanged"
-                         Converter="{StaticResource emailToStringConverter}">
+                         Converter="{StaticResource EmailToStringConverter}">
                 <Binding.ValidationRules>
-                    <local:EmailValidationRule/>
+                    <validationRules:EmailValidationRule/>
                 </Binding.ValidationRules>
             </Binding>
         </TextBox.Text>

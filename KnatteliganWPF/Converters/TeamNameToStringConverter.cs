@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Data;
 using knatteligan.Domain.ValueObjects;
 
-namespace KnatteliganWPF
+namespace KnatteliganWPF.Converters
 {
     public class TeamNameToStringConverter : IValueConverter
     {

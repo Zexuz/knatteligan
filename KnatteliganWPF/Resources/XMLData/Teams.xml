@@ -112,4 +112,28 @@
     <TeamPersons />
     <Goals />
   </Team>
+  <Team>
+    <Id>fc6afaf7-3573-445f-a321-a188a9dd992f</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>98346ee0-e9dc-4e4c-a55b-6ca08e5cce03</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>e5ac183f-2311-4609-81c7-7bb871d379b7</Id>
+    <Name>
+      <Value>Manu</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
 </ArrayOfTeam>

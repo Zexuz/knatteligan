@@ -1,26 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using knatteligan.Domain.ValueObjects;
 
-namespace KnatteliganWPF
+namespace KnatteliganWPF.ValidationRules
 {
-    public class EmailValidationRule : ValidationRule
+   public class TeamNameValidationRule : ValidationRule
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            if (Email.IsEmail(value.ToString()))
+
+            try
             {
+                new TeamName(value.ToString());
                 return new ValidationResult(true, "");
             }
-            else
+            catch (Exception)
             {
-                return new ValidationResult(false, "Not a valid email address");
+                return new ValidationResult(false, "Not a valid team name.");
             }
+
+
         }
     }
 }

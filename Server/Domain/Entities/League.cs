@@ -9,7 +9,7 @@ namespace knatteligan.Domain.Entities
     {
         public LeagueName Name { get; set; }
         public List<Guid> Teams { get; set; }
-        public Dictionary<int, MatchWeek> MatchWeeks { get; set; }
+        public SerializableDictionary<int, MatchWeek> MatchWeeks { get; set; }
         public DateTime StartDate { get; set; }     
 
         public League() { }

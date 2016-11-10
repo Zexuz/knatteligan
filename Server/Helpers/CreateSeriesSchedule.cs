@@ -12,7 +12,7 @@ namespace knatteligan.Helpers
     public class CreateSeriesSchedule
     {
 
-        public Dictionary<int, MatchWeek> GetFullSeries(List<Team> teams)
+        public SerializableDictionary<int, MatchWeek> GetFullSeries(List<Team> teams)
         {
             var firstHalf = ListMatches(teams, false);
             SwapAllEvenMatchesAtIndexZero(firstHalf);
@@ -20,18 +20,18 @@ namespace knatteligan.Helpers
             var secondHalf = ListMatches(teams, true);
             SwapAllEvenMatchesAtIndexZero(secondHalf);
 
-            var wholeSeries = firstHalf.ToDictionary(entry => entry.Key, entry => entry.Value);
 
             //adds the second half to the first half
-            for (int i = firstHalf.Count + 1; i < firstHalf.Count * 2 + 1; i++) {
-                wholeSeries.Add(i, secondHalf[i - firstHalf.Count]);
+            var firstHalfCount = firstHalf.Count;
+            for (int i = firstHalfCount + 1; i < firstHalfCount * 2 + 1; i++) {
+                firstHalf.Add(i, secondHalf[i - firstHalfCount]);
             }
 
 
-            return wholeSeries;
+            return firstHalf;
         }
 
-        public void PrintMatches(Dictionary<int, MatchWeek> wholeSeries) {
+        public void PrintMatches(SerializableDictionary<int, MatchWeek> wholeSeries) {
             foreach (var round in wholeSeries) {
                 Console.WriteLine($"--- Round {round.Key}---");
                 foreach (var match in round.Value.Matches) {
@@ -41,7 +41,7 @@ namespace knatteligan.Helpers
         }
 
         //used to swap all even matches in every first group at index 0 EG team nr 1
-        private void SwapAllEvenMatchesAtIndexZero(Dictionary<int, MatchWeek> dictionary) {
+        private void SwapAllEvenMatchesAtIndexZero(SerializableDictionary<int, MatchWeek> dictionary) {
             for (int i = 0; i < dictionary.Count; i += 2) {
                 //todo get the match from the guid, swap the match and save the match
                 var matchId = dictionary[i + 1].Matches[0];
@@ -52,7 +52,7 @@ namespace knatteligan.Helpers
         }
 
 
-        private Dictionary<int, MatchWeek> ListMatches(List<Team> listTeam, bool revert) {
+        private SerializableDictionary<int, MatchWeek> ListMatches(List<Team> listTeam, bool revert) {
             if (listTeam.Count % 2 != 0) {
                 throw new InvalidNumberOfTeamsException("There must be a even nunmber of teams to do this!");
             }
@@ -67,7 +67,7 @@ namespace knatteligan.Helpers
 
             int teamsSize = teams.Count;
 
-            var rounds = new Dictionary<int, MatchWeek>();
+            var rounds = new SerializableDictionary<int, MatchWeek>();
 
             for (int round = 0; round < numRounds; round++) {
                 var currentRoundNr = round + 1; // round starts @ index 0, our rounds start at 1

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 
+using knatteligan;
 using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
 using knatteligan.Helpers;
@@ -89,7 +90,7 @@ namespace DeleteMeConsoleApplication {
 
         private List<Team> _listOfTeams;
 
-        private Dictionary<int, MatchWeek> _matches;
+        private SerializableDictionary<int, MatchWeek> _matches;
 
         public void Start() {
             _listOfTeams = new List<Team> {

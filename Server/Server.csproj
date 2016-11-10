@@ -60,6 +60,7 @@
     <Compile Include="Domain\ValueObjects\TeamName.cs" />
     <Compile Include="Domain\ValueObjects\LeagueName.cs" />
     <Compile Include="Helpers\CreateSeriesSchedule.cs" />
+    <Compile Include="Helpers\MatchWeek.cs" />
     <Compile Include="Helpers\Serializer.cs" />
     <Compile Include="Repositories\AssistRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />

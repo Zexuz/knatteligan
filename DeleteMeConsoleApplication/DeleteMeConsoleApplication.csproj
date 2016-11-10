@@ -46,6 +46,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="Resources\XMLData\GameEvents\Assists.xml" />
+    <Content Include="Resources\XMLData\GameEvents\Goals.xml" />
+    <Content Include="Resources\XMLData\GameEvents\RedCards.xml" />
+    <Content Include="Resources\XMLData\GameEvents\YellowCards.xml" />
+    <Content Include="Resources\XMLData\Leagues.xml" />
+    <Content Include="Resources\XMLData\Matches.xml" />
+    <Content Include="Resources\XMLData\Persons\Coaches.xml" />
+    <Content Include="Resources\XMLData\Persons\Players.xml" />
+    <Content Include="Resources\XMLData\Teams.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />

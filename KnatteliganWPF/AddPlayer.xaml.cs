@@ -1,4 +1,5 @@
-﻿using System;
+﻿using knatteligan.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace KnatteliganWPF
     /// </summary>
     public partial class AddPlayer : Window
     {
+        public string PlayerName { get; set; }
         public string SocialSecurityNumber { get; set; }
         public AddPlayer()
         {
@@ -34,6 +36,11 @@ namespace KnatteliganWPF
         public void searchTextBox_TextChanged(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

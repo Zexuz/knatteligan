@@ -24,13 +24,12 @@ namespace KnatteliganWPF
     {
         public Team Team { get; set; }
         public Coach Coach { get; set; }
+        public List<Player> Players { get; set; }
         public TeamName TeamName { get; set; }
-        public List<TeamPerson> TeamPersons { get; set; }
         public PersonName PersonName { get; set; }
         public PersonalNumber PersonalNumber { get; set; }
         public PhoneNumber PhoneNumber { get; set; }
         public Email EmailAddress { get; set; }
-        public List<Player> Players { get; set; }
 
 
         public AddTeamWindow()
@@ -42,7 +41,7 @@ namespace KnatteliganWPF
 
         private void AddPlayer_Clicked(object sender, RoutedEventArgs e)
         {
-            var addPlayerWindow = new AddPlayerWindow();
+            var addPlayerWindow = new AddPlayer();
             var addPlayerResult = addPlayerWindow.ShowDialog();
             if (!addPlayerResult.HasValue) return;
 
@@ -59,7 +58,7 @@ namespace KnatteliganWPF
 
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
-            Team = new Team(TeamName, TeamPersons);
+            Team = new Team(TeamName, Players, Coach);
 
             DialogResult = true;
             Close();

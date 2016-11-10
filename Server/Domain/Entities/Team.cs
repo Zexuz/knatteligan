@@ -7,19 +7,20 @@ namespace knatteligan.Domain.Entities
     public class Team : Entity
     {
         public TeamName Name { get; set; }
-        //TODO: League necessary?
-        public List<Guid> TeamPersonIds { get; set; } = new List<Guid>();
+        public List<Guid> PlayerIds { get; set; } = new List<Guid>();
         public List<Guid> Goals { get; set; } = new List<Guid>();
+        public Guid CoachId { get; set; }
 
         public Team() { }
 
 
-        public Team(TeamName name, IEnumerable<TeamPerson> teamPersons)
+        public Team(TeamName name, IEnumerable<Player> players, Coach coach)
         {
             Name = name;
-            foreach (var teamPersonId in teamPersons)
+            CoachId = coach.Id;
+            foreach (var player in players)
             {
-                TeamPersonIds.Add(teamPersonId.Id);
+                PlayerIds.Add(player.Id);
             }
         }
         public override string ToString()

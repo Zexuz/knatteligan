@@ -4,9 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:validationRules="clr-namespace:KnatteliganWPF.ValidationRules"
+        xmlns:converters="clr-namespace:KnatteliganWPF.Converters"
         xmlns:local="clr-namespace:KnatteliganWPF"
         mc:Ignorable="d"
         Title="AddPlayer" Height="300" Width="250">
+    <Window.Resources>
+        <converters:PersonNameToStringConverter x:Key="PersonNameToStringConverter"/>
+    </Window.Resources>
     <Grid Margin="0,0,2,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -31,16 +35,16 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Margin="10 5 0 0">Name:</TextBlock>
-        <TextBox Name="personName" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" VerticalContentAlignment="Center" Margin="10 0 0 0">
-            <!--TextChanged="searchTextBox_TextChanged"-->
-            <!--ToolTip="{Binding ElementName=socialSecurityNumber, Path=(Validation.Errors)[0].ErrorContent}">-->
-            <!--<TextBox.Text>
-                <Binding Path="PersonName" UpdateSourceTrigger="PropertyChanged" >
+        <TextBox Name="PersonNameTextBox" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" VerticalContentAlignment="Center" Margin="10 0 0 0"
+            ToolTip="{Binding ElementName=PersonNameTextBox, Path=(Validation.Errors)[0].ErrorContent}">
+            <TextBox.Text>
+                <Binding Path="PlayerName" UpdateSourceTrigger="PropertyChanged"
+                         Converter="{StaticResource PersonNameToStringConverter}">
                     <Binding.ValidationRules>
-                        <validationRules:SocialNumberValidationRule/>
+                        <validationRules:PersonNameValidationRule/>
                     </Binding.ValidationRules>
                 </Binding>
-            </TextBox.Text>-->
+            </TextBox.Text>
         </TextBox>
         <TextBlock Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3" Margin="10 5 0 0">Social security number:</TextBlock>
         <TextBox Name="socialSecurityNumber" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" VerticalContentAlignment="Center" Margin="10 0 0 0" TextChanged="searchTextBox_TextChanged" 
@@ -68,7 +72,7 @@
 
 
         <Button Grid.Row="6" Grid.Column="1" Margin="5" Click="CloseCommandHandler_Clicked">Cancel</Button>
-        <Button Grid.Row="6" Grid.Column="2"  Margin="5">Add</Button>
+        <Button Grid.Row="6" Grid.Column="2"  Margin="5" Click="ButtonBase_OnClick">Add</Button>
 
     </Grid>
 </Window>

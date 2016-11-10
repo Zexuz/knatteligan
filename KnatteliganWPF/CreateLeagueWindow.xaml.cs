@@ -76,7 +76,7 @@ namespace KnatteliganWPF
         {
             var team = (Team)TeamList.SelectedItem;
 
-            var players = team.TeamPersonIds.Select(teamPersonId => _personService.FindPlayerById(teamPersonId))
+            var players = team.PlayerIds.Select(teamPersonId => _personService.FindPlayerById(teamPersonId))
                 .Where(teamPerson => teamPerson.GetType() == Persons.Player).Cast<Player>().ToList();
 
             var addTeamWindow = new AddTeamWindow()

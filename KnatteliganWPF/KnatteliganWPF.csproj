@@ -55,25 +55,32 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddTeamWindow.xaml.cs">
+      <DependentUpon>AddTeamWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\LeagueNameToStringConverter.cs" />
     <Compile Include="Converters\PersonNameToStringConverter.cs" />
     <Compile Include="Converters\PhoneNumberToStringConverter.cs" />
     <Compile Include="Converters\TeamNameToStringConverter.cs" />
+    <Compile Include="CreateLeagueWindow.xaml.cs">
+      <DependentUpon>CreateLeagueWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ValidationRules\PersonNameValidationRule.cs" />
     <Compile Include="ValidationRules\PhoneNumberValidationRule.cs" />
     <Compile Include="ValidationRules\TeamNameValidationRule.cs" />
     <Compile Include="ValidationRules\LeagueNameValidationRule.cs" />
+    <Compile Include="ValidationRules\SocialNumberValidationRule.cs" />
     <Page Include="AddPlayerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddTeamWindow.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="CreateLeagueWindow.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -82,15 +89,9 @@
     <Compile Include="AddPlayerWindow.xaml.cs">
       <DependentUpon>AddPlayerWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddTeamWindow.xaml.cs">
-      <DependentUpon>AddTeamWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="CreateLeagueWindow.xaml.cs">
-      <DependentUpon>CreateLeagueWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\EmailToStringConverter.cs" />
     <Compile Include="ValidationRules\EmailValidationRule.cs" />

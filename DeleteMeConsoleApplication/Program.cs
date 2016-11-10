@@ -18,18 +18,20 @@ namespace DeleteMeConsoleApplication
 
             foreach (var teamName in teamNames)
             {
-                var teamPersons = new List<TeamPerson>();
-                var team = new Team();
+                var players = new List<Player>();
+                var coach = GenareNewCoach();
+                var team = new Team(new TeamName(teamName), players, coach);
+
 
                 for (var i = 0; i < 15; i++)
                 {
-                    var player = GenareNewPlayer(team);
-                    teamPersons.Add(player);
-                    team.TeamPersonIds.Add(player.Id);
+                    var player = GenareNewPlayer();
+                    
+                    players.Add(player);
 
                     PersonRepository.GetInstance().Add(player);
                 }
-                team.Name = new TeamName(teamName);
+
                 teams.Add(team);
                 TeamRepository.GetInstance().Add(team);
             }
@@ -37,12 +39,19 @@ namespace DeleteMeConsoleApplication
             Console.WriteLine(teams);
         }
 
-        private static Player GenareNewPlayer(Team team)
+        private static Player GenareNewPlayer()
         {
             var randomName = GenerateNewPersonFirstAndLastName();
             var randomPersonalNumber = GenerateNewPersonalNumber();
 
-            return new Player(randomName, randomPersonalNumber, team);
+            return new Player(randomName, randomPersonalNumber);
+        }
+
+        private static Coach GenareNewCoach()
+        {
+            var randomName = GenerateNewPersonFirstAndLastName();
+
+            return new Coach(randomName, new PersonalNumber(new DateTime(1996,08,01),"8811" ), new PhoneNumber("0733209064"), new Email("leon@l.se") );
         }
 
         private static PersonalNumber GenerateNewPersonalNumber()

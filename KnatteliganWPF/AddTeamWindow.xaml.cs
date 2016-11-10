@@ -17,13 +17,13 @@ namespace KnatteliganWPF
     {
         public Team Team { get; set; }
         public Coach Coach { get; set; }
+        public List<Player> Players { get; set; }
         public TeamName TeamName { get; set; }
-        public List<TeamPerson> TeamPersons { get; set; }
         public PersonName PersonName { get; set; }
         public PersonalNumber PersonalNumber { get; set; }
         public PhoneNumber PhoneNumber { get; set; }
         public Email EmailAddress { get; set; }
-        public List<Player> Players { get; set; }
+        private readonly PersonService _personService;
 
         private readonly PersonService _personService;
 
@@ -32,6 +32,7 @@ namespace KnatteliganWPF
         public AddTeamWindow()
         {
             InitializeComponent();
+            Players = new List<Player>();
             _personService = new PersonService();
             DataContext = this;
         }
@@ -42,15 +43,16 @@ namespace KnatteliganWPF
             var addPlayerResult = addPlayerWindow.ShowDialog();
             if (!addPlayerResult.HasValue) return;
 
-            if (Players.Count >= 20)
+            _personService.Add(addPlayerWindow.Player);
+            Players.Add(addPlayerWindow.Player);
+            PlayerList.ItemsSource = new ObservableCollection<Player>(Players);
+
+
+
+            if (Players.Count >= 1)
             {
                 AddTeamBtn.IsEnabled = true;
             }
-
-            _personService.Add(addPlayerWindow.Player);
-            Players = _personService.GetAllPlayers().ToList();
-            //Teams.Add(addTeamWindow.Team);
-            PlayerList.ItemsSource = new ObservableCollection<Player>(Players);
         }
 
         private void CloseCommandHandler_Clicked(object sender, RoutedEventArgs e)
@@ -60,7 +62,8 @@ namespace KnatteliganWPF
 
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
-            Team = new Team(TeamName, TeamPersons);
+
+            Team = new Team(TeamName, Players, Coach);
 
             DialogResult = true;
             Close();

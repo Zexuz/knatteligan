@@ -23,7 +23,7 @@ namespace Testing
             var homeTeam = new Team(new TeamName("Man U"));
             var awayTeam = new Team(new TeamName("Liverpool"));
             var player1 = new Player(new PersonName("Kalle", "Sten"), new PersonalNumber(new DateTime(1996, 5, 28), "8819"), homeTeam);
-            homeTeam.TeamPersonIds.Add(player1);
+            homeTeam.PlayerIds.Add(player1);
             var match1 = new Match(homeTeam, awayTeam)
             {
                 HomeTeam = homeTeam,
@@ -32,7 +32,7 @@ namespace Testing
             player1.Goals.Add(new Goal(player1.Id, homeTeam.Id));
             player1.YellowCards.Add(new YellowCard(player1.Id, homeTeam.Id));
 
-            var homeTeamGoals = homeTeam.TeamPersonIds.OfType<Player>().Select(x => x.Goals).Count();
+            var homeTeamGoals = homeTeam.PlayerIds.OfType<Player>().Select(x => x.Goals).Count();
             var player1Goals = player1.Goals.Count;
 
             Assert.AreEqual(expectedGoals, homeTeamGoals);

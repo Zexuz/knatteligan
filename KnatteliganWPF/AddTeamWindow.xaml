@@ -13,7 +13,6 @@
         <converters:EmailToStringConverter x:Key="EmailToStringConverter"/>
         <converters:TeamNameToStringConverter x:Key="TeamNameToStringConverter"/>
         <converters:PersonNameToStringConverter x:Key="PersonNameToStringConverter"/>
-        
         <converters:PhoneNumberToStringConverter x:Key="PhoneNumberToStringConverter"/>
     </Window.Resources>
     <Grid>
@@ -70,14 +69,13 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-
-            <TextBlock Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="4">Personal number</TextBlock>
+        <TextBlock Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="4">Personal number</TextBlock>
         <TextBox Name="PersonalNumberTextBox" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="5"
                  ToolTip="{Binding ElementName=PersonalNumberTextBox, Path=(Validation.Errors)[0].ErrorContent}">
             <TextBox.Text>
-                <Binding Path="PersonalNumber" UpdateSourceTrigger="PropertyChanged">
+                <Binding Path="PersonalNumber" UpdateSourceTrigger="PropertyChanged" >
                     <Binding.ValidationRules>
-                        
+                        <validationRules:SocialNumberValidationRule/>
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>

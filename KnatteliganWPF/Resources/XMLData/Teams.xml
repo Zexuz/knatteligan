@@ -234,4 +234,15 @@
     <Goals />
     <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
   </Team>
+  <Team>
+    <Id>0185c319-1ad1-4602-8e19-d0582fe02859</Id>
+    <Name>
+      <Value>fdfdf</Value>
+    </Name>
+    <PlayerIds>
+      <guid>dedc0c7b-e08d-436b-8a8a-7008e08a915f</guid>
+    </PlayerIds>
+    <Goals />
+    <CoachId>c5997a06-46ba-4c69-8754-27656cc57ecc</CoachId>
+  </Team>
 </ArrayOfTeam>

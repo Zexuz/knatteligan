@@ -62,8 +62,8 @@ namespace KnatteliganWPF
 
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
-
-            Team = new Team(TeamName, Players, Coach);
+            var coach = new Coach(PersonName, PersonalNumber, PhoneNumber, EmailAddress);
+            Team = new Team(TeamName, Players, coach);
 
             DialogResult = true;
             Close();

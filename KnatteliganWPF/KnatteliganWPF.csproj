@@ -55,6 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\LeagueNameToStringConverter.cs" />
+    <Compile Include="Converters\PersonNameToStringConverter.cs" />
+    <Compile Include="Converters\TeamNameToStringConverter.cs" />
+    <Compile Include="ValidationRules\TeamNameValidationRule.cs" />
+    <Compile Include="ValidationRules\LeagueNameValidationRule.cs" />
     <Page Include="AddPlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -84,6 +89,8 @@
     <Compile Include="CreateLeague.xaml.cs">
       <DependentUpon>CreateLeague.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\EmailToStringConverter.cs" />
+    <Compile Include="ValidationRules\EmailValidationRule.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -131,14 +138,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\XMLData\Assists.xml" />
-    <Content Include="Resources\XMLData\Goals.xml" />
+    <Content Include="Resources\XMLData\GameEvents\Assists.xml" />
+    <Content Include="Resources\XMLData\GameEvents\Goals.xml" />
+    <Content Include="Resources\XMLData\GameEvents\RedCards.xml" />
+    <Content Include="Resources\XMLData\GameEvents\YellowCards.xml" />
+    <Content Include="Resources\XMLData\Persons\Coaches.xml" />
+    <Content Include="Resources\XMLData\Persons\Players.xml" />
     <Content Include="Resources\XMLData\Leagues.xml" />
     <Content Include="Resources\XMLData\Matches.xml" />
-    <Content Include="Resources\XMLData\Persons.xml" />
-    <Content Include="Resources\XMLData\RedCards.xml" />
     <Content Include="Resources\XMLData\Teams.xml" />
-    <Content Include="Resources\XMLData\YellowCards.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Server\Server.csproj">

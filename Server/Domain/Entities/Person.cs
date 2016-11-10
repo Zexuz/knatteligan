@@ -1,21 +1,27 @@
-﻿using System;
-using knatteligan.Domain.ValueObjects;
+﻿using knatteligan.Domain.ValueObjects;
 
 namespace knatteligan.Domain.Entities
 {
-    public class Person:Entity
+    public abstract class Person : Entity
     {
         public PersonName Name { get; set; }
         public PersonalNumber PersonalNumber { get; set; }
+
+        public Person() { }
 
         public Person(PersonName name, PersonalNumber personalNumber)
         {
             Name = name;
             PersonalNumber = personalNumber;
         }
-        public Person()
-        {
 
-        }
+        public new abstract Persons GetType();
+
+    }
+
+    public enum Persons
+    {
+        Coach,
+        Player
     }
 }

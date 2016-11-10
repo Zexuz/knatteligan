@@ -29,19 +29,20 @@ namespace KnatteliganWPF
         public MainWindow()
         {
             InitializeComponent();
-            var x = PersonRepository.GetInstance().GetAll();
+           // var x = PersonRepository.GetInstance().GetAll();
         }
         private void CreateLeague_Clicked(object sender, RoutedEventArgs e)
         {
             var createLeague = new CreateLeague();
             var createLeagueResult = createLeague.ShowDialog();
-
         }
+
         private void ManageLeague_Clicked(object sender, RoutedEventArgs e)
         {
             var manageLeague = new ManageLeague();
             var manageLeagueResult = manageLeague.ShowDialog();
-          
+           
+
         }
     }
 }

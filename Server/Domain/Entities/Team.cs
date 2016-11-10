@@ -6,18 +6,21 @@ namespace knatteligan.Domain.Entities
 {
     public class Team:Entity
     {
-        //public Guid Id { get; set; }
         public TeamName Name { get; set; }
-        public List<TeamPerson> TeamPersons { get; set; }
-        
+        //TODO: League necessary?
+        public List<Guid> TeamPersons { get; set; } = new List<Guid>();
+        public List<Guid> Goals { get; set; } = new List<Guid>();
+
+        public Team() { }
+
+
         public Team(TeamName name)
         {
             Name = name;
-            TeamPersons = new List<TeamPerson>();
         }
-        public Team()
+        public override string ToString()
         {
-
+            return Name.Value;
         }
     }
 }

@@ -1,4 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<list>
-
-</list>
+<?xml version="1.0"?>
+<ArrayOfLeague xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <League>
+    <Id>eb72df8e-33db-41cc-b306-9611004c74f6</Id>
+    <Teams />
+    <StartDate>0001-01-01T00:00:00</StartDate>
+  </League>
+</ArrayOfLeague>

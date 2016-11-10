@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using knatteligan.Domain.Entities;
+using knatteligan.Domain.ValueObjects;
+using knatteligan.Services;
 
 namespace KnatteliganWPF
 {
@@ -19,14 +22,35 @@ namespace KnatteliganWPF
     /// </summary>
     public partial class AddTeam : Window
     {
+        public Team Team { get; set; }
+
+        public TeamName TeamName1 { get; set; }
+
+        public PersonName PersonName { get; set; }
+
+        public PersonalNumber PersonalNumber { get; set; }
+
+        public PhoneNumber PhoneNumber { get; set; }
+
+        public Email EmailAddress { get; set; }
+
+        public List<Player> Players { get; set; }
+
+        private readonly PersonService _personService;
+        private readonly TeamService _teamService;
         public AddTeam()
         {
             InitializeComponent();
+            _personService = new PersonService();
+            _teamService = new TeamService();
+            Players = new List<Player>();
+            DataContext = this;
+
         }
         private void AddPlayer_Clicked(object sender, RoutedEventArgs e)
         {
             var addPlayer = new AddPlayer();
-            var addPlayerResult = addPlayer.ShowDialog();
+            addPlayer.ShowDialog();
   
         }
         private void CloseCommandHandler_Clicked(object sender, RoutedEventArgs e)
@@ -34,5 +58,13 @@ namespace KnatteliganWPF
             this.Close();
         }
 
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            Team = new Team(TeamName1);
+            _teamService.Add(Team);
+            var coach = new Coach(PersonName, PersonalNumber, PhoneNumber, EmailAddress, Team);
+            _personService.Add(coach);
+
+        }
     }
 }

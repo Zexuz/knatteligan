@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+
 using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
 using knatteligan.Helpers;
 using knatteligan.Repositories;
 
 
-namespace DeleteMeConsoleApplication
-{
-    internal class Program
-    {
-        public static void Main(string[] args)
-        {
+namespace DeleteMeConsoleApplication {
 
+    internal class Program {
+
+        public static void Main(string[] args) {
             // Our new "test" for createSeries
             // new TestClass().Start();
             // Environment.Exit(0);
@@ -22,17 +21,15 @@ namespace DeleteMeConsoleApplication
             var teamNames = new[] {"Mad Amigos", "Good Saints", "Crazy Mehicans", "Cool Cats", "The wolfs", "Cowboys"};
             var teams = new List<Team>();
 
-            foreach (var teamName in teamNames)
-            {
+            foreach (var teamName in teamNames) {
                 var players = new List<Player>();
                 var coach = GenareNewCoach();
                 var team = new Team(new TeamName(teamName), players, coach);
 
 
-                for (var i = 0; i < 15; i++)
-                {
+                for (var i = 0; i < 15; i++) {
                     var player = GenareNewPlayer();
-                    
+
                     players.Add(player);
 
                     PersonRepository.GetInstance().Add(player);
@@ -42,34 +39,38 @@ namespace DeleteMeConsoleApplication
                 TeamRepository.GetInstance().Add(team);
             }
 
+            var seriesCerater = new CreateSeriesSchedule();
+
+            var ourLeage = new League(new LeagueName("Robins Test league"), teams.Select(team => team.Id).ToList()) {
+                MatchWeeks = seriesCerater.GetFullSeries(teams)
+            };
+
+            LeagueRepository.GetInstance().Add(ourLeage);
             Console.WriteLine(teams);
         }
 
-        private static Player GenareNewPlayer()
-        {
+        private static Player GenareNewPlayer() {
             var randomName = GenerateNewPersonFirstAndLastName();
             var randomPersonalNumber = GenerateNewPersonalNumber();
 
             return new Player(randomName, randomPersonalNumber);
         }
 
-        private static Coach GenareNewCoach()
-        {
+        private static Coach GenareNewCoach() {
             var randomName = GenerateNewPersonFirstAndLastName();
 
-            return new Coach(randomName, new PersonalNumber(new DateTime(1996,08,01),"8811" ), new PhoneNumber("0733209064"), new Email("leon@l.se") );
+            return new Coach(randomName, new PersonalNumber(new DateTime(1996, 08, 01), "8811"),
+                new PhoneNumber("0733209064"), new Email("leon@l.se"));
         }
 
-        private static PersonalNumber GenerateNewPersonalNumber()
-        {
+        private static PersonalNumber GenerateNewPersonalNumber() {
             var date = new DateTime(GenNewNumber(1990, 2010), GenNewNumber(1, 12), GenNewNumber(1, 28));
 
             var lastfour = $"{GenNewNumber(0, 10)}{GenNewNumber(0, 10)}{GenNewNumber(0, 10)}{GenNewNumber(0, 10)}";
             return new PersonalNumber(date, lastfour);
         }
 
-        private static PersonName GenerateNewPersonFirstAndLastName()
-        {
+        private static PersonName GenerateNewPersonFirstAndLastName() {
             var firstNames = new[] {"Jhon", "Adam", "Kevein", "Daniel", "Alex", "James", "Peter", "Sandra", "Roberto"};
             var lastNames = new[] {"Doe", "Smith", "Jhonsson", "Karlsson", "Kevinsson", "Moth", "Rodrigas", "Aleandro"};
 
@@ -78,10 +79,10 @@ namespace DeleteMeConsoleApplication
             return new PersonName(firstName);
         }
 
-        private static int GenNewNumber(int min, int max)
-        {
+        private static int GenNewNumber(int min, int max) {
             return new Random().Next(min, max);
         }
+
     }
 
     internal class TestClass {

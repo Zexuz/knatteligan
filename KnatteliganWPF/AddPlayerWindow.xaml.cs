@@ -12,7 +12,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using knatteligan.Domain.ValueObjects;
 
 namespace KnatteliganWPF
 {
@@ -21,10 +20,6 @@ namespace KnatteliganWPF
     /// </summary>
     public partial class AddPlayerWindow : Window
     {
-        public Player Player { get; set; }
-
-        public PersonName PlayerName { get; set; }
-        public PersonalNumber SocialSecurityNumber { get; set; }
         public AddPlayerWindow()
         {
             InitializeComponent();

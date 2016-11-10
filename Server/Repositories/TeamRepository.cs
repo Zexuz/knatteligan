@@ -26,10 +26,10 @@ namespace knatteligan.Repositories
             Save(_teamPath, _teams);
         }
 
-        public void Edit(Team team, TeamName newTeamName, IEnumerable<TeamPerson> newTeamPersons)
+        public void Edit(Team team, TeamName newTeamName, IEnumerable<Player> players, Coach coach)
         {
             var index = _teams.FindIndex(x => x.Id == team.Id);
-            _teams[index] = new Team(newTeamName, newTeamPersons);
+            _teams[index] = new Team(newTeamName, players, coach);
             Save(_teamPath, _teams);
         }
 
@@ -47,9 +47,9 @@ namespace knatteligan.Repositories
         {
             _teams.Remove(team);
 
-            foreach (var teamPerson in team.TeamPersonIds)
+            foreach (var player in team.PlayerIds)
             {
-                _personService.RemovePlayer(teamPerson);
+                _personService.RemovePlayer(player);
             }
 
 

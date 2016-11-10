@@ -101,7 +101,7 @@ namespace KnatteliganWPF
 
 
             //TODO: Does this even work?
-            _teamService.Edit(addTeamWindow.Team, addTeamWindow.TeamName, addTeamWindow.TeamPersons);
+            _teamService.Edit(addTeamWindow.Team, addTeamWindow.TeamName, addTeamWindow.Players, addTeamWindow.Coach);
             //Teams.Add(addTeamWindow.Team);
             TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
         }

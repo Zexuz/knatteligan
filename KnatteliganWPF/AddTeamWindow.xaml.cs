@@ -25,7 +25,6 @@ namespace KnatteliganWPF
         public Email EmailAddress { get; set; }
         private readonly PersonService _personService;
 
-        private readonly PersonService _personService;
 
 
 

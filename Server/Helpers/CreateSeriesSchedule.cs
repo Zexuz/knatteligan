@@ -35,7 +35,7 @@ namespace knatteligan.Helpers
             foreach (var round in wholeSeries) {
                 Console.WriteLine($"--- Round {round.Key}---");
                 foreach (var match in round.Value.Matches) {
-                    Console.WriteLine(match);
+                    Console.WriteLine(MatchRepository.GetInstance().Find(match));
                 }
             }
         }

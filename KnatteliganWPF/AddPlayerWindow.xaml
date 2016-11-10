@@ -1,4 +1,4 @@
-﻿<Window x:Class="KnatteliganWPF.AddPlayer"
+﻿<Window x:Class="KnatteliganWPF.AddPlayerWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,7 +7,7 @@
         xmlns:converters="clr-namespace:KnatteliganWPF.Converters"
         xmlns:local="clr-namespace:KnatteliganWPF"
         mc:Ignorable="d"
-        Title="AddPlayer" Height="300" Width="250">
+        Title="AddPlayerWindow" Height="300" Width="250">
     <Window.Resources>
         <converters:PersonNameToStringConverter x:Key="PersonNameToStringConverter"/>
     </Window.Resources>
@@ -72,7 +72,7 @@
 
 
         <Button Grid.Row="6" Grid.Column="1" Margin="5" Click="CloseCommandHandler_Clicked">Cancel</Button>
-        <Button Grid.Row="6" Grid.Column="2"  Margin="5" Click="ButtonBase_OnClick">Add</Button>
+        <Button Grid.Row="6" Grid.Column="2"  Margin="5" Click="AddPlayerClick">Add</Button>
 
     </Grid>
 </Window>

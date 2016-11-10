@@ -12,17 +12,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using knatteligan.Domain.ValueObjects;
 
 namespace KnatteliganWPF
 {
     /// <summary>
-    /// Interaction logic for AddPlayer.xaml
+    /// Interaction logic for AddPlayerWindow.xaml
     /// </summary>
-    public partial class AddPlayer : Window
+    public partial class AddPlayerWindow : Window
     {
-        public string PlayerName { get; set; }
-        public string SocialSecurityNumber { get; set; }
-        public AddPlayer()
+        public Player Player { get; set; }
+
+        public PersonName PlayerName { get; set; }
+        public PersonalNumber SocialSecurityNumber { get; set; }
+        public AddPlayerWindow()
         {
             InitializeComponent();
             DataContext = this;
@@ -38,9 +41,13 @@ namespace KnatteliganWPF
 
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void AddPlayerClick(object sender, RoutedEventArgs e)
         {
-            
+            Player = new Player(PlayerName, SocialSecurityNumber);
+            DialogResult = true;
+            Close();
+
+
         }
     }
 }

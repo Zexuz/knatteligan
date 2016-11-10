@@ -54,4 +54,58 @@
     <Goals />
     <CoachId>23985cdc-cfc4-4318-81e2-1b44b74d3e87</CoachId>
   </Team>
+  <Team>
+    <Id>68be2e45-8c28-42df-9b83-fd5dba4fa58e</Id>
+    <Name>
+      <Value>Mad Amigos</Value>
+    </Name>
+    <PlayerIds />
+    <Goals />
+    <CoachId>e5a46275-8759-47d2-aef0-62383674fd76</CoachId>
+  </Team>
+  <Team>
+    <Id>18306cf0-2df9-41ca-9a17-22e28e70ab3a</Id>
+    <Name>
+      <Value>Good Saints</Value>
+    </Name>
+    <PlayerIds />
+    <Goals />
+    <CoachId>d2d30caf-9db0-497e-9fbc-0f35d6740b7d</CoachId>
+  </Team>
+  <Team>
+    <Id>1e8e5131-724c-4c26-8389-b01e1ae896d2</Id>
+    <Name>
+      <Value>Crazy Mehicans</Value>
+    </Name>
+    <PlayerIds />
+    <Goals />
+    <CoachId>e2139996-d9bb-4aaf-91e8-232cb85d5aa2</CoachId>
+  </Team>
+  <Team>
+    <Id>2b3d39d3-49d1-479c-bea9-f4416dc59d58</Id>
+    <Name>
+      <Value>Cool Cats</Value>
+    </Name>
+    <PlayerIds />
+    <Goals />
+    <CoachId>61af3db8-51c4-4bd8-b8d2-5a8764aca17f</CoachId>
+  </Team>
+  <Team>
+    <Id>ca4a2f5a-45c0-4a8d-a80e-f10e8f7923b4</Id>
+    <Name>
+      <Value>The wolfs</Value>
+    </Name>
+    <PlayerIds />
+    <Goals />
+    <CoachId>1ecb3bc9-9ce2-449d-bc87-232815955bd6</CoachId>
+  </Team>
+  <Team>
+    <Id>fddf60e2-57fa-4d37-8cc4-02fe023949e3</Id>
+    <Name>
+      <Value>Cowboys</Value>
+    </Name>
+    <PlayerIds />
+    <Goals />
+    <CoachId>dc9ab48a-16b5-4f46-a425-a5d569368a4c</CoachId>
+  </Team>
 </ArrayOfTeam>

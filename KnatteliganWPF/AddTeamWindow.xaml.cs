@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,22 +31,30 @@ namespace KnatteliganWPF
         public PersonalNumber PersonalNumber { get; set; }
         public PhoneNumber PhoneNumber { get; set; }
         public Email EmailAddress { get; set; }
+        private readonly PersonService _personService;
 
 
         public AddTeamWindow()
         {
             InitializeComponent();
-            PlayerList.ItemsSource = Players;
+            Players = new List<Player>();
+            _personService = new PersonService();
             DataContext = this;
         }
 
         private void AddPlayer_Clicked(object sender, RoutedEventArgs e)
         {
-            var addPlayerWindow = new AddPlayer();
+            var addPlayerWindow = new AddPlayerWindow();
             var addPlayerResult = addPlayerWindow.ShowDialog();
             if (!addPlayerResult.HasValue) return;
 
-            if (Players.Count >= 20)
+            _personService.Add(addPlayerWindow.Player);
+            Players.Add(addPlayerWindow.Player);
+            PlayerList.ItemsSource = new ObservableCollection<Player>(Players);
+
+
+
+            if (Players.Count >= 1)
             {
                 AddTeamBtn.IsEnabled = true;
             }
@@ -58,6 +67,7 @@ namespace KnatteliganWPF
 
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
+
             Team = new Team(TeamName, Players, Coach);
 
             DialogResult = true;

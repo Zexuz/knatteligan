@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
+using knatteligan.Helpers;
 using knatteligan.Repositories;
 
 
@@ -13,27 +14,34 @@ namespace DeleteMeConsoleApplication
     {
         public static void Main(string[] args)
         {
+            new TestClass().Start();
 
-            var teamNames = new[] {"Mad Amigos", "Good Saints", "Crazy Mehicans", "Cool Cats", "The wolfs", "Cowboys"};
-            var teams = new List<Team>();
+            Environment.Exit(0);
 
-            foreach (var teamName in teamNames)
-            {
-                var team = new Team(new TeamName(teamName));
+            /*
 
-                for (int i = 0; i < 15; i++)
-                {
-                    var player = GenareNewPlayer(team);
-                    team.TeamPersons.Add(player.Id);
+    var teamNames = new[] {"Mad Amigos", "Good Saints", "Crazy Mehicans", "Cool Cats", "The wolfs", "Cowboys"};
+              var teams = new List<Team>();
 
-                    PersonRepository.GetInstance().Add(player);
-                }
+              foreach (var teamName in teamNames)
+              {
+                  var team = new Team(new TeamName(teamName));
 
-                teams.Add(team);
-                TeamRepository.GetInstance().Add(team);
-            }
+                  for (int i = 0; i < 15; i++)
+                  {
+                      var player = GenareNewPlayer(team);
+                      team.TeamPersons.Add(player.Id);
 
-            Console.WriteLine(teams);
+                      PersonRepository.GetInstance().Add(player);
+                  }
+
+                  teams.Add(team);
+                  TeamRepository.GetInstance().Add(team);
+              }
+
+              Console.WriteLine(teams);
+
+  */
         }
 
         private static Player GenareNewPlayer(Team team)
@@ -65,6 +73,78 @@ namespace DeleteMeConsoleApplication
         private static int GenNewNumber(int min, int max)
         {
             return new Random().Next(min, max);
+        }
+    }
+
+    internal class TestClass
+    {
+        private List<Team> _listOfTeams;
+
+        private Dictionary<int, MatchWeek> _matches;
+
+        public void Start()
+        {
+            _listOfTeams = new List<Team>
+            {
+                new Team
+                {
+                    Name = new TeamName("One")
+                },
+                new Team
+                {
+                    Name = new TeamName("Two")
+                },
+                new Team
+                {
+                    Name = new TeamName("Three")
+                },
+                new Team
+                {
+                    Name = new TeamName("Four")
+                }
+            };
+
+            var serieCreateer = new CreateSeriesSchedule();
+            _matches = serieCreateer.GetFullSeries(_listOfTeams);
+            serieCreateer.PrintMatches(_matches);
+
+            Console.WriteLine($"NrOfRoundsIsCorrect: {NrOfRoundsIsCorrect()}");
+            Console.WriteLine($"AllTeamsPlaysSameAmountOfMatchesHome: {AllTeamsPlaysSameAmountOfMatchesHome()}");
+            Console.WriteLine($"AllTeamsPlaysSameAmountOfMatchesAway: {AllTeamsPlaysSameAmountOfMatchesAway()}");
+        }
+
+        public bool NrOfRoundsIsCorrect()
+        {
+            var number = (_listOfTeams.Count - 1) * 2;
+            return number == _matches.Count;
+        }
+
+        public bool AllTeamsPlaysSameAmountOfMatchesHome()
+        {
+            var allMatches = new List<Match>();
+
+            foreach (var keys in _matches.Keys)
+            {
+                allMatches.AddRange(_matches[keys].Matches.Select(matchId => MatchRepository.GetInstance().Find(matchId)));
+            }
+
+            var groupedMatches = allMatches.GroupBy(match => match.HomeTeam);
+
+            return (4 == groupedMatches.ToList().Count);
+        }
+
+        public bool AllTeamsPlaysSameAmountOfMatchesAway()
+        {
+            var allMatches = new List<Match>();
+
+            foreach (var keys in _matches.Keys)
+            {
+                allMatches.AddRange(_matches[keys].Matches.Select(matchId => MatchRepository.GetInstance().Find(matchId)));
+            }
+
+            var groupedMatches = allMatches.GroupBy(match => match.AwayTeam);
+
+            return (4 == groupedMatches.ToList().Count);
         }
     }
 }

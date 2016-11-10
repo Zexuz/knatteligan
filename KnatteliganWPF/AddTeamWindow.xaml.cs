@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -31,7 +32,6 @@ namespace KnatteliganWPF
         public AddTeamWindow()
         {
             InitializeComponent();
-            PlayerList.ItemsSource = Players;
             _personService = new PersonService();
             DataContext = this;
         }
@@ -80,6 +80,11 @@ namespace KnatteliganWPF
         {
             RemoveTeamBtn.IsEnabled = true;
             EditTeamBtn.IsEnabled = true;
+        }
+
+        private void AddTeamWindowActivated(object sender, EventArgs e)
+        {
+            PlayerList.ItemsSource = new ObservableCollection<Player>(Players);
         }
     }
 }

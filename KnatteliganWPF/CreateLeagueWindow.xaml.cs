@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -29,9 +30,12 @@ namespace KnatteliganWPF
             _teamService = new TeamService();
             _personService = new PersonService();
             DataContext = this;
+            Teams = _teamService.GetAllTeams().ToList();
+            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
+
         }
 
-          
+
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
             var addTeamWindow = new AddTeamWindow();
@@ -75,12 +79,13 @@ namespace KnatteliganWPF
             var players = team.TeamPersonIds.Select(teamPersonId => _personService.FindPlayerById(teamPersonId))
                 .Where(teamPerson => teamPerson.GetType() == Persons.Player).Cast<Player>().ToList();
 
-            var addTeamWindow = new AddTeamWindow
+            var addTeamWindow = new AddTeamWindow()
             {
                 TeamName = team.Name,
-                Team = team,
-                Players = players
+                Team = team
             };
+            addTeamWindow.Players = players;
+            Console.WriteLine(addTeamWindow.Players);
 
 
             var addTeamResult = addTeamWindow.ShowDialog();
@@ -94,8 +99,10 @@ namespace KnatteliganWPF
             _teamService.Remove(team);
             Teams.Remove(team);
 
-            _teamService.Add(addTeamWindow.Team);
-            Teams.Add(addTeamWindow.Team);
+
+            //TODO: Does this even work?
+            _teamService.Edit(addTeamWindow.Team, addTeamWindow.TeamName, addTeamWindow.TeamPersons);
+            //Teams.Add(addTeamWindow.Team);
             TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
         }
 

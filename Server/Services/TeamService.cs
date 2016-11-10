@@ -30,6 +30,11 @@ namespace knatteligan.Services
             _teamRepository.Remove(team);
         }
 
+        public void Edit(Team team, TeamName newTeamName, IEnumerable<TeamPerson> newTeamPersons)
+        {
+            _teamRepository.Edit(team, newTeamName, newTeamPersons);
+        }
+
         public Team FindTeamById(Guid id)
         {
             return _teamRepository.FindTeamById(id);

@@ -50,7 +50,6 @@ namespace knatteligan.Repositories
             foreach (var teamPerson in team.TeamPersonIds)
             {
                 _personService.RemovePlayer(teamPerson);
-                //TODO: Remove coaches
             }
 
 

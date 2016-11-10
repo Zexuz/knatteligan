@@ -5,6 +5,65 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KnatteliganWPF"
         mc:Ignorable="d"
+        Activated="SeriesScheduleWindowActivated"
         Title="MatchProtocol" Height="400" Width="400">
+    <Grid Margin="0,0,2,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <!--  <ListBox Name="GameWeeksList" Grid.Row="0" Grid.Column="0" Grid.RowSpan="9" Grid.ColumnSpan="2" TextElement.FontSize="16"/>
+
+        <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2"  Text="{Binding ElementName=GameWeeksList, Path=SelectedValue }"/>
+-->
+
+        <ListView
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.RowSpan="9"
+            Grid.ColumnSpan="2"
+            Name="GameWeeksList"
+            ItemsSource="{DynamicResource Drinks}"
+            SelectionChanged ="listView_Click">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="GameWeek nr:" DisplayMemberBinding="{Binding Key}" />
+                    <!-- <GridViewColumn Header="Name"
+                                    DisplayMemberBinding="{Binding Value.Name}" />
+                    <GridViewColumn Header="Popularity"
+                                    DisplayMemberBinding="{Binding Value.Popularity}" />-->
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListBox
+            Grid.Row="0"
+            Grid.RowSpan="9"
+            Grid.Column="2"
+            Grid.ColumnSpan="3"
+            Name="CurrentMatchWeekMatches"
+            MouseDoubleClick="CurrentMatchWeekMatches_OnMouseDoubleClick" />
+        <!--{Binding ElementName=GameWeeksList, Path=SelectedValue }-->
+
+
+    </Grid>
+
 
 </Window>

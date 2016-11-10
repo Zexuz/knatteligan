@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="CreateLeague" Height="400" Width="400">
     <Window.Resources>
-        <converters:LeagueNameToStringConverter x:Key="LeagueNameToStringConverter"/>
+        <!--<converters:LeagueNameToStringConverter x:Key="LeagueNameToStringConverter"/>-->
     </Window.Resources>
     <Grid Margin="10">
         <Grid.RowDefinitions>

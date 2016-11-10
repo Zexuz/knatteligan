@@ -19,16 +19,17 @@ namespace DeleteMeConsoleApplication
             foreach (var teamName in teamNames)
             {
                 var teamPersons = new List<TeamPerson>();
-                var team = new Team(new TeamName(teamName), teamPersons);
+                var team = new Team();
 
                 for (var i = 0; i < 15; i++)
                 {
                     var player = GenareNewPlayer(team);
                     teamPersons.Add(player);
+                    team.TeamPersonIds.Add(player.Id);
 
                     PersonRepository.GetInstance().Add(player);
                 }
-
+                team.Name = new TeamName(teamName);
                 teams.Add(team);
                 TeamRepository.GetInstance().Add(team);
             }

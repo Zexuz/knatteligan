@@ -23,14 +23,12 @@ namespace KnatteliganWPF
 
         public CreateLeagueWindow()
         {
+
             InitializeComponent();
             _leagueService = new LeagueService();
             _teamService = new TeamService();
             _personService = new PersonService();
-            Teams = _teamService.GetAllTeams().ToList();
             DataContext = this;
-
-            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
         }
 
           
@@ -46,10 +44,8 @@ namespace KnatteliganWPF
             }
 
             _teamService.Add(addTeamWindow.Team);
-            Teams = _teamService.GetAllTeams().ToList();
-            //Teams.Add(addTeamWindow.Team);
+            Teams.Add(addTeamWindow.Team);
             TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
-
         }
       
         private void AddLeague_Click(object sender, RoutedEventArgs e)
@@ -68,8 +64,7 @@ namespace KnatteliganWPF
         {
             var team = (Team)TeamList.SelectedItem;
             _teamService.Remove(team);
-            Teams = _teamService.GetAllTeams().ToList();
-            //Teams.Remove(team);
+            Teams.Remove(team);
             TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
         }
 
@@ -99,9 +94,7 @@ namespace KnatteliganWPF
             _teamService.Remove(team);
             Teams.Remove(team);
 
-            //TODO: probably should edit instead of creating new
             _teamService.Add(addTeamWindow.Team);
-            //Teams = _teamService.GetAllTeams().ToList();
             Teams.Add(addTeamWindow.Team);
             TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
         }

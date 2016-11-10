@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
 using knatteligan.Services;
@@ -32,11 +24,15 @@ namespace KnatteliganWPF
         public Email EmailAddress { get; set; }
         public List<Player> Players { get; set; }
 
+        private readonly PersonService _personService;
+
+
 
         public AddTeamWindow()
         {
             InitializeComponent();
             PlayerList.ItemsSource = Players;
+            _personService = new PersonService();
             DataContext = this;
         }
 
@@ -50,6 +46,11 @@ namespace KnatteliganWPF
             {
                 AddTeamBtn.IsEnabled = true;
             }
+
+            _personService.Add(addPlayerWindow.Player);
+            Players = _personService.GetAllPlayers().ToList();
+            //Teams.Add(addTeamWindow.Team);
+            PlayerList.ItemsSource = new ObservableCollection<Player>(Players);
         }
 
         private void CloseCommandHandler_Clicked(object sender, RoutedEventArgs e)

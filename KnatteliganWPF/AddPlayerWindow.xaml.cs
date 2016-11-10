@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using knatteligan.Domain.Entities;
 
 namespace KnatteliganWPF
 {
@@ -19,6 +20,9 @@ namespace KnatteliganWPF
     /// </summary>
     public partial class AddPlayerWindow : Window
     {
+
+        public Player Player { get; set; }
+
         public AddPlayerWindow()
         {
             InitializeComponent();

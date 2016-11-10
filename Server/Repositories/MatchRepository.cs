@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using knatteligan.Domain.Entities;
 
@@ -22,6 +23,11 @@ namespace knatteligan.Repositories
             Save(_matchPath, _matches);
         }
 
+        public Match Find(Guid guid)
+        {
+            return _matches.First(match => match.Id == guid);
+        }
+
         public override IEnumerable<Match> GetAll()
         {
             return _matches;
@@ -30,6 +36,11 @@ namespace knatteligan.Repositories
         public static MatchRepository GetInstance()
         {
             return (MatchRepository) (Repo ?? (Repo = new MatchRepository()));
+        }
+
+        public void Save()
+        {
+            Save(_matchPath, _matches);
         }
     }
 }

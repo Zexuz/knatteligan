@@ -1,22 +1,6 @@
 <?xml version="1.0"?>
 <ArrayOfTeam xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Team>
-    <Id>471fcc16-fd4c-4f16-be8c-cae20e3b687b</Id>
-    <Name>
-      <Value>Good Saints</Value>
-    </Name>
-    <TeamPersonIds />
-    <Goals />
-  </Team>
-  <Team>
-    <Id>3cd4565e-9365-4986-a513-37190f6e3036</Id>
-    <Name>
-      <Value>Crazy Mehicans</Value>
-    </Name>
-    <TeamPersonIds />
-    <Goals />
-  </Team>
-  <Team>
     <Id>065471af-d691-46cf-b530-d5475b2d3a09</Id>
     <Name>
       <Value>Cowboys</Value>
@@ -32,4 +16,18 @@
     <TeamPersonIds />
     <Goals />
   </Team>
+  <Team>
+    <Id>3cd4565e-9365-4986-a513-37190f6e3036</Id>
+    <Name>
+      <Value>Crazy Mehicans</Value>
+    </Name>
+    <TeamPersonIds />
+    <Goals />
+  </Team>
+  <Team xsi:nil="true" />
+  <Team xsi:nil="true" />
+  <Team xsi:nil="true" />
+  <Team xsi:nil="true" />
+  <Team xsi:nil="true" />
+  <Team xsi:nil="true" />
 </ArrayOfTeam>

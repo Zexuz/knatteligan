@@ -22,8 +22,7 @@ namespace knatteligan.Domain.ValueObjects
 
         private static bool IsName(string name)
         {
-            const string regExString =
-                "^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð,.'-]{2,30}$";
+            const string regExString = @"^[1-9a-öA-Ö\s]+$";
             return Regex.IsMatch(name, regExString);
         }
 

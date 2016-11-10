@@ -43,7 +43,7 @@
         <Button Grid.Row="10" Grid.Column="3" Margin="5"  >Update</Button>
 
 
-        <Button Grid.Row="12" Grid.Column="3" Margin="5" Grid.ColumnSpan="2" Click="MainWindow_Clicked">Cancel</Button>
+        <Button Grid.Row="12" Grid.Column="3" Margin="5" Grid.ColumnSpan="2" >Cancel</Button>
         <Button Grid.Row="12" Grid.Column="5"  Margin="5" Grid.ColumnSpan="2"  >Save</Button>
 
 

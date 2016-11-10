@@ -29,7 +29,7 @@ namespace KnatteliganWPF
         public MainWindow()
         {
             InitializeComponent();
-            var x = PersonRepository.GetInstance().GetAll();
+           // var x = PersonRepository.GetInstance().GetAll();
         }
         private void CreateLeague_Clicked(object sender, RoutedEventArgs e)
         {
@@ -41,7 +41,8 @@ namespace KnatteliganWPF
         {
             var manageLeague = new ManageLeague();
             var manageLeagueResult = manageLeague.ShowDialog();
-          
+           
+
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 
 using knatteligan.CustomExceptions;
 using knatteligan.Domain.Entities;
+using knatteligan.Repositories;
 
 namespace knatteligan.Helpers
 {
@@ -11,7 +12,7 @@ namespace knatteligan.Helpers
     public class CreateSeriesSchedule
     {
 
-        public Dictionary<int, List<Match>> GetFullSeries(List<Team> teams)
+        public Dictionary<int, MatchWeek> GetFullSeries(List<Team> teams)
         {
             var firstHalf = ListMatches(teams, false);
             SwapAllEvenMatchesAtIndexZero(firstHalf);
@@ -30,24 +31,25 @@ namespace knatteligan.Helpers
             return wholeSeries;
         }
 
-        public void PrintMatches(Dictionary<int, List<Match>> wholeSeries) {
+        public void PrintMatches(Dictionary<int, MatchWeek> wholeSeries) {
             foreach (var round in wholeSeries) {
                 Console.WriteLine($"--- Round {round.Key}---");
-                foreach (var match in round.Value) {
+                foreach (var match in round.Value.Matches) {
                     Console.WriteLine(match);
                 }
             }
         }
 
         //used to swap all even matches in every first group at index 0 EG team nr 1
-        private void SwapAllEvenMatchesAtIndexZero(Dictionary<int, List<Match>> dictionary) {
+        private void SwapAllEvenMatchesAtIndexZero(Dictionary<int, MatchWeek> dictionary) {
             for (int i = 0; i < dictionary.Count; i += 2) {
-                dictionary[i + 1][0].Swap();
+               //todo get the match from the guid, swap the match and save the match
+              //  dictionary[i + 1].Matches[0].Swap();
             }
         }
 
 
-        private Dictionary<int, List<Match>> ListMatches(List<Team> listTeam, bool revert) {
+        private Dictionary<int, MatchWeek> ListMatches(List<Team> listTeam, bool revert) {
             if (listTeam.Count % 2 != 0) {
                 throw new InvalidNumberOfTeamsException("There must be a even nunmber of teams to do this!");
             }
@@ -62,12 +64,12 @@ namespace knatteligan.Helpers
 
             int teamsSize = teams.Count;
 
-            var rounds = new Dictionary<int, List<Match>>();
+            var rounds = new Dictionary<int, MatchWeek>();
 
             for (int round = 0; round < numRounds; round++) {
                 var currentRoundNr = round + 1; // round starts @ index 0, our rounds start at 1
 
-                rounds.Add(currentRoundNr, new List<Match>());
+                rounds.Add(currentRoundNr, new MatchWeek());
 
                 var currentRound = rounds[currentRoundNr];
 
@@ -78,10 +80,12 @@ namespace knatteligan.Helpers
                     HomeTeam = listTeam[0]
                 };
 
-                currentRound.Add(match);
+                currentRound.Matches.Add(match.Id);
 
                 if (revert)
-                    currentRound[0].Swap();
+                    match.Swap();
+
+                MatchRepository.GetInstance().Add(match);
 
 
                 for (int idx = 1; idx < halfSize; idx++) {
@@ -92,10 +96,13 @@ namespace knatteligan.Helpers
                         AwayTeam = teams[firstTeam],
                         HomeTeam = teams[secondTeam]
                     };
-                    currentRound.Add(newMatch);
+                    currentRound.Matches.Add(newMatch.Id);
 
                     if (revert)
-                        currentRound[currentRound.Count - 1].Swap();
+                        newMatch.Swap();
+
+                    MatchRepository.GetInstance().Add(newMatch);
+
                 }
             }
 

@@ -18,5 +18,10 @@ namespace knatteligan.Domain.Entities
             Name = name;
             Teams = teams;
         }
+
+        public override string ToString()
+        {
+            return Name.Value;
+        }
     }
 }

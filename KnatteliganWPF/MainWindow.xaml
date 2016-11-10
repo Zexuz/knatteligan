@@ -24,9 +24,7 @@
 
         <TextBlock Grid.Row ="2" FontWeight="Bold" >Manage existing leagues:</TextBlock>
 
-        <ListBox Grid.Row="4"  FontWeight="Bold" MouseDoubleClick="ManageLeague_Clicked">Pojkar 14 Småland</ListBox>
-        <ListBox Grid.Row="5"  FontWeight="Bold" MouseDoubleClick="ManageLeague_Clicked">Pojkar 16 småland</ListBox>
-        <ListBox Grid.Row="6"    FontWeight="Bold" MouseDoubleClick="ManageLeague_Clicked">Pojkar 16 småland</ListBox>
-        <Button Grid.Column="1" Margin="176,154,59,-178" Grid.Row="7" Click="CreateLeague_Clicked">Create a new league</Button>
+        <ListBox Name="LeagueList" Grid.Row="4" Grid.Column="0" Margin="5" MinWidth="150" MinHeight="200"/>
+        <Button Grid.Column="1" Margin="225,176,10,10" Grid.Row="4" Click="CreateLeague_Clicked">Create a new league</Button>
     </Grid>
 </Window>

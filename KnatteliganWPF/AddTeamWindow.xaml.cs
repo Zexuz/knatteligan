@@ -34,6 +34,12 @@ namespace KnatteliganWPF
             Players = new List<Player>();
             _personService = new PersonService();
             DataContext = this;
+
+            if (Players.Count >= 0)
+            {
+                AddTeamBtn.IsEnabled = true;
+            }
+
         }
 
         private void AddPlayer_Clicked(object sender, RoutedEventArgs e)
@@ -46,9 +52,7 @@ namespace KnatteliganWPF
             Players.Add(addPlayerWindow.Player);
             PlayerList.ItemsSource = new ObservableCollection<Player>(Players);
 
-
-
-            if (Players.Count >= 1)
+            if (Players.Count >= 0)
             {
                 AddTeamBtn.IsEnabled = true;
             }
@@ -61,8 +65,8 @@ namespace KnatteliganWPF
 
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
-            var coach = new Coach(PersonName, PersonalNumber, PhoneNumber, EmailAddress);
-            Team = new Team(TeamName, Players, coach);
+            Coach = new Coach(PersonName, PersonalNumber, PhoneNumber, EmailAddress);
+            Team = new Team(TeamName, Players, Coach);
 
             DialogResult = true;
             Close();
@@ -75,7 +79,6 @@ namespace KnatteliganWPF
 
         private void EditTeam_Click(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void PlayerList_SelectionChanged(object sender, SelectionChangedEventArgs e)

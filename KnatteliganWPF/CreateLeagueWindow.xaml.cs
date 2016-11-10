@@ -29,9 +29,13 @@ namespace KnatteliganWPF
             _leagueService = new LeagueService();
             _teamService = new TeamService();
             _personService = new PersonService();
+            Teams = new List<Team>();
             DataContext = this;
-            Teams = _teamService.GetAllTeams().ToList();
-            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
+
+            if (/*Teams.Count >= 16 && */Teams.Count % 2 == 0)
+            {
+                AddLeagueButton.IsEnabled = true;
+            }
 
         }
 
@@ -42,12 +46,13 @@ namespace KnatteliganWPF
             var addTeamResult = addTeamWindow.ShowDialog();
             if (!addTeamResult.HasValue) return;
 
-            if (Teams.Count >= 16 && Teams.Count % 2 == 0)
+            if (/*Teams.Count >= 16 && */Teams.Count % 2 == 0)
             {
                 AddLeagueButton.IsEnabled = true;
             }
 
             _teamService.Add(addTeamWindow.Team);
+            _personService.Add(addTeamWindow.Coach);
             Teams.Add(addTeamWindow.Team);
             TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
         }
@@ -56,7 +61,9 @@ namespace KnatteliganWPF
         {
             var teamIds = Teams.Select(x => x.Id).ToList();
             League = new League(LeagueName, teamIds);
-            _leagueService.Add(League);
+
+            DialogResult = true;
+            Close();
         }
 
         private void CloseCommandHandler_Click(object sender, RoutedEventArgs e)
@@ -79,26 +86,27 @@ namespace KnatteliganWPF
             var players = team.PlayerIds.Select(teamPersonId => _personService.FindPlayerById(teamPersonId))
                 .Where(teamPerson => teamPerson.GetType() == Persons.Player).Cast<Player>().ToList();
 
-            var addTeamWindow = new AddTeamWindow()
+            var coach = _personService.FindCoachById(team.CoachId);
+
+            var addTeamWindow = new AddTeamWindow
             {
                 TeamName = team.Name,
-                Team = team
+                Team = team,
+                Players = players,
+                Coach = coach,
+                PersonName = coach.Name,
+                PersonalNumber = coach.PersonalNumber,
+                PhoneNumber = coach.PhoneNumber,
+                EmailAddress = coach.Email
             };
-            addTeamWindow.Players = players;
-            Console.WriteLine(addTeamWindow.Players);
-
 
             var addTeamResult = addTeamWindow.ShowDialog();
             if (!addTeamResult.HasValue) return;
 
-            if (Teams.Count >= 16 && Teams.Count % 2 == 0)
+            if (/*Teams.Count >= 16 && */Teams.Count % 2 == 0)
             {
                 AddLeagueButton.IsEnabled = true;
             }
-
-            _teamService.Remove(team);
-            Teams.Remove(team);
-
 
             //TODO: Does this even work?
             _teamService.Edit(addTeamWindow.Team, addTeamWindow.TeamName, addTeamWindow.Players, addTeamWindow.Coach);

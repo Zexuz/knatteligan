@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,7 @@ using System.Xml.Serialization;
 using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
 using knatteligan.Repositories;
+using knatteligan.Services;
 
 namespace KnatteliganWPF
 {
@@ -26,15 +28,29 @@ namespace KnatteliganWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly LeagueService _leagueService;
+        public List<League> Leagues { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
-           // var x = PersonRepository.GetInstance().GetAll();
+            _leagueService = new LeagueService();
+            Leagues = _leagueService.GetAllLeagues().ToList();
+            if (Leagues != null)
+            {
+                LeagueList.ItemsSource = new ObservableCollection<League>(Leagues);
+            }
+            
         }
         private void CreateLeague_Clicked(object sender, RoutedEventArgs e)
         {
-            var createLeague = new CreateLeagueWindow();
-            var createLeagueResult = createLeague.ShowDialog();
+            var createLeagueWindow = new CreateLeagueWindow();
+            var createLeagueResult = createLeagueWindow.ShowDialog();
+            if (!createLeagueResult.HasValue) return;
+
+            _leagueService.Add(createLeagueWindow.League);
+
+            LeagueList.ItemsSource = new ObservableCollection<League>(Leagues);
         }
 
         private void ManageLeague_Clicked(object sender, RoutedEventArgs e)

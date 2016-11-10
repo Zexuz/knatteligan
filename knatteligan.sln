@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnatteliganWPF", "KnatteliganWPF\KnatteliganWPF.csproj", "{B2CEC852-2332-4DDE-AF5C-3CE6D5722B84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserHomePage", "UserHomePage\UserHomePage.csproj", "{500CBFC4-8F65-4D17-BF13-9A8BAF12FDFB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{B2CEC852-2332-4DDE-AF5C-3CE6D5722B84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2CEC852-2332-4DDE-AF5C-3CE6D5722B84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2CEC852-2332-4DDE-AF5C-3CE6D5722B84}.Release|Any CPU.Build.0 = Release|Any CPU
-		{500CBFC4-8F65-4D17-BF13-9A8BAF12FDFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{500CBFC4-8F65-4D17-BF13-9A8BAF12FDFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{500CBFC4-8F65-4D17-BF13-9A8BAF12FDFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{500CBFC4-8F65-4D17-BF13-9A8BAF12FDFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

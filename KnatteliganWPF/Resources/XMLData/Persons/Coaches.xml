@@ -102,4 +102,16 @@
       <Value>0732323223</Value>
     </PhoneNumber>
   </Coach>
+  <Coach>
+    <Id>ffe2e023-efa2-4311-b505-fd125886f065</Id>
+    <Name>
+      <Name>dfsdf</Name>
+    </Name>
+    <Email>
+      <Value>l@l.se</Value>
+    </Email>
+    <PhoneNumber>
+      <Value>0730202020</Value>
+    </PhoneNumber>
+  </Coach>
 </ArrayOfCoach>

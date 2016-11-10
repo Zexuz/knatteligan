@@ -112,4 +112,15 @@
     <Goals />
     <CoachId>4a002cb2-1015-4630-a24e-94be266e678b</CoachId>
   </Team>
+  <Team>
+    <Id>7f08996e-9eb2-4f13-b9de-34651f46455d</Id>
+    <Name>
+      <Value>sdfsdf</Value>
+    </Name>
+    <PlayerIds>
+      <guid>b4ebae51-af31-4e19-a91c-ef5e081ced60</guid>
+    </PlayerIds>
+    <Goals />
+    <CoachId>ffe2e023-efa2-4311-b505-fd125886f065</CoachId>
+  </Team>
 </ArrayOfTeam>

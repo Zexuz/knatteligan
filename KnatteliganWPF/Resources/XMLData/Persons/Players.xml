@@ -1639,4 +1639,11 @@
     </Name>
     <MatchEvents />
   </Player>
+  <Player>
+    <Id>b4ebae51-af31-4e19-a91c-ef5e081ced60</Id>
+    <Name>
+      <Name>dfsdf</Name>
+    </Name>
+    <MatchEvents />
+  </Player>
 </ArrayOfPlayer>

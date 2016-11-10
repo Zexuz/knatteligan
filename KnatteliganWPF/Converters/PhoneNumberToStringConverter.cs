@@ -1,22 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Data;
 using knatteligan.Domain.ValueObjects;
 
 namespace KnatteliganWPF.Converters
 {
-    public class PersonNameToStringConverter : IValueConverter
+    public class PhoneNumberToStringConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value == null)
                 return "";
 
-            if (value.GetType() != typeof(PersonName))
+            if (value.GetType() != typeof(PhoneNumber))
                 throw new Exception($"Cannot convert from type {value.GetType()}");
 
-            var personName = (PersonName) value;
-            return personName;
+            var phoneNumber = (PhoneNumber)value;
+            return phoneNumber.Value;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -25,10 +29,10 @@ namespace KnatteliganWPF.Converters
                 return null;
 
             if (value.GetType() != typeof(string))
-                throw new Exception($"Cannot convert from type {value.GetType()}");
+                throw new Exception($"Connot convert from type {value.GetType()}");
 
-            var personName = new PersonName(value.ToString());
-            return personName;
+            var phoneNumber = new PhoneNumber(value.ToString());
+            return phoneNumber;
         }
     }
 }

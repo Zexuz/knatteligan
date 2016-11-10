@@ -1,4 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ArrayOfCoach>
-
+<?xml version="1.0"?>
+<ArrayOfCoach xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Coach>
+    <Id>90c28ae1-3da3-4a62-ab1d-fc05618522ad</Id>
+  </Coach>
+  <Coach>
+    <Id>d71d7877-40e2-42b1-8590-eba6e2f13c6d</Id>
+  </Coach>
+  <Coach>
+    <Id>2ee800e4-397e-4096-ab40-537f3ce1b029</Id>
+  </Coach>
+  <Coach>
+    <Id>b5c53786-3ebe-4cb9-a2ef-47ad6405b6a4</Id>
+  </Coach>
+  <Coach>
+    <Id>2b0e30de-d6cb-4b82-9a6e-5034aa0e6b0f</Id>
+  </Coach>
+  <Coach>
+    <Id>f08bf149-c363-454e-aeaf-c201cee96df9</Id>
+  </Coach>
 </ArrayOfCoach>

@@ -37,7 +37,7 @@ namespace KnatteliganWPF
         }
         private void CreateLeague_Clicked(object sender, RoutedEventArgs e)
         {
-            var createLeague = new CreateLeague();
+            var createLeague = new CreateLeagueWindow();
             var createLeagueResult = createLeague.ShowDialog();
         }
 

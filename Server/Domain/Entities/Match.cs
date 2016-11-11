@@ -8,13 +8,13 @@ namespace knatteligan.Domain.Entities
 {
     public class Match : Entity
     {
-        public Team HomeTeam { get; set; }
-        public Team AwayTeam { get; set; }
+        public Guid HomeTeam { get; set; }
+        public Guid AwayTeam { get; set; }
         public DateTime MatchDate { get; set; }
         public List<Guid> MatchEvents { get; set; }
 
 
-        public Match(Team homeTeam, Team awayTeam)
+        public Match(Guid homeTeam, Guid awayTeam)
         {
 
             HomeTeam = homeTeam;
@@ -98,7 +98,7 @@ namespace knatteligan.Domain.Entities
 
         public override string ToString()
         {
-            return $"{HomeTeam.Name} - {AwayTeam.Name}";
+            return $"{TeamRepository.GetInstance().Find(HomeTeam).Name} - {TeamRepository.GetInstance().Find(HomeTeam).Name}";
         }
     }
 }

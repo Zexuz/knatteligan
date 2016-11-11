@@ -79,8 +79,8 @@ namespace knatteligan.Helpers
                 int teamIdx = round % teamsSize;
 
                 var match = new Match {
-                    AwayTeam = teams[teamIdx],
-                    HomeTeam = listTeam[0]
+                    AwayTeam = teams[teamIdx].Id,
+                    HomeTeam = listTeam[0].Id
                 };
 
                 currentRound.Matches.Add(match.Id);
@@ -96,8 +96,8 @@ namespace knatteligan.Helpers
                     int secondTeam = (round + teamsSize - idx) % teamsSize;
 
                     var newMatch = new Match {
-                        AwayTeam = teams[firstTeam],
-                        HomeTeam = teams[secondTeam]
+                        AwayTeam = teams[firstTeam].Id,
+                        HomeTeam = teams[secondTeam].Id
                     };
                     currentRound.Matches.Add(newMatch.Id);
 

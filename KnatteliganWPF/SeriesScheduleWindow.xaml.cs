@@ -20,16 +20,9 @@ namespace KnatteliganWPF {
 
         public SeriesScheduleWindow() {
             InitializeComponent();
-            Closing += OnWindowClosing;
-
             DataContext = this;
         }
 
-
-        public void OnWindowClosing(object sender, CancelEventArgs e) {
-            Trace.WriteLine("Shutingdown from Event!");
-            Application.Current.Shutdown();
-        }
 
         private void SeriesScheduleWindowActivated(object sender, EventArgs e) {
             Resources["Drinks"] = GameWeeks;
@@ -51,6 +44,10 @@ namespace KnatteliganWPF {
             var match = (Match)listItem.SelectedItems[0];
             var matchProtocol = new MatchProtocol(match);
             matchProtocol.Show();
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e) {
+            new ManageLeague().Show();
         }
 
     }

@@ -37,7 +37,7 @@
         <ListView
             Grid.Row="0"
             Grid.Column="0"
-            Grid.RowSpan="9"
+            Grid.RowSpan="8"
             Grid.ColumnSpan="2"
             Name="GameWeeksList"
             ItemsSource="{DynamicResource Drinks}"
@@ -55,11 +55,12 @@
 
         <ListBox
             Grid.Row="0"
-            Grid.RowSpan="9"
+            Grid.RowSpan="8"
             Grid.Column="2"
             Grid.ColumnSpan="3"
             Name="CurrentMatchWeekMatches"
             MouseDoubleClick="CurrentMatchWeekMatches_OnMouseDoubleClick" />
+        <Button Grid.Row="8" Click="ButtonBase_OnClick">Mange league</Button>
         <!--{Binding ElementName=GameWeeksList, Path=SelectedValue }-->
 
 

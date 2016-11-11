@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+
 using knatteligan.Domain.ValueObjects;
 
 namespace knatteligan.Domain.Entities
@@ -18,10 +20,7 @@ namespace knatteligan.Domain.Entities
         {
             Name = name;
             CoachId = coach.Id;
-            foreach (var player in players)
-            {
-                PlayerIds.Add(player.Id);
-            }
+            PlayerIds = players.Select(player => player.Id).ToList();
         }
         public override string ToString()
         {

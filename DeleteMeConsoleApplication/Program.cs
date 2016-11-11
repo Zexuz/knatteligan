@@ -25,8 +25,12 @@ namespace DeleteMeConsoleApplication {
             foreach (var teamName in teamNames) {
                 var players = new List<Player>();
                 var coach = GenareNewCoach();
-                var team = new Team(new TeamName(teamName), players, coach);
+                var team = new Team();
+                team.CoachId = coach.Id;
+                team.Name = new TeamName(teamName);
+                team.PlayerIds = new List<Guid>();
 
+                PersonRepository.GetInstance().Add(coach);
 
                 for (var i = 0; i < 15; i++) {
                     var player = GenareNewPlayer();
@@ -34,7 +38,9 @@ namespace DeleteMeConsoleApplication {
                     players.Add(player);
 
                     PersonRepository.GetInstance().Add(player);
+                    team.PlayerIds.Add(player.Id);
                 }
+
 
                 teams.Add(team);
                 TeamRepository.GetInstance().Add(team);

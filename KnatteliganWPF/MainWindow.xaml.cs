@@ -57,7 +57,7 @@ namespace KnatteliganWPF
         {
             var serieSchedule = new SeriesScheduleWindow();
             var serieScheduleResult = serieSchedule.ShowDialog();
-
+            //this is a commmenyt!
            
 
         }

@@ -33,19 +33,19 @@ namespace KnatteliganWPF
             InitializeComponent();
 
 
-            var homeTeam = new Team(new TeamName("Liverpool"));
-            var awayTeam = new Team(new TeamName("Chelsea"));
+            //var homeTeam = new Team(new TeamName("Liverpool"));
+            //var awayTeam = new Team(new TeamName("Chelsea"));
 
-            _teamRepository.Add(homeTeam);
-            _teamRepository.Add(awayTeam);
+            //_teamRepository.Add(homeTeam);
+            //_teamRepository.Add(awayTeam);
 
-            var player = new Player(new PersonName("Kalle", "Karlsson"), new PersonalNumber(new DateTime(1996, 8, 1), "8817"), homeTeam);
-            var player2 = new Player(new PersonName("Nils", "Karlsson"), new PersonalNumber(new DateTime(1996, 8, 1), "8817"), homeTeam);
-            var player3 = new Player(new PersonName("Bertil", "Karlsson"), new PersonalNumber(new DateTime(1996, 8, 1), "8817"), homeTeam);
+            //var player = new Player(new PersonName("Kalle", "Karlsson"), new PersonalNumber(new DateTime(1996, 8, 1), "8817"), homeTeam);
+            //var player2 = new Player(new PersonName("Nils", "Karlsson"), new PersonalNumber(new DateTime(1996, 8, 1), "8817"), homeTeam);
+            //var player3 = new Player(new PersonName("Bertil", "Karlsson"), new PersonalNumber(new DateTime(1996, 8, 1), "8817"), homeTeam);
 
-            var player4 = new Player(new PersonName("Adam", "Karlsson"), new PersonalNumber(new DateTime(1996, 8, 1), "8817"), awayTeam);
-            var player5 = new Player(new PersonName("Donald", "Karlsson"), new PersonalNumber(new DateTime(1996, 8, 1), "8817"), awayTeam);
-            var player6 = new Player(new PersonName("Hillary", "Karlsson"), new PersonalNumber(new DateTime(1996, 8, 1), "8817"), awayTeam);
+            //var player4 = new Player(new PersonName("Adam", "Karlsson"), new PersonalNumber(new DateTime(1996, 8, 1), "8817"), awayTeam);
+            //var player5 = new Player(new PersonName("Donald", "Karlsson"), new PersonalNumber(new DateTime(1996, 8, 1), "8817"), awayTeam);
+            //var player6 = new Player(new PersonName("Hillary", "Karlsson"), new PersonalNumber(new DateTime(1996, 8, 1), "8817"), awayTeam);
 
             //_personRepository.Add(player);
             //_personRepository.Add(player2);

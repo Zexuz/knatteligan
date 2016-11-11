@@ -21,29 +21,26 @@ using knatteligan.Domain.ValueObjects;
 using knatteligan.Repositories;
 using knatteligan.Services;
 
-namespace KnatteliganWPF
-{
+namespace KnatteliganWPF {
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
-    {
+    public partial class MainWindow : Window {
+
         private readonly LeagueService _leagueService;
         public List<League> Leagues { get; set; }
 
-        public MainWindow()
-        {
+        public MainWindow() {
             InitializeComponent();
             _leagueService = new LeagueService();
             Leagues = _leagueService.GetAllLeagues().ToList();
-            if (Leagues != null)
-            {
+            if (Leagues != null) {
                 LeagueList.ItemsSource = new ObservableCollection<League>(Leagues);
             }
-            
         }
-        private void CreateLeague_Clicked(object sender, RoutedEventArgs e)
-        {
+
+        private void CreateLeague_Clicked(object sender, RoutedEventArgs e) {
             var createLeagueWindow = new CreateLeagueWindow();
             var createLeagueResult = createLeagueWindow.ShowDialog();
             if (!createLeagueResult.HasValue) return;
@@ -53,13 +50,17 @@ namespace KnatteliganWPF
             LeagueList.ItemsSource = new ObservableCollection<League>(Leagues);
         }
 
-        private void ManageLeague_Clicked(object sender, RoutedEventArgs e)
-        {
-            var serieSchedule = new SeriesScheduleWindow();
+        private void ManageLeague_Clicked(object sender, RoutedEventArgs e) {
+            var listBoxSender = sender as ListBox;
+            var currentLeague = (League) listBoxSender.SelectedItems[0];
+
+            var serieSchedule = new SeriesScheduleWindow {
+                GameWeeks = currentLeague.MatchWeeks
+            };
             var serieScheduleResult = serieSchedule.ShowDialog();
             //this is a commmenyt!
-           
-
         }
+
     }
+
 }

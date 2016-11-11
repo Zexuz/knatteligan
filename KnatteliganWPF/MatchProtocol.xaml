@@ -31,10 +31,10 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="1" Grid.Column="0" TextAlignment="Right" Grid.ColumnSpan="3" Margin="10,26,46,12" Grid.RowSpan="2" FontWeight="Bold" FontSize="16">Home Team</TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3" Margin="46,26,10,9" Grid.RowSpan="2" FontWeight="Bold" FontSize="16">Away Team</TextBlock>
-        <ListBox Name="HomeTeamList" Grid.ColumnSpan="3" Grid.RowSpan="7" Grid.Row="4" Grid.Column="0" SelectionChanged="HomeTeamList_SelectionChanged" Margin="5,12,51,17" FontWeight="Bold">Home Team List</ListBox>
-        <ListBox Name="AwayTeamList" Grid.ColumnSpan="3" Grid.RowSpan="7" Grid.Row="4" Grid.Column="4" Margin="51,12,5,17" FontWeight="Bold">Away Team List</ListBox>
+        <TextBlock Name="HomeTeamName" Grid.Row="1" Grid.Column="0" TextAlignment="Right" Grid.ColumnSpan="3" Margin="10,26,46,12" Grid.RowSpan="2" FontWeight="Bold" FontSize="16">Home Team</TextBlock>
+        <TextBlock Name="AwayTeamName" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3" Margin="46,26,10,9" Grid.RowSpan="2" FontWeight="Bold" FontSize="16">Away Team</TextBlock>
+        <ListBox Name="HomeTeamList" Grid.ColumnSpan="3" Grid.RowSpan="7" Grid.Row="4" Grid.Column="0" SelectionChanged="HomeTeamList_SelectionChanged" Margin="5,12,51,17" FontWeight="Bold"/>
+        <ListBox Name="AwayTeamList" Grid.ColumnSpan="3" Grid.RowSpan="7" Grid.Row="4" Grid.Column="4" Margin="51,12,5,17" FontWeight="Bold"/>
 
         <TextBlock Grid.Column="2" Grid.Row="4" VerticalAlignment="Center"  HorizontalAlignment="Center" Margin="38,26,27,3" FontWeight="Bold" Grid.ColumnSpan="2" FontSize="14" Height="28" Grid.RowSpan="2" Width="47" >Goals</TextBlock>
 

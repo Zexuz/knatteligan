@@ -1,24 +1,25 @@
 ﻿using System.Windows;
+
 using knatteligan.Domain.Entities;
 using knatteligan.Repositories;
 using knatteligan.Domain.ValueObjects;
+
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Controls;
 
-namespace KnatteliganWPF
-{
+namespace KnatteliganWPF {
+
     /// <summary>
     /// Interaction logic for MatchProtocol.xaml
     /// </summary>
-    public partial class MatchProtocol : Window
-    {
+    public partial class MatchProtocol : Window {
+
         private readonly TeamRepository _teamRepository = new TeamRepository();
         private readonly PersonRepository _personRepository = new PersonRepository();
         private readonly MatchEventRepository _matchEventRepository = new MatchEventRepository();
-
-
 
 
         //public Player player { get; set; }
@@ -26,11 +27,28 @@ namespace KnatteliganWPF
         public Team AwayTeam { get; set; }
         public Match Match { get; set; }
 
+        public List<Player> HomeTeamPlayers { get; set; }
+        public List<Player> AwayTeamPlayers { get; set; }
 
+        public MatchProtocol(Match match) {
+            Match = match;
+            AwayTeam = TeamRepository.GetInstance().Find(match.AwayTeam);
+            HomeTeam = TeamRepository.GetInstance().Find(match.HomeTeam);
 
-        public MatchProtocol()
-        {
+            HomeTeamPlayers =
+                HomeTeam.PlayerIds.Select(playerId => PersonRepository.GetInstance().FindPlayerById(playerId)).ToList();
+
+            AwayTeamPlayers =
+                AwayTeam.PlayerIds.Select(playerId => PersonRepository.GetInstance().FindPlayerById(playerId)).ToList();
+
+            //this needs to be before adding the list to WPF.. DHOOO!
             InitializeComponent();
+
+            HomeTeamList.ItemsSource = new ObservableCollection<Player>(HomeTeamPlayers);
+            AwayTeamList.ItemsSource = new ObservableCollection<Player>(AwayTeamPlayers);
+            HomeTeamName.Text = HomeTeam.ToString();
+            AwayTeamName.Text = AwayTeam.ToString();
+
 
 
             //var homeTeam = new Team(new TeamName("Liverpool"));
@@ -56,30 +74,20 @@ namespace KnatteliganWPF
 
             //Match = new Match(homeTeam, awayTeam);
 
-            
 
             //var homeTeamPlayerGuids = _personRepository.GetAll().OfType<Player>().Where(x => x.Team.Id == homeTeam.Id).Select(x => x.Id).ToList();
             //homeTeam.TeamPersons = homeTeamPlayerGuids;
 
             //var homeTeamPlayers = _personRepository.GetAll().OfType<Player>().Where(x => x.Team.Id == homeTeam.Id);
             //HomeTeamList.ItemsSource = homeTeamPlayers;
-
-
-
-
-            
-            
         }
-       
 
-        private void Cancel_Clicked(object sender, RoutedEventArgs e)
-        {
+
+        private void Cancel_Clicked(object sender, RoutedEventArgs e) {
             this.Close();
-
         }
-        private void Update_Clicked(object sender, RoutedEventArgs e)
-        {
 
+        private void Update_Clicked(object sender, RoutedEventArgs e) {
             //int goalResult;
             //int.TryParse(MålLista.SelectedItem.ToString(), out goalResult);
 
@@ -126,8 +134,6 @@ namespace KnatteliganWPF
             //}
 
 
-
-
             //var rooney = (Player)HomeTeamList.SelectedItem;
 
             //var rooneysYellowCards = rooney.MatchEvents.OfType<YellowCard>().ToList();
@@ -143,23 +149,15 @@ namespace KnatteliganWPF
             //rooneysMatchEvents.AddRange(rooneysYellowCards);
 
 
-
-
             //foreach (var matchEvent in rooneysMatchEvents)
             //{
             //    _matchEventRepository.Add(matchEvent);
             //}
-
-
         }
 
-        private void Clear_Click(object sender, RoutedEventArgs e)
-        {
+        private void Clear_Click(object sender, RoutedEventArgs e) {}
 
-        }
-
-        private void Save_Click(object sender, RoutedEventArgs e)
-        {
+        private void Save_Click(object sender, RoutedEventArgs e) {
             //Goal.Save();
             //PersonRepository.Save();
             //TeamRepository.Save();
@@ -169,18 +167,13 @@ namespace KnatteliganWPF
             //MatchRepository.Save();
         }
 
-        private void HomeTeamList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            var playerName = ((Player)HomeTeamList.SelectedItem).Name.ToString();
+        private void HomeTeamList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e) {
+            var playerName = ((Player) HomeTeamList.SelectedItem).Name.ToString();
             PlayerNameLabel.Content = playerName;
         }
 
-        private void Goal_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        private void Goal_SelectionChanged(object sender, SelectionChangedEventArgs e) {}
 
-        }
     }
+
 }
-
-
-

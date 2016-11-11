@@ -47,7 +47,9 @@ namespace KnatteliganWPF {
 
         private void CurrentMatchWeekMatches_OnMouseDoubleClick(object sender, MouseButtonEventArgs e) {
 
-            var matchProtocol = new MatchProtocol();
+            var listItem = sender as ListBox;
+            var match = (Match)listItem.SelectedItems[0];
+            var matchProtocol = new MatchProtocol(match);
             matchProtocol.Show();
         }
 

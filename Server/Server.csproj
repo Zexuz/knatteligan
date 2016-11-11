@@ -32,11 +32,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup>
-    <Folder Include="Domain\ValueObjects" />
-    <Folder Include="Repositories" />
-    <Folder Include="Services" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup />
   <ItemGroup>
     <Compile Include="CustomExceptions\InvalidEmailException.cs" />
@@ -56,7 +52,6 @@
     <Compile Include="Domain\Entities\Person.cs" />
     <Compile Include="Domain\Entities\Player.cs" />
     <Compile Include="Domain\Entities\Team.cs" />
-    <Compile Include="Domain\Entities\TeamPerson.cs" />
     <Compile Include="Domain\Entities\YellowCard.cs" />
     <Compile Include="Domain\Entities\RedCard.cs" />
     <Compile Include="Domain\ValueObjects\MatchDate.cs" />
@@ -67,7 +62,9 @@
     <Compile Include="Domain\ValueObjects\TeamName.cs" />
     <Compile Include="Domain\ValueObjects\LeagueName.cs" />
     <Compile Include="Helpers\CreateSeriesSchedule.cs" />
+    <Compile Include="Helpers\MatchWeek.cs" />
     <Compile Include="Helpers\Serializer.cs" />
+    <Compile Include="Helpers\SerializableDictionary.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\LeagueRepository.cs" />
     <Compile Include="Repositories\MatchEventRepository.cs" />

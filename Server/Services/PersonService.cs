@@ -29,6 +29,24 @@ namespace knatteligan.Services
         {
             return _personRepository.GetAll();
         }
+        public IEnumerable<Player> GetAllPlayers()
+        {
+            return _personRepository.GetAllPlayers();
+        }
 
+        public void RemovePlayer(Guid id)
+        {
+            _personRepository.RemovePlayer(id);
+        }
+
+        public Person FindPlayerById(Guid id)
+        {
+            return _personRepository.FindPlayerById(id);
+        }
+
+        public Coach FindCoachById(Guid id)
+        {
+            return _personRepository.FindCoachById(id);
+        }
     }
 }

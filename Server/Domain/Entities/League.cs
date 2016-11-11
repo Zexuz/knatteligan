@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using knatteligan.Domain.ValueObjects;
+using knatteligan.Helpers;
 
 namespace knatteligan.Domain.Entities
 {
-    public class League : Entity
+    public class League:Entity
     {
         public LeagueName Name { get; set; }
-        public List<Guid> Teams { get; set; } = new List<Guid>();
-        public List<Guid> Matches { get; set; } = new List<Guid>();
-        public DateTime StartDate { get; set; }
+        public List<Guid> Teams { get; set; }
+        public SerializableDictionary<int, MatchWeek> MatchWeeks { get; set; }
+        public DateTime StartDate { get; set; }     
 
         public League() { }
 
@@ -17,6 +18,11 @@ namespace knatteligan.Domain.Entities
         {
             Name = name;
             Teams = teams;
+        }
+
+        public override string ToString()
+        {
+            return Name.Value;
         }
     }
 }

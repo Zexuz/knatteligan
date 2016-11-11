@@ -21,10 +21,11 @@ namespace KnatteliganWPF
     /// </summary>
     public partial class AddPlayerWindow : Window
     {
-        public Player Player { get; set; }
 
+        public Player Player { get; set; }
         public PersonName PlayerName { get; set; }
         public PersonalNumber SocialSecurityNumber { get; set; }
+
         public AddPlayerWindow()
         {
             InitializeComponent();

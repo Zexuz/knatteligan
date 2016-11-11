@@ -83,16 +83,23 @@ namespace knatteligan.Repositories
         }
 
         #endregion
+        //TODO: Just one search method for both coach and player.
 
         public Player FindPlayerById(Guid id)
         {
             return _players.Find(x => x.Id == id);
         }
 
+        public Coach FindCoachById(Guid id)
+        {
+            return _coaches.Find(x => x.Id == id);
+        }
+
         public static PersonRepository GetInstance()
         {
             return (PersonRepository) (Repo ?? (Repo = new PersonRepository()));
         }
+
 
         public void RemovePlayer(Guid id)
         {
@@ -102,5 +109,7 @@ namespace knatteligan.Repositories
 
             Save(_coachPath, _coaches);
         }
+
+       
     }
 }

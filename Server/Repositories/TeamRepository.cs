@@ -1,8 +1,9 @@
-﻿﻿using System;
- using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using knatteligan.Domain.Entities;
 using System.Linq;
- using knatteligan.Services;
+using knatteligan.Domain.ValueObjects;
+using knatteligan.Services;
 
 namespace knatteligan.Repositories
 {
@@ -25,6 +26,13 @@ namespace knatteligan.Repositories
             Save(_teamPath, _teams);
         }
 
+        public void Edit(Team team, TeamName newTeamName, IEnumerable<Player> players, Coach coach)
+        {
+            var index = _teams.FindIndex(x => x.Id == team.Id);
+            _teams[index] = new Team(newTeamName, players, coach);
+            Save(_teamPath, _teams);
+        }
+
         public override IEnumerable<Team> GetAll()
         {
             return _teams;
@@ -32,19 +40,18 @@ namespace knatteligan.Repositories
 
         public static TeamRepository GetInstance()
         {
-            return (TeamRepository) (Repo ?? (Repo = new TeamRepository()));
+            return (TeamRepository)(Repo ?? (Repo = new TeamRepository()));
         }
 
         public void Remove(Team team)
         {
             _teams.Remove(team);
 
-                foreach (var teamPerson in team.PlayerIds)
-                {
-                    _personService.RemovePlayer(teamPerson);
-                    //TODO: Remove coaches
-                }
-          
+            foreach (var player in team.PlayerIds)
+            {
+                _personService.RemovePlayer(player);
+            }
+
 
             Save(_teamPath, _teams);
         }

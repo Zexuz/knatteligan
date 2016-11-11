@@ -43,5 +43,10 @@ namespace knatteligan.Services
         {
             return _personRepository.FindPlayerById(id);
         }
+
+        public Coach FindCoachById(Guid id)
+        {
+            return _personRepository.FindCoachById(id);
+        }
     }
 }

@@ -1,234 +1,9 @@
 <?xml version="1.0"?>
 <ArrayOfTeam xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Team>
-    <Id>6278ed56-cdbe-44bc-a1a5-1da0d0510027</Id>
-    <Name>
-      <Value>team1</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>cde907a1-00a3-4fd7-aff3-e3803dae1333</Id>
-    <Name>
-      <Value>team1</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>ecc60f15-bc51-4f1c-bad1-8d85a84798c6</Id>
-    <Name>
-      <Value>team2</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>cfd5e722-198d-4ede-bed9-78594ab86265</Id>
-    <Name>
-      <Value>team1</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>d359e82a-4e3e-468b-bc66-4fc49a99b4d3</Id>
-    <Name>
-      <Value>team2</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>709ae60e-05ee-42fb-83dd-fbf4cb155dd0</Id>
-    <Name>
-      <Value>team1</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>1f5cd652-bb27-42e9-a475-697dabf2f59a</Id>
-    <Name>
-      <Value>team2</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>bb0ac429-c2f5-44fd-beee-014ca999b394</Id>
-    <Name>
-      <Value>team1</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>e97b69d6-a652-4e12-ad3b-6b25508c8022</Id>
-    <Name>
-      <Value>team2</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>38177479-d6af-4614-85f6-4e6e87eea2dc</Id>
-    <Name>
-      <Value>team1</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>983335e2-bbd1-4a90-801d-76db0a1a4c86</Id>
-    <Name>
-      <Value>team2</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>8353db4d-c852-4cde-8ee2-c5aed39892ff</Id>
-    <Name>
-      <Value>team1</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>08bcd99f-ac77-4ccf-b8b6-2e97a4ec6b2d</Id>
-    <Name>
-      <Value>team2</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>fc6afaf7-3573-445f-a321-a188a9dd992f</Id>
-    <Name>
-      <Value>team1</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>98346ee0-e9dc-4e4c-a55b-6ca08e5cce03</Id>
-    <Name>
-      <Value>team2</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
     <Id>e5ac183f-2311-4609-81c7-7bb871d379b7</Id>
     <Name>
       <Value>Manu</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>83ff7379-9da8-4513-9c3f-c281e61aa704</Id>
-    <Name>
-      <Value>team1</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>76bc9773-becf-43b9-8155-9d17c68f2c52</Id>
-    <Name>
-      <Value>team2</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>aad34d1a-be2c-4b4a-8916-96dd39a527c4</Id>
-    <Name>
-      <Value>team1</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>800bcb14-8030-4e5d-8a47-45389f2896b4</Id>
-    <Name>
-      <Value>team2</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>f46f234b-9db5-42d8-98d7-5c94d94effb2</Id>
-    <Name>
-      <Value>team1</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>ca5b9319-728e-4ef6-8c17-3f26a986f1c2</Id>
-    <Name>
-      <Value>team2</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>674585c4-0901-48f5-84fb-71eea7725d7b</Id>
-    <Name>
-      <Value>team1</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>46bb6bb7-22bb-42cf-ae39-0dec41d8b1cb</Id>
-    <Name>
-      <Value>team2</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>71dccfe6-28aa-48ca-a7e3-f7780a7f63ea</Id>
-    <Name>
-      <Value>team1</Value>
-    </Name>
-    <PlayerIds />
-    <Goals />
-    <CoachId>00000000-0000-0000-0000-000000000000</CoachId>
-  </Team>
-  <Team>
-    <Id>1c833018-9566-4895-afa3-315f7788ba41</Id>
-    <Name>
-      <Value>team2</Value>
     </Name>
     <PlayerIds />
     <Goals />
@@ -244,5 +19,284 @@
     </PlayerIds>
     <Goals />
     <CoachId>c5997a06-46ba-4c69-8754-27656cc57ecc</CoachId>
+  </Team>
+  <Team xsi:nil="true" />
+  <Team xsi:nil="true" />
+  <Team>
+    <Id>d7409b35-46b8-4fce-be70-ea4a461a10e6</Id>
+    <Name>
+      <Value>sdfsdf</Value>
+    </Name>
+    <PlayerIds>
+      <guid>ade8b85f-175a-4698-b390-72b5c9121894</guid>
+      <guid>3b823148-a0d9-40e0-aa8b-29583031934a</guid>
+    </PlayerIds>
+    <Goals />
+    <CoachId>f8a5a89f-ccb2-4c45-96dd-36e81344c8af</CoachId>
+  </Team>
+  <Team>
+    <Id>18a60841-947f-467d-89a8-9aa2b7fad068</Id>
+    <Name>
+      <Value>asdfsdf</Value>
+    </Name>
+    <PlayerIds>
+      <guid>7b9285e0-fe8f-4cd8-9333-7ef0f928e0f5</guid>
+    </PlayerIds>
+    <Goals />
+    <CoachId>a4c4bda8-4886-4a14-993b-f46ab72b9fa5</CoachId>
+  </Team>
+  <Team>
+    <Id>8303b644-2cbc-463e-98bd-836268bf2146</Id>
+    <Name>
+      <Value>asdasd</Value>
+    </Name>
+    <PlayerIds>
+      <guid>8af70f0f-8279-42de-8ab1-4bea6d42ca6a</guid>
+    </PlayerIds>
+    <Goals />
+    <CoachId>db2895d8-2b42-44fb-82eb-49fc7be3cc0a</CoachId>
+  </Team>
+  <Team>
+    <Id>7b532ff1-41ba-4537-b308-0c1ab4996ac8</Id>
+    <Name>
+      <Value>dsfsdf</Value>
+    </Name>
+    <PlayerIds>
+      <guid>0028b6f5-5a32-488e-b6b3-3a7a3d529f89</guid>
+    </PlayerIds>
+    <Goals />
+    <CoachId>f06d7cda-e812-449f-8811-f278c9af6475</CoachId>
+  </Team>
+  <Team>
+    <Id>c7e55aeb-32fb-479e-accf-f590027b486c</Id>
+    <Name>
+      <Value>sdffsd</Value>
+    </Name>
+    <PlayerIds>
+      <guid>65f80f4c-fcdf-44a3-acd3-bcb043c3eb84</guid>
+    </PlayerIds>
+    <Goals />
+    <CoachId>83db6ae9-7a7f-4a4e-b7b9-409239f35208</CoachId>
+  </Team>
+  <Team>
+    <Id>252ce35b-05af-4b06-bdbf-31601ef9c909</Id>
+    <Name>
+      <Value>fdsfsd</Value>
+    </Name>
+    <PlayerIds>
+      <guid>a794d0de-0a60-4b93-ab81-c0f54e0e7398</guid>
+    </PlayerIds>
+    <Goals />
+    <CoachId>b503af4f-d6a0-434d-8b79-c53cc84672eb</CoachId>
+  </Team>
+  <Team>
+    <Id>5598d8da-0137-4c96-944e-dd87224cb71f</Id>
+    <Name>
+      <Value>fsdsfd</Value>
+    </Name>
+    <PlayerIds>
+      <guid>1b8d1b9b-acf7-4adf-b2a5-02ac5b810f00</guid>
+      <guid>cc2e91e0-77cb-49c6-91b5-7274767ead00</guid>
+    </PlayerIds>
+    <Goals />
+    <CoachId>0362e6e7-2fc4-4a04-b01e-a615c57dd2f3</CoachId>
+  </Team>
+  <Team>
+    <Id>fa01a037-3bc8-4dec-b374-cc7361eb41f6</Id>
+    <Name>
+      <Value>fsddf</Value>
+    </Name>
+    <PlayerIds>
+      <guid>717e56f7-4ef1-45b2-a050-0315ffc497c5</guid>
+    </PlayerIds>
+    <Goals />
+    <CoachId>4a002cb2-1015-4630-a24e-94be266e678b</CoachId>
+  </Team>
+  <Team>
+    <Id>7f08996e-9eb2-4f13-b9de-34651f46455d</Id>
+    <Name>
+      <Value>sdfsdf</Value>
+    </Name>
+    <PlayerIds>
+      <guid>b4ebae51-af31-4e19-a91c-ef5e081ced60</guid>
+    </PlayerIds>
+    <Goals />
+    <CoachId>ffe2e023-efa2-4311-b505-fd125886f065</CoachId>
+  </Team>
+  <Team>
+    <Id>1a234d0a-d8d5-4fa1-9d85-7cf7166962f7</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>db2be731-b9fe-4e01-8b89-be95ac1c0a73</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>98d9e678-7c56-4261-b232-b87378421ba7</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>098a13a5-c3a1-42e3-b13f-33178eb4fda8</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>3b642154-6f7b-4785-bc9d-8e9278f7530f</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>78dcc502-9c9d-4036-aea6-01fd782aeefc</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>a899fd4d-d5cd-4647-87e2-284570cdd5de</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>1870691a-2bca-4999-ba31-1802fb0f5f95</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>65b3e5d7-af1b-4a09-95c9-da7b89171f70</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>fc32e4a2-5b9f-4ffa-9cde-11a501d54d9f</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>44860da3-5320-471a-b44a-c48a9db8b536</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>39596dba-c862-49aa-820b-2e94ac02b710</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>a2574806-8f5b-42d9-9a3b-f6f572ca7abe</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>09f0f647-6e56-4823-9a8b-65e69b0d06dc</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>c7b3c60d-8308-4282-be67-7f93b10f6f9e</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>ea851e7f-eeea-4d5a-8d8c-ee00bdb7503b</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>b36bc51d-8003-4a30-9733-e0b366886b8e</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>0cdf5998-989c-46b6-a354-809019eb18e4</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>b5dbe484-2896-474d-8be0-77dd137a7234</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>d78acdfe-5fa7-45bc-a298-c7df1c6eee45</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>334a8928-4904-44f1-939e-226812b65eba</Id>
+    <Name>
+      <Value>team1</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
+  </Team>
+  <Team>
+    <Id>263a4240-9810-4119-94db-516b45405532</Id>
+    <Name>
+      <Value>team2</Value>
+    </Name>
+    <TeamPersons />
+    <Goals />
   </Team>
 </ArrayOfTeam>

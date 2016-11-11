@@ -2,16 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
 using knatteligan.Services;
@@ -34,12 +26,20 @@ namespace KnatteliganWPF
         private readonly PersonService _personService;
 
 
+
+
         public AddTeamWindow()
         {
             InitializeComponent();
             Players = new List<Player>();
             _personService = new PersonService();
             DataContext = this;
+
+            if (Players.Count >= 0)
+            {
+                AddTeamBtn.IsEnabled = true;
+            }
+
         }
 
         private void AddPlayer_Clicked(object sender, RoutedEventArgs e)
@@ -52,9 +52,7 @@ namespace KnatteliganWPF
             Players.Add(addPlayerWindow.Player);
             PlayerList.ItemsSource = new ObservableCollection<Player>(Players);
 
-
-
-            if (Players.Count >= 1)
+            if (Players.Count >= 0)
             {
                 AddTeamBtn.IsEnabled = true;
             }
@@ -67,8 +65,8 @@ namespace KnatteliganWPF
 
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
-            var coach = new Coach(PersonName, PersonalNumber, PhoneNumber, EmailAddress);
-            Team = new Team(TeamName, Players, coach);
+            Coach = new Coach(PersonName, PersonalNumber, PhoneNumber, EmailAddress);
+            Team = new Team(TeamName, Players, Coach);
 
             DialogResult = true;
             Close();
@@ -81,13 +79,17 @@ namespace KnatteliganWPF
 
         private void EditTeam_Click(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void PlayerList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             RemoveTeamBtn.IsEnabled = true;
             EditTeamBtn.IsEnabled = true;
+        }
+
+        private void AddTeamWindowActivated(object sender, EventArgs e)
+        {
+            PlayerList.ItemsSource = new ObservableCollection<Player>(Players);
         }
     }
 }

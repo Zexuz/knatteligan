@@ -21,5 +21,10 @@ namespace knatteligan.Domain.Entities
         {
             return Persons.Player;
         }
+
+        public override string ToString()
+        {
+            return Name.Name;
+        }
     }
 }

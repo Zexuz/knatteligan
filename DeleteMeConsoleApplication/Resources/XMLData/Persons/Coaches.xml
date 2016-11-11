@@ -1,4 +1,99 @@
 <?xml version="1.0"?>
 <ArrayOfCoach xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-
+  <Coach>
+    <Id>fa512c1e-fa2f-47ff-af13-cae121f047ba</Id>
+    <Name>
+      <Name>Jhon Doe</Name>
+    </Name>
+    <PersonalNumber>
+      <DateOfBirth>1996-08-01T00:00:00</DateOfBirth>
+      <LastFour>8811</LastFour>
+    </PersonalNumber>
+    <Email>
+      <Value>leon@l.se</Value>
+    </Email>
+    <PhoneNumber>
+      <Value>0733209064</Value>
+    </PhoneNumber>
+  </Coach>
+  <Coach>
+    <Id>69ca706e-7ec0-4155-9ac4-5ffe37b09b5c</Id>
+    <Name>
+      <Name>Peter Moth</Name>
+    </Name>
+    <PersonalNumber>
+      <DateOfBirth>1996-08-01T00:00:00</DateOfBirth>
+      <LastFour>8811</LastFour>
+    </PersonalNumber>
+    <Email>
+      <Value>leon@l.se</Value>
+    </Email>
+    <PhoneNumber>
+      <Value>0733209064</Value>
+    </PhoneNumber>
+  </Coach>
+  <Coach>
+    <Id>b07bcd64-aa80-45b8-a425-db1e3b08cdf7</Id>
+    <Name>
+      <Name>Peter Moth</Name>
+    </Name>
+    <PersonalNumber>
+      <DateOfBirth>1996-08-01T00:00:00</DateOfBirth>
+      <LastFour>8811</LastFour>
+    </PersonalNumber>
+    <Email>
+      <Value>leon@l.se</Value>
+    </Email>
+    <PhoneNumber>
+      <Value>0733209064</Value>
+    </PhoneNumber>
+  </Coach>
+  <Coach>
+    <Id>3460a5d3-1f07-4e75-8568-bef622fd34cc</Id>
+    <Name>
+      <Name>Jhon Doe</Name>
+    </Name>
+    <PersonalNumber>
+      <DateOfBirth>1996-08-01T00:00:00</DateOfBirth>
+      <LastFour>8811</LastFour>
+    </PersonalNumber>
+    <Email>
+      <Value>leon@l.se</Value>
+    </Email>
+    <PhoneNumber>
+      <Value>0733209064</Value>
+    </PhoneNumber>
+  </Coach>
+  <Coach>
+    <Id>69c53e16-bb63-45ef-a865-76a10f434762</Id>
+    <Name>
+      <Name>Jhon Doe</Name>
+    </Name>
+    <PersonalNumber>
+      <DateOfBirth>1996-08-01T00:00:00</DateOfBirth>
+      <LastFour>8811</LastFour>
+    </PersonalNumber>
+    <Email>
+      <Value>leon@l.se</Value>
+    </Email>
+    <PhoneNumber>
+      <Value>0733209064</Value>
+    </PhoneNumber>
+  </Coach>
+  <Coach>
+    <Id>715585e1-71de-4b98-a830-5d663ce74f13</Id>
+    <Name>
+      <Name>Sandra Rodrigas</Name>
+    </Name>
+    <PersonalNumber>
+      <DateOfBirth>1996-08-01T00:00:00</DateOfBirth>
+      <LastFour>8811</LastFour>
+    </PersonalNumber>
+    <Email>
+      <Value>leon@l.se</Value>
+    </Email>
+    <PhoneNumber>
+      <Value>0733209064</Value>
+    </PhoneNumber>
+  </Coach>
 </ArrayOfCoach>

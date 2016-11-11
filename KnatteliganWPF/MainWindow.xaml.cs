@@ -28,6 +28,7 @@ namespace KnatteliganWPF
     public partial class MainWindow : Window
     {
         LeagueService leagueService;
+
         public MainWindow()
         {
             InitializeComponent();

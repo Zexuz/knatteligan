@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<ArrayOfGoal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Goal>
+    <Id>f6ab3368-db42-46be-ae8a-501c9613c507</Id>
+    <PlayerGuid>00000000-0000-0000-0000-000000000000</PlayerGuid>
+    <MatchGuid>00000000-0000-0000-0000-000000000000</MatchGuid>
+    <TeamGuid>00000000-0000-0000-0000-000000000000</TeamGuid>
+  </Goal>
+</ArrayOfGoal>

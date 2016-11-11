@@ -7,7 +7,6 @@ namespace knatteligan.Repositories
 {
     public class PersonRepository : Repository<Person>
     {
-        #region props
 
         private readonly List<Player> _players;
         private readonly List<Coach> _coaches;
@@ -15,7 +14,6 @@ namespace knatteligan.Repositories
         private static string _playerPath;
         private static string _coachPath;
 
-        #endregion
 
         public PersonRepository()
         {
@@ -85,10 +83,33 @@ namespace knatteligan.Repositories
         }
 
         #endregion
+        //TODO: Just one search method for both coach and player.
+
+        public Player FindPlayerById(Guid id)
+        {
+            return _players.Find(x => x.Id == id);
+        }
+
+        public Coach FindCoachById(Guid id)
+        {
+            return _coaches.Find(x => x.Id == id);
+        }
 
         public static PersonRepository GetInstance()
         {
             return (PersonRepository) (Repo ?? (Repo = new PersonRepository()));
         }
+
+
+        public void RemovePlayer(Guid id)
+        {
+            var player = FindPlayerById(id);
+
+            _players.Remove(player);
+
+            Save(_coachPath, _coaches);
+        }
+
+       
     }
 }

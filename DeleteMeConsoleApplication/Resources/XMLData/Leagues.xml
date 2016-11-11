@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 <ArrayOfLeague xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <League>
+    <Id>eb72df8e-33db-41cc-b306-9611004c74f6</Id>
+    <Teams />
+    <Matches />
+    <StartDate>0001-01-01T00:00:00</StartDate>
+  </League>
+  <League>
     <Id>e99c46cb-b7f7-40aa-b3f7-71b874254ee4</Id>
     <Name>
       <Value>Hej</Value>
@@ -32,6 +38,7 @@
       <guid>a62bd22f-bb33-42ef-8977-4c3dd6da37dc</guid>
       <guid>7e499b96-98e4-4065-8edc-feb30b33f127</guid>
     </Teams>
+    <Matches />
     <StartDate>0001-01-01T00:00:00</StartDate>
   </League>
   <League>
@@ -66,6 +73,19 @@
       <guid>a62bd22f-bb33-42ef-8977-4c3dd6da37dc</guid>
       <guid>7e499b96-98e4-4065-8edc-feb30b33f127</guid>
     </Teams>
+    <Matches />
+    <StartDate>0001-01-01T00:00:00</StartDate>
+  </League>
+  <League>
+    <Id>8745e1ba-5e45-4cf9-b8a9-3573a611332c</Id>
+    <Teams>
+      <guid>7ea27598-6cee-4b59-b4cc-6e1cddc6368c</guid>
+      <guid>d40c06dd-0090-4ac4-878a-14cdcd6b5bc7</guid>
+      <guid>065471af-d691-46cf-b530-d5475b2d3a09</guid>
+      <guid>14deac0b-6502-4a65-a626-bcd6dca45e92</guid>
+      <guid>87ff26b0-1ff7-4906-929f-f3a412e71b46</guid>
+    </Teams>
+    <Matches />
     <StartDate>0001-01-01T00:00:00</StartDate>
   </League>
   <League>
@@ -77,6 +97,7 @@
       <guid>471fcc16-fd4c-4f16-be8c-cae20e3b687b</guid>
       <guid>065471af-d691-46cf-b530-d5475b2d3a09</guid>
     </Teams>
+    <Matches />
     <StartDate>0001-01-01T00:00:00</StartDate>
   </League>
   <League>
@@ -91,6 +112,7 @@
       <guid>d40c06dd-0090-4ac4-878a-14cdcd6b5bc7</guid>
       <guid>065471af-d691-46cf-b530-d5475b2d3a09</guid>
     </Teams>
+    <Matches />
     <StartDate>0001-01-01T00:00:00</StartDate>
   </League>
   <League>
@@ -105,120 +127,7 @@
       <guid>d40c06dd-0090-4ac4-878a-14cdcd6b5bc7</guid>
       <guid>065471af-d691-46cf-b530-d5475b2d3a09</guid>
     </Teams>
-    <StartDate>0001-01-01T00:00:00</StartDate>
-  </League>
-  <League>
-    <Id>b6e96bb6-3cf2-4a8c-9bfd-eebfa8acf06e</Id>
-    <Name>
-      <Value>LeagueTest</Value>
-    </Name>
-    <Teams>
-      <guid>e5ac183f-2311-4609-81c7-7bb871d379b7</guid>
-      <guid>0185c319-1ad1-4602-8e19-d0582fe02859</guid>
-    </Teams>
-    <StartDate>0001-01-01T00:00:00</StartDate>
-  </League>
-  <League>
-    <Id>14a9b771-1a54-403b-88a5-f932ca670af6</Id>
-    <Name>
-      <Value>LeagueTest</Value>
-    </Name>
-    <Teams>
-      <guid>e5ac183f-2311-4609-81c7-7bb871d379b7</guid>
-      <guid>0185c319-1ad1-4602-8e19-d0582fe02859</guid>
-    </Teams>
-    <StartDate>0001-01-01T00:00:00</StartDate>
-  </League>
-  <League>
-    <Id>78d214bb-6b2b-4f31-8674-a7db5148a61a</Id>
-    <Name>
-      <Value>LeagueTest</Value>
-    </Name>
-    <Teams>
-      <guid>e5ac183f-2311-4609-81c7-7bb871d379b7</guid>
-      <guid>0185c319-1ad1-4602-8e19-d0582fe02859</guid>
-    </Teams>
-    <StartDate>0001-01-01T00:00:00</StartDate>
-  </League>
-  <League>
-    <Id>c3b65876-538c-48b5-89e5-2c7867a53542</Id>
-    <Name>
-      <Value>hehe</Value>
-    </Name>
-    <Teams>
-      <guid>e5ac183f-2311-4609-81c7-7bb871d379b7</guid>
-      <guid>0185c319-1ad1-4602-8e19-d0582fe02859</guid>
-    </Teams>
-    <StartDate>0001-01-01T00:00:00</StartDate>
-  </League>
-  <League>
-    <Id>9358e8ea-3d6b-4886-ad72-9a38a3080e6a</Id>
-    <Name>
-      <Value>hgehe</Value>
-    </Name>
-    <Teams>
-      <guid>e5ac183f-2311-4609-81c7-7bb871d379b7</guid>
-      <guid>0185c319-1ad1-4602-8e19-d0582fe02859</guid>
-    </Teams>
-    <StartDate>0001-01-01T00:00:00</StartDate>
-  </League>
-  <League>
-    <Id>6b5b8f56-4907-4a9e-be17-e7e3b316b3b9</Id>
-    <Name>
-      <Value>gege</Value>
-    </Name>
-    <Teams>
-      <guid>e5ac183f-2311-4609-81c7-7bb871d379b7</guid>
-      <guid>0185c319-1ad1-4602-8e19-d0582fe02859</guid>
-    </Teams>
-    <StartDate>0001-01-01T00:00:00</StartDate>
-  </League>
-  <League>
-    <Id>f7560ce8-2ada-499b-a35d-97f24653c721</Id>
-    <Name>
-      <Value>dfafa</Value>
-    </Name>
-    <Teams>
-      <guid>e5ac183f-2311-4609-81c7-7bb871d379b7</guid>
-      <guid>0185c319-1ad1-4602-8e19-d0582fe02859</guid>
-    </Teams>
-    <StartDate>0001-01-01T00:00:00</StartDate>
-  </League>
-  <League>
-    <Id>6189c7f1-2c0d-4e2b-9044-58ae59bc924e</Id>
-    <Name>
-      <Value>hehehe</Value>
-    </Name>
-    <Teams>
-      <guid>e5ac183f-2311-4609-81c7-7bb871d379b7</guid>
-      <guid>0185c319-1ad1-4602-8e19-d0582fe02859</guid>
-    </Teams>
-    <StartDate>0001-01-01T00:00:00</StartDate>
-  </League>
-  <League>
-    <Id>32e1ccc4-eb8e-4828-beb4-dea61bed584e</Id>
-    <Name>
-      <Value>dede</Value>
-    </Name>
-    <Teams>
-      <guid>e5ac183f-2311-4609-81c7-7bb871d379b7</guid>
-      <guid>0185c319-1ad1-4602-8e19-d0582fe02859</guid>
-    </Teams>
-    <StartDate>0001-01-01T00:00:00</StartDate>
-  </League>
-  <League xsi:nil="true" />
-  <League xsi:nil="true" />
-  <League xsi:nil="true" />
-  <League xsi:nil="true" />
-  <League xsi:nil="true" />
-  <League>
-    <Id>29a2c264-ed41-4433-aa47-8b66ab88dbe7</Id>
-    <Name>
-      <Value>sdfsdfsf</Value>
-    </Name>
-    <Teams>
-      <guid>7f08996e-9eb2-4f13-b9de-34651f46455d</guid>
-    </Teams>
+    <Matches />
     <StartDate>0001-01-01T00:00:00</StartDate>
   </League>
 </ArrayOfLeague>

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-
-using knatteligan;
 using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
 using knatteligan.Helpers;
@@ -24,10 +21,11 @@ namespace DeleteMeConsoleApplication {
 
             foreach (var teamName in teamNames) {
                 var coach = GenareNewCoach();
-                var team = new Team();
-                team.CoachId = coach.Id;
-                team.Name = new TeamName(teamName);
-                team.PlayerIds = new List<Guid>();
+                var team = new Team {
+                    CoachId = coach.Id,
+                    Name = new TeamName(teamName),
+                    PlayerIds = new List<Guid>()
+                };
 
                 PersonRepository.GetInstance().Add(coach);
 
@@ -80,7 +78,7 @@ namespace DeleteMeConsoleApplication {
 
             var firstName = firstNames[GenNewNumber(0, firstNames.Length)];
             var lastName = lastNames[GenNewNumber(0, lastNames.Length)];
-            return new PersonName(firstName);
+            return new PersonName($"{firstName} {lastName}");
         }
 
         private static int GenNewNumber(int min, int max) {

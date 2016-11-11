@@ -23,7 +23,6 @@ namespace DeleteMeConsoleApplication {
             var teams = new List<Team>();
 
             foreach (var teamName in teamNames) {
-                var players = new List<Player>();
                 var coach = GenareNewCoach();
                 var team = new Team();
                 team.CoachId = coach.Id;
@@ -34,8 +33,6 @@ namespace DeleteMeConsoleApplication {
 
                 for (var i = 0; i < 15; i++) {
                     var player = GenareNewPlayer();
-
-                    players.Add(player);
 
                     PersonRepository.GetInstance().Add(player);
                     team.PlayerIds.Add(player.Id);

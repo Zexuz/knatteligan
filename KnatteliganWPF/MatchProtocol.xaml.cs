@@ -8,6 +8,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Windows.Controls;
 
 namespace KnatteliganWPF {
@@ -48,7 +49,6 @@ namespace KnatteliganWPF {
             AwayTeamList.ItemsSource = new ObservableCollection<Player>(AwayTeamPlayers);
             HomeTeamName.Text = HomeTeam.ToString();
             AwayTeamName.Text = AwayTeam.ToString();
-
 
 
             //var homeTeam = new Team(new TeamName("Liverpool"));
@@ -173,6 +173,16 @@ namespace KnatteliganWPF {
         }
 
         private void Goal_SelectionChanged(object sender, SelectionChangedEventArgs e) {}
+
+        private void DatePicker_OnSelectedDateChanged(object sender, SelectionChangedEventArgs e) {
+            var datePicker = sender as DatePicker;
+            if (datePicker == null || datePicker.SelectedDate == null) {
+                throw new Exception("DatePicker is null and therfore not good!");
+            }
+
+            Match.MatchDate = datePicker.SelectedDate.Value;
+            MatchRepository.GetInstance().Save();
+        }
 
     }
 

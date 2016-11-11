@@ -64,6 +64,7 @@
     <Compile Include="Helpers\CreateSeriesSchedule.cs" />
     <Compile Include="Helpers\MatchWeek.cs" />
     <Compile Include="Helpers\Serializer.cs" />
+    <Compile Include="Helpers\SerializableDictionary.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\LeagueRepository.cs" />
     <Compile Include="Repositories\MatchEventRepository.cs" />

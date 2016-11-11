@@ -71,6 +71,12 @@
     <Compile Include="ValidationRules\TeamNameValidationRule.cs" />
     <Compile Include="ValidationRules\LeagueNameValidationRule.cs" />
     <Compile Include="ValidationRules\SocialNumberValidationRule.cs" />
+
+    <Page Include="SeriesScheduleWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+
     <Page Include="AddPlayerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -110,6 +116,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+
+    <Compile Include="SeriesScheduleWindow.xaml.cs">
+      <DependentUpon>SeriesScheduleWindow.xaml</DependentUpon>
+    </Compile>
+
+
     <Compile Include="ManageLeague.xaml.cs">
       <DependentUpon>ManageLeague.xaml</DependentUpon>
     </Compile>

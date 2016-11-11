@@ -55,8 +55,9 @@ namespace KnatteliganWPF
 
         private void ManageLeague_Clicked(object sender, RoutedEventArgs e)
         {
-            var manageLeague = new ManageLeague();
-            var manageLeagueResult = manageLeague.ShowDialog();
+            var serieSchedule = new SeriesScheduleWindow();
+            var serieScheduleResult = serieSchedule.ShowDialog();
+            //this is a commmenyt!
            
 
         }

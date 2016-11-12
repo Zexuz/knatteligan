@@ -43,7 +43,7 @@ namespace knatteligan.Helpers
         //used to swap all even matches in every first group at index 0 EG team nr 1
         private void SwapAllEvenMatchesAtIndexZero(SerializableDictionary<int, MatchWeek> dictionary) {
             for (int i = 0; i < dictionary.Count; i += 2) {
-                //todo get the match from the guid, swap the match and save the match
+
                 var matchId = dictionary[i + 1].Matches[0];
                 var match = MatchRepository.GetInstance().Find(matchId);
                 match.Swap();

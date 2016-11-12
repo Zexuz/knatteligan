@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,8 +27,6 @@ namespace KnatteliganWPF
         private readonly PersonService _personService;
 
 
-
-
         public AddTeamWindow()
         {
             InitializeComponent();
@@ -46,7 +45,12 @@ namespace KnatteliganWPF
         {
             var addPlayerWindow = new AddPlayerWindow();
             var addPlayerResult = addPlayerWindow.ShowDialog();
-            if (!addPlayerResult.HasValue) return;
+            if (addPlayerResult.HasValue && !addPlayerResult.Value) {
+                Trace.WriteLine("we did not press the add buttom");
+                return;
+            }
+
+            DialogResult = true;
 
             _personService.Add(addPlayerWindow.Player);
             Players.Add(addPlayerWindow.Player);
@@ -60,6 +64,7 @@ namespace KnatteliganWPF
 
         private void CloseCommandHandler_Clicked(object sender, RoutedEventArgs e)
         {
+            DialogResult = false;
             this.Close();
         }
 

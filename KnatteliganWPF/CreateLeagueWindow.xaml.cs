@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using knatteligan.Domain.Entities;
@@ -43,8 +44,25 @@ namespace KnatteliganWPF
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
             var addTeamWindow = new AddTeamWindow();
-            var addTeamResult = addTeamWindow.ShowDialog();
-            if (!addTeamResult.HasValue) return;
+            var windowRes = addTeamWindow.ShowDialog();
+
+            Trace.WriteLine(windowRes);
+            if (windowRes.HasValue && !windowRes.Value) {
+                Trace.WriteLine("We did not press the add button");
+                return;
+            }
+
+            if (addTeamWindow.Team == null) {
+                Trace.WriteLine("Team is null");
+                return;
+            }
+
+            if (addTeamWindow.Coach == null) {
+                Trace.WriteLine("Coach is null");
+                return;
+            }
+
+
 
             if (/*Teams.Count >= 16 && */Teams.Count % 2 == 0)
             {

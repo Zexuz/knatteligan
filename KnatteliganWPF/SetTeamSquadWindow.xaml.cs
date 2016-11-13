@@ -1,43 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 
 using knatteligan.Domain.Entities;
+using knatteligan.Helpers;
 
 namespace KnatteliganWPF {
 
-    public partial class SetTeamSquadWindow{
+    public partial class SetTeamSquadWindow {
 
         public List<Player> StartSquadPlayers { get; set; }
 
-        public ObservableCollection<CheckBox> PlayerList {get; set ;}
+        public ObservableCollection<CheckBox> PlayerList { get; set; }
         private readonly List<Player> _players;
 
 
-        public SetTeamSquadWindow(List<Player> players) {
+        public SetTeamSquadWindow(List<Player> players, Guid matchId) {
             InitializeComponent();
 
             _players = players;
 
-            var listOfCheckBoxes = new List<CheckBox>();
-
-            foreach (var player in players) {
-                var checkBox = new CheckBox();
-                checkBox.Content = player.Name;
-                checkBox.Tag = player.Id;
-                listOfCheckBoxes.Add(checkBox);
-            }
+            var listOfCheckBoxes = players.Select(player => new CheckBox {
+                Content = player.Name,
+                Tag = player.Id,
+                IsEnabled = !new MatchService(matchId).IsPlayerSuspended(player.Id)
+            }).ToList();
 
             PlayerList = new ObservableCollection<CheckBox>(listOfCheckBoxes);
-            DataContext =this;
+            DataContext = this;
         }
-
-
 
 
         private void WindowActivated(object sender, EventArgs e) {
@@ -55,7 +49,5 @@ namespace KnatteliganWPF {
         }
 
     }
-
-
 
 }

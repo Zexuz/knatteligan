@@ -72,6 +72,11 @@
     <Compile Include="ValidationRules\LeagueNameValidationRule.cs" />
     <Compile Include="ValidationRules\SocialNumberValidationRule.cs" />
 
+    <Page Include="SetTeamSquadWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+
     <Page Include="SeriesScheduleWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -95,6 +100,9 @@
     </Page>
     <Compile Include="AddPlayerWindow.xaml.cs">
       <DependentUpon>AddPlayerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SetTeamSquadWindow.xaml.cs">
+      <DependentUpon>SetTeamSquadWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

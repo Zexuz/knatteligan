@@ -71,39 +71,29 @@ namespace knatteligan.Repositories
 
         private void AddAndSaveCoach(Person person)
         {
-            var coach = (Coach) person;
+            var coach = (Coach)person;
             _coaches.Add(coach);
-            Save(_coachPath,_coaches);
+            Save(_coachPath, _coaches);
 
         }
 
         private void AddAndSavePlayer(Person person)
         {
-            var player = (Player) person;
+            var player = (Player)person;
             _players.Add(player);
-            Save(_playerPath,_players);
+            Save(_playerPath, _players);
         }
 
         #endregion
 
         public static PersonRepository GetInstance()
         {
-            return (PersonRepository) (Repo ?? (Repo = new PersonRepository()));
+            return (PersonRepository)(Repo ?? (Repo = new PersonRepository()));
         }
 
         public Person FindBy(Guid personId)
         {
-            var player = _players.First(p => p.Id == personId);
-            var coach = _coaches.First(c => c.Id == personId);
-            if (player == null)
-                return coach;
-            else
-            {
-                return player;
-            }
-                
-
-
+            return GetAll().First(cp => cp.Id == personId);
         }
     }
 }

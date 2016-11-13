@@ -30,5 +30,10 @@ namespace knatteligan.Services
             throw new NotImplementedException();
         }
 
+        public League FindById(Guid leagueGuid)
+        {
+            return _leagueRepository.FindBy(leagueGuid);
+        }
+
     }
 }

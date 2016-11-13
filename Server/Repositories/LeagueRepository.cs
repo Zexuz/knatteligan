@@ -1,4 +1,5 @@
-﻿﻿using System.Collections.Generic;
+﻿﻿using System;
+ using System.Collections.Generic;
 using knatteligan.Domain.Entities;
 using System.Linq;
 
@@ -30,6 +31,11 @@ namespace knatteligan.Repositories
         public static LeagueRepository GetInstance()
         {
             return (LeagueRepository) (Repo ?? (Repo = new LeagueRepository()));
+        }
+
+        public League FindBy(Guid leagueGuid)
+        {
+            return _leagues.Find(x => x.Id == leagueGuid);
         }
     }
 }

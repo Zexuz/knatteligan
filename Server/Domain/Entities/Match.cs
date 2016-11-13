@@ -19,6 +19,8 @@ namespace knatteligan.Domain.Entities
         private League _league;
         private int _currentMatchWeekNr;
 
+        public Match(){}
+
         public Match(Guid homeTeam, Guid awayTeam)
         {
 
@@ -31,28 +33,7 @@ namespace knatteligan.Domain.Entities
             SetLeagueAndCurrentMatchWeekNr();
         }
 
-        private void SetLeagueAndCurrentMatchWeekNr() {
-            var allLeages = LeagueRepository.GetInstance().GetAll().ToList();
-            for (int i = 0; i < allLeages.Count(); i++)
-            {
-                var currentLeage = allLeages[i];
-
-                for (int gameWeekIndex = 1; gameWeekIndex < currentLeage.MatchWeeks.Count; gameWeekIndex++) {
-                    var gameWeekMatches = currentLeage.MatchWeeks[gameWeekIndex];
-
-                    if (gameWeekMatches.Matches.All(matchGuid => matchGuid != Id)) continue;
-
-                    _league = currentLeage;
-                    _currentMatchWeekNr = gameWeekIndex;
-                }
-
-            }
-
-            if (_league == null)
-                throw new Exception("Our leage is not in the database");
-        }
-
-        public bool IsPlayersuspended(Guid playerId) {
+        public bool IsPlayerSuspended(Guid playerId) {
             return _league.MatchWeeks[_currentMatchWeekNr].SuspendedPlayers.Contains(playerId);
         }
 
@@ -89,10 +70,6 @@ namespace knatteligan.Domain.Entities
 
         }
 
-        public Match()
-        {
-        }
-
         public void Swap()
         {
             var tempTeam = HomeTeam;
@@ -104,5 +81,27 @@ namespace knatteligan.Domain.Entities
         {
             return $"{TeamRepository.GetInstance().Find(HomeTeam).Name} - {TeamRepository.GetInstance().Find(HomeTeam).Name}";
         }
+
+        private void SetLeagueAndCurrentMatchWeekNr() {
+            var allLeages = LeagueRepository.GetInstance().GetAll().ToList();
+            for (int i = 0; i < allLeages.Count(); i++)
+            {
+                var currentLeage = allLeages[i];
+
+                for (int gameWeekIndex = 1; gameWeekIndex < currentLeage.MatchWeeks.Count; gameWeekIndex++) {
+                    var gameWeekMatches = currentLeage.MatchWeeks[gameWeekIndex];
+
+                    if (gameWeekMatches.Matches.All(matchGuid => matchGuid != Id)) continue;
+
+                    _league = currentLeage;
+                    _currentMatchWeekNr = gameWeekIndex;
+                }
+
+            }
+
+            if (_league == null)
+                throw new Exception("Our leage is not in the database");
+        }
+
     }
 }

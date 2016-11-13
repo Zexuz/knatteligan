@@ -90,5 +90,20 @@ namespace knatteligan.Repositories
         {
             return (PersonRepository) (Repo ?? (Repo = new PersonRepository()));
         }
+
+        public Person FindBy(Guid personId)
+        {
+            var player = _players.First(p => p.Id == personId);
+            var coach = _coaches.First(c => c.Id == personId);
+            if (player == null)
+                return coach;
+            else
+            {
+                return player;
+            }
+                
+
+
+        }
     }
 }

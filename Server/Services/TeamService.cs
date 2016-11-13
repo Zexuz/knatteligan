@@ -34,5 +34,10 @@ namespace knatteligan.Services
         {
             team.Name = newName;
         }
+
+        public Team FindById(Guid teamId)
+        {
+            return _teamRepository.FindBy(teamId);
+        }
     }
 }

@@ -35,7 +35,7 @@ namespace knatteligan.Repositories
 
         public League FindBy(Guid leagueGuid)
         {
-            return _leagues.Find(x => x.Id == leagueGuid);
+            return _leagues.First(league => league.Id == leagueGuid);
         }
     }
 }

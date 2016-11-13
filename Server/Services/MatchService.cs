@@ -21,5 +21,10 @@ namespace knatteligan.Services
         {
             return _matchRepository.GetAll();
         }
+
+        public Match FindById(Guid mathId)
+        {
+            return _matchRepository.Find(mathId);
+        }
     }
 }

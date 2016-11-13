@@ -2,7 +2,6 @@
 
 using knatteligan.Domain.Entities;
 using knatteligan.Repositories;
-using knatteligan.Domain.ValueObjects;
 
 using System;
 using System.Linq;
@@ -193,7 +192,7 @@ namespace KnatteliganWPF {
         private void AddTeamSquad(bool isHomeTeam) {
             var listOfPlayers = isHomeTeam ? HomeTeamPlayers : AwayTeamPlayers;
 
-            var setSquadWindow = new SetTeamSquadWindow(listOfPlayers);
+            var setSquadWindow = new SetTeamSquadWindow(listOfPlayers,Match.Id);
             var resWindow = setSquadWindow.ShowDialog();
             if (resWindow.HasValue && !resWindow.Value) {
                 Trace.WriteLine("Did not press the 'okey' button");

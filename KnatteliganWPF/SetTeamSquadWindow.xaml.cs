@@ -1,5 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using System.Windows.Controls;
+using System.Windows.Documents;
 
 using knatteligan.Domain.Entities;
 
@@ -9,14 +14,26 @@ namespace KnatteliganWPF {
 
         public List<Player> StartSquadPlayers { get; set; }
 
+        public ObservableCollection<CheckBox> PlayerList {get; set ;}
         private readonly List<Player> _players;
+
 
         public SetTeamSquadWindow(List<Player> players) {
             InitializeComponent();
 
             _players = players;
 
-            DataContext = this;
+            var listOfCheckBoxes = new List<CheckBox>();
+
+            foreach (var player in players) {
+                var checkBox = new CheckBox();
+                checkBox.Content = player.Name;
+                checkBox.Tag = player.Id;
+                listOfCheckBoxes.Add(checkBox);
+            }
+
+            PlayerList = new ObservableCollection<CheckBox>(listOfCheckBoxes);
+            DataContext =this;
         }
 
 
@@ -25,5 +42,7 @@ namespace KnatteliganWPF {
         }
 
     }
+
+
 
 }

@@ -74,6 +74,8 @@
 
 
         <DatePicker Width="110" Grid.ColumnSpan="3" Grid.Column="2" Margin="33,5,26,0" SelectedDateChanged="DatePicker_OnSelectedDateChanged"/>
+        <Button Width="110" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Click="ButtonAddAwayTeamSquad_OnClick" Content="Add away team squad"/>
+        <Button Width="110" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Click="ButtonAddHomeTeamSquad_OnClick" Content="Add home team squad"/>
 
 
         <Button Grid.Row="11"  Grid.Column="2" Height="20" Width="50"  Margin="6,0,0,8" Click="Clear_Click" FontSize="10">Clear</Button>

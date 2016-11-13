@@ -45,8 +45,6 @@ namespace KnatteliganWPF {
             //this needs to be before adding the list to WPF.. DHOOO!
             InitializeComponent();
 
-            HomeTeamList.ItemsSource = new ObservableCollection<Player>(HomeTeamPlayers);
-            AwayTeamList.ItemsSource = new ObservableCollection<Player>(AwayTeamPlayers);
             HomeTeamName.Text = HomeTeam.ToString();
             AwayTeamName.Text = AwayTeam.ToString();
 
@@ -182,6 +180,39 @@ namespace KnatteliganWPF {
 
             Match.MatchDate = datePicker.SelectedDate.Value;
             MatchRepository.GetInstance().Save();
+        }
+
+        private void ButtonAddAwayTeamSquad_OnClick(object sender, RoutedEventArgs e) {
+            AddTeamSquad(false);
+        }
+
+        private void ButtonAddHomeTeamSquad_OnClick(object sender, RoutedEventArgs e) {
+            AddTeamSquad(true);
+        }
+
+        private void AddTeamSquad(bool isHomeTeam) {
+            var listOfPlayers = isHomeTeam ? HomeTeamPlayers : AwayTeamPlayers;
+
+            var setSquadWindow = new SetTeamSquadWindow(listOfPlayers);
+            var resWindow = setSquadWindow.ShowDialog();
+            if (resWindow.HasValue && !resWindow.Value) {
+                Trace.WriteLine("");
+            }
+
+            var items = setSquadWindow.PlayerListCeckBoxes.ItemsSource;
+
+            var players = ((IEnumerable<CheckBox>) items)
+                .Where(checkBox => checkBox.IsChecked.HasValue && checkBox.IsChecked.Value)
+                .Select(checkBox => PersonRepository.GetInstance().FindPlayerById((Guid) checkBox.Tag)).ToList();
+
+            if (isHomeTeam) {
+                Match.HomeTeamSquad = players.Select(p => p.Id).ToList();
+                HomeTeamList.ItemsSource = new ObservableCollection<Player>(players);
+            }
+            else {
+                Match.AwayTeamSquad = players.Select(p => p.Id).ToList();
+                AwayTeamList.ItemsSource = new ObservableCollection<Player>(players);
+            }
         }
 
     }

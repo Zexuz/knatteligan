@@ -22,7 +22,8 @@ namespace knatteligan.Services
 
         public void Edit(Player player, PersonName name, PersonalNumber personId)
         {
-            throw new NotImplementedException();
+            player.Name = name;
+            player.PersonalNumber = personId;
         }
 
         public IEnumerable<Person> GetAll()

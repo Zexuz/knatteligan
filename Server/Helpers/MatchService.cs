@@ -25,15 +25,13 @@ namespace knatteligan.Helpers {
         }
 
         public void SuspendPlayer(Player player, int rounds, Guid matchId) {
-            var league = GetLeageFromMatchId(matchId);
-            var currentMatchWeekNr = GetCurrentMatchWeekNr(league, matchId);
 
-            if (league.MatchWeeks.Count - currentMatchWeekNr + rounds < 0) {
-                rounds = league.MatchWeeks.Count - currentMatchWeekNr;
+            if (_league.MatchWeeks.Count - _currentMatchWeek + rounds < 0) {
+                rounds = _league.MatchWeeks.Count - _currentMatchWeek;
             }
 
-            for (var i = currentMatchWeekNr + 1; i < rounds + currentMatchWeekNr; i++) {
-                league.MatchWeeks[i].SuspendedPlayers.Add(player.Id);
+            for (var i = _currentMatchWeek + 1; i < rounds + _currentMatchWeek; i++) {
+                _league.MatchWeeks[i].SuspendedPlayers.Add(player.Id);
             }
         }
 

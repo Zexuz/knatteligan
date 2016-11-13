@@ -25,9 +25,9 @@ namespace knatteligan.Services
         }
 
 
-        public void Remove(Guid leagueGuid)
+        public void RemoveLeague(Guid leagueGuid)
         {
-            throw new NotImplementedException();
+            _leagueRepository.RemoveLeague(leagueGuid);
         }
 
         public League FindById(Guid leagueGuid)

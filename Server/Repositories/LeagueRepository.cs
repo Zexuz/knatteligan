@@ -1,5 +1,5 @@
-﻿﻿using System;
- using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using knatteligan.Domain.Entities;
 using System.Linq;
 
@@ -30,12 +30,17 @@ namespace knatteligan.Repositories
 
         public static LeagueRepository GetInstance()
         {
-            return (LeagueRepository) (Repo ?? (Repo = new LeagueRepository()));
+            return (LeagueRepository)(Repo ?? (Repo = new LeagueRepository()));
         }
 
         public League FindBy(Guid leagueGuid)
         {
             return _leagues.First(league => league.Id == leagueGuid);
+        }
+
+        public void RemoveLeague(Guid leagueGuid)
+        {
+            _leagues.Remove(_leagues.First(league => league.Id == leagueGuid));
         }
     }
 }

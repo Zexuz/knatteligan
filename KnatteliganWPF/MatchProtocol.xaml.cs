@@ -196,7 +196,8 @@ namespace KnatteliganWPF {
             var setSquadWindow = new SetTeamSquadWindow(listOfPlayers);
             var resWindow = setSquadWindow.ShowDialog();
             if (resWindow.HasValue && !resWindow.Value) {
-                Trace.WriteLine("");
+                Trace.WriteLine("Did not press the 'okey' button");
+                return;
             }
 
             var items = setSquadWindow.PlayerListCeckBoxes.ItemsSource;

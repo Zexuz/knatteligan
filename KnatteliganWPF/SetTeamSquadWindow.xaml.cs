@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 
@@ -37,8 +38,20 @@ namespace KnatteliganWPF {
         }
 
 
+
+
         private void WindowActivated(object sender, EventArgs e) {
             Resources["Players"] = _players;
+        }
+
+        private void Add_OnClick(object sender, RoutedEventArgs e) {
+            DialogResult = true;
+            Close();
+        }
+
+        private void Cancel_OnClick(object sender, RoutedEventArgs e) {
+            DialogResult = false;
+            Close();
         }
 
     }

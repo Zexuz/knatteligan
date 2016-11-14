@@ -56,7 +56,7 @@ namespace KnatteliganWPF
 
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
-            var addTeam = new AddTeam();
+            var addTeam = new AddTeamWindow();
             addTeam.ShowDialog();
         }
 

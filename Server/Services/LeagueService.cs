@@ -14,7 +14,7 @@ namespace knatteligan.Services
             _leagueRepository = LeagueRepository.GetInstance();
         }
 
-        public IEnumerable<League> GetAllLeagues()
+        public IEnumerable<League> GetAll()
         {
             return _leagueRepository.GetAll();
         }

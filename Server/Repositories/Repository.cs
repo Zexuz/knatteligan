@@ -16,7 +16,7 @@ namespace knatteligan.Repositories
             var path = Directory.GetCurrentDirectory();
             path = $"{Directory.GetParent(path).Parent.FullName}\\Resources\\XMLData\\";
             var combinedPath = Path.Combine(path, fileName);
-            return new Uri(string.Format("{0}{1}", path, combinedPath)).LocalPath;
+            return new Uri($"{path}{combinedPath}").LocalPath;
         }
 
         public void Save<TSubT>(string filePath, List<TSubT> list)

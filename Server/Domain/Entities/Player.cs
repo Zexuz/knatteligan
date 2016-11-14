@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 namespace knatteligan.Domain.Entities
 {
-    public class Player : TeamPerson
+    public class Player : Person
     {
 
         public List<Guid> MatchEvents { get; set; }
 
         public Player() {}
 
-        public Player(PersonName name, PersonalNumber personalNumber, Team team) : base(name, personalNumber, team)
+        public Player(PersonName name, PersonalNumber personalNumber) : base(name, personalNumber)
         {
            MatchEvents = new List<Guid>();
         }
@@ -20,6 +20,11 @@ namespace knatteligan.Domain.Entities
         public override Persons GetType()
         {
             return Persons.Player;
+        }
+
+        public override string ToString()
+        {
+            return Name.Name;
         }
     }
 }

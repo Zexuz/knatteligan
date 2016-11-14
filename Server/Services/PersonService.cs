@@ -22,8 +22,7 @@ namespace knatteligan.Services
 
         public void Edit(Player player, PersonName name, PersonalNumber personId)
         {
-            player.Name = name;
-            player.PersonalNumber = personId;
+            _personRepository.Edit(player, name, personId);
         }
 
         public IEnumerable<Person> GetAll()
@@ -40,7 +39,7 @@ namespace knatteligan.Services
             _personRepository.RemovePlayer(id);
         }
 
-        public Player FindPlayerById(Guid id)
+        public Person FindPlayerById(Guid id)
         {
             return _personRepository.FindPlayerById(id);
         }

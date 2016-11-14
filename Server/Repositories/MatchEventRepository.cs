@@ -88,7 +88,7 @@ namespace knatteligan.Repositories
                     AddAndSaveAssist(matchEvent);
                     break;
                 case MatchEvents.Goal:
-                    AddAndGoals(matchEvent);
+                    AddAndSaveGoals(matchEvent);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -102,7 +102,7 @@ namespace knatteligan.Repositories
             Save(_assistPath,_assists);
         }
 
-        private void AddAndGoals(MatchEvent matchEvent)
+        private void AddAndSaveGoals(MatchEvent matchEvent)
         {
             var goal = (Goal) matchEvent;
             _goals.Add(goal);

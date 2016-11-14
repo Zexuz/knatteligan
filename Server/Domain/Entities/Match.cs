@@ -35,7 +35,7 @@ namespace knatteligan.Domain.Entities
 
         public override string ToString()
         {
-            return $"{TeamRepository.GetInstance().Find(HomeTeam).Name} - {TeamRepository.GetInstance().Find(HomeTeam).Name}";
+            return $"{TeamRepository.GetInstance().FindTeamById(HomeTeam).Name} - {TeamRepository.GetInstance().FindTeamById(HomeTeam).Name}";
         }
 
 

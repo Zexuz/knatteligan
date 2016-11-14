@@ -5,9 +5,8 @@ using System.Xml.Serialization;
 namespace knatteligan.Helpers
 {
 
-    public class Serializer<T>
+    public static class Serializer<T>
     {
-
         public static IEnumerable<T> GetDataFromFile(string fileName)
         {
             var list = new List<T>();

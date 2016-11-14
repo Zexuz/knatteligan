@@ -23,5 +23,10 @@ namespace knatteligan.Services
         {
             return _matchRepository.Find(id);
         }
+
+        public void Add(Match match)
+        {
+            _matchRepository.Add(match);
+        }
     }
 }

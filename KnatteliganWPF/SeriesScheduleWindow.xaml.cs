@@ -1,44 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-
 using knatteligan.Domain.Entities;
 using knatteligan.Helpers;
-using knatteligan.Repositories;
+using knatteligan.Services;
 
-namespace KnatteliganWPF {
-
-    public partial class SeriesScheduleWindow {
-
+namespace KnatteliganWPF
+{
+    public partial class SeriesScheduleWindow
+    {
         public SerializableDictionary<int, MatchWeek> GameWeeks { get; set; }
 
-        public SeriesScheduleWindow() {
+        private readonly TeamService _teamService = new TeamService();
+        private readonly PersonService _personService = new PersonService();
+        private readonly MatchRepositoryService _matchRepositoryService = new MatchRepositoryService();
+
+        public SeriesScheduleWindow()
+        {
             InitializeComponent();
             DataContext = this;
         }
 
-
-        private void SeriesScheduleWindowActivated(object sender, EventArgs e) {
+        private void SeriesScheduleWindowActivated(object sender, EventArgs e)
+        {
             Resources["Drinks"] = GameWeeks;
         }
 
-
-        private void listView_Click(object sender, SelectionChangedEventArgs e) {
+        private void listView_Click(object sender, SelectionChangedEventArgs e)
+        {
             Trace.WriteLine("I clicked antoer!");
-            var currentMatchWeek = (KeyValuePair<int, MatchWeek>) e.AddedItems[0];
+            var currentMatchWeek = (KeyValuePair<int, MatchWeek>)e.AddedItems[0];
 
-            var matches = currentMatchWeek.Value.Matches.Select(guid => MatchRepository.GetInstance().Find(guid));
+            var matches = currentMatchWeek.Value.Matches.Select(guid => _matchRepositoryService.Find(guid));
 
             CurrentMatchWeekMatches.ItemsSource = new ObservableCollection<Match>(matches);
         }
 
-        private void CurrentMatchWeekMatches_OnMouseDoubleClick(object sender, MouseButtonEventArgs e) {
+        private void CurrentMatchWeekMatches_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
 
             var listItem = sender as ListBox;
             var match = (Match)listItem.SelectedItems[0];
@@ -46,7 +50,8 @@ namespace KnatteliganWPF {
             matchProtocol.Show();
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e) {
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
             new ManageLeague().Show();
         }
 

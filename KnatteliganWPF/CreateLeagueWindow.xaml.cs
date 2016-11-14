@@ -62,8 +62,6 @@ namespace KnatteliganWPF
                 return;
             }
 
-
-
             if (/*Teams.Count >= 16 && */Teams.Count % 2 == 0)
             {
                 AddLeagueButton.IsEnabled = true;

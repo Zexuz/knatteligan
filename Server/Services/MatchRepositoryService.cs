@@ -1,27 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using knatteligan.Domain.Entities;
-using knatteligan.Helpers;
 using knatteligan.Repositories;
 
-namespace knatteligan.Services {
-
-    public class MatchRepositoryService {
-
+namespace knatteligan.Services
+{
+    public class MatchRepositoryService
+    {
         private readonly MatchRepository _matchRepository;
 
-        public MatchRepositoryService() {
+        public MatchRepositoryService()
+        {
             _matchRepository = MatchRepository.GetInstance();
         }
 
-        public IEnumerable<Match> GetAll() {
+        public IEnumerable<Match> GetAll()
+        {
             return _matchRepository.GetAll();
         }
 
+        public Match Find(Guid id)
+        {
+            return _matchRepository.Find(id);
+        }
     }
-
 }

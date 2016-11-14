@@ -2,6 +2,7 @@ using System;
 using knatteligan.Domain.Entities;
 using System.Collections.Generic;
 using System.Linq;
+using knatteligan.Domain.ValueObjects;
 
 namespace knatteligan.Repositories
 {
@@ -116,5 +117,12 @@ namespace knatteligan.Repositories
         }
 
        
+
+        public void Edit(Player player, PersonName name, PersonalNumber personId)
+        {
+            player.Name = name;
+            player.PersonalNumber = personId;
+            Save(_playerPath, _players);
+        }
     }
 }

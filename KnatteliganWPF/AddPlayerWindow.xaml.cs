@@ -1,17 +1,6 @@
 ﻿using knatteligan.Domain.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using knatteligan.Domain.ValueObjects;
 
 namespace KnatteliganWPF
@@ -47,8 +36,6 @@ namespace KnatteliganWPF
             Player = new Player(PlayerName, SocialSecurityNumber);
             DialogResult = true;
             Close();
-
-
         }
     }
 }

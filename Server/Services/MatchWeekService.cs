@@ -50,10 +50,6 @@ namespace knatteligan.Services
             }
         }
 
-        public Match FindById(Guid mathId)
-        {
-            return _matchRepository.Find(mathId);
-        }
         private static void SetVariables(out League league, out int CurrentMatchWeekNr, Guid matchId)
         {
             league = MatchHelper.GetLeageFromMatchId(matchId);

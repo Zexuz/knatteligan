@@ -39,7 +39,7 @@ namespace knatteligan.Services
             _personRepository.RemovePlayer(id);
         }
 
-        public Person FindPlayerById(Guid id)
+        public Player FindPlayerById(Guid id)
         {
             return _personRepository.FindPlayerById(id);
         }

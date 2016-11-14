@@ -49,8 +49,6 @@ namespace KnatteliganWPF
                 return;
             }
 
-            DialogResult = true;
-
             _personService.Add(addPlayerWindow.Player);
             Players.Add(addPlayerWindow.Player);
             PlayerList.ItemsSource = new ObservableCollection<Player>(Players);

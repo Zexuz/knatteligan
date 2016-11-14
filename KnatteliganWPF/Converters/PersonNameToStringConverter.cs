@@ -15,7 +15,7 @@ namespace KnatteliganWPF.Converters
             if (value.GetType() != typeof(PersonName))
                 throw new Exception($"Cannot convert from type {value.GetType()}");
 
-            var personName = (PersonName) value;
+            var personName = ((PersonName) value).Name;
             return personName;
         }
 

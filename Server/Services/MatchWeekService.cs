@@ -13,30 +13,31 @@ namespace knatteligan.Services
 
         public bool IsPlayerSuspended(Guid playerId, Guid matchId)
         {
-            League _league;
-            int _currentMatchWeek;
-            SetVariables(out _league, out _currentMatchWeek, matchId);
-            return _league.MatchWeeks[_currentMatchWeek].SuspendedPlayers.Contains(playerId);
+            League league;
+            int currentMatchWeek;
+            SetVariables(out league, out currentMatchWeek, matchId);
+
+            return league.MatchWeeks[currentMatchWeek].SuspendedPlayers.Contains(playerId);
         }
 
         public void SuspendPlayer(Player player, int rounds, Guid matchId)
         {
-            League _league;
-            int _currentMatchWeek;
-            SetVariables(out _league, out _currentMatchWeek, matchId);
-            if (_league.MatchWeeks.Count - _currentMatchWeek + rounds < 0)
+            League league;
+            int currentMatchWeek;
+            SetVariables(out league, out currentMatchWeek, matchId);
+
+            if (league.MatchWeeks.Count - currentMatchWeek + rounds < 0)
             {
-                rounds = _league.MatchWeeks.Count - _currentMatchWeek;
+                rounds = league.MatchWeeks.Count - currentMatchWeek;
             }
 
-            for (var i = _currentMatchWeek + 1; i < rounds + _currentMatchWeek; i++)
+            for (var i = currentMatchWeek + 1; i < rounds + currentMatchWeek; i++)
             {
-                _league.MatchWeeks[i].SuspendedPlayers.Add(player.Id);
+                league.MatchWeeks[i].SuspendedPlayers.Add(player.Id);
             }
         }
 
-        public void SetSuspensionLength(List<YellowCard> yellowCards, List<RedCard> redCards, Player player,
-            Guid matchId)
+        public void SetSuspensionLength(List<YellowCard> yellowCards, List<RedCard> redCards, Player player, Guid matchId)
         {
             if (yellowCards.Count == 2)
             {
@@ -50,10 +51,10 @@ namespace knatteligan.Services
             }
         }
 
-        private static void SetVariables(out League league, out int CurrentMatchWeekNr, Guid matchId)
+        private static void SetVariables(out League league, out int currentMatchWeekNr, Guid matchId)
         {
             league = MatchHelper.GetLeageFromMatchId(matchId);
-            CurrentMatchWeekNr = MatchHelper.GetCurrentMatchWeekNr(league, matchId);
+            currentMatchWeekNr = MatchHelper.GetCurrentMatchWeekNr(league, matchId);
         }
     }
 }

@@ -24,7 +24,6 @@ namespace knatteligan.Services
             _leagueRepository.Add(league);
         }
 
-
         public void RemoveLeague(Guid leagueGuid)
         {
             _leagueRepository.RemoveLeague(leagueGuid);

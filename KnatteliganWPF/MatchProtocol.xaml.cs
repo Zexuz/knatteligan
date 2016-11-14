@@ -17,18 +17,20 @@ namespace KnatteliganWPF
     /// </summary>
     public partial class MatchProtocol : Window
     {
-
-        private readonly TeamService _teamService = new TeamService();
-        private readonly PersonService _personService = new PersonService();
-
+        public Match Match { get; set; }
         public Team HomeTeam { get; set; }
         public Team AwayTeam { get; set; }
-        public Match Match { get; set; }
         public List<Player> HomeTeamPlayers { get; set; }
         public List<Player> AwayTeamPlayers { get; set; }
 
+        private readonly TeamService _teamService;
+        private readonly PersonService _personService;
+
         public MatchProtocol(Match match)
         {
+            _teamService = new TeamService();
+            _personService = new PersonService();
+
             Match = match;
             AwayTeam = _teamService.FindTeamById(match.AwayTeam);
             HomeTeam = _teamService.FindTeamById(match.HomeTeam);

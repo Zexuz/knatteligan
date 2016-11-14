@@ -16,12 +16,11 @@ namespace KnatteliganWPF
     {
         public SerializableDictionary<int, MatchWeek> GameWeeks { get; set; }
 
-        private readonly TeamService _teamService = new TeamService();
-        private readonly PersonService _personService = new PersonService();
-        private readonly MatchRepositoryService _matchRepositoryService = new MatchRepositoryService();
+        private readonly MatchRepositoryService _matchRepositoryService;
 
         public SeriesScheduleWindow()
         {
+            _matchRepositoryService = new MatchRepositoryService();
             InitializeComponent();
             DataContext = this;
         }

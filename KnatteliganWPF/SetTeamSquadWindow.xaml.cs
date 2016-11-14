@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using knatteligan.Domain.Entities;
 using knatteligan.Helpers;
+using knatteligan.Services;
 
 namespace KnatteliganWPF
 {

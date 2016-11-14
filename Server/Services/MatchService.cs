@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using knatteligan.Domain.Entities;
-using knatteligan.Services;
+using knatteligan.Helpers;
 
-namespace knatteligan.Helpers
+namespace knatteligan.Services
 {
     public class MatchService
     {

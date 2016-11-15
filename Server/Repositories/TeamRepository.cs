@@ -28,8 +28,9 @@ namespace knatteligan.Repositories
 
         public void Edit(Team team, TeamName newTeamName, IEnumerable<Player> players, Coach coach)
         {
-            var index = _teams.FindIndex(x => x.Id == team.Id);
-            _teams[index] = new Team(newTeamName, players, coach);
+            team.Name = newTeamName;
+            team.PlayerIds = players.Select(x => x.Id).ToList();
+            team.CoachId = coach.Id;
             Save(_teamPath, _teams);
         }
 

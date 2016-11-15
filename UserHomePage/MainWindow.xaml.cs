@@ -1,36 +1,41 @@
-﻿using System;
+﻿using knatteligan.Domain.Entities;
+using knatteligan.Services;
+using KnatteliganWPF;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
+using KnatteliganWPF;
 namespace UserHomePage
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    
     public partial class MainWindow : Window
     {
+        private readonly LeagueService _leagueService;
+        public List<League> Leagues { get; set; }
+        SearchService searchService;
         public MainWindow()
         {
             InitializeComponent();
+            searchService = new SearchService();
+             _leagueService = new LeagueService();
+            var listLeagues = _leagueService.GetAll().ToList();
+            LeagueList.ItemsSource = listLeagues;
+         
         }
-
         private void ManageLeague_Clicked(object sender, MouseButtonEventArgs e) {
-            throw new NotImplementedException();
+          
         }
-
         private void searchTextBox_TextChanged(object sender, TextChangedEventArgs e) {
-            throw new NotImplementedException();
+            var searchText = searchTextBox.Text;
+            var foundMatch = searchService.Search(searchText, true);
+            SearchList.ItemsSource = foundMatch;
         }
 
     }

@@ -32,9 +32,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup>
-    <Folder Include="Helpers" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup />
   <ItemGroup>
     <Compile Include="CustomExceptions\InvalidEmailException.cs" />
@@ -68,6 +66,7 @@
     <Compile Include="Helpers\MatchWeek.cs" />
     <Compile Include="Helpers\Serializer.cs" />
     <Compile Include="Helpers\SerializableDictionary.cs" />
+    <Compile Include="Helpers\StringUtil.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\LeagueRepository.cs" />
     <Compile Include="Repositories\MatchEventRepository.cs" />
@@ -75,10 +74,12 @@
     <Compile Include="Repositories\PersonRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\TeamRepository.cs" />
+    <Compile Include="Domain\ValueObjects\SearchResultItem.cs" />
     <Compile Include="Services\LeagueService.cs" />
     <Compile Include="Services\MatchRepositoryService.cs" />
     <Compile Include="Services\MatchWeekService.cs" />
     <Compile Include="Services\PersonService.cs" />
+    <Compile Include="Services\SearchService.cs" />
     <Compile Include="Services\TeamService.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -63,6 +63,7 @@ namespace KnatteliganWPF
         {
             var teamIds = Teams.Select(x => x.Id).ToList();
             League = new League(LeagueName, teamIds);
+            
 
             DialogResult = true;
             Close();

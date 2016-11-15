@@ -23,6 +23,7 @@ namespace KnatteliganWPF
         public PersonalNumber PersonalNumber { get; set; }
         public PhoneNumber PhoneNumber { get; set; }
         public Email EmailAddress { get; set; }
+
         private readonly PersonService _personService;
 
 
@@ -67,6 +68,7 @@ namespace KnatteliganWPF
 
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
+
             Coach = new Coach(PersonName, PersonalNumber, PhoneNumber, EmailAddress);
             Team = new Team(TeamName, Players, Coach);
 

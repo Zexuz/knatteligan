@@ -32,7 +32,7 @@ namespace KnatteliganWPF {
 
             _leagueService.Add(createLeagueWindow.League);
 
-            LeagueList.ItemsSource = new ObservableCollection<League>(Leagues);
+            //LeagueList.ItemsSource = new ObservableCollection<League>(Leagues);
         }
 
         private void ManageLeague_Clicked(object sender, RoutedEventArgs e) {

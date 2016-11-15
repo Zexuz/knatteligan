@@ -102,6 +102,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KnatteliganWPF\KnatteliganWPF.csproj">
+      <Project>{B2CEC852-2332-4DDE-AF5C-3CE6D5722B84}</Project>
+      <Name>KnatteliganWPF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Server\Server.csproj">
+      <Project>{3CE4D018-5F10-4A93-86C0-4FD3151D745B}</Project>
+      <Name>Server</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

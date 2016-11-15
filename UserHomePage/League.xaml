@@ -42,7 +42,7 @@
         <TextBox Name="searchTextBox" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Row="2" Grid.Column="3"
                  Margin="10,5,0,3" 
                  TextChanged="searchTextBox_TextChanged"/>
-        <TextBlock IsHitTestVisible="False" Grid.Row="2" Grid.Column="3" Text="Search"
+        <!--<TextBlock IsHitTestVisible="False" Grid.Row="2" Grid.Column="3" Text="Search"
                    VerticalAlignment="Center" HorizontalAlignment="Left" Grid.RowSpan="2" Grid.ColumnSpan="2" 
                    Margin="10" Foreground="Goldenrod" FontSize="9">
             <TextBlock.Style>
@@ -56,7 +56,7 @@
 
                 </Style>
             </TextBlock.Style>
-        </TextBlock>
+        </TextBlock>-->
 
         <ListBox Grid.ColumnSpan="2" Grid.RowSpan="7" Grid.Row="5" Grid.Column="4" FontWeight="Bold" MouseDoubleClick="ManageLeague_Clicked"></ListBox>
 

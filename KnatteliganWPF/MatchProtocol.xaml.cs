@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Controls;
-using System.Windows.Input;
 using knatteligan.Services;
 
 namespace KnatteliganWPF
@@ -55,7 +54,6 @@ namespace KnatteliganWPF
 
             AwayTeamMatchEvents.ItemsSource = _matchEventsAway;
             HomeTeamMatchEvents.ItemsSource = _matchEventsHome;
-
         }
 
         private void DatePicker_OnSelectedDateChanged(object sender, SelectionChangedEventArgs e)
@@ -125,90 +123,65 @@ namespace KnatteliganWPF
 
         private void AddGoal_OnClick(object sender, RoutedEventArgs e)
         {
-            var player = GetSelectedPlayerFromList();
-            var team = TeamRepository.GetInstance().FindByPlayerId(player.Id);
-
-            var goal = new Goal(player.Id, team.Id, Match.Id);
-            MatchEventRepository.GetInstance().Add(goal);
-
-            player.MatchEvents.Add(goal.Id);
-            PersonRepository.GetInstance().Save();
-
-            if (team.Id == AwayTeam.Id)
-            {
-                _matchEventsAway.Add(goal);
-                return;
-            }
-
-            _matchEventsHome.Add(goal);
-
-
+            AddMatchEvent(MatchEvents.Goal);
         }
 
         private void AddAssist_OnClick(object sender, RoutedEventArgs e)
         {
-            var player = GetSelectedPlayerFromList();
-
-            var goal = new Assist(player.Id,Match.Id);
-            MatchEventRepository.GetInstance().Add(goal);
-
-            player.MatchEvents.Add(goal.Id);
-            PersonRepository.GetInstance().Save();
-
-            var team = TeamRepository.GetInstance().FindByPlayerId(player.Id);
-
-            if (team.Id == AwayTeam.Id)
-            {
-                _matchEventsAway.Add(goal);
-                AwayTeamMatchEvents.ItemsSource = new ObservableCollection<MatchEvent>(_matchEventsAway);
-                return;
-            }
-
-            _matchEventsHome.Add(goal);
-            HomeTeamMatchEvents.ItemsSource = new ObservableCollection<MatchEvent>(_matchEventsHome);
+            AddMatchEvent(MatchEvents.Assist);
         }
 
         private void AddYellowCard_OnClick(object sender, RoutedEventArgs e)
         {
-            var player = GetSelectedPlayerFromList();
+            AddMatchEvent(MatchEvents.YellowCard);
 
-            var goal = new YellowCard(player.Id,Match.Id);
-            MatchEventRepository.GetInstance().Add(goal);
-
-            player.MatchEvents.Add(goal.Id);
-            PersonRepository.GetInstance().Save();
-
-            var team = TeamRepository.GetInstance().FindByPlayerId(player.Id);
-
-            if (team.Id == AwayTeam.Id)
-            {
-                _matchEventsAway.Add(goal);
-                AwayTeamMatchEvents.ItemsSource = new ObservableCollection<MatchEvent>(_matchEventsAway);
-                return;
-            }
-
-            _matchEventsHome.Add(goal);
-            HomeTeamMatchEvents.ItemsSource = new ObservableCollection<MatchEvent>(_matchEventsHome);
         }
 
         private void AddRedCard_OnClick(object sender, RoutedEventArgs e)
         {
+            AddMatchEvent(MatchEvents.RedCard);
+        }
+
+        private void AddMatchEvent(MatchEvents type)
+        {
             var player = GetSelectedPlayerFromList();
-
-            var goal = new RedCard(player.Id,Match.Id);
-            MatchEventRepository.GetInstance().Add(goal);
-
-            player.MatchEvents.Add(goal.Id);
-            PersonRepository.GetInstance().Save();
-
             var team = TeamRepository.GetInstance().FindByPlayerId(player.Id);
+            var matchEvent = GetMatchEvent(type, player, team);
+
+            MatchEventRepository.GetInstance().Add(matchEvent);
+
+            player.MatchEvents.Add(matchEvent.Id);
+            PersonRepository.GetInstance().Save();
             if (team.Id == AwayTeam.Id)
             {
-                _matchEventsAway.Add(goal);
+                _matchEventsAway.Add(matchEvent);
                 return;
             }
+            _matchEventsHome.Add(matchEvent);
 
-            _matchEventsHome.Add(goal);
+        }
+
+        private MatchEvent GetMatchEvent(MatchEvents type, Player player, Team team)
+        {
+            MatchEvent matchEvent;
+            switch (type)
+            {
+                case MatchEvents.RedCard:
+                    matchEvent = new RedCard(player.Id,Match.Id);
+                    break;
+                case MatchEvents.YellowCard:
+                    matchEvent = new YellowCard(player.Id,Match.Id);
+                    break;
+                case MatchEvents.Assist:
+                    matchEvent = new Assist(player.Id,Match.Id);
+                    break;
+                case MatchEvents.Goal:
+                    matchEvent = new Goal(player.Id,team.Id,Match.Id);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
+            }
+            return matchEvent;
         }
 
 

@@ -70,7 +70,7 @@ namespace KnatteliganWPF
             _teamService.Add(addTeamWindow.Team);
             _personService.Add(addTeamWindow.Coach);
             Teams.Add(addTeamWindow.Team);
-            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
+            TeamList.ItemsSource = Teams;
         }
       
         private void AddLeague_Click(object sender, RoutedEventArgs e)
@@ -92,7 +92,7 @@ namespace KnatteliganWPF
             var team = (Team)TeamList.SelectedItem;
             _teamService.Remove(team);
             Teams.Remove(team);
-            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
+            TeamList.ItemsSource = Teams;
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
@@ -122,7 +122,7 @@ namespace KnatteliganWPF
             }
 
             _teamService.Edit(addTeamWindow.Team, addTeamWindow.TeamName, addTeamWindow.Players, addTeamWindow.Coach);
-            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
+            TeamList.ItemsSource = Teams;
         }
 
         private void TeamList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

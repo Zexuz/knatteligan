@@ -33,11 +33,8 @@ namespace KnatteliganWPF
             Players = new List<Player>();
             _personService = new PersonService();
             DataContext = this;
-
-            if (Players.Count >= 0)
-            {
-                AddTeamBtn.IsEnabled = true;
-            }
+            
+            
 
         }
 

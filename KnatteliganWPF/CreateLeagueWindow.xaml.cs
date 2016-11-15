@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
@@ -64,7 +63,6 @@ namespace KnatteliganWPF
             var teamIds = Teams.Select(x => x.Id).ToList();
             League = new League(LeagueName, teamIds);
             
-
             DialogResult = true;
             Close();
         }
@@ -97,7 +95,7 @@ namespace KnatteliganWPF
                 PersonName = coach.Name,
                 PersonalNumber = coach.PersonalNumber,
                 PhoneNumber = coach.PhoneNumber,
-                EmailAddress = coach.Email
+                Email = coach.Email
             };
 
             var addTeamResult = addTeamWindow.ShowDialog();

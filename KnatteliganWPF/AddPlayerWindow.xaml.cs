@@ -2,6 +2,7 @@
 using System;
 using System.Windows;
 using knatteligan.Domain.ValueObjects;
+using knatteligan.Helpers;
 
 namespace KnatteliganWPF
 {
@@ -20,6 +21,16 @@ namespace KnatteliganWPF
             InitializeComponent();
             DataContext = this;
         }
+
+        private void AddPlayerWindowActivated(object sender, EventArgs e)
+        {
+            //TODO: fuck, is this really needed?
+            if (PersonalNumber != null)
+            {
+                PersonalNumberTextBox.Text = PersonalNumber.ToString();
+            }
+        }
+
         private void CloseCommandHandler_Clicked(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("");
@@ -28,14 +39,27 @@ namespace KnatteliganWPF
 
         private void AddPlayerClick(object sender, RoutedEventArgs e)
         {
-            //TODO: PersonalNumber not set
-            var text = PersonalNumberTextBox.Text;
+            //Behövs detta?
+            if (PersonNameTextBox.Text != string.Empty)
+            {
+                var str = PersonalNumberTextBox.Text;
+                PersonalNumber = ConvertHelper.ConvertStringToPersonalNumber(str); 
+            }
 
-            //PersonalNumber =  PersonalNumber.ConvertStringToPersonalNumber(text);
             Player = new Player(PlayerName, PersonalNumber);
             DialogResult = true;
             Close();
         }
 
+        private void SaveEditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var str = PersonalNumberTextBox.Text;
+            PersonalNumber = ConvertHelper.ConvertStringToPersonalNumber(str);
+
+            Player.Name = PlayerName;
+            Player.PersonalNumber = PersonalNumber;
+            DialogResult = true;
+            Close();
+        }
     }
 }

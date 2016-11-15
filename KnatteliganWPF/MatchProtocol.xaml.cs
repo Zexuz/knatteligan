@@ -25,11 +25,13 @@ namespace KnatteliganWPF
 
         private readonly TeamService _teamService;
         private readonly PersonService _personService;
+        private readonly MatchService _matchService;
 
         public MatchProtocol(Match match)
         {
             _teamService = new TeamService();
             _personService = new PersonService();
+            _matchService = new MatchService();
 
             Match = match;
             AwayTeam = _teamService.FindTeamById(match.AwayTeam);
@@ -155,8 +157,7 @@ namespace KnatteliganWPF
             }
 
             Match.MatchDate = datePicker.SelectedDate.Value;
-            //TODO: Repo or service?
-            MatchRepository.GetInstance().Save();
+            _matchService.Save();
         }
 
         private void ButtonAddAwayTeamSquad_OnClick(object sender, RoutedEventArgs e)

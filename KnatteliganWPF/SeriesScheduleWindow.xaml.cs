@@ -16,11 +16,11 @@ namespace KnatteliganWPF
     {
         public SerializableDictionary<int, MatchWeek> GameWeeks { get; set; }
 
-        private readonly MatchRepositoryService _matchRepositoryService;
+        private readonly MatchService _matchService;
 
         public SeriesScheduleWindow()
         {
-            _matchRepositoryService = new MatchRepositoryService();
+            _matchService = new MatchService();
             InitializeComponent();
             DataContext = this;
         }
@@ -35,7 +35,7 @@ namespace KnatteliganWPF
             Trace.WriteLine("I clicked antoer!");
             var currentMatchWeek = (KeyValuePair<int, MatchWeek>)e.AddedItems[0];
 
-            var matches = currentMatchWeek.Value.Matches.Select(guid => _matchRepositoryService.Find(guid));
+            var matches = currentMatchWeek.Value.Matches.Select(guid => _matchService.Find(guid));
 
             CurrentMatchWeekMatches.ItemsSource = new ObservableCollection<Match>(matches);
         }

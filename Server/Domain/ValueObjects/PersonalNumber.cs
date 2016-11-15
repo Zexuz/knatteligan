@@ -35,13 +35,7 @@ namespace knatteligan.Domain.ValueObjects
         }
 
         public override string ToString() {
-            return $"{DateOfBirth:yyyyMMdd}-{LastFour}";
+            return $"{DateOfBirth:yyMMdd}-{LastFour}";
         }
-
-
-        //public PersonalNumber ConvertStringToPersonalNumber(string text)
-        //{
-
-        //}
     }
 }

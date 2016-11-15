@@ -99,7 +99,7 @@
         <TextBox Name="CoachEmailTextBox" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="9"
         ToolTip="{Binding ElementName=CoachEmailTextBox, Path=(Validation.Errors)[0].ErrorContent}">
             <TextBox.Text>
-                <Binding Path="EmailAddress" UpdateSourceTrigger="PropertyChanged"
+                <Binding Path="Email" UpdateSourceTrigger="PropertyChanged"
                          Converter="{StaticResource EmailToStringConverter}">
                     <Binding.ValidationRules>
                         <validationRules:EmailValidationRule/>

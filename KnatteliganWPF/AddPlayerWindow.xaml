@@ -7,7 +7,9 @@
         xmlns:converters="clr-namespace:KnatteliganWPF.Converters"
         xmlns:local="clr-namespace:KnatteliganWPF"
         mc:Ignorable="d"
-        Title="AddPlayerWindow" Height="300" Width="250">
+        Title="AddPlayerWindow" Height="300" Width="250"
+        Activated="AddPlayerWindowActivated">
+    
     <Window.Resources>
         <converters:PersonNameToStringConverter x:Key="PersonNameToStringConverter"/>
         <converters:IsEnabledConverter x:Key="IsEnabledConverter"/>
@@ -47,7 +49,7 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3" Margin="10 5 0 0">Social security number:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3" Margin="10 5 0 0">Personal number:</TextBlock>
         <TextBox Name="PersonalNumberTextBox" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" VerticalContentAlignment="Center" Margin="10 0 0 0"
                  ToolTip="{Binding ElementName=PersonalNumberTextBox, Path=(Validation.Errors)[0].ErrorContent}">
             <TextBox.Text>
@@ -81,6 +83,7 @@
                 </MultiBinding>
             </Button.IsEnabled>
         </Button>
+        <Button Name="SaveEditBtn" Grid.ColumnSpan="2" Content="Save edit" HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="7" VerticalAlignment="Top" Width="77" Height="26" Grid.RowSpan="2" Click="SaveEditBtn_Click"/>
 
     </Grid>
 </Window>

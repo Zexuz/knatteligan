@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
+using knatteligan.Helpers;
 using knatteligan.Services;
 
 namespace KnatteliganWPF
@@ -21,28 +23,34 @@ namespace KnatteliganWPF
         public PersonName PersonName { get; set; }
         public PersonalNumber PersonalNumber { get; set; }
         public PhoneNumber PhoneNumber { get; set; }
-        public Email EmailAddress { get; set; }
+        public Email Email { get; set; }
 
         private readonly PersonService _personService;
-        
 
         public AddTeamWindow()
         {
             InitializeComponent();
             _personService = new PersonService();
-            if (Players == null)
-            {
-                Players = new ObservableCollection<Player>();
-            }
-            PlayerList.ItemsSource = Players;
+            Players = new ObservableCollection<Player>();
             DataContext = this;
+        }
+
+        private void AddTeamWindowActivated(object sender, EventArgs e)
+        {
+            PlayerList.ItemsSource = Players;
+            //TODO: fuck, is this really needed?
+            if (PersonalNumber != null)
+            {
+                PersonalNumberTextBox.Text = PersonalNumber.ToString();
+            }
         }
 
         private void AddPlayer_Clicked(object sender, RoutedEventArgs e)
         {
             var addPlayerWindow = new AddPlayerWindow();
             var addPlayerResult = addPlayerWindow.ShowDialog();
-            if (addPlayerResult.HasValue && !addPlayerResult.Value) {
+            if (addPlayerResult.HasValue && !addPlayerResult.Value)
+            {
                 Trace.WriteLine("we did not press the add buttom");
                 return;
             }
@@ -59,7 +67,10 @@ namespace KnatteliganWPF
 
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
-            Coach = new Coach(PersonName, PersonalNumber, PhoneNumber, EmailAddress);
+            var str = PersonalNumberTextBox.Text;
+            PersonalNumber = ConvertHelper.ConvertStringToPersonalNumber(str);
+
+            Coach = new Coach(PersonName, PersonalNumber, PhoneNumber, Email);
             Team = new Team(TeamName, Players, Coach);
 
             DialogResult = true;
@@ -72,14 +83,21 @@ namespace KnatteliganWPF
             EditPlayerBtn.IsEnabled = true;
         }
 
-        private void AddTeamWindowActivated(object sender, EventArgs e)
-        {
-            PlayerList.ItemsSource = Players;
-        }
-
         private void SaveEditBtn_Click(object sender, RoutedEventArgs e)
         {
+            var str = PersonalNumberTextBox.Text;
+            PersonalNumber = ConvertHelper.ConvertStringToPersonalNumber(str);
+
+            var coach = _personService.FindCoachById(Team.CoachId);
+            coach.PersonalNumber = PersonalNumber;
+            coach.Name = PersonName;
+            coach.PhoneNumber = PhoneNumber;
+            coach.Email = Email;
+            Coach = coach;
+
             Team.Name = TeamName;
+            Team.CoachId = Coach.Id;
+            Team.PlayerIds = Players.Select(x => x.Id).ToList();
             DialogResult = true;
             Close();
         }
@@ -101,7 +119,7 @@ namespace KnatteliganWPF
                 Player = player,
                 PlayerName = player.Name,
                 PersonalNumber = player.PersonalNumber
-            }; 
+            };
 
             var addPlayerResult = addPlayerWindow.ShowDialog();
             if (!addPlayerResult.HasValue) return;
@@ -110,7 +128,7 @@ namespace KnatteliganWPF
             //TODO: Replace this hack
             Players.Remove(addPlayerWindow.Player);
             Players.Add(addPlayerWindow.Player);
-            
+
         }
     }
 }

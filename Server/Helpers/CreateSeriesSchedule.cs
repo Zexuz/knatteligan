@@ -10,7 +10,7 @@ namespace knatteligan.Helpers
 {
     public class CreateSeriesSchedule
     {
-        private readonly MatchRepositoryService _matchRepositoryService = new MatchRepositoryService();
+        private readonly MatchService _matchService = new MatchService();
 
         public SerializableDictionary<int, MatchWeek> GetFullSeries(List<Team> teams)
         {
@@ -37,7 +37,7 @@ namespace knatteligan.Helpers
                 Console.WriteLine($"--- Round {round.Key}---");
                 foreach (var match in round.Value.Matches)
                 {
-                    Console.WriteLine(_matchRepositoryService.Find(match));
+                    Console.WriteLine(_matchService.Find(match));
                 }
             }
         }
@@ -48,10 +48,9 @@ namespace knatteligan.Helpers
             for (int i = 0; i < dictionary.Count; i += 2)
             {
                 var matchId = dictionary[i + 1].Matches[0];
-                var match = _matchRepositoryService.Find(matchId);
+                var match = _matchService.Find(matchId);
                 match.Swap();
-                //TODO: Repo or service?
-                MatchRepository.GetInstance().Save();
+                _matchService.Save();
             }
         }
 
@@ -95,7 +94,7 @@ namespace knatteligan.Helpers
                 if (revert)
                     match.Swap();
 
-                _matchRepositoryService.Add(match);
+                _matchService.Add(match);
 
 
                 for (int idx = 1; idx < halfSize; idx++)
@@ -113,7 +112,7 @@ namespace knatteligan.Helpers
                     if (revert)
                         newMatch.Swap();
 
-                    _matchRepositoryService.Add(newMatch);
+                    _matchService.Add(newMatch);
 
                 }
             }

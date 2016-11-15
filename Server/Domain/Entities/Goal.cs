@@ -10,8 +10,9 @@ namespace knatteligan.Domain.Entities
 
         public Goal() { }
 
-        public Goal(Guid playerGuid, Guid teamGuid)
+        public Goal(Guid playerGuid, Guid teamGuid, Guid matchId)
         {
+            MatchGuid = matchId;
             PlayerGuid = playerGuid;
             TeamGuid = teamGuid;
         }

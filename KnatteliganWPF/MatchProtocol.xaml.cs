@@ -2,22 +2,22 @@
 using knatteligan.Domain.Entities;
 using knatteligan.Repositories;
 using System;
+using System.CodeDom;
 using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Controls;
+using System.Windows.Input;
 using knatteligan.Services;
 
 namespace KnatteliganWPF
 {
-
     /// <summary>
     /// Interaction logic for MatchProtocol.xaml
     /// </summary>
     public partial class MatchProtocol : Window
     {
-
         private readonly TeamService _teamService = new TeamService();
         private readonly PersonService _personService = new PersonService();
 
@@ -26,6 +26,8 @@ namespace KnatteliganWPF
         public Match Match { get; set; }
         public List<Player> HomeTeamPlayers { get; set; }
         public List<Player> AwayTeamPlayers { get; set; }
+
+        private ListBox _currentFocusedListBox = null;
 
         public MatchProtocol(Match match)
         {
@@ -44,105 +46,7 @@ namespace KnatteliganWPF
 
             HomeTeamName.Text = HomeTeam.ToString();
             AwayTeamName.Text = AwayTeam.ToString();
-
         }
-
-        private void Cancel_Clicked(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void Update_Clicked(object sender, RoutedEventArgs e)
-        {
-            #region OldStuff
-            //int goalResult;
-            //int.TryParse(MålLista.SelectedItem.ToString(), out goalResult);
-
-            //for (int i = 0; i < goalResult; i++)
-            //{
-            //    var goal = new Goal(player.Id, team.Id);
-            //    MatchEventRepository.GetInstance().Add(goal);
-            //    player.MatchEvents.Add(goal.Id);
-
-            //}
-
-            //int assistResult;
-            //int.TryParse(MålLista.SelectedItem.ToString(), out assistResult);
-
-            //for (int i = 0; i < assistResult; i++)
-            //{
-
-            //    var assist = new Assist(player.Id, team.Id);
-            //    MatchEventRepository.GetInstance().Add(assist);
-            //    player.MatchEvents.Add(assist.Id);
-
-            //}
-
-            //int yellowCardResult;
-            //int.TryParse(MålLista.SelectedItem.ToString(), out yellowCardResult);
-
-            //for (int i = 0; i < yellowCardResult; i++)
-            //{
-            //    var yellowCard = new YellowCard(player.Id, team.Id);
-            //    MatchEventRepository.GetInstance().Add(yellowCard);
-            //    player.MatchEvents.Add(yellowCard.Id);
-
-            //}
-
-            //int redCardResult;
-            //int.TryParse(MålLista.SelectedItem.ToString(), out redCardResult);
-
-            //for (int i = 0; i < redCardResult; i++)
-            //{
-            //    var redCard = new RedCard(player.Id, team.Id);
-            //    MatchEventRepository.GetInstance().Add(redCard);
-            //    player.MatchEvents.Add(redCard.Id);
-
-            //}
-
-
-            //var rooney = (Player)HomeTeamList.SelectedItem;
-
-            //var rooneysYellowCards = rooney.MatchEvents.OfType<YellowCard>().ToList();
-            //int yellowCardsAmount;
-            //int.TryParse(YellowCardsList.SelectedItem.ToString(), out yellowCardsAmount);
-
-            //for (int i = 0; i < yellowCardsAmount; i++)
-            //{
-            //    rooneysYellowCards.Add(new YellowCard(rooney.Id, Match.Id));
-            //}
-
-            //var rooneysMatchEvents = new List<MatchEvent>();
-            //rooneysMatchEvents.AddRange(rooneysYellowCards);
-
-
-            //foreach (var matchEvent in rooneysMatchEvents)
-            //{
-            //    _matchEventRepository.Add(matchEvent);
-            //}
-        }
-
-        private void Clear_Click(object sender, RoutedEventArgs e) { }
-
-        private void Save_Click(object sender, RoutedEventArgs e)
-        {
-            //Goal.Save();
-            //PersonRepository.Save();
-            //TeamRepository.Save();
-            //YellowCardRepository.Save();
-            //RedCardRepository.Save();
-            //LeagueRepository.Save();
-            //MatchRepository.Save(); 
-            #endregion
-        }
-
-        private void HomeTeamList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var playerName = ((Player)HomeTeamList.SelectedItem).Name.ToString();
-            PlayerNameLabel.Content = playerName;
-        }
-
-        private void Goal_SelectionChanged(object sender, SelectionChangedEventArgs e) { }
 
         private void DatePicker_OnSelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -181,9 +85,9 @@ namespace KnatteliganWPF
 
             var items = setSquadWindow.PlayerListCeckBoxes.ItemsSource;
 
-            var players = ((IEnumerable<CheckBox>)items)
+            var players = ((IEnumerable<CheckBox>) items)
                 .Where(checkBox => checkBox.IsChecked.HasValue && checkBox.IsChecked.Value)
-                .Select(checkBox => _personService.FindPlayerById((Guid)checkBox.Tag)).ToList();
+                .Select(checkBox => _personService.FindPlayerById((Guid) checkBox.Tag)).ToList();
 
             if (isHomeTeam)
             {
@@ -197,5 +101,72 @@ namespace KnatteliganWPF
             }
         }
 
+        private void CancelProtocol_OnClick(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+            Close();
+        }
+
+        private void SaveProtocol_OnClick(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+            Close();
+        }
+
+        private void AddGoal_OnClick(object sender, RoutedEventArgs e)
+        {
+            var player = GetSelectedPlayerFromList();
+            var team = TeamRepository.GetInstance().FindByPlayerId(player.Id);
+
+            var goal = new Goal(player.Id, team.Id, Match.Id);
+            MatchEventRepository.GetInstance().Add(goal);
+
+            player.MatchEvents.Add(goal.Id);
+            PersonRepository.GetInstance().Save();
+        }
+
+        private void AddAssist_OnClick(object sender, RoutedEventArgs e)
+        {
+            var player = GetSelectedPlayerFromList();
+
+            var goal = new Assist(player.Id,Match.Id);
+            MatchEventRepository.GetInstance().Add(goal);
+
+            player.MatchEvents.Add(goal.Id);
+            PersonRepository.GetInstance().Save();
+        }
+
+        private void AddYellowCard_OnClick(object sender, RoutedEventArgs e)
+        {
+            var player = GetSelectedPlayerFromList();
+
+            var goal = new YellowCard(player.Id,Match.Id);
+            MatchEventRepository.GetInstance().Add(goal);
+
+            player.MatchEvents.Add(goal.Id);
+            PersonRepository.GetInstance().Save();
+        }
+
+        private void AddRedCard_OnClick(object sender, RoutedEventArgs e)
+        {
+            var player = GetSelectedPlayerFromList();
+
+            var goal = new RedCard(player.Id,Match.Id);
+            MatchEventRepository.GetInstance().Add(goal);
+
+            player.MatchEvents.Add(goal.Id);
+            PersonRepository.GetInstance().Save();
+        }
+
+        private Player GetSelectedPlayerFromList()
+        {
+            return (Player) _currentFocusedListBox.SelectedValue;
+        }
+
+        private void List_OnSelected(object sender, RoutedEventArgs e)
+        {
+            var listBox = sender as ListBox;
+            _currentFocusedListBox = listBox;
+        }
     }
 }

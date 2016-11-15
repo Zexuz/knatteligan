@@ -38,5 +38,10 @@ namespace knatteligan.Domain.ValueObjects
             return $"{DateOfBirth:yyyyMMdd}-{LastFour}";
         }
 
+
+        //public PersonalNumber ConvertStringToPersonalNumber(string text)
+        //{
+
+        //}
     }
 }

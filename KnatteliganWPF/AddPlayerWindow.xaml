@@ -47,12 +47,12 @@
             </TextBox.Text>
         </TextBox>
         <TextBlock Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3" Margin="10 5 0 0">Social security number:</TextBlock>
-        <TextBox Name="socialSecurityNumber" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" VerticalContentAlignment="Center" Margin="10 0 0 0" TextChanged="searchTextBox_TextChanged" 
-                 ToolTip="{Binding ElementName=socialSecurityNumber, Path=(Validation.Errors)[0].ErrorContent}">
+        <TextBox Name="PersonalNumberTextBox" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" VerticalContentAlignment="Center" Margin="10 0 0 0"
+                 ToolTip="{Binding ElementName=PersonalNumberTextBox, Path=(Validation.Errors)[0].ErrorContent}">
             <TextBox.Text>
-                <Binding Path="SocialSecurityNumber" UpdateSourceTrigger="PropertyChanged" >
+                <Binding Path="PersonalNumber" UpdateSourceTrigger="PropertyChanged" >
                     <Binding.ValidationRules>
-                        <validationRules:SocialNumberValidationRule/>
+                        <validationRules:PersonalNumberValidationRule/>
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>

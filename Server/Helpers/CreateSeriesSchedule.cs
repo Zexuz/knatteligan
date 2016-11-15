@@ -50,7 +50,7 @@ namespace knatteligan.Helpers
                 var matchId = dictionary[i + 1].Matches[0];
                 var match = _matchRepositoryService.Find(matchId);
                 match.Swap();
-                //TODO: GetInstance hmm? Ska service ha save?
+                //TODO: Repo or service?
                 MatchRepository.GetInstance().Save();
             }
         }

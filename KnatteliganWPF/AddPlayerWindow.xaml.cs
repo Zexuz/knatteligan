@@ -13,7 +13,7 @@ namespace KnatteliganWPF
 
         public Player Player { get; set; }
         public PersonName PlayerName { get; set; }
-        public PersonalNumber SocialSecurityNumber { get; set; }
+        public PersonalNumber PersonalNumber { get; set; }
 
         public AddPlayerWindow()
         {
@@ -26,16 +26,16 @@ namespace KnatteliganWPF
             this.Close();
         }
 
-        public void searchTextBox_TextChanged(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void AddPlayerClick(object sender, RoutedEventArgs e)
         {
-            Player = new Player(PlayerName, SocialSecurityNumber);
+            //TODO: PersonalNumber not set
+            var text = PersonalNumberTextBox.Text;
+
+            //PersonalNumber =  PersonalNumber.ConvertStringToPersonalNumber(text);
+            Player = new Player(PlayerName, PersonalNumber);
             DialogResult = true;
             Close();
         }
+
     }
 }

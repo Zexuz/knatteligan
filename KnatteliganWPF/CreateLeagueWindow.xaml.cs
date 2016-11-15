@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
@@ -17,7 +16,7 @@ namespace KnatteliganWPF
     {
         public League League { get; set; }
         public LeagueName LeagueName { get; set; }
-        public List<Team> Teams { get; set; }
+        public ObservableCollection<Team> Teams { get; set; }
 
         private readonly LeagueService _leagueService;
         private readonly TeamService _teamService;
@@ -25,21 +24,14 @@ namespace KnatteliganWPF
 
         public CreateLeagueWindow()
         {
-
             InitializeComponent();
             _leagueService = new LeagueService();
             _teamService = new TeamService();
             _personService = new PersonService();
-            Teams = new List<Team>();
+            Teams = new ObservableCollection<Team>();
+            TeamList.ItemsSource = Teams;
             DataContext = this;
-
-            if (/*Teams.Count >= 16 && */Teams.Count % 2 == 0)
-            {
-                AddLeagueButton.IsEnabled = true;
-            }
-
         }
-
 
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
@@ -62,15 +54,9 @@ namespace KnatteliganWPF
                 return;
             }
 
-            if (/*Teams.Count >= 16 && */Teams.Count % 2 == 0)
-            {
-                AddLeagueButton.IsEnabled = true;
-            }
-
             _teamService.Add(addTeamWindow.Team);
             _personService.Add(addTeamWindow.Coach);
             Teams.Add(addTeamWindow.Team);
-            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
         }
       
         private void AddLeague_Click(object sender, RoutedEventArgs e)
@@ -92,20 +78,20 @@ namespace KnatteliganWPF
             var team = (Team)TeamList.SelectedItem;
             _teamService.Remove(team);
             Teams.Remove(team);
-            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             var team = (Team)TeamList.SelectedItem;
-            var players = team.PlayerIds.Select(teamPersonId => _personService.FindPlayerById(teamPersonId)).ToList();
             var coach = _personService.FindCoachById(team.CoachId);
+            var players = team.PlayerIds.Select(teamPersonId => _personService.FindPlayerById(teamPersonId));
+            var playerOc = new ObservableCollection<Player>(players);
 
             var addTeamWindow = new AddTeamWindow
             {
                 TeamName = team.Name,
                 Team = team,
-                Players = players,
+                Players = playerOc,
                 Coach = coach,
                 PersonName = coach.Name,
                 PersonalNumber = coach.PersonalNumber,
@@ -116,13 +102,10 @@ namespace KnatteliganWPF
             var addTeamResult = addTeamWindow.ShowDialog();
             if (!addTeamResult.HasValue) return;
 
-            if (/*Teams.Count >= 16 && */Teams.Count % 2 == 0)
-            {
-                AddLeagueButton.IsEnabled = true;
-            }
-
             _teamService.Edit(addTeamWindow.Team, addTeamWindow.TeamName, addTeamWindow.Players, addTeamWindow.Coach);
-            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
+            //TODO: Replace this hack
+            Teams.Remove(addTeamWindow.Team);
+            Teams.Add(addTeamWindow.Team);
         }
 
         private void TeamList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

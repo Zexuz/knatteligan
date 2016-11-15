@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows;
@@ -17,7 +16,7 @@ namespace KnatteliganWPF
     {
         public Team Team { get; set; }
         public Coach Coach { get; set; }
-        public List<Player> Players { get; set; }
+        public ObservableCollection<Player> Players { get; set; }
         public TeamName TeamName { get; set; }
         public PersonName PersonName { get; set; }
         public PersonalNumber PersonalNumber { get; set; }
@@ -25,20 +24,18 @@ namespace KnatteliganWPF
         public Email EmailAddress { get; set; }
 
         private readonly PersonService _personService;
-
+        
 
         public AddTeamWindow()
         {
             InitializeComponent();
-            Players = new List<Player>();
             _personService = new PersonService();
-            DataContext = this;
-
-            if (Players.Count >= 0)
+            if (Players == null)
             {
-                AddTeamBtn.IsEnabled = true;
+                Players = new ObservableCollection<Player>();
             }
-
+            PlayerList.ItemsSource = Players;
+            DataContext = this;
         }
 
         private void AddPlayer_Clicked(object sender, RoutedEventArgs e)
@@ -52,12 +49,6 @@ namespace KnatteliganWPF
 
             _personService.Add(addPlayerWindow.Player);
             Players.Add(addPlayerWindow.Player);
-            PlayerList.ItemsSource = new ObservableCollection<Player>(Players);
-
-            if (Players.Count >= 0)
-            {
-                AddTeamBtn.IsEnabled = true;
-            }
         }
 
         private void CloseCommandHandler_Clicked(object sender, RoutedEventArgs e)
@@ -68,7 +59,6 @@ namespace KnatteliganWPF
 
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
-
             Coach = new Coach(PersonName, PersonalNumber, PhoneNumber, EmailAddress);
             Team = new Team(TeamName, Players, Coach);
 
@@ -76,24 +66,51 @@ namespace KnatteliganWPF
             Close();
         }
 
-        private void RemoveTeam_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void EditTeam_Click(object sender, RoutedEventArgs e)
-        {
-        }
-
         private void PlayerList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            RemoveTeamBtn.IsEnabled = true;
-            EditTeamBtn.IsEnabled = true;
+            RemovePlayerBtn.IsEnabled = true;
+            EditPlayerBtn.IsEnabled = true;
         }
 
         private void AddTeamWindowActivated(object sender, EventArgs e)
         {
-            PlayerList.ItemsSource = new ObservableCollection<Player>(Players);
+            PlayerList.ItemsSource = Players;
+        }
+
+        private void SaveEditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Team.Name = TeamName;
+            DialogResult = true;
+            Close();
+        }
+
+        private void RemovePlayerBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var player = (Player)PlayerList.SelectedItem;
+            _personService.RemovePlayer(player.Id);
+            Players.Remove(player);
+        }
+
+        private void EditPlayerBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var player = (Player)PlayerList.SelectedItem;
+
+            //TODO: PersonalNumber not set
+            var addPlayerWindow = new AddPlayerWindow
+            {
+                Player = player,
+                PlayerName = player.Name,
+                PersonalNumber = player.PersonalNumber
+            }; 
+
+            var addPlayerResult = addPlayerWindow.ShowDialog();
+            if (!addPlayerResult.HasValue) return;
+
+            _personService.Edit(addPlayerWindow.Player, addPlayerWindow.PlayerName, addPlayerWindow.PersonalNumber);
+            //TODO: Replace this hack
+            Players.Remove(addPlayerWindow.Player);
+            Players.Add(addPlayerWindow.Player);
+            
         }
     }
 }

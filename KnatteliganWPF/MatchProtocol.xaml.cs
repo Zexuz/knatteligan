@@ -28,6 +28,8 @@ namespace KnatteliganWPF
         public List<Player> AwayTeamPlayers { get; set; }
 
         private ListBox _currentFocusedListBox = null;
+        private readonly ObservableCollection<MatchEvent> _matchEventsHome;
+        private readonly ObservableCollection<MatchEvent> _matchEventsAway;
 
         public MatchProtocol(Match match)
         {
@@ -46,6 +48,14 @@ namespace KnatteliganWPF
 
             HomeTeamName.Text = HomeTeam.ToString();
             AwayTeamName.Text = AwayTeam.ToString();
+
+
+            _matchEventsAway = new ObservableCollection<MatchEvent>();
+            _matchEventsHome = new ObservableCollection<MatchEvent>();
+
+            AwayTeamMatchEvents.ItemsSource = _matchEventsAway;
+            HomeTeamMatchEvents.ItemsSource = _matchEventsHome;
+
         }
 
         private void DatePicker_OnSelectedDateChanged(object sender, SelectionChangedEventArgs e)
@@ -123,6 +133,16 @@ namespace KnatteliganWPF
 
             player.MatchEvents.Add(goal.Id);
             PersonRepository.GetInstance().Save();
+
+            if (team.Id == AwayTeam.Id)
+            {
+                _matchEventsAway.Add(goal);
+                return;
+            }
+
+            _matchEventsHome.Add(goal);
+
+
         }
 
         private void AddAssist_OnClick(object sender, RoutedEventArgs e)
@@ -134,6 +154,18 @@ namespace KnatteliganWPF
 
             player.MatchEvents.Add(goal.Id);
             PersonRepository.GetInstance().Save();
+
+            var team = TeamRepository.GetInstance().FindByPlayerId(player.Id);
+
+            if (team.Id == AwayTeam.Id)
+            {
+                _matchEventsAway.Add(goal);
+                AwayTeamMatchEvents.ItemsSource = new ObservableCollection<MatchEvent>(_matchEventsAway);
+                return;
+            }
+
+            _matchEventsHome.Add(goal);
+            HomeTeamMatchEvents.ItemsSource = new ObservableCollection<MatchEvent>(_matchEventsHome);
         }
 
         private void AddYellowCard_OnClick(object sender, RoutedEventArgs e)
@@ -145,6 +177,18 @@ namespace KnatteliganWPF
 
             player.MatchEvents.Add(goal.Id);
             PersonRepository.GetInstance().Save();
+
+            var team = TeamRepository.GetInstance().FindByPlayerId(player.Id);
+
+            if (team.Id == AwayTeam.Id)
+            {
+                _matchEventsAway.Add(goal);
+                AwayTeamMatchEvents.ItemsSource = new ObservableCollection<MatchEvent>(_matchEventsAway);
+                return;
+            }
+
+            _matchEventsHome.Add(goal);
+            HomeTeamMatchEvents.ItemsSource = new ObservableCollection<MatchEvent>(_matchEventsHome);
         }
 
         private void AddRedCard_OnClick(object sender, RoutedEventArgs e)
@@ -156,7 +200,17 @@ namespace KnatteliganWPF
 
             player.MatchEvents.Add(goal.Id);
             PersonRepository.GetInstance().Save();
+
+            var team = TeamRepository.GetInstance().FindByPlayerId(player.Id);
+            if (team.Id == AwayTeam.Id)
+            {
+                _matchEventsAway.Add(goal);
+                return;
+            }
+
+            _matchEventsHome.Add(goal);
         }
+
 
         private Player GetSelectedPlayerFromList()
         {

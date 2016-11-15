@@ -75,15 +75,17 @@
         <Label Name="PlayerNameLabel" Grid.Column="2" HorizontalAlignment="Left" Margin="38,27,0,0" Grid.Row="3"
                VerticalAlignment="Top" RenderTransformOrigin="0.351,-0.5" Grid.ColumnSpan="2" Grid.RowSpan="2"
                FontWeight="Bold" />
+
         <ListBox Name="HomeTeamMatchEvents" BorderThickness="0" HorizontalContentAlignment="Right" Grid.Row="2"
                  Grid.Column="0" Grid.ColumnSpan="3" Margin="15,23,41,0" FontWeight="Bold" FontSize="9"
                  Grid.RowSpan="2">
-            <Run Text="Home Match Events" />
         </ListBox>
+
         <ListBox Grid.Row="2" Name="AwayTeamMatchEvents" BorderThickness="0" Grid.Column="4" Grid.ColumnSpan="3"
                  Margin="41,23,15,0" Grid.RowSpan="2" FontWeight="Bold" FontSize="9">
-            <Run Text="Away Match Events" />
         </ListBox>
+
+
         <TextBlock Grid.Column="2" TextAlignment="Center" Margin="15,0,51,5" FontWeight="Bold" FontSize="10"
                    Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="1">
             <Run FontSize="40" Text="2" />

@@ -42,7 +42,6 @@ namespace KnatteliganWPF
 
         private void CurrentMatchWeekMatches_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
             var listItem = sender as ListBox;
             var match = (Match)listItem.SelectedItems[0];
             var matchProtocol = new MatchProtocol(match);
@@ -53,7 +52,5 @@ namespace KnatteliganWPF
         {
             new ManageLeague().Show();
         }
-
     }
-
 }

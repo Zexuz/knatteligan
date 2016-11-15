@@ -2,7 +2,6 @@
 using knatteligan.Domain.Entities;
 using knatteligan.Repositories;
 using System;
-using System.CodeDom;
 using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -52,7 +51,6 @@ namespace KnatteliganWPF
             HomeTeamName.Text = HomeTeam.ToString();
             AwayTeamName.Text = AwayTeam.ToString();
 
-
             _matchEventsAway = new ObservableCollection<MatchEvent>();
             _matchEventsHome = new ObservableCollection<MatchEvent>();
 
@@ -63,6 +61,7 @@ namespace KnatteliganWPF
         private void DatePicker_OnSelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             var datePicker = sender as DatePicker;
+
             if (datePicker?.SelectedDate == null)
             {
                 throw new Exception("DatePicker is null and therfore not good!");
@@ -96,9 +95,9 @@ namespace KnatteliganWPF
 
             var items = setSquadWindow.PlayerListCeckBoxes.ItemsSource;
 
-            var players = ((IEnumerable<CheckBox>) items)
+            var players = ((IEnumerable<CheckBox>)items)
                 .Where(checkBox => checkBox.IsChecked.HasValue && checkBox.IsChecked.Value)
-                .Select(checkBox => _personService.FindPlayerById((Guid) checkBox.Tag)).ToList();
+                .Select(checkBox => _personService.FindPlayerById((Guid)checkBox.Tag)).ToList();
 
             if (isHomeTeam)
             {
@@ -160,8 +159,8 @@ namespace KnatteliganWPF
                 _matchEventsAway.Add(matchEvent);
                 return;
             }
-            _matchEventsHome.Add(matchEvent);
 
+            _matchEventsHome.Add(matchEvent);
         }
 
         private MatchEvent GetMatchEvent(MatchEvents type, Player player, Team team)
@@ -170,27 +169,27 @@ namespace KnatteliganWPF
             switch (type)
             {
                 case MatchEvents.RedCard:
-                    matchEvent = new RedCard(player.Id,Match.Id);
+                    matchEvent = new RedCard(player.Id, Match.Id);
                     break;
                 case MatchEvents.YellowCard:
-                    matchEvent = new YellowCard(player.Id,Match.Id);
+                    matchEvent = new YellowCard(player.Id, Match.Id);
                     break;
                 case MatchEvents.Assist:
-                    matchEvent = new Assist(player.Id,Match.Id);
+                    matchEvent = new Assist(player.Id, Match.Id);
                     break;
                 case MatchEvents.Goal:
-                    matchEvent = new Goal(player.Id,team.Id,Match.Id);
+                    matchEvent = new Goal(player.Id, team.Id, Match.Id);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }
+
             return matchEvent;
         }
 
-
         private Player GetSelectedPlayerFromList()
         {
-            return (Player) _currentFocusedListBox.SelectedValue;
+            return (Player)_currentFocusedListBox.SelectedValue;
         }
 
         private void List_OnSelected(object sender, RoutedEventArgs e)

@@ -7,9 +7,7 @@ namespace knatteligan.Services
 {
     public class MatchWeekService
     {
-        public MatchWeekService()
-        {
-        }
+        public MatchWeekService() { }
 
         public bool IsPlayerSuspended(Guid playerId, Guid matchId)
         {

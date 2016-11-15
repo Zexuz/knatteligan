@@ -84,6 +84,7 @@ namespace knatteligan.Repositories
         }
 
         #endregion
+
         //TODO: Just one search method for both coach and player.
 
         public Player FindPlayerById(Guid id)
@@ -121,7 +122,7 @@ namespace knatteligan.Repositories
             Save(_playerPath, _players);
             Save(_coachPath, _coaches);
         }
-       
+
 
         public void Edit(Player player, PersonName name, PersonalNumber personId)
         {

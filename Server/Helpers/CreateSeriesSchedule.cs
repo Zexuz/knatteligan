@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using knatteligan.CustomExceptions;
 using knatteligan.Domain.Entities;
-using knatteligan.Repositories;
 using knatteligan.Services;
 
 namespace knatteligan.Helpers

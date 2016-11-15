@@ -24,7 +24,7 @@ namespace KnatteliganWPF
             Leagues = new ObservableCollection<League>(_leagueService.GetAll().ToList());
             if (Leagues != null)
             {
-                LeagueList.ItemsSource = new ObservableCollection<League>(Leagues);
+                LeagueList.ItemsSource = Leagues;
             }
         }
 
@@ -47,9 +47,8 @@ namespace KnatteliganWPF
             {
                 GameWeeks = currentLeague.MatchWeeks
             };
+
             var serieScheduleResult = scheduleWindow.ShowDialog();
         }
-
     }
-
 }

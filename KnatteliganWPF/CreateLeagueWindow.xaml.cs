@@ -38,17 +38,20 @@ namespace KnatteliganWPF
             var windowRes = addTeamWindow.ShowDialog();
 
             Trace.WriteLine(windowRes);
-            if (windowRes.HasValue && !windowRes.Value) {
+            if (windowRes.HasValue && !windowRes.Value)
+            {
                 Trace.WriteLine("We did not press the add button");
                 return;
             }
 
-            if (addTeamWindow.Team == null) {
+            if (addTeamWindow.Team == null)
+            {
                 Trace.WriteLine("Team is null");
                 return;
             }
 
-            if (addTeamWindow.Coach == null) {
+            if (addTeamWindow.Coach == null)
+            {
                 Trace.WriteLine("Coach is null");
                 return;
             }
@@ -57,12 +60,12 @@ namespace KnatteliganWPF
             _personService.Add(addTeamWindow.Coach);
             Teams.Add(addTeamWindow.Team);
         }
-      
+
         private void AddLeague_Click(object sender, RoutedEventArgs e)
         {
             var teamIds = Teams.Select(x => x.Id).ToList();
             League = new League(LeagueName, teamIds);
-            
+
             DialogResult = true;
             Close();
         }

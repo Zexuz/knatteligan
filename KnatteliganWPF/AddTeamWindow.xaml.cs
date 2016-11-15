@@ -113,7 +113,6 @@ namespace KnatteliganWPF
         {
             var player = (Player)PlayerList.SelectedItem;
 
-            //TODO: PersonalNumber not set
             var addPlayerWindow = new AddPlayerWindow
             {
                 Player = player,

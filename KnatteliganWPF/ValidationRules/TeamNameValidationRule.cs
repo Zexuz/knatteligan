@@ -5,11 +5,10 @@ using knatteligan.Domain.ValueObjects;
 
 namespace KnatteliganWPF.ValidationRules
 {
-   public class TeamNameValidationRule : ValidationRule
+    public class TeamNameValidationRule : ValidationRule
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-
             try
             {
                 new TeamName(value.ToString());
@@ -19,8 +18,6 @@ namespace KnatteliganWPF.ValidationRules
             {
                 return new ValidationResult(false, "Not a valid team name.");
             }
-
-
         }
     }
 }

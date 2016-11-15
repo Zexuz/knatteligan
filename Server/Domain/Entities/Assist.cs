@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.InteropServices.ComTypes;
 using knatteligan.Repositories;
 
 namespace knatteligan.Domain.Entities

@@ -6,14 +6,13 @@ namespace knatteligan.Domain.ValueObjects
     {
         public string Value { get; set; }
 
-        public PhoneNumber() {}
+        public PhoneNumber() { }
 
         public PhoneNumber(string number)
         {
             if (!IsPhoneNumber(number))
-            {
                 throw new InvalidPhoneNumberException("Bad phone number");
-            }
+
             Value = number;
         }
 
@@ -26,7 +25,5 @@ namespace knatteligan.Domain.ValueObjects
         {
             return Value;
         }
-
     }
-
 }

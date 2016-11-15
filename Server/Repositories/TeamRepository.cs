@@ -53,7 +53,6 @@ namespace knatteligan.Repositories
                 _personService.RemovePlayer(player);
             }
 
-
             Save(_teamPath, _teams);
         }
 

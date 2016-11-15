@@ -11,7 +11,6 @@ namespace KnatteliganWPF
     /// </summary>
     public partial class AddPlayerWindow : Window
     {
-
         public Player Player { get; set; }
         public PersonName PlayerName { get; set; }
         public PersonalNumber PersonalNumber { get; set; }
@@ -39,11 +38,11 @@ namespace KnatteliganWPF
 
         private void AddPlayerClick(object sender, RoutedEventArgs e)
         {
-            //Behövs detta?
+            //TODO: fuck, is this really needed?
             if (PersonNameTextBox.Text != string.Empty)
             {
                 var str = PersonalNumberTextBox.Text;
-                PersonalNumber = ConvertHelper.ConvertStringToPersonalNumber(str); 
+                PersonalNumber = ConvertHelper.ConvertStringToPersonalNumber(str);
             }
 
             Player = new Player(PlayerName, PersonalNumber);

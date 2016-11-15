@@ -4,8 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KnatteliganWPF"
+        xmlns:converters="clr-namespace:KnatteliganWPF.Converters"
         mc:Ignorable="d"
-        Title="MatchProtocol" Height="420" Width="500" ResizeMode="NoResize">
+        Title="MatchProtocol" Height="420" Width="500">
+    <Window.Resources>
+        <converters:MatchEventToStringConverter x:Key="MatchEventToStringConverter" />
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -79,10 +83,26 @@
         <ListBox Name="HomeTeamMatchEvents" BorderThickness="0" HorizontalContentAlignment="Right" Grid.Row="2"
                  Grid.Column="0" Grid.ColumnSpan="3" Margin="15,23,41,0" FontWeight="Bold" FontSize="9"
                  Grid.RowSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Padding="5,0,5,0"
+                                   Text="{Binding Converter= {StaticResource MatchEventToStringConverter}}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
 
         <ListBox Grid.Row="2" Name="AwayTeamMatchEvents" BorderThickness="0" Grid.Column="4" Grid.ColumnSpan="3"
                  Margin="41,23,15,0" Grid.RowSpan="2" FontWeight="Bold" FontSize="9">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Padding="5,0,5,0"
+                                   Text="{Binding Converter= {StaticResource MatchEventToStringConverter}}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
 
 

@@ -98,10 +98,7 @@ namespace KnatteliganWPF
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             var team = (Team)TeamList.SelectedItem;
-
-            var players = team.PlayerIds.Select(teamPersonId => _personService.FindPlayerById(teamPersonId))
-                .Where(teamPerson => teamPerson.GetType() == Persons.Player).Cast<Player>().ToList();
-
+            var players = team.PlayerIds.Select(teamPersonId => _personService.FindPlayerById(teamPersonId)).ToList();
             var coach = _personService.FindCoachById(team.CoachId);
 
             var addTeamWindow = new AddTeamWindow
@@ -124,9 +121,7 @@ namespace KnatteliganWPF
                 AddLeagueButton.IsEnabled = true;
             }
 
-            //TODO: Does this even work?
             _teamService.Edit(addTeamWindow.Team, addTeamWindow.TeamName, addTeamWindow.Players, addTeamWindow.Coach);
-            //Teams.Add(addTeamWindow.Team);
             TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
         }
 

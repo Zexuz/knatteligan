@@ -30,7 +30,7 @@ namespace KnatteliganWPF
             {
                 Content = player.Name,
                 Tag = player.Id,
-                IsEnabled = !new MatchService(matchId).IsPlayerSuspended(player.Id)
+                IsEnabled = !new MatchWeekService().IsPlayerSuspended(player.Id,matchId)
             }).ToList();
 
             PlayerList = new ObservableCollection<CheckBox>(listOfCheckBoxes);

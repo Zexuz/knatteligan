@@ -23,6 +23,7 @@ namespace KnatteliganWPF
         public PersonalNumber PersonalNumber { get; set; }
         public PhoneNumber PhoneNumber { get; set; }
         public Email EmailAddress { get; set; }
+
         private readonly PersonService _personService;
 
 
@@ -49,8 +50,6 @@ namespace KnatteliganWPF
                 return;
             }
 
-            DialogResult = true;
-
             _personService.Add(addPlayerWindow.Player);
             Players.Add(addPlayerWindow.Player);
             PlayerList.ItemsSource = new ObservableCollection<Player>(Players);
@@ -69,6 +68,7 @@ namespace KnatteliganWPF
 
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
+
             Coach = new Coach(PersonName, PersonalNumber, PhoneNumber, EmailAddress);
             Team = new Team(TeamName, Players, Coach);
 

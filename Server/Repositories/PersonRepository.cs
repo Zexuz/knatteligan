@@ -2,6 +2,7 @@ using System;
 using knatteligan.Domain.Entities;
 using System.Collections.Generic;
 using System.Linq;
+using knatteligan.Domain.ValueObjects;
 
 namespace knatteligan.Repositories
 {
@@ -69,17 +70,17 @@ namespace knatteligan.Repositories
 
         private void AddAndSaveCoach(Person person)
         {
-            var coach = (Coach) person;
+            var coach = (Coach)person;
             _coaches.Add(coach);
-            Save(_coachPath,_coaches);
+            Save(_coachPath, _coaches);
 
         }
 
         private void AddAndSavePlayer(Person person)
         {
-            var player = (Player) person;
+            var player = (Player)person;
             _players.Add(player);
-            Save(_playerPath,_players);
+            Save(_playerPath, _players);
         }
 
         #endregion
@@ -97,7 +98,12 @@ namespace knatteligan.Repositories
 
         public static PersonRepository GetInstance()
         {
-            return (PersonRepository) (Repo ?? (Repo = new PersonRepository()));
+            return (PersonRepository)(Repo ?? (Repo = new PersonRepository()));
+        }
+
+        public Person FindBy(Guid personId)
+        {
+            return GetAll().First(cp => cp.Id == personId);
         }
 
 
@@ -111,5 +117,12 @@ namespace knatteligan.Repositories
         }
 
        
+
+        public void Edit(Player player, PersonName name, PersonalNumber personId)
+        {
+            player.Name = name;
+            player.PersonalNumber = personId;
+            Save(_playerPath, _players);
+        }
     }
 }

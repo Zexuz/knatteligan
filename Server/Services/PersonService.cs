@@ -22,7 +22,7 @@ namespace knatteligan.Services
 
         public void Edit(Player player, PersonName name, PersonalNumber personId)
         {
-            throw new NotImplementedException();
+            _personRepository.Edit(player, name, personId);
         }
 
         public IEnumerable<Person> GetAll()
@@ -48,5 +48,10 @@ namespace knatteligan.Services
         {
             return _personRepository.FindCoachById(id);
         }
+        public Person FindById(Guid personId)
+        {
+            return _personRepository.FindBy(personId);
+        }
+
     }
 }

@@ -9,15 +9,15 @@ namespace knatteligan.Helpers
     {
         public static League GetLeageFromMatchId(Guid matchId)
         {
-            foreach (var currentLeage in new LeagueService().GetAll().ToList())
+            foreach (var league in new LeagueService().GetAll().ToList())
             {
-                for (var gameWeekIndex = 1; gameWeekIndex < currentLeage.MatchWeeks.Count; gameWeekIndex++)
+                for (var gameWeekIndex = 1; gameWeekIndex < league.MatchWeeks.Count; gameWeekIndex++)
                 {
-                    var gameWeekMatches = currentLeage.MatchWeeks[gameWeekIndex];
+                    var gameWeekMatches = league.MatchWeeks[gameWeekIndex];
 
                     if (gameWeekMatches.Matches.All(matchGuid => matchGuid != matchId)) continue;
 
-                    return currentLeage;
+                    return league;
                 }
             }
 

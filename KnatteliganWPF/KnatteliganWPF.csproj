@@ -68,7 +68,6 @@
     </Compile>
     <Compile Include="ValidationRules\PersonNameValidationRule.cs" />
     <Compile Include="ValidationRules\PhoneNumberValidationRule.cs" />
-    <Compile Include="ValidationRules\PlayerNameValidationRule.cs" />
     <Compile Include="ValidationRules\TeamNameValidationRule.cs" />
     <Compile Include="ValidationRules\LeagueNameValidationRule.cs" />
     <Compile Include="ValidationRules\SocialNumberValidationRule.cs" />

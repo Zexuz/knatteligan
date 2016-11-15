@@ -31,12 +31,10 @@ namespace KnatteliganWPF
             _teamService = new TeamService();
             _personService = new PersonService();
             Teams = new List<Team>();
+            
             DataContext = this;
 
-            if (/*Teams.Count >= 16 && */Teams.Count % 2 == 0)
-            {
-                AddLeagueButton.IsEnabled = true;
-            }
+            
 
         }
 
@@ -62,10 +60,7 @@ namespace KnatteliganWPF
                 return;
             }
 
-            if (/*Teams.Count >= 16 && */Teams.Count % 2 == 0)
-            {
-                AddLeagueButton.IsEnabled = true;
-            }
+            
 
             _teamService.Add(addTeamWindow.Team);
             _personService.Add(addTeamWindow.Coach);
@@ -77,6 +72,7 @@ namespace KnatteliganWPF
         {
             var teamIds = Teams.Select(x => x.Id).ToList();
             League = new League(LeagueName, teamIds);
+            
 
             DialogResult = true;
             Close();

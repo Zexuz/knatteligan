@@ -58,6 +58,7 @@
     <Compile Include="AddTeamWindow.xaml.cs">
       <DependentUpon>AddTeamWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\MatchEventToStringConverter.cs" />
     <Compile Include="Converters\LeagueNameToStringConverter.cs" />
     <Compile Include="Converters\PersonNameToStringConverter.cs" />
     <Compile Include="Converters\PhoneNumberToStringConverter.cs" />
@@ -71,17 +72,14 @@
     <Compile Include="ValidationRules\TeamNameValidationRule.cs" />
     <Compile Include="ValidationRules\LeagueNameValidationRule.cs" />
     <Compile Include="ValidationRules\SocialNumberValidationRule.cs" />
-
     <Page Include="SetTeamSquadWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-
     <Page Include="SeriesScheduleWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-
     <Page Include="AddPlayerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -124,12 +122,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-
     <Compile Include="SeriesScheduleWindow.xaml.cs">
       <DependentUpon>SeriesScheduleWindow.xaml</DependentUpon>
     </Compile>
-
-
     <Compile Include="ManageLeague.xaml.cs">
       <DependentUpon>ManageLeague.xaml</DependentUpon>
     </Compile>

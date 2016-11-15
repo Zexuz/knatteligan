@@ -155,9 +155,12 @@ namespace KnatteliganWPF
             if (team.Id == AwayTeam.Id)
             {
                 _matchEventsAway.Add(matchEvent);
+                AwayTeamGoals.Text = _matchEventsAway.Where(e => e.GetType() == MatchEvents.Goal).ToList().Count.ToString();
                 return;
             }
             _matchEventsHome.Add(matchEvent);
+            HomeTeamGoals.Text = _matchEventsHome.Where(e => e.GetType() == MatchEvents.Goal).ToList().Count.ToString();
+
 
         }
 

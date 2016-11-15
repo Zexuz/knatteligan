@@ -23,5 +23,15 @@ namespace UserHomePage
         {
             InitializeComponent();
         }
+
+        private void ManageLeague_Clicked(object sender, MouseButtonEventArgs e)
+        {
+            throw new Exception();
+        }
+        private void searchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            throw new Exception();
+        }
+
     }
 }

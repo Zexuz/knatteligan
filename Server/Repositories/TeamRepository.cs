@@ -66,5 +66,10 @@ namespace knatteligan.Repositories
         {
             return _teams.First(team => team.Id == teamId);
         }
+
+        public Team FindByPlayerId(Guid playerId)
+        {
+            return _teams.First(team => team.PlayerIds.Contains(playerId));
+        }
     }
 }

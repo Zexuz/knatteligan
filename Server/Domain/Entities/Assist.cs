@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Runtime.InteropServices.ComTypes;
+using knatteligan.Repositories;
 
 namespace knatteligan.Domain.Entities
 {
@@ -20,6 +22,12 @@ namespace knatteligan.Domain.Entities
         public override MatchEvents GetType()
         {
             return MatchEvents.Assist;
+        }
+
+        public override string ToString()
+        {
+            var player = PersonRepository.GetInstance().FindBy(PlayerGuid);
+            return $"Assist :{player.Name}({player.PersonalNumber})";
         }
     }
 }

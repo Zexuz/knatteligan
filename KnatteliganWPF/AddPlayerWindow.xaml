@@ -84,7 +84,16 @@
                 </MultiBinding>
             </Button.IsEnabled>
         </Button>
-        <Button Name="SaveEditBtn" Content="Save" HorizontalAlignment="Left" Margin="5.333,5,0,0" Grid.Row="6" VerticalAlignment="Top" Width="50" Height="20" Click="SaveEditBtn_Click" Grid.Column="2"/>
+
+        <Button Name="SaveEditBtn" Content="Save" HorizontalAlignment="Left" Margin="5.333,5,0,0" Grid.Row="6" VerticalAlignment="Top" Width="50" Height="20" Click="SaveEditBtn_Click" Grid.Column="2">
+            <Button.IsEnabled>
+                <MultiBinding Converter="{StaticResource IsEnabledConverter}">
+                    <Binding ElementName="PersonNameTextBox" Path="(Validation.Errors)[0]"/>
+                    <Binding ElementName="PersonNameTextBox" Path="Text"/>
+                    <Binding ElementName="PersonalNumberTextBox" Path="(Validation.Errors)[0]"/>
+                </MultiBinding>
+            </Button.IsEnabled>
+        </Button>
 
     </Grid>
 </Window>

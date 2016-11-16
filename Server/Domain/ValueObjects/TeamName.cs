@@ -15,7 +15,7 @@ namespace knatteligan.Domain.ValueObjects
 
             Value = name;
         }
-
+        //Todo fix regex so that user has to enter at least two chars
         private static bool IsTeamName(string name)
         {
             return Regex.IsMatch(name, @"^[1-9a-öA-Ö\s]+$");

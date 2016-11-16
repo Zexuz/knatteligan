@@ -97,31 +97,31 @@ namespace knatteligan.Repositories
 
         private void AddAndSaveAssist(MatchEvent matchEvent)
         {
-            var assist = (Assist) matchEvent;
+            var assist = (Assist)matchEvent;
             _assists.Add(assist);
-            Save(_assistPath,_assists);
+            Save(_assistPath, _assists);
         }
 
         private void AddAndSaveGoals(MatchEvent matchEvent)
         {
-            var goal = (Goal) matchEvent;
+            var goal = (Goal)matchEvent;
             _goals.Add(goal);
-            Save(_goalPath,_goals);
+            Save(_goalPath, _goals);
         }
 
         private void AddAndSaveRedCard(MatchEvent matchEvent)
         {
-            var redCard = (RedCard) matchEvent;
+            var redCard = (RedCard)matchEvent;
             _redCards.Add(redCard);
-            Save(_redCardsPath,_redCards);
+            Save(_redCardsPath, _redCards);
 
         }
 
         private void AddAndSaveYellowCard(MatchEvent matchEvent)
         {
-            var yellowCard = (YellowCard) matchEvent;
+            var yellowCard = (YellowCard)matchEvent;
             _yellowCards.Add(yellowCard);
-            Save(_yellowCardsPath,_yellowCards);
+            Save(_yellowCardsPath, _yellowCards);
 
         }
         #endregion
@@ -129,7 +129,12 @@ namespace knatteligan.Repositories
 
         public static MatchEventRepository GetInstance()
         {
-            return (MatchEventRepository) (Repo ?? (Repo = new MatchEventRepository()));
+            return (MatchEventRepository)(Repo ?? (Repo = new MatchEventRepository()));
         }
+
+        public MatchEvent Find(Guid eventId) {
+            return GetAll().First(ev => ev.Id == eventId);
+        }
+
     }
 }

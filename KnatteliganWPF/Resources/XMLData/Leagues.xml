@@ -167,28 +167,4 @@
     </MatchWeeks>
     <StartDate>0001-01-01T00:00:00</StartDate>
   </League>
-  <League>
-    <Id>e61f838e-1388-4848-90f7-f79b3f810b00</Id>
-    <Name>
-      <Value>Philipsliga</Value>
-    </Name>
-    <Teams />
-    <StartDate>0001-01-01T00:00:00</StartDate>
-  </League>
-  <League>
-    <Id>8bc447ed-ac94-40b1-a20a-406914f2dc1a</Id>
-    <Name>
-      <Value>philipsliga</Value>
-    </Name>
-    <Teams />
-    <StartDate>0001-01-01T00:00:00</StartDate>
-  </League>
-  <League>
-    <Id>67b9dab4-3990-480c-ae5f-86ba5ab05838</Id>
-    <Name>
-      <Value>JamesBond</Value>
-    </Name>
-    <Teams />
-    <StartDate>0001-01-01T00:00:00</StartDate>
-  </League>
 </ArrayOfLeague>

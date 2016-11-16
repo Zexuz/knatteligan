@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using knatteligan.Domain.Entities;
 using knatteligan.Helpers;
+using knatteligan.Repositories;
 
 namespace knatteligan.Services
 {
     public class MatchWeekService
     {
-        public MatchWeekService()
-        {
-        }
+        public MatchWeekService() { }
 
         public bool IsPlayerSuspended(Guid playerId, Guid matchId)
         {
@@ -35,17 +33,19 @@ namespace knatteligan.Services
             {
                 league.MatchWeeks[i].SuspendedPlayers.Add(player.Id);
             }
+
+            LeagueRepository.GetInstance().Save();
         }
 
-        public void SetSuspensionLength(List<YellowCard> yellowCards, List<RedCard> redCards, Player player, Guid matchId)
+        public void SetSuspensionLength(int yellowCards, int redCards, Player player, Guid matchId)
         {
-            if (yellowCards.Count == 2)
+            if (yellowCards >= 2)
             {
                 SuspendPlayer(player, 1, matchId);
                 return;
             }
 
-            if (redCards.Count == 1)
+            if (redCards >= 1)
             {
                 SuspendPlayer(player, 3, matchId);
             }

@@ -18,8 +18,6 @@ namespace KnatteliganWPF.ValidationRules
             {
                 return new ValidationResult(false, "Not a valid league name.");
             }
-
-          
-        }   
+        }
     }
 }

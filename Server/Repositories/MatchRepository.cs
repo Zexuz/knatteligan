@@ -35,7 +35,7 @@ namespace knatteligan.Repositories
 
         public static MatchRepository GetInstance()
         {
-            return (MatchRepository) (Repo ?? (Repo = new MatchRepository()));
+            return (MatchRepository)(Repo ?? (Repo = new MatchRepository()));
         }
 
         public void Save()

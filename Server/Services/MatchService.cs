@@ -5,11 +5,11 @@ using knatteligan.Repositories;
 
 namespace knatteligan.Services
 {
-    public class MatchRepositoryService
+    public class MatchService
     {
         private readonly MatchRepository _matchRepository;
 
-        public MatchRepositoryService()
+        public MatchService()
         {
             _matchRepository = MatchRepository.GetInstance();
         }
@@ -27,6 +27,11 @@ namespace knatteligan.Services
         public void Add(Match match)
         {
             _matchRepository.Add(match);
+        }
+
+        public void Save()
+        {
+           _matchRepository.Save();
         }
     }
 }

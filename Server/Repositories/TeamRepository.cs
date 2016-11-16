@@ -53,7 +53,6 @@ namespace knatteligan.Repositories
                 _personService.RemovePlayer(player);
             }
 
-
             Save(_teamPath, _teams);
         }
 
@@ -65,6 +64,11 @@ namespace knatteligan.Repositories
         public Team FindBy(Guid teamId)
         {
             return _teams.First(team => team.Id == teamId);
+        }
+
+        public Team FindByPlayerId(Guid playerId)
+        {
+            return _teams.First(team => team.PlayerIds.Contains(playerId));
         }
     }
 }

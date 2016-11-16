@@ -7,9 +7,12 @@
         xmlns:converters="clr-namespace:KnatteliganWPF.Converters"
         xmlns:local="clr-namespace:KnatteliganWPF"
         mc:Ignorable="d"
-        Title="AddPlayerWindow" Height="300" Width="250">
+        Title="AddPlayerWindow" Height="300" Width="250"
+        Activated="AddPlayerWindowActivated">
+    
     <Window.Resources>
         <converters:PersonNameToStringConverter x:Key="PersonNameToStringConverter"/>
+        <converters:IsEnabledConverter x:Key="IsEnabledConverter"/>
     </Window.Resources>
     <Grid Margin="0,0,2,0">
         <Grid.RowDefinitions>
@@ -46,13 +49,13 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3" Margin="10 5 0 0">Social security number:</TextBlock>
-        <TextBox Name="socialSecurityNumber" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" VerticalContentAlignment="Center" Margin="10 0 0 0" TextChanged="searchTextBox_TextChanged" 
-                 ToolTip="{Binding ElementName=socialSecurityNumber, Path=(Validation.Errors)[0].ErrorContent}">
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3" Margin="10 5 0 0">Personal number:</TextBlock>
+        <TextBox Name="PersonalNumberTextBox" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" VerticalContentAlignment="Center" Margin="10 0 0 0"
+                 ToolTip="{Binding ElementName=PersonalNumberTextBox, Path=(Validation.Errors)[0].ErrorContent}">
             <TextBox.Text>
-                <Binding Path="SocialSecurityNumber" UpdateSourceTrigger="PropertyChanged" >
+                <Binding Path="PersonalNumber" UpdateSourceTrigger="PropertyChanged" >
                     <Binding.ValidationRules>
-                        <validationRules:SocialNumberValidationRule/>
+                        <validationRules:PersonalNumberValidationRule/>
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox.Text>
@@ -62,7 +65,7 @@
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding Text, ElementName=socialSecurityNumber}" Value="">
+                        <DataTrigger Binding="{Binding Text, ElementName=SocialSecurityNumberTextBox}" Value="">
                             <Setter Property="Visibility" Value="Visible"/>
                         </DataTrigger>
                     </Style.Triggers>
@@ -72,7 +75,15 @@
 
 
         <Button Grid.Row="6" Grid.Column="1" Margin="5" Click="CloseCommandHandler_Clicked">Cancel</Button>
-        <Button Grid.Row="6" Grid.Column="2"  Margin="5" Click="AddPlayerClick">Add</Button>
+        <Button Grid.Row="6" Grid.Column="2"  Margin="5" Content="Add" Click="AddPlayerClick">
+            <Button.IsEnabled>
+                <MultiBinding Converter="{StaticResource IsEnabledConverter}">
+                    <Binding ElementName="PersonNameTextBox" Path="(Validation.Errors)[0]"/>
+                    <Binding ElementName="SocialSecurityNumberTextBox" Path="(Validation.Errors)[0]"/>
+                </MultiBinding>
+            </Button.IsEnabled>
+        </Button>
+        <Button Name="SaveEditBtn" Grid.ColumnSpan="2" Content="Save edit" HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="7" VerticalAlignment="Top" Width="77" Height="26" Grid.RowSpan="2" Click="SaveEditBtn_Click"/>
 
     </Grid>
 </Window>

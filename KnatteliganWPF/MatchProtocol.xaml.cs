@@ -83,36 +83,6 @@ namespace KnatteliganWPF
             AddTeamSquad(true);
         }
 
-        private void AddTeamSquad(bool isHomeTeam)
-        {
-            var listOfPlayers = isHomeTeam ? HomeTeamPlayers : AwayTeamPlayers;
-
-            var setSquadWindow = new SetTeamSquadWindow(listOfPlayers, Match.Id);
-            var resWindow = setSquadWindow.ShowDialog();
-            if (resWindow.HasValue && !resWindow.Value)
-            {
-                Trace.WriteLine("Did not press the 'okey' button");
-                return;
-            }
-
-            var items = setSquadWindow.PlayerListCeckBoxes.ItemsSource;
-
-            var players = ((IEnumerable<CheckBox>)items)
-                .Where(checkBox => checkBox.IsChecked.HasValue && checkBox.IsChecked.Value)
-                .Select(checkBox => _personService.FindPlayerById((Guid)checkBox.Tag)).ToList();
-
-            if (isHomeTeam)
-            {
-                Match.HomeTeamSquad = players.Select(p => p.Id).ToList();
-                HomeTeamList.ItemsSource = new ObservableCollection<Player>(players);
-            }
-            else
-            {
-                Match.AwayTeamSquad = players.Select(p => p.Id).ToList();
-                AwayTeamList.ItemsSource = new ObservableCollection<Player>(players);
-            }
-        }
-
         private void CancelProtocol_OnClick(object sender, RoutedEventArgs e)
         {
             DialogResult = false;

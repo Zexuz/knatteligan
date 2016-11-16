@@ -80,7 +80,7 @@
                 <MultiBinding Converter="{StaticResource IsEnabledConverter}">
                     <Binding ElementName="PersonNameTextBox" Path="(Validation.Errors)[0]"/>
                     <Binding ElementName="PersonNameTextBox" Path="Text"/>
-                    <Binding ElementName="SocialSecurityNumberTextBox" Path="(Validation.Errors)[0]"/>
+                    <Binding ElementName="PersonalNumberTextBox" Path="(Validation.Errors)[0]"/>
                 </MultiBinding>
             </Button.IsEnabled>
         </Button>

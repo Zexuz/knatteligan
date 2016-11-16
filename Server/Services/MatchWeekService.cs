@@ -37,6 +37,25 @@ namespace knatteligan.Services
             LeagueRepository.GetInstance().Save();
         }
 
+        public void RemoveSuspension(int rounds,Player player, Guid matchId)
+        {
+            League league;
+            int currentMatchWeek;
+            SetVariables(out league, out currentMatchWeek, matchId);
+
+            if (league.MatchWeeks.Count - currentMatchWeek + rounds < 0)
+            {
+                rounds = league.MatchWeeks.Count - currentMatchWeek;
+            }
+
+            for (var i = currentMatchWeek + 1; i < rounds + currentMatchWeek; i++)
+            {
+                league.MatchWeeks[i].SuspendedPlayers.Remove(player.Id);
+            }
+
+            LeagueRepository.GetInstance().Save();
+        }
+
         public void SetSuspensionLength(int yellowCards, int redCards, Player player, Guid matchId)
         {
             if (yellowCards >= 2)

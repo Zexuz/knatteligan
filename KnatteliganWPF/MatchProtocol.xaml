@@ -80,7 +80,7 @@
 
         <ListBox Name="HomeTeamMatchEvents" BorderThickness="0" HorizontalContentAlignment="Right" Grid.Row="2"
                  Grid.Column="0" Grid.ColumnSpan="3" Margin="15,23,41,0" FontWeight="Bold" FontSize="9"
-                 Grid.RowSpan="2">
+                 Grid.RowSpan="2" MouseDoubleClick="RemoveEvent_OnMouseDoubleClick">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -92,7 +92,9 @@
         </ListBox>
 
         <ListBox Grid.Row="2" Name="AwayTeamMatchEvents" BorderThickness="0" Grid.Column="4" Grid.ColumnSpan="3"
-                 Margin="41,23,15,0" Grid.RowSpan="2" FontWeight="Bold" FontSize="9">
+                 Margin="41,23,15,0" Grid.RowSpan="2" FontWeight="Bold" FontSize="9"
+                 MouseDoubleClick="RemoveEvent_OnMouseDoubleClick"
+        >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

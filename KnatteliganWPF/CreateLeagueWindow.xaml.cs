@@ -109,11 +109,5 @@ namespace KnatteliganWPF
             Teams.Remove(addTeamWindow.Team);
             Teams.Add(addTeamWindow.Team);
         }
-
-        private void TeamList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            EditBtn.IsEnabled = true;
-            RemoveTeamBtn.IsEnabled = true;
-        }
     }
 }

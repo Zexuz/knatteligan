@@ -26,11 +26,10 @@ namespace KnatteliganWPF.Converters
                 {
                     retValue = false;
                 }
-                
                 else if (val is int)
                 {
-                    var count = (int) val;
-                    retValue = count%2 == 0;
+                    var count = (int)val;
+                    retValue = count % 2 == 0 && count != 0;
                 }
                 if (!retValue)
                     break;

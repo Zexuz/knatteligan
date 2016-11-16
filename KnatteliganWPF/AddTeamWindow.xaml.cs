@@ -89,12 +89,6 @@ namespace KnatteliganWPF
             Close();
         }
 
-        private void PlayerList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            RemovePlayerBtn.IsEnabled = true;
-            EditPlayerBtn.IsEnabled = true;
-        }
-
         private void SaveEditBtn_Click(object sender, RoutedEventArgs e)
         {
             var str = PersonalNumberTextBox.Text;

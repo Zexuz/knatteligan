@@ -29,13 +29,13 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="53*"/>
-            <ColumnDefinition Width="53*"/>
-            <ColumnDefinition Width="53*"/>
-            <ColumnDefinition Width="53*"/>
-            <ColumnDefinition Width="53*"/>
-            <ColumnDefinition Width="54*"/>
-            <ColumnDefinition Width="53*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="54"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1">Enter league name</TextBlock>
 
@@ -56,12 +56,10 @@
 
         <TextBlock Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3" Margin="0, 5">Add Teams (Maximum 16 and only even amounts)</TextBlock>
 
-        <ListBox Name="TeamList" Grid.ColumnSpan="4" Grid.RowSpan="5" Grid.Row="4" Grid.Column="0" SelectionChanged="TeamList_SelectionChanged">
+        <ListBox Name="TeamList" Grid.ColumnSpan="4" Grid.RowSpan="5" Grid.Row="4" Grid.Column="0"/>
 
-        </ListBox>
-
-        <Button Name="EditBtn" Grid.Row="9"  Grid.Column="0" Margin="0,0,10,10" Click="Edit_Click" IsEnabled="False">Edit</Button>
-        <Button Name="RemoveTeamBtn" Grid.Row="9" Grid.Column="3" Click="RemoveTeam_Click" Margin="0,0,23,10" IsEnabled="False">-</Button>
+        <Button Name="EditBtn" IsEnabled="{Binding ElementName=TeamList, Path=SelectedItems.Count}"  Grid.Row="9"  Grid.Column="0" Margin="0,0,10,10" Click="Edit_Click" >Edit</Button>
+        <Button Name="RemoveTeamBtn" IsEnabled="{Binding ElementName=TeamList, Path=SelectedItems.Count}"  Grid.Row="9" Grid.Column="3" Click="RemoveTeam_Click" Margin="0,0,23,10">-</Button>
         <Button Grid.Row="9" Grid.Column="3" Click="AddTeam_Clicked" Margin="30,0,0,10" RenderTransformOrigin="1.179,1.5">+</Button>
 
         <Button Grid.Row="12" Grid.Column="5" Margin="5" Click="CloseCommandHandler_Click" >Cancel</Button>

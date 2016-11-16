@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Windows.Controls;
 using System.Windows.Data;
+using knatteligan.Domain.Entities;
 
 namespace KnatteliganWPF.Converters
 {
@@ -15,14 +17,20 @@ namespace KnatteliganWPF.Converters
             {
                 if (val == null)
                     continue;
-                if (val.GetType() == typeof(string))
+                if (val is string)
                 {
                     var boolVal = !string.IsNullOrEmpty(val.ToString());
-                    retValue = retValue && boolVal;
+                    retValue = boolVal;
                 }
                 else if (val.GetType() == typeof(ValidationError))
                 {
                     retValue = false;
+                }
+                
+                else if (val is int)
+                {
+                    var count = (int) val;
+                    retValue = count%2 == 0;
                 }
                 if (!retValue)
                     break;

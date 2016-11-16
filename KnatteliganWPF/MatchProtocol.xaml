@@ -36,13 +36,11 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <TextBlock Name="HomeTeamName" Grid.Row="1" Grid.Column="0" TextAlignment="Right" Grid.ColumnSpan="3"
-                   Margin="10,26,46,12" Grid.RowSpan="2" FontWeight="Bold" FontSize="16">
-            Home Team
-        </TextBlock>
+                   Margin="10,26,46,12" Grid.RowSpan="2" FontWeight="Bold" FontSize="16"/>
+
         <TextBlock Name="AwayTeamName" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3" Margin="46,26,10,9"
-                   Grid.RowSpan="2" FontWeight="Bold" FontSize="16">
-            Away Team
-        </TextBlock>
+                   Grid.RowSpan="2" FontWeight="Bold" FontSize="16"/>
+
         <ListBox Name="HomeTeamList" Grid.ColumnSpan="3" Grid.RowSpan="7" Grid.Row="4" Grid.Column="0"
                  Margin="5,12,51,17" FontWeight="Bold" SelectionChanged="List_OnSelected" />
 
@@ -106,14 +104,12 @@
         </ListBox>
 
 
-        <TextBlock Grid.Column="2" TextAlignment="Center" Margin="15,0,51,5" FontWeight="Bold" FontSize="10"
-                   Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="1">
-            <Run FontSize="40" Text="2" />
-        </TextBlock>
-        <TextBlock Grid.Column="3" TextAlignment="Center" Margin="51,0,15,5" FontWeight="Bold" FontSize="10"
-                   Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="1">
-            <Run Text="2" FontSize="40" />
-        </TextBlock>
+        <TextBlock Name="HomeTeamGoals" Grid.Column="2" TextAlignment="Center" Margin="15,0,51,5" FontWeight="Bold" FontSize="40"
+                   Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="1" Text="0"/>
+
+        <TextBlock Name="AwayTeamGoals" Grid.Column="3" TextAlignment="Center" Margin="51,0,15,5" FontWeight="Bold" FontSize="40"
+                   Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="1" Text="0"/>
+
         <TextBlock Grid.Column="3" TextAlignment="Center" Margin="5,24,10,24" FontWeight="Bold" FontSize="10"
                    Grid.RowSpan="3" RenderTransformOrigin="0.341,0.971">
             <Run Text="-" FontSize="40" />

@@ -34,7 +34,7 @@ namespace KnatteliganWPF
 
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
-            var addTeamWindow = new AddTeamWindow();
+            var addTeamWindow = new AddTeamWindow(false);
             var windowRes = addTeamWindow.ShowDialog();
 
             Trace.WriteLine(windowRes);
@@ -89,7 +89,7 @@ namespace KnatteliganWPF
             var players = team.PlayerIds.Select(teamPersonId => _personService.FindPlayerById(teamPersonId));
             var playerOc = new ObservableCollection<Player>(players);
 
-            var addTeamWindow = new AddTeamWindow
+            var addTeamWindow = new AddTeamWindow(true)
             {
                 TeamName = team.Name,
                 Team = team,

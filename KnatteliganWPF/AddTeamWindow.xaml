@@ -115,17 +115,17 @@
         <Button Grid.Row="12" Grid.Column="3" Margin="5" Grid.ColumnSpan="2" Click="CloseCommandHandler_Clicked">Cancel</Button>
         <Button Name="AddTeamBtn"  Grid.Row="12" Grid.Column="5"  Margin="5" Content="AddTeam" Grid.ColumnSpan="2" Click="AddTeam_Clicked">
             <Button.IsEnabled>
-                    <MultiBinding Converter="{StaticResource IsEnabledConverter}">
-                        <Binding ElementName="TeamNameTxt" Path="(Validation.Errors)[0]"/>
+                <MultiBinding Converter="{StaticResource IsEnabledConverter}">
+                    <Binding ElementName="TeamNameTxt" Path="(Validation.Errors)[0]"/>
                     <Binding ElementName="TeamNameTxt" Path="Text"/>
                     <Binding ElementName="CoachNameTextBox" Path="(Validation.Errors)[0]"/>
                     <Binding ElementName="PersonalNumberTextBox" Path="(Validation.Errors)[0]"/>
                     <Binding ElementName="PhoneNumberTextBox" Path="(Validation.Errors)[0]"/>
                     <Binding ElementName="CoachEmailTextBox" Path="(Validation.Errors)[0]"/>
-                    </MultiBinding>
-                </Button.IsEnabled>
-            </Button>
-        <Button Name="SaveEditBtn" Grid.ColumnSpan="2" Content="Save edit" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="12" VerticalAlignment="Top" Width="75" Click="SaveEditBtn_Click"/>
+                </MultiBinding>
+            </Button.IsEnabled>
+        </Button>
+        <Button Name="SaveEditBtn" Grid.ColumnSpan="2" Content="Save" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="12" VerticalAlignment="Top" Width="102" Click="SaveEditBtn_Click" Margin="5.333,5,0,0" Height="19"/>
 
     </Grid>
 </Window>

@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="AddPlayerWindow" Height="300" Width="250"
         Activated="AddPlayerWindowActivated">
-    
+
     <Window.Resources>
         <converters:PersonNameToStringConverter x:Key="PersonNameToStringConverter"/>
         <converters:IsEnabledConverter x:Key="IsEnabledConverter"/>
@@ -75,7 +75,7 @@
 
 
         <Button Grid.Row="6" Grid.Column="1" Margin="5" Click="CloseCommandHandler_Clicked">Cancel</Button>
-        <Button Grid.Row="6" Grid.Column="2"  Margin="5" Content="Add" Click="AddPlayerClick">
+        <Button Name="AddPlayerBtn"  Grid.Row="6" Grid.Column="2"  Margin="5" Content="Add" Click="AddPlayerClick">
             <Button.IsEnabled>
                 <MultiBinding Converter="{StaticResource IsEnabledConverter}">
                     <Binding ElementName="PersonNameTextBox" Path="(Validation.Errors)[0]"/>
@@ -84,7 +84,7 @@
                 </MultiBinding>
             </Button.IsEnabled>
         </Button>
-        <Button Name="SaveEditBtn" Grid.ColumnSpan="2" Content="Save edit" HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="7" VerticalAlignment="Top" Width="77" Height="26" Grid.RowSpan="2" Click="SaveEditBtn_Click"/>
+        <Button Name="SaveEditBtn" Content="Save" HorizontalAlignment="Left" Margin="5.333,5,0,0" Grid.Row="6" VerticalAlignment="Top" Width="50" Height="20" Click="SaveEditBtn_Click" Grid.Column="2"/>
 
     </Grid>
 </Window>

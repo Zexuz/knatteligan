@@ -2,6 +2,7 @@
 using knatteligan.Domain.Entities;
 using knatteligan.Repositories;
 using System;
+using System.CodeDom;
 using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -58,6 +59,7 @@ namespace KnatteliganWPF
             HomeTeamMatchEvents.ItemsSource = _matchEventsHome;
         }
 
+        #region OnClick /OnSelected Events
         private void DatePicker_OnSelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             var datePicker = sender as DatePicker;
@@ -143,6 +145,7 @@ namespace KnatteliganWPF
         {
             AddMatchEvent(MatchEvents.RedCard);
         }
+        #endregion
 
         private void AddMatchEvent(MatchEvents type)
         {
@@ -153,14 +156,21 @@ namespace KnatteliganWPF
             MatchEventRepository.GetInstance().Add(matchEvent);
 
             player.MatchEvents.Add(matchEvent.Id);
+            Match.MatchEvents.Add(matchEvent.Id);
+
             PersonRepository.GetInstance().Save();
+            MatchRepository.GetInstance().Save();
             if (team.Id == AwayTeam.Id)
             {
                 _matchEventsAway.Add(matchEvent);
+                AwayTeamGoals.Text = _matchEventsAway.Where(e => e.GetType() == MatchEvents.Goal).ToList().Count.ToString();
                 return;
             }
 
             _matchEventsHome.Add(matchEvent);
+            HomeTeamGoals.Text = _matchEventsHome.Where(e => e.GetType() == MatchEvents.Goal).ToList().Count.ToString();
+            GetAllCardsAndSuspenPlayers();
+
         }
 
         private MatchEvent GetMatchEvent(MatchEvents type, Player player, Team team)
@@ -169,16 +179,16 @@ namespace KnatteliganWPF
             switch (type)
             {
                 case MatchEvents.RedCard:
-                    matchEvent = new RedCard(player.Id, Match.Id);
+                    matchEvent = new RedCard(player.Id,Match.Id);
                     break;
                 case MatchEvents.YellowCard:
-                    matchEvent = new YellowCard(player.Id, Match.Id);
+                    matchEvent = new YellowCard(player.Id,Match.Id);
                     break;
                 case MatchEvents.Assist:
-                    matchEvent = new Assist(player.Id, Match.Id);
+                    matchEvent = new Assist(player.Id,Match.Id);
                     break;
                 case MatchEvents.Goal:
-                    matchEvent = new Goal(player.Id, team.Id, Match.Id);
+                    matchEvent = new Goal(player.Id,team.Id,Match.Id);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
@@ -189,13 +199,69 @@ namespace KnatteliganWPF
 
         private Player GetSelectedPlayerFromList()
         {
-            return (Player)_currentFocusedListBox.SelectedValue;
+            return (Player) _currentFocusedListBox.SelectedValue;
         }
 
         private void List_OnSelected(object sender, RoutedEventArgs e)
         {
             var listBox = sender as ListBox;
             _currentFocusedListBox = listBox;
+        }
+
+        private void AddTeamSquad(bool isHomeTeam)
+        {
+            var listOfPlayers = isHomeTeam ? HomeTeamPlayers : AwayTeamPlayers;
+
+            var setSquadWindow = new SetTeamSquadWindow(listOfPlayers, Match.Id);
+            var resWindow = setSquadWindow.ShowDialog();
+            if (resWindow.HasValue && !resWindow.Value)
+            {
+                Trace.WriteLine("Did not press the 'okey' button");
+                return;
+            }
+
+            var items = setSquadWindow.PlayerListCeckBoxes.ItemsSource;
+
+            var players = ((IEnumerable<CheckBox>) items)
+                .Where(checkBox => checkBox.IsChecked.HasValue && checkBox.IsChecked.Value)
+                .Select(checkBox => _personService.FindPlayerById((Guid) checkBox.Tag)).ToList();
+
+            if (isHomeTeam)
+            {
+                Match.HomeTeamSquad = players.Select(p => p.Id).ToList();
+                HomeTeamList.ItemsSource = new ObservableCollection<Player>(players);
+            }
+            else
+            {
+                Match.AwayTeamSquad = players.Select(p => p.Id).ToList();
+                AwayTeamList.ItemsSource = new ObservableCollection<Player>(players);
+            }
+        }
+
+        private void GetAllCardsAndSuspenPlayers() {
+
+            var players = new List<Player>();
+            players.AddRange(HomeTeamPlayers);
+            players.AddRange(AwayTeamPlayers);
+
+            foreach (var player in players) {
+
+
+            var redCards = Match.MatchEvents
+                .Select(eventId => MatchEventRepository.GetInstance().Find(eventId))
+                .Where(mEvent => mEvent.GetType() ==MatchEvents.RedCard && player.Id == mEvent.PlayerGuid).ToList();
+            var yellowCards = Match.MatchEvents
+                .Select(eventId => MatchEventRepository.GetInstance().Find(eventId))
+                .Where(mEvent => mEvent.GetType() ==MatchEvents.YellowCard && player.Id == mEvent.PlayerGuid ).ToList();
+
+                if(yellowCards.Count == 0 && redCards.Count == 0)
+                    continue;
+
+                Trace.WriteLine(player.Name);
+                Trace.WriteLine($"Yellow cards {yellowCards.Count}");
+                Trace.WriteLine($"Red cards {redCards.Count}");
+                new MatchWeekService().SetSuspensionLength(yellowCards.Count,redCards.Count,player,Match.Id);
+            }
         }
     }
 }

@@ -131,5 +131,10 @@ namespace knatteligan.Repositories
         {
             return (MatchEventRepository)(Repo ?? (Repo = new MatchEventRepository()));
         }
+
+        public MatchEvent Find(Guid eventId) {
+            return GetAll().First(ev => ev.Id == eventId);
+        }
+
     }
 }

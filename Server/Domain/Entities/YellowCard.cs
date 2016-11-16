@@ -8,7 +8,7 @@ namespace knatteligan.Domain.Entities
         public override Guid PlayerGuid { get; set; }
         public override Guid MatchGuid { get; set; }
 
-        public YellowCard() {}
+        public YellowCard() { }
 
         public YellowCard(Guid playerGuid, Guid matchGuid)
         {
@@ -20,7 +20,6 @@ namespace knatteligan.Domain.Entities
         {
             return MatchEvents.YellowCard;
         }
-
 
         public override string ToString()
         {

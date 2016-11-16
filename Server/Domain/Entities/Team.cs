@@ -14,7 +14,6 @@ namespace knatteligan.Domain.Entities
 
         public Team() { }
 
-
         public Team(TeamName name, IEnumerable<Player> players, Coach coach)
         {
             Name = name;

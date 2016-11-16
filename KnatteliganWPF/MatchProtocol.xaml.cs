@@ -2,11 +2,11 @@
 using knatteligan.Domain.Entities;
 using knatteligan.Repositories;
 using System;
+using System.CodeDom;
 using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Threading;
 using System.Windows.Controls;
 using knatteligan.Services;
 
@@ -17,21 +17,25 @@ namespace KnatteliganWPF
     /// </summary>
     public partial class MatchProtocol : Window
     {
-        private readonly TeamService _teamService = new TeamService();
-        private readonly PersonService _personService = new PersonService();
-
         public Team HomeTeam { get; set; }
         public Team AwayTeam { get; set; }
         public Match Match { get; set; }
         public List<Player> HomeTeamPlayers { get; set; }
         public List<Player> AwayTeamPlayers { get; set; }
 
+        private readonly TeamService _teamService;
+        private readonly PersonService _personService;
+        private readonly MatchService _matchService;
         private ListBox _currentFocusedListBox;
         private readonly ObservableCollection<MatchEvent> _matchEventsHome;
         private readonly ObservableCollection<MatchEvent> _matchEventsAway;
 
         public MatchProtocol(Match match)
         {
+            _teamService = new TeamService();
+            _personService = new PersonService();
+            _matchService = new MatchService();
+
             Match = match;
             AwayTeam = _teamService.FindTeamById(match.AwayTeam);
             HomeTeam = _teamService.FindTeamById(match.HomeTeam);
@@ -48,7 +52,6 @@ namespace KnatteliganWPF
             HomeTeamName.Text = HomeTeam.ToString();
             AwayTeamName.Text = AwayTeam.ToString();
 
-
             _matchEventsAway = new ObservableCollection<MatchEvent>();
             _matchEventsHome = new ObservableCollection<MatchEvent>();
 
@@ -60,14 +63,14 @@ namespace KnatteliganWPF
         private void DatePicker_OnSelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             var datePicker = sender as DatePicker;
+
             if (datePicker?.SelectedDate == null)
             {
                 throw new Exception("DatePicker is null and therfore not good!");
             }
 
             Match.MatchDate = datePicker.SelectedDate.Value;
-            //TODO: Repo or service?
-            MatchRepository.GetInstance().Save();
+            _matchService.Save();
         }
 
         private void ButtonAddAwayTeamSquad_OnClick(object sender, RoutedEventArgs e)
@@ -133,6 +136,7 @@ namespace KnatteliganWPF
                 AwayTeamGoals.Text = _matchEventsAway.Where(e => e.GetType() == MatchEvents.Goal).ToList().Count.ToString();
                 return;
             }
+
             _matchEventsHome.Add(matchEvent);
             HomeTeamGoals.Text = _matchEventsHome.Where(e => e.GetType() == MatchEvents.Goal).ToList().Count.ToString();
             GetAllCardsAndSuspenPlayers();
@@ -159,6 +163,7 @@ namespace KnatteliganWPF
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }
+
             return matchEvent;
         }
 

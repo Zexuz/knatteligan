@@ -10,6 +10,7 @@
         Title="CreateLeagueWindow" Height="400" Width="400">
     <Window.Resources>
         <converters:LeagueNameToStringConverter x:Key="LeagueNameToStringConverter"/>
+        <converters:IsEnabledConverter x:Key="IsEnabledConverter"/>
     </Window.Resources>
     <Grid Margin="10">
         <Grid.RowDefinitions>
@@ -53,7 +54,7 @@
 
 
 
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3" Margin="0, 5">Add Teams (At least 16 and only even amount)</TextBlock>
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3" Margin="0, 5">Add Teams (Maximum 16 and only even amounts)</TextBlock>
 
         <ListBox Name="TeamList" Grid.ColumnSpan="4" Grid.RowSpan="5" Grid.Row="4" Grid.Column="0" SelectionChanged="TeamList_SelectionChanged">
 
@@ -64,7 +65,13 @@
         <Button Grid.Row="9" Grid.Column="3" Click="AddTeam_Clicked" Margin="30,0,0,10" RenderTransformOrigin="1.179,1.5">+</Button>
 
         <Button Grid.Row="12" Grid.Column="5" Margin="5" Click="CloseCommandHandler_Click" >Cancel</Button>
-        <Button Name="AddLeagueButton" Grid.Row="12" Grid.Column="6"  Margin="5" IsEnabled="False" Click="AddLeague_Click" >Next</Button>
+        <Button Name="AddLeagueButton" Grid.Row="12" Grid.Column="6"  Margin="5" Content="Next" Click="AddLeague_Click">
+            <Button.IsEnabled>
+                <MultiBinding Converter="{StaticResource IsEnabledConverter}">
+                    <Binding ElementName="leagueName" Path="(Validation.Errors)[0]"/>
+                </MultiBinding>
+            </Button.IsEnabled>
+        </Button>
 
     </Grid>
 </Window>

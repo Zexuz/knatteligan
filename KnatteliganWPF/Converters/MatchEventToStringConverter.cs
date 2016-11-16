@@ -1,6 +1,5 @@
 ﻿using knatteligan.Domain.ValueObjects;
 using System;
-using System.Diagnostics;
 using System.Globalization;
 using System.Windows.Data;
 using knatteligan.Domain.Entities;
@@ -31,7 +30,7 @@ namespace KnatteliganWPF.Converters
             {
                 return redCard.ToString();
             }
-            if (yellowCard!= null)
+            if (yellowCard != null)
             {
                 return yellowCard.ToString();
             }

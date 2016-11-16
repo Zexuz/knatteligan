@@ -1,9 +1,4 @@
 ﻿using knatteligan.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace knatteligan
 {
@@ -11,7 +6,7 @@ namespace knatteligan
     {
         None, League, Player, Team
     }
-   public class SearchResultItem
+    public class SearchResultItem
     {
         public SearchResultItem(object item)
         {
@@ -22,7 +17,7 @@ namespace knatteligan
         public virtual SearchResultItemType Type { get { return SearchResultItemType.None; } }
     }
 
-  public  class LeagueSearchResultItem : SearchResultItem
+    public class LeagueSearchResultItem : SearchResultItem
     {
         public LeagueSearchResultItem(League league)
             : base(league)
@@ -30,13 +25,8 @@ namespace knatteligan
 
         }
 
-        public override SearchResultItemType Type
-        {
-            get
-            {
-                return SearchResultItemType.League;
-            }
-        }
+        public override SearchResultItemType Type => SearchResultItemType.League;
+
         public override string ToString()
         {
             var league = (League)ResultItem;
@@ -49,7 +39,7 @@ namespace knatteligan
         //}
     }
 
-    class PlayerSearchResultItem : SearchResultItem
+    public class PlayerSearchResultItem : SearchResultItem
     {
         public PlayerSearchResultItem(Player player)
             : base(player)
@@ -62,15 +52,8 @@ namespace knatteligan
         }
 
 
-        public override SearchResultItemType Type
-        {
-            get
-            {
-                return SearchResultItemType.League;
-            }
+        public override SearchResultItemType Type => SearchResultItemType.League;
 
-        }
-      
         public class TeamSearchResultItem : SearchResultItem
         {
             public TeamSearchResultItem(Team team)
@@ -78,26 +61,20 @@ namespace knatteligan
             {
             }
 
-            public override SearchResultItemType Type
-            {
-                get
-                {
-                    return SearchResultItemType.Team;
-                }
-            }
+            public override SearchResultItemType Type => SearchResultItemType.Team;
+
             public override string ToString()
             {
                 var team = (Team)ResultItem;
                 return $"{team.Name.Value}";
             }
-
-
         }
     }
 }
-        //public override string ToString()
-        //{
-        //    var castOrCrew = (CastOrCrew)ResultItem;
-        //    return $"[{castOrCrew.JobTitle}]: {castOrCrew.Name} ({castOrCrew.DateOfBirth:yyy-MM-dd})";
-        //}
- 
+
+//public override string ToString()
+//{
+//    var castOrCrew = (CastOrCrew)ResultItem;
+//    return $"[{castOrCrew.JobTitle}]: {castOrCrew.Name} ({castOrCrew.DateOfBirth:yyy-MM-dd})";
+//}
+

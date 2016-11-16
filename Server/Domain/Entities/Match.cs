@@ -14,7 +14,7 @@ namespace knatteligan.Domain.Entities
         public List<Guid> HomeTeamSquad { get; set; }
         public List<Guid> AwayTeamSquad { get; set; }
 
-        public Match(){}
+        public Match() { }
 
         public Match(Guid homeTeam, Guid awayTeam)
         {

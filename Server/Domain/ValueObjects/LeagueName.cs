@@ -4,9 +4,9 @@ namespace knatteligan.Domain.ValueObjects
 {
     public class LeagueName
     {
-        public string Value { get;  set; }
+        public string Value { get; set; }
 
-        public LeagueName() {}
+        public LeagueName() { }
 
         public LeagueName(string name)
         {
@@ -16,7 +16,6 @@ namespace knatteligan.Domain.ValueObjects
             Value = name;
         }
 
-        //TODO: Better regex.
         private static bool IsLeagueName(string name)
         {
             return Regex.IsMatch(name, @"^[1-9a-öA-Ö\s]+$");

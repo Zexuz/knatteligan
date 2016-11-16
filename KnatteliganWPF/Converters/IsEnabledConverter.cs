@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Windows.Controls;
 using System.Windows.Data;
-using knatteligan.Domain.Entities;
 
 namespace KnatteliganWPF.Converters
 {
@@ -11,7 +9,7 @@ namespace KnatteliganWPF.Converters
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            bool retValue = true;
+            var retValue = true;
 
             foreach (var val in values)
             {
@@ -26,6 +24,7 @@ namespace KnatteliganWPF.Converters
                 {
                     retValue = false;
                 }
+                //SelectedItems.Count
                 else if (val is int)
                 {
                     var count = (int)val;

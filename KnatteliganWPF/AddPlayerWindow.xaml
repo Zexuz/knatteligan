@@ -14,6 +14,7 @@
         <converters:PersonNameToStringConverter x:Key="PersonNameToStringConverter"/>
         <converters:IsEnabledConverter x:Key="IsEnabledConverter"/>
     </Window.Resources>
+    
     <Grid Margin="0,0,2,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -25,9 +26,6 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-
-            <!--<RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>-->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -38,6 +36,7 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Margin="10 5 0 0">Name:</TextBlock>
+        
         <TextBox Name="PersonNameTextBox" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" VerticalContentAlignment="Center" Margin="10 0 0 0"
             ToolTip="{Binding ElementName=PersonNameTextBox, Path=(Validation.Errors)[0].ErrorContent}">
             <TextBox.Text>
@@ -49,7 +48,9 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
+        
         <TextBlock Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3" Margin="10 5 0 0">Personal number:</TextBlock>
+        
         <TextBox Name="PersonalNumberTextBox" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" VerticalContentAlignment="Center" Margin="10 0 0 0"
                  ToolTip="{Binding ElementName=PersonalNumberTextBox, Path=(Validation.Errors)[0].ErrorContent}">
             <TextBox.Text>
@@ -60,6 +61,7 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
+        
         <TextBlock IsHitTestVisible="False" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Text="YYMMDD-NNNN" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15 0 0 0" Foreground="DarkGray">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
@@ -72,7 +74,6 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-
 
         <Button Grid.Row="6" Grid.Column="1" Margin="5" Click="CloseCommandHandler_Clicked">Cancel</Button>
         <Button Name="AddPlayerBtn"  Grid.Row="6" Grid.Column="2"  Margin="5" Content="Add" Click="AddPlayerClick">

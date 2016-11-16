@@ -70,11 +70,6 @@ namespace KnatteliganWPF
             Close();
         }
 
-        private void CloseCommandHandler_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
         private void RemoveTeam_Click(object sender, RoutedEventArgs e)
         {
             var team = (Team)TeamList.SelectedItem;
@@ -108,6 +103,11 @@ namespace KnatteliganWPF
             //TODO: Replace this hack
             Teams.Remove(addTeamWindow.Team);
             Teams.Add(addTeamWindow.Team);
+        }
+
+        private void CloseCommandHandler_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

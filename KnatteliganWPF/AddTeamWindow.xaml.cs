@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
 using knatteligan.Helpers;
@@ -27,9 +26,21 @@ namespace KnatteliganWPF
 
         private readonly PersonService _personService;
 
-        public AddTeamWindow()
+        public AddTeamWindow(bool isEdit)
         {
             InitializeComponent();
+
+            if (isEdit)
+            {
+                SaveEditBtn.Visibility = Visibility.Visible;
+                AddTeamBtn.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                SaveEditBtn.Visibility = Visibility.Hidden;
+                AddTeamBtn.Visibility = Visibility.Visible;
+            }
+
             _personService = new PersonService();
             Players = new ObservableCollection<Player>();
             DataContext = this;
@@ -47,7 +58,7 @@ namespace KnatteliganWPF
 
         private void AddPlayer_Clicked(object sender, RoutedEventArgs e)
         {
-            var addPlayerWindow = new AddPlayerWindow();
+            var addPlayerWindow = new AddPlayerWindow(false);
             var addPlayerResult = addPlayerWindow.ShowDialog();
             if (addPlayerResult.HasValue && !addPlayerResult.Value)
             {
@@ -75,12 +86,6 @@ namespace KnatteliganWPF
 
             DialogResult = true;
             Close();
-        }
-
-        private void PlayerList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            RemovePlayerBtn.IsEnabled = true;
-            EditPlayerBtn.IsEnabled = true;
         }
 
         private void SaveEditBtn_Click(object sender, RoutedEventArgs e)
@@ -113,7 +118,7 @@ namespace KnatteliganWPF
         {
             var player = (Player)PlayerList.SelectedItem;
 
-            var addPlayerWindow = new AddPlayerWindow
+            var addPlayerWindow = new AddPlayerWindow(true)
             {
                 Player = player,
                 PlayerName = player.Name,

@@ -9,20 +9,26 @@ namespace KnatteliganWPF.Converters
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            bool retValue = true;
+            var retValue = true;
 
             foreach (var val in values)
             {
                 if (val == null)
                     continue;
-                if (val.GetType() == typeof(string))
+                if (val is string)
                 {
                     var boolVal = !string.IsNullOrEmpty(val.ToString());
-                    retValue = retValue && boolVal;
+                    retValue = boolVal;
                 }
                 else if (val.GetType() == typeof(ValidationError))
                 {
                     retValue = false;
+                }
+                //SelectedItems.Count
+                else if (val is int)
+                {
+                    var count = (int)val;
+                    retValue = count % 2 == 0 && count != 0;
                 }
                 if (!retValue)
                     break;

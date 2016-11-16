@@ -15,9 +15,22 @@ namespace KnatteliganWPF
         public PersonName PlayerName { get; set; }
         public PersonalNumber PersonalNumber { get; set; }
 
-        public AddPlayerWindow()
+        public AddPlayerWindow(bool isEdit)
         {
             InitializeComponent();
+
+            if (isEdit)
+            {
+                SaveEditBtn.Visibility = Visibility.Visible;
+                AddPlayerBtn.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                SaveEditBtn.Visibility = Visibility.Hidden;
+                AddPlayerBtn.Visibility = Visibility.Visible;
+            }
+
+
             DataContext = this;
         }
 
@@ -52,6 +65,9 @@ namespace KnatteliganWPF
 
         private void SaveEditBtn_Click(object sender, RoutedEventArgs e)
         {
+
+
+
             var str = PersonalNumberTextBox.Text;
             PersonalNumber = ConvertHelper.ConvertStringToPersonalNumber(str);
 

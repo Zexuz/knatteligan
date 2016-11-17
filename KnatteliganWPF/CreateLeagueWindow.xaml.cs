@@ -68,19 +68,10 @@ namespace KnatteliganWPF
         {
             var teamIds = Teams.Select(x => x.Id).ToList();
             League = new League(LeagueName, teamIds);
-
             var newSerie = new CreateSeriesSchedule().GetFullSeries(Teams.ToList());
             League.MatchWeeks = newSerie;
-            //sparra ligan
-            LeagueRepository.GetInstance().Add(League);
-            
-            
-
             DialogResult = true;
             Close();
-
-
-            
         }
 
         private void RemoveTeam_Click(object sender, RoutedEventArgs e)

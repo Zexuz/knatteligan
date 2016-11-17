@@ -15,9 +15,7 @@ namespace Testing
         public void CheckValidPhoneNumber()
         {
 
-            //var phoneNumber = new PhoneNumber("0733209064");
-            //// TODO: Add your test code here
-            //Assert.Pass("Your first passing test");
+            
         }
     }
 }

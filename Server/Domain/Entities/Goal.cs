@@ -1,4 +1,5 @@
 ﻿using System;
+using knatteligan.Repositories;
 
 namespace knatteligan.Domain.Entities
 {
@@ -10,8 +11,9 @@ namespace knatteligan.Domain.Entities
 
         public Goal() { }
 
-        public Goal(Guid playerGuid, Guid teamGuid)
+        public Goal(Guid playerGuid, Guid teamGuid, Guid matchId)
         {
+            MatchGuid = matchId;
             PlayerGuid = playerGuid;
             TeamGuid = teamGuid;
         }
@@ -20,6 +22,12 @@ namespace knatteligan.Domain.Entities
         public override MatchEvents GetType()
         {
             return MatchEvents.Goal;
+        }
+
+        public override string ToString()
+        {
+            var player = PersonRepository.GetInstance().FindBy(PlayerGuid);
+            return $"Goal: {player.Name}({player.PersonalNumber})";
         }
     }
 }

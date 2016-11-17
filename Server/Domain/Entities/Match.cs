@@ -14,7 +14,7 @@ namespace knatteligan.Domain.Entities
         public List<Guid> HomeTeamSquad { get; set; }
         public List<Guid> AwayTeamSquad { get; set; }
 
-        public Match(){}
+        public Match() { }
 
         public Match(Guid homeTeam, Guid awayTeam)
         {
@@ -35,7 +35,7 @@ namespace knatteligan.Domain.Entities
 
         public override string ToString()
         {
-            return $"{TeamRepository.GetInstance().FindTeamById(HomeTeam).Name} - {TeamRepository.GetInstance().FindTeamById(HomeTeam).Name}";
+            return $"{TeamRepository.GetInstance().FindTeamById(HomeTeam).Name} - {TeamRepository.GetInstance().FindTeamById(AwayTeam).Name}";
         }
 
 

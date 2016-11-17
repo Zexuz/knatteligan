@@ -1,4 +1,5 @@
 ﻿using System;
+using knatteligan.Repositories;
 
 namespace knatteligan.Domain.Entities
 {
@@ -7,7 +8,7 @@ namespace knatteligan.Domain.Entities
         public override Guid PlayerGuid { get; set; }
         public override Guid MatchGuid { get; set; }
 
-        public YellowCard() {}
+        public YellowCard() { }
 
         public YellowCard(Guid playerGuid, Guid matchGuid)
         {
@@ -18,6 +19,12 @@ namespace knatteligan.Domain.Entities
         public override MatchEvents GetType()
         {
             return MatchEvents.YellowCard;
+        }
+
+        public override string ToString()
+        {
+            var player = PersonRepository.GetInstance().FindBy(PlayerGuid);
+            return $"YellowCard: {player.Name}({player.PersonalNumber})";
         }
     }
 }

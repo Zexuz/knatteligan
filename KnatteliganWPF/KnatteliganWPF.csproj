@@ -58,6 +58,8 @@
     <Compile Include="AddTeamWindow.xaml.cs">
       <DependentUpon>AddTeamWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\IsEnabledConverter.cs" />
+    <Compile Include="Converters\MatchEventToStringConverter.cs" />
     <Compile Include="Converters\LeagueNameToStringConverter.cs" />
     <Compile Include="Converters\PersonNameToStringConverter.cs" />
     <Compile Include="Converters\PhoneNumberToStringConverter.cs" />
@@ -67,10 +69,9 @@
     </Compile>
     <Compile Include="ValidationRules\PersonNameValidationRule.cs" />
     <Compile Include="ValidationRules\PhoneNumberValidationRule.cs" />
-    <Compile Include="ValidationRules\PlayerNameValidationRule.cs" />
     <Compile Include="ValidationRules\TeamNameValidationRule.cs" />
     <Compile Include="ValidationRules\LeagueNameValidationRule.cs" />
-    <Compile Include="ValidationRules\SocialNumberValidationRule.cs" />
+    <Compile Include="ValidationRules\PersonalNumberValidationRule.cs" />
     <Page Include="SetTeamSquadWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -1,4 +1,5 @@
 ﻿using System;
+using knatteligan.Repositories;
 
 namespace knatteligan.Domain.Entities
 {
@@ -18,6 +19,12 @@ namespace knatteligan.Domain.Entities
         public override MatchEvents GetType()
         {
             return MatchEvents.RedCard;
+        }
+
+        public override string ToString()
+        {
+            var player = PersonRepository.GetInstance().FindBy(PlayerGuid);
+            return $"RedCard: {player.Name}({player.PersonalNumber})";
         }
     }
 }

@@ -40,14 +40,13 @@ namespace KnatteliganWPF
             Trace.WriteLine("I clicked antoer!");
             var currentMatchWeek = (KeyValuePair<int, MatchWeek>)e.AddedItems[0];
 
-            var matches = currentMatchWeek.Value.Matches.Select(guid => _matchRepositoryService.Find(guid));
+            var matches = currentMatchWeek.Value.Matches.Select(guid => _matchService.Find(guid));
 
             CurrentMatchWeekMatches.ItemsSource = new ObservableCollection<Match>(matches);
         }
 
         private void CurrentMatchWeekMatches_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
             var listItem = sender as ListBox;
             var match = (Match)listItem.SelectedItems[0];
             var matchProtocol = new MatchProtocol(match);
@@ -63,7 +62,5 @@ namespace KnatteliganWPF
             
             manageLeagueWindow.ShowDialog();
         }
-
     }
-
 }

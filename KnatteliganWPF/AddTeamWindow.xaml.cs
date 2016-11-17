@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
+using knatteligan.Helpers;
 using knatteligan.Services;
 
 namespace KnatteliganWPF
@@ -17,47 +17,57 @@ namespace KnatteliganWPF
     {
         public Team Team { get; set; }
         public Coach Coach { get; set; }
-        public List<Player> Players { get; set; }
+        public ObservableCollection<Player> Players { get; set; }
         public TeamName TeamName { get; set; }
         public PersonName PersonName { get; set; }
         public PersonalNumber PersonalNumber { get; set; }
         public PhoneNumber PhoneNumber { get; set; }
-        public Email EmailAddress { get; set; }
+        public Email Email { get; set; }
 
         private readonly PersonService _personService;
 
-
-        public AddTeamWindow()
+        public AddTeamWindow(bool isEdit)
         {
             InitializeComponent();
-            Players = new List<Player>();
-            _personService = new PersonService();
-            DataContext = this;
 
-            if (Players.Count >= 0)
+            if (isEdit)
             {
-                AddTeamBtn.IsEnabled = true;
+                SaveEditBtn.Visibility = Visibility.Visible;
+                AddTeamBtn.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                SaveEditBtn.Visibility = Visibility.Hidden;
+                AddTeamBtn.Visibility = Visibility.Visible;
             }
 
+            _personService = new PersonService();
+            Players = new ObservableCollection<Player>();
+            DataContext = this;
+        }
+
+        private void AddTeamWindowActivated(object sender, EventArgs e)
+        {
+            PlayerList.ItemsSource = Players;
+            //TODO: fuck, is this really needed?
+            if (PersonalNumber != null)
+            {
+                PersonalNumberTextBox.Text = PersonalNumber.ToString();
+            }
         }
 
         private void AddPlayer_Clicked(object sender, RoutedEventArgs e)
         {
-            var addPlayerWindow = new AddPlayerWindow();
+            var addPlayerWindow = new AddPlayerWindow(false);
             var addPlayerResult = addPlayerWindow.ShowDialog();
-            if (addPlayerResult.HasValue && !addPlayerResult.Value) {
+            if (addPlayerResult.HasValue && !addPlayerResult.Value)
+            {
                 Trace.WriteLine("we did not press the add buttom");
                 return;
             }
 
             _personService.Add(addPlayerWindow.Player);
             Players.Add(addPlayerWindow.Player);
-            PlayerList.ItemsSource = new ObservableCollection<Player>(Players);
-
-            if (Players.Count >= 0)
-            {
-                AddTeamBtn.IsEnabled = true;
-            }
         }
 
         private void CloseCommandHandler_Clicked(object sender, RoutedEventArgs e)
@@ -68,32 +78,61 @@ namespace KnatteliganWPF
 
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
+            var str = PersonalNumberTextBox.Text;
+            PersonalNumber = ConvertHelper.ConvertStringToPersonalNumber(str);
 
-            Coach = new Coach(PersonName, PersonalNumber, PhoneNumber, EmailAddress);
+            Coach = new Coach(PersonName, PersonalNumber, PhoneNumber, Email);
             Team = new Team(TeamName, Players, Coach);
 
             DialogResult = true;
             Close();
         }
 
-        private void RemoveTeam_Click(object sender, RoutedEventArgs e)
+        private void SaveEditBtn_Click(object sender, RoutedEventArgs e)
         {
+            var str = PersonalNumberTextBox.Text;
+            PersonalNumber = ConvertHelper.ConvertStringToPersonalNumber(str);
 
+            var coach = _personService.FindCoachById(Team.CoachId);
+            coach.PersonalNumber = PersonalNumber;
+            coach.Name = PersonName;
+            coach.PhoneNumber = PhoneNumber;
+            coach.Email = Email;
+            Coach = coach;
+
+            Team.Name = TeamName;
+            Team.CoachId = Coach.Id;
+            Team.PlayerIds = Players.Select(x => x.Id).ToList();
+            DialogResult = true;
+            Close();
         }
 
-        private void EditTeam_Click(object sender, RoutedEventArgs e)
+        private void RemovePlayerBtn_Click(object sender, RoutedEventArgs e)
         {
+            var player = (Player)PlayerList.SelectedItem;
+            _personService.RemovePlayer(player.Id);
+            Players.Remove(player);
         }
 
-        private void PlayerList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void EditPlayerBtn_Click(object sender, RoutedEventArgs e)
         {
-            RemoveTeamBtn.IsEnabled = true;
-            EditTeamBtn.IsEnabled = true;
-        }
+            var player = (Player)PlayerList.SelectedItem;
 
-        private void AddTeamWindowActivated(object sender, EventArgs e)
-        {
-            PlayerList.ItemsSource = new ObservableCollection<Player>(Players);
+            var addPlayerWindow = new AddPlayerWindow(true)
+            {
+                Player = player,
+                PlayerName = player.Name,
+                PersonalNumber = player.PersonalNumber
+            };
+
+            var addPlayerResult = addPlayerWindow.ShowDialog();
+            if (!addPlayerResult.HasValue) return;
+
+            _personService.Edit(addPlayerWindow.Player, addPlayerWindow.PlayerName, addPlayerWindow.PersonalNumber);
+            //TODO: Replace this hack
+            Players.Remove(addPlayerWindow.Player);
+            Players.Add(addPlayerWindow.Player);
+
         }
     }
 }

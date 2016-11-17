@@ -5,32 +5,27 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using knatteligan.Domain.Entities;
-using knatteligan.Helpers;
 using knatteligan.Services;
 
 namespace KnatteliganWPF
 {
-
     public partial class SetTeamSquadWindow
     {
-
         public List<Player> StartSquadPlayers { get; set; }
 
         public ObservableCollection<CheckBox> PlayerList { get; set; }
         private readonly List<Player> _players;
 
-
         public SetTeamSquadWindow(List<Player> players, Guid matchId)
         {
             InitializeComponent();
-
             _players = players;
 
             var listOfCheckBoxes = players.Select(player => new CheckBox
             {
                 Content = player.Name,
                 Tag = player.Id,
-                IsEnabled = !new MatchWeekService().IsPlayerSuspended(player.Id,matchId)
+                IsEnabled = !new MatchWeekService().IsPlayerSuspended(player.Id, matchId)
             }).ToList();
 
             PlayerList = new ObservableCollection<CheckBox>(listOfCheckBoxes);

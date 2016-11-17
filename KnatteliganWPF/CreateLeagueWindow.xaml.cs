@@ -5,6 +5,8 @@ using System.Windows;
 using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
 using knatteligan.Services;
+using knatteligan.Helpers;
+using knatteligan.Repositories;
 
 namespace KnatteliganWPF
 {
@@ -20,6 +22,7 @@ namespace KnatteliganWPF
         private readonly LeagueService _leagueService;
         private readonly TeamService _teamService;
         private readonly PersonService _personService;
+
 
         public CreateLeagueWindow()
         {
@@ -66,8 +69,18 @@ namespace KnatteliganWPF
             var teamIds = Teams.Select(x => x.Id).ToList();
             League = new League(LeagueName, teamIds);
 
+            var newSerie = new CreateSeriesSchedule().GetFullSeries(Teams.ToList());
+            League.MatchWeeks = newSerie;
+            //sparra ligan
+            LeagueRepository.GetInstance().Add(League);
+            
+            
+
             DialogResult = true;
             Close();
+
+
+            
         }
 
         private void RemoveTeam_Click(object sender, RoutedEventArgs e)

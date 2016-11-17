@@ -40,6 +40,30 @@ namespace KnatteliganWPF
 
         }
 
+        public CreateLeagueWindow(Guid currentLeagueId)
+        {
+            _leagueService = new LeagueService();
+            _teamService = new TeamService();
+            _personService = new PersonService();
+            var league = _leagueService.FindById(currentLeagueId);
+            LeagueName = league.Name;
+            Teams = new List<Team>();
+            
+
+
+            foreach (var teamId in league.Teams)
+            {
+                Teams.Add(_teamService.FindById(teamId));
+                
+            }
+
+            InitializeComponent();
+            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
+            leagueName.Text = LeagueName.Value;
+            //TODO LeagueName does not show in textbox
+
+        }
+
 
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {

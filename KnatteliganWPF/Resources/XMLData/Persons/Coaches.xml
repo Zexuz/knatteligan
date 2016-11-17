@@ -96,4 +96,19 @@
       <Value>0733209064</Value>
     </PhoneNumber>
   </Coach>
+  <Coach>
+    <Id>2f9326e1-b740-4f67-8353-e169a1a8841d</Id>
+    <Name>
+      <Name>asdf</Name>
+    </Name>
+  </Coach>
+  <Coach>
+    <Id>6cd73c32-c6b9-4c5f-9be9-25985c2d1983</Id>
+  </Coach>
+  <Coach>
+    <Id>56656fc5-848d-4e1a-91ab-9d38ece05310</Id>
+  </Coach>
+  <Coach>
+    <Id>8e28f371-dc1d-4790-a341-74d6a8be8386</Id>
+  </Coach>
 </ArrayOfCoach>

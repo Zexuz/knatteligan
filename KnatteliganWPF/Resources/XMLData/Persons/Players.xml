@@ -990,4 +990,29 @@
     </PersonalNumber>
     <MatchEvents />
   </Player>
+  <Player>
+    <Id>88ef48be-17f5-4fde-b116-da7fd5f77ecc</Id>
+    <Name>
+      <Name>asdfasdf</Name>
+    </Name>
+    <MatchEvents />
+  </Player>
+  <Player>
+    <Id>d3bd2567-eb5e-4d6c-98d4-81fa30cd24e2</Id>
+    <Name>
+      <Name>asdfasdfasdfasdf</Name>
+    </Name>
+    <MatchEvents />
+  </Player>
+  <Player>
+    <Id>c9e05fc6-c68c-4816-bb03-98e2af1b9be7</Id>
+    <Name>
+      <Name>asdf</Name>
+    </Name>
+    <MatchEvents />
+  </Player>
+  <Player>
+    <Id>f403d484-4a2d-4d00-9a15-da538babcd77</Id>
+    <MatchEvents />
+  </Player>
 </ArrayOfPlayer>

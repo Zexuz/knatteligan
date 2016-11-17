@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Controls;
+using System.Windows.Input;
 using knatteligan.Services;
 
 namespace KnatteliganWPF
@@ -60,6 +61,7 @@ namespace KnatteliganWPF
         }
 
         #region OnClick /OnSelected Events
+
         private void DatePicker_OnSelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             var datePicker = sender as DatePicker;
@@ -108,13 +110,13 @@ namespace KnatteliganWPF
         private void AddYellowCard_OnClick(object sender, RoutedEventArgs e)
         {
             AddMatchEvent(MatchEvents.YellowCard);
-
         }
 
         private void AddRedCard_OnClick(object sender, RoutedEventArgs e)
         {
             AddMatchEvent(MatchEvents.RedCard);
         }
+
         #endregion
 
         private void AddMatchEvent(MatchEvents type)
@@ -133,14 +135,14 @@ namespace KnatteliganWPF
             if (team.Id == AwayTeam.Id)
             {
                 _matchEventsAway.Add(matchEvent);
-                AwayTeamGoals.Text = _matchEventsAway.Where(e => e.GetType() == MatchEvents.Goal).ToList().Count.ToString();
+                AwayTeamGoals.Text =
+                    _matchEventsAway.Where(e => e.GetType() == MatchEvents.Goal).ToList().Count.ToString();
                 return;
             }
 
             _matchEventsHome.Add(matchEvent);
             HomeTeamGoals.Text = _matchEventsHome.Where(e => e.GetType() == MatchEvents.Goal).ToList().Count.ToString();
             GetAllCardsAndSuspenPlayers();
-
         }
 
         private MatchEvent GetMatchEvent(MatchEvents type, Player player, Team team)
@@ -149,16 +151,16 @@ namespace KnatteliganWPF
             switch (type)
             {
                 case MatchEvents.RedCard:
-                    matchEvent = new RedCard(player.Id,Match.Id);
+                    matchEvent = new RedCard(player.Id, Match.Id);
                     break;
                 case MatchEvents.YellowCard:
-                    matchEvent = new YellowCard(player.Id,Match.Id);
+                    matchEvent = new YellowCard(player.Id, Match.Id);
                     break;
                 case MatchEvents.Assist:
-                    matchEvent = new Assist(player.Id,Match.Id);
+                    matchEvent = new Assist(player.Id, Match.Id);
                     break;
                 case MatchEvents.Goal:
-                    matchEvent = new Goal(player.Id,team.Id,Match.Id);
+                    matchEvent = new Goal(player.Id, team.Id, Match.Id);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
@@ -208,30 +210,74 @@ namespace KnatteliganWPF
             }
         }
 
-        private void GetAllCardsAndSuspenPlayers() {
-
+        private void GetAllCardsAndSuspenPlayers()
+        {
             var players = new List<Player>();
             players.AddRange(HomeTeamPlayers);
             players.AddRange(AwayTeamPlayers);
 
-            foreach (var player in players) {
+            foreach (var player in players)
+            {
+                var redCards = Match.MatchEvents
+                    .Select(eventId => MatchEventRepository.GetInstance().Find(eventId))
+                    .Where(mEvent => mEvent.GetType() == MatchEvents.RedCard && player.Id == mEvent.PlayerGuid).ToList();
+                var yellowCards = Match.MatchEvents
+                    .Select(eventId => MatchEventRepository.GetInstance().Find(eventId))
+                    .Where(mEvent => mEvent.GetType() == MatchEvents.YellowCard && player.Id == mEvent.PlayerGuid)
+                    .ToList();
 
-
-            var redCards = Match.MatchEvents
-                .Select(eventId => MatchEventRepository.GetInstance().Find(eventId))
-                .Where(mEvent => mEvent.GetType() ==MatchEvents.RedCard && player.Id == mEvent.PlayerGuid).ToList();
-            var yellowCards = Match.MatchEvents
-                .Select(eventId => MatchEventRepository.GetInstance().Find(eventId))
-                .Where(mEvent => mEvent.GetType() ==MatchEvents.YellowCard && player.Id == mEvent.PlayerGuid ).ToList();
-
-                if(yellowCards.Count == 0 && redCards.Count == 0)
+                if (yellowCards.Count == 0 && redCards.Count == 0)
                     continue;
 
                 Trace.WriteLine(player.Name);
                 Trace.WriteLine($"Yellow cards {yellowCards.Count}");
                 Trace.WriteLine($"Red cards {redCards.Count}");
-                new MatchWeekService().SetSuspensionLength(yellowCards.Count,redCards.Count,player,Match.Id);
+                new MatchWeekService().SetSuspensionLength(yellowCards.Count, redCards.Count, player, Match.Id);
             }
         }
+
+        private void RemoveEvent_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var listBox = sender as ListBox;
+            var selectedItem = (MatchEvent) listBox.SelectedItems[0];
+            MatchEvent matchEvent;
+            switch (selectedItem.GetType())
+            {
+                case MatchEvents.RedCard:
+                    matchEvent = (RedCard) selectedItem;
+                    break;
+                case MatchEvents.YellowCard:
+                    matchEvent = (YellowCard) selectedItem;
+                    break;
+                case MatchEvents.Assist:
+                    matchEvent = (Assist) selectedItem;
+                    break;
+                case MatchEvents.Goal:
+                    matchEvent = (Goal) selectedItem;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            var player = PersonRepository.GetInstance().FindPlayerById(matchEvent.PlayerGuid);
+            player.MatchEvents.Remove(matchEvent.Id);
+            PersonRepository.GetInstance().Save();
+            MatchEventRepository.GetInstance().Remove(matchEvent);
+            Match.MatchEvents.Remove(matchEvent.Id);
+            MatchRepository.GetInstance().Save();
+
+            var matchWeekService =  new MatchWeekService();
+
+            if (matchEvent.GetType() == MatchEvents.RedCard)
+            {
+                matchWeekService.RemoveSuspension(3, player, Match.Id);
+            }
+
+            if (matchEvent.GetType() == MatchEvents.YellowCard)
+            {
+                matchWeekService.RemoveSuspension(1, player, Match.Id);
+            }
+        }
+
     }
 }

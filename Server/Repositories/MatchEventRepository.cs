@@ -136,5 +136,30 @@ namespace knatteligan.Repositories
             return GetAll().First(ev => ev.Id == eventId);
         }
 
+        public void Remove(MatchEvent matchEvent)
+        {
+
+            switch (matchEvent.GetType())
+            {
+                case MatchEvents.RedCard:
+                    _redCards.Remove((RedCard) matchEvent);
+                    Save(_redCardsPath, _redCards);
+                    break;
+                case MatchEvents.YellowCard:
+                    _yellowCards.Remove((YellowCard) matchEvent);
+                    Save(_yellowCardsPath, _yellowCards);
+                    break;
+                case MatchEvents.Assist:
+                    _assists.Remove((Assist) matchEvent);
+                    Save(_assistPath, _assists);
+                    break;
+                case MatchEvents.Goal:
+                    _goals.Remove((Goal) matchEvent);
+                    Save(_goalPath, _goals);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
     }
 }

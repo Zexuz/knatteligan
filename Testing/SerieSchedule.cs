@@ -61,7 +61,7 @@ namespace Testing
                 allMatches.AddRange(_matches[keys]);
             }
 
-            var groupedMatches = allMatches.GroupBy(match => match.HomeTeam);
+            var groupedMatches = allMatches.GroupBy(match => match.HomeTeamId);
 
             Assert.AreEqual(4,groupedMatches.ToList().Count);
         }
@@ -76,7 +76,7 @@ namespace Testing
                 allMatches.AddRange(_matches[keys]);
             }
 
-            var groupedMatches = allMatches.GroupBy(match => match.AwayTeam);
+            var groupedMatches = allMatches.GroupBy(match => match.AwayTeamId);
 
             Assert.AreEqual(4,groupedMatches.ToList().Count);
         }

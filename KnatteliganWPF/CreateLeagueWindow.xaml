@@ -52,7 +52,7 @@
             </TextBox.Text>
         </TextBox>
 
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3" Margin="0, 5">Add Teams (Maximum 16 and only even amounts)</TextBlock>
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3" Margin="0, 5">Add TeamIds (Maximum 16 and only even amounts)</TextBlock>
 
         <ListBox Name="TeamList" Grid.ColumnSpan="4" Grid.RowSpan="5" Grid.Row="4" Grid.Column="0"/>
 

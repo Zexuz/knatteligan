@@ -50,7 +50,7 @@ namespace knatteligan.Services
         }
         public Person FindById(Guid personId)
         {
-            return _personRepository.FindBy(personId);
+            return _personRepository.FindById(personId);
         }
 
     }

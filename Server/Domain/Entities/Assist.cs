@@ -5,13 +5,13 @@ namespace knatteligan.Domain.Entities
 {
     public sealed class Assist : MatchEvent
     {
-        public override Guid PlayerGuid { get; set; }
-        public override Guid MatchGuid { get; set; }
+        public override Guid PlayerId { get; set; }
+        public override Guid MatchId { get; set; }
 
-        public Assist(Guid playerGuid, Guid matchGuid)
+        public Assist(Guid playerId, Guid matchId)
         {
-            PlayerGuid = playerGuid;
-            MatchGuid = matchGuid;
+            PlayerId = playerId;
+            MatchId = matchId;
         }
 
         public Assist()
@@ -25,7 +25,7 @@ namespace knatteligan.Domain.Entities
 
         public override string ToString()
         {
-            var player = PersonRepository.GetInstance().FindBy(PlayerGuid);
+            var player = PersonRepository.GetInstance().FindById(PlayerId);
             return $"Assist :{player.Name}({player.PersonalNumber})";
         }
     }

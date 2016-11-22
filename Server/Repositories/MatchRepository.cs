@@ -13,7 +13,7 @@ namespace knatteligan.Repositories
 
         private MatchRepository()
         {
-            _matchPath = GetFilePath("\\Matches.xml");
+            _matchPath = GetFilePath("\\MatchIds.xml");
             _matches = Load<Match>(_matchPath).ToList();
         }
 
@@ -23,9 +23,9 @@ namespace knatteligan.Repositories
             Save(_matchPath, _matches);
         }
 
-        public Match Find(Guid guid)
+        public Match FindById(Guid id)
         {
-            return _matches.First(match => match.Id == guid);
+            return _matches.First(match => match.Id == id);
         }
 
         public override IEnumerable<Match> GetAll()

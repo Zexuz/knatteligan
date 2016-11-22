@@ -1,14 +1,10 @@
-﻿using knatteligan.Domain.Entities;
-using knatteligan.Services;
-using KnatteliganWPF;
-using System;
+﻿using knatteligan.Services;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using KnatteliganWPF;
+
 namespace UserHomePage
 {
     /// <summary>

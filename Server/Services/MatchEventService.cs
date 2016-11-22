@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using knatteligan.Domain.Entities;
 using knatteligan.Repositories;
 
@@ -43,5 +40,15 @@ namespace knatteligan.Services
             _matchEventRepository.Add(matchEvent);
         }
 
+        public MatchEvent FindById(Guid id)
+        {
+            return _matchEventRepository.FindById(id);
+        }
+
+        public void Remove(MatchEvent matchEvent)
+        {
+            _matchEventRepository.Remove(matchEvent);
+
+        }
     }
 }

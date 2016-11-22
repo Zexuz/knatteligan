@@ -15,7 +15,7 @@ namespace knatteligan.Services
             int currentMatchWeek;
             SetVariables(out league, out currentMatchWeek, matchId);
 
-            return league.MatchWeeks[currentMatchWeek].SuspendedPlayers.Contains(playerId);
+            return league.MatchWeeks[currentMatchWeek].SuspendedPlayerIds.Contains(playerId);
         }
 
         public void SuspendPlayer(Player player, int rounds, Guid matchId)
@@ -31,7 +31,7 @@ namespace knatteligan.Services
 
             for (var i = currentMatchWeek + 1; i < rounds + currentMatchWeek; i++)
             {
-                league.MatchWeeks[i].SuspendedPlayers.Add(player.Id);
+                league.MatchWeeks[i].SuspendedPlayerIds.Add(player.Id);
             }
 
             LeagueRepository.GetInstance().Save();
@@ -50,21 +50,21 @@ namespace knatteligan.Services
 
             for (var i = currentMatchWeek + 1; i < rounds + currentMatchWeek; i++)
             {
-                league.MatchWeeks[i].SuspendedPlayers.Remove(player.Id);
+                league.MatchWeeks[i].SuspendedPlayerIds.Remove(player.Id);
             }
 
             LeagueRepository.GetInstance().Save();
         }
 
-        public void SetSuspensionLength(int yellowCards, int redCards, Player player, Guid matchId)
+        public void SetSuspensionLength(int yellowCardCount, int redCardCount, Player player, Guid matchId)
         {
-            if (yellowCards >= 2)
+            if (yellowCardCount >= 2)
             {
                 SuspendPlayer(player, 1, matchId);
                 return;
             }
 
-            if (redCards >= 1)
+            if (redCardCount >= 1)
             {
                 SuspendPlayer(player, 3, matchId);
             }

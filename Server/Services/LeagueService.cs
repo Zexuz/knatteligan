@@ -24,14 +24,14 @@ namespace knatteligan.Services
             _leagueRepository.Add(league);
         }
 
-        public void RemoveLeague(Guid leagueGuid)
+        public void Remove(Guid leagueId)
         {
-            _leagueRepository.RemoveLeague(leagueGuid);
+            _leagueRepository.Remove(leagueId);
         }
 
-        public League FindById(Guid leagueGuid)
+        public League FindById(Guid leagueId)
         {
-            return _leagueRepository.FindBy(leagueGuid);
+            return _leagueRepository.FindById(leagueId);
         }
 
     }

@@ -132,8 +132,9 @@ namespace knatteligan.Repositories
             return (MatchEventRepository)(Repo ?? (Repo = new MatchEventRepository()));
         }
 
-        public MatchEvent Find(Guid eventId) {
-            return GetAll().First(ev => ev.Id == eventId);
+        public MatchEvent FindById(Guid id)
+        {
+            return GetAll().First(matchEvent => matchEvent.Id == id);
         }
 
         public void Remove(MatchEvent matchEvent)
@@ -142,19 +143,19 @@ namespace knatteligan.Repositories
             switch (matchEvent.GetType())
             {
                 case MatchEvents.RedCard:
-                    _redCards.Remove((RedCard) matchEvent);
+                    _redCards.Remove((RedCard)matchEvent);
                     Save(_redCardsPath, _redCards);
                     break;
                 case MatchEvents.YellowCard:
-                    _yellowCards.Remove((YellowCard) matchEvent);
+                    _yellowCards.Remove((YellowCard)matchEvent);
                     Save(_yellowCardsPath, _yellowCards);
                     break;
                 case MatchEvents.Assist:
-                    _assists.Remove((Assist) matchEvent);
+                    _assists.Remove((Assist)matchEvent);
                     Save(_assistPath, _assists);
                     break;
                 case MatchEvents.Goal:
-                    _goals.Remove((Goal) matchEvent);
+                    _goals.Remove((Goal)matchEvent);
                     Save(_goalPath, _goals);
                     break;
                 default:

@@ -5,17 +5,17 @@ namespace knatteligan.Domain.Entities
 {
     public sealed class Goal : MatchEvent
     {
-        public override Guid PlayerGuid { get; set; }
-        public override Guid MatchGuid { get; set; }
-        public Guid TeamGuid { get; set; }
+        public override Guid PlayerId { get; set; }
+        public override Guid MatchId { get; set; }
+        public Guid TeamId { get; set; }
 
         public Goal() { }
 
-        public Goal(Guid playerGuid, Guid teamGuid, Guid matchId)
+        public Goal(Guid playerId, Guid teamId, Guid matchId)
         {
-            MatchGuid = matchId;
-            PlayerGuid = playerGuid;
-            TeamGuid = teamGuid;
+            MatchId = matchId;
+            PlayerId = playerId;
+            TeamId = teamId;
         }
 
 
@@ -26,7 +26,7 @@ namespace knatteligan.Domain.Entities
 
         public override string ToString()
         {
-            var player = PersonRepository.GetInstance().FindBy(PlayerGuid);
+            var player = PersonRepository.GetInstance().FindById(PlayerId);
             return $"Goal: {player.Name}({player.PersonalNumber})";
         }
     }

@@ -6,36 +6,36 @@ namespace knatteligan.Domain.Entities
 {
     public class Match : Entity
     {
-        public Guid HomeTeam { get; set; }
-        public Guid AwayTeam { get; set; }
+        public Guid HomeTeamId { get; set; }
+        public Guid AwayTeamId { get; set; }
         public DateTime MatchDate { get; set; }
 
-        public List<Guid> MatchEvents { get; set; }
-        public List<Guid> HomeTeamSquad { get; set; }
-        public List<Guid> AwayTeamSquad { get; set; }
+        public List<Guid> MatchEventIds { get; set; }
+        public List<Guid> HomeTeamSquadId { get; set; }
+        public List<Guid> AwayTeamSquadId { get; set; }
 
         public Match() { }
 
-        public Match(Guid homeTeam, Guid awayTeam)
+        public Match(Guid homeTeamId, Guid awayTeamId)
         {
 
-            HomeTeam = homeTeam;
-            AwayTeam = awayTeam;
+            HomeTeamId = homeTeamId;
+            AwayTeamId = awayTeamId;
 
-            HomeTeamSquad = new List<Guid>();
-            AwayTeamSquad = new List<Guid>();
+            HomeTeamSquadId = new List<Guid>();
+            AwayTeamSquadId = new List<Guid>();
         }
 
         public void Swap()
         {
-            var tempTeam = HomeTeam;
-            HomeTeam = AwayTeam;
-            AwayTeam = tempTeam;
+            var tempTeam = HomeTeamId;
+            HomeTeamId = AwayTeamId;
+            AwayTeamId = tempTeam;
         }
 
         public override string ToString()
         {
-            return $"{TeamRepository.GetInstance().FindTeamById(HomeTeam).Name} - {TeamRepository.GetInstance().FindTeamById(AwayTeam).Name}";
+            return $"{TeamRepository.GetInstance().FindBy(HomeTeamId).Name} - {TeamRepository.GetInstance().FindBy(AwayTeamId).Name}";
         }
 
 

@@ -127,10 +127,10 @@ namespace DeleteMeConsoleApplication {
             var allMatches = new List<Match>();
 
             foreach (var keys in _matches.Keys) {
-                allMatches.AddRange(_matches[keys].Matches.Select(matchId => MatchRepository.GetInstance().Find(matchId)));
+                allMatches.AddRange(_matches[keys].MatchIds.Select(matchId => MatchRepository.GetInstance().FindById(matchId)));
             }
 
-            var groupedMatches = allMatches.GroupBy(match => match.HomeTeam);
+            var groupedMatches = allMatches.GroupBy(match => match.HomeTeamId);
 
             return (4 == groupedMatches.ToList().Count);
         }
@@ -139,10 +139,10 @@ namespace DeleteMeConsoleApplication {
             var allMatches = new List<Match>();
 
             foreach (var keys in _matches.Keys) {
-                allMatches.AddRange(_matches[keys].Matches.Select(matchId => MatchRepository.GetInstance().Find(matchId)));
+                allMatches.AddRange(_matches[keys].MatchIds.Select(matchId => MatchRepository.GetInstance().FindById(matchId)));
             }
 
-            var groupedMatches = allMatches.GroupBy(match => match.AwayTeam);
+            var groupedMatches = allMatches.GroupBy(match => match.AwayTeamId);
 
             return (4 == groupedMatches.ToList().Count);
         }

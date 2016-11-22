@@ -77,6 +77,7 @@
     <Compile Include="Repositories\TeamRepository.cs" />
     <Compile Include="Domain\ValueObjects\SearchResultItem.cs" />
     <Compile Include="Services\LeagueService.cs" />
+    <Compile Include="Services\MatchEventService.cs" />
     <Compile Include="Services\MatchService.cs" />
     <Compile Include="Services\MatchWeekService.cs" />
     <Compile Include="Services\PersonService.cs" />

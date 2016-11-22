@@ -5,13 +5,13 @@ namespace knatteligan.Helpers
 {
     public class MatchWeek
     {
-        public List<Guid> Matches { get; set; }
-        public HashSet<Guid> SuspendedPlayers { get; set; }
+        public List<Guid> MatchIds { get; set; }
+        public HashSet<Guid> SuspendedPlayerIds { get; set; }
 
         public MatchWeek()
         {
-            Matches = new List<Guid>();
-            SuspendedPlayers = new HashSet<Guid>();
+            MatchIds = new List<Guid>();
+            SuspendedPlayerIds = new HashSet<Guid>();
         }
     }
 }

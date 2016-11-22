@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using knatteligan.Domain.Entities;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 
 namespace knatteligan.Repositories
 {
@@ -34,14 +33,14 @@ namespace knatteligan.Repositories
             return (LeagueRepository)(Repo ?? (Repo = new LeagueRepository()));
         }
 
-        public League FindBy(Guid leagueGuid)
+        public League FindById(Guid leagueId)
         {
-            return _leagues.First(league => league.Id == leagueGuid);
+            return _leagues.First(league => league.Id == leagueId);
         }
 
-        public void RemoveLeague(Guid leagueGuid)
+        public void Remove(Guid leagueId)
         {
-            _leagues.Remove(_leagues.First(league => league.Id == leagueGuid));
+            _leagues.Remove(_leagues.First(league => league.Id == leagueId));
         }
 
         public void Save() {

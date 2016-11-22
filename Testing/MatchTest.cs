@@ -26,8 +26,8 @@ namespace Testing
             homeTeam.PlayerIds.Add(player1);
             var match1 = new Match(homeTeam, awayTeam)
             {
-                HomeTeam = homeTeam,
-                AwayTeam = awayTeam
+                HomeTeamId = homeTeam,
+                AwayTeamId = awayTeam
             };
             player1.Goals.Add(new Goal(player1.Id, homeTeam.Id));
             player1.YellowCards.Add(new YellowCard(player1.Id, homeTeam.Id));

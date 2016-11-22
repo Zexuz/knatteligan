@@ -34,9 +34,9 @@ namespace knatteligan.Helpers
             foreach (var round in wholeSeries)
             {
                 Console.WriteLine($"--- Round {round.Key}---");
-                foreach (var match in round.Value.Matches)
+                foreach (var match in round.Value.MatchIds)
                 {
-                    Console.WriteLine(_matchService.Find(match));
+                    Console.WriteLine(_matchService.FindById(match));
                 }
             }
         }
@@ -46,8 +46,8 @@ namespace knatteligan.Helpers
         {
             for (int i = 0; i < dictionary.Count; i += 2)
             {
-                var matchId = dictionary[i + 1].Matches[0];
-                var match = _matchService.Find(matchId);
+                var matchId = dictionary[i + 1].MatchIds[0];
+                var match = _matchService.FindById(matchId);
                 match.Swap();
                 _matchService.Save();
             }
@@ -84,11 +84,11 @@ namespace knatteligan.Helpers
 
                 var match = new Match
                 {
-                    AwayTeam = teams[teamIdx].Id,
-                    HomeTeam = listTeam[0].Id
+                    AwayTeamId = teams[teamIdx].Id,
+                    HomeTeamId = listTeam[0].Id
                 };
 
-                currentRound.Matches.Add(match.Id);
+                currentRound.MatchIds.Add(match.Id);
 
                 if (revert)
                     match.Swap();
@@ -103,10 +103,10 @@ namespace knatteligan.Helpers
 
                     var newMatch = new Match
                     {
-                        AwayTeam = teams[firstTeam].Id,
-                        HomeTeam = teams[secondTeam].Id
+                        AwayTeamId = teams[firstTeam].Id,
+                        HomeTeamId = teams[secondTeam].Id
                     };
-                    currentRound.Matches.Add(newMatch.Id);
+                    currentRound.MatchIds.Add(newMatch.Id);
 
                     if (revert)
                         newMatch.Swap();

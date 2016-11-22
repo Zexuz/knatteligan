@@ -9,7 +9,6 @@ namespace knatteligan.Domain.Entities
         public Email Email { get; set; }
         public PhoneNumber PhoneNumber { get; set; }
 
-
         public Coach() { }
 
         public Coach(PersonName name, PersonalNumber personalNumber, PhoneNumber phoneNumber, Email email) : base(name, personalNumber)

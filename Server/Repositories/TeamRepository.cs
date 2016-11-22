@@ -16,7 +16,7 @@ namespace knatteligan.Repositories
 
         public TeamRepository()
         {
-            _teamPath = GetFilePath("\\Teams.xml");
+            _teamPath = GetFilePath("\\TeamIds.xml");
             _teams = Load<Team>(_teamPath).ToList();
         }
 
@@ -56,17 +56,12 @@ namespace knatteligan.Repositories
             Save(_teamPath, _teams);
         }
 
-        public Team FindTeamById(Guid id)
-        {
-            return _teams.Find(x => x.Id == id);
-        }
-
         public Team FindBy(Guid teamId)
         {
             return _teams.First(team => team.Id == teamId);
         }
 
-        public Team FindByPlayerId(Guid playerId)
+        public Team FindTeamByPlayerId(Guid playerId)
         {
             return _teams.First(team => team.PlayerIds.Contains(playerId));
         }

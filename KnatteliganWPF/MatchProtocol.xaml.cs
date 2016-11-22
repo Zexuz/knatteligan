@@ -38,8 +38,8 @@ namespace KnatteliganWPF
             _matchService = new MatchService();
 
             Match = match;
-            AwayTeam = _teamService.FindTeamById(match.AwayTeam);
-            HomeTeam = _teamService.FindTeamById(match.HomeTeam);
+            AwayTeam = _teamService.FindById(match.AwayTeamId);
+            HomeTeam = _teamService.FindById(match.HomeTeamId);
 
             HomeTeamPlayers =
                 HomeTeam.PlayerIds.Select(playerId => _personService.FindPlayerById(playerId)).ToList();
@@ -122,13 +122,13 @@ namespace KnatteliganWPF
         private void AddMatchEvent(MatchEvents type)
         {
             var player = GetSelectedPlayerFromList();
-            var team = TeamRepository.GetInstance().FindByPlayerId(player.Id);
+            var team = TeamRepository.GetInstance().FindTeamByPlayerId(player.Id);
             var matchEvent = GetMatchEvent(type, player, team);
 
             MatchEventRepository.GetInstance().Add(matchEvent);
 
             player.MatchEvents.Add(matchEvent.Id);
-            Match.MatchEvents.Add(matchEvent.Id);
+            Match.MatchEventIds.Add(matchEvent.Id);
 
             PersonRepository.GetInstance().Save();
             MatchRepository.GetInstance().Save();
@@ -200,12 +200,12 @@ namespace KnatteliganWPF
 
             if (isHomeTeam)
             {
-                Match.HomeTeamSquad = players.Select(p => p.Id).ToList();
+                Match.HomeTeamSquadId = players.Select(p => p.Id).ToList();
                 HomeTeamList.ItemsSource = new ObservableCollection<Player>(players);
             }
             else
             {
-                Match.AwayTeamSquad = players.Select(p => p.Id).ToList();
+                Match.AwayTeamSquadId = players.Select(p => p.Id).ToList();
                 AwayTeamList.ItemsSource = new ObservableCollection<Player>(players);
             }
         }
@@ -218,12 +218,12 @@ namespace KnatteliganWPF
 
             foreach (var player in players)
             {
-                var redCards = Match.MatchEvents
-                    .Select(eventId => MatchEventRepository.GetInstance().Find(eventId))
-                    .Where(mEvent => mEvent.GetType() == MatchEvents.RedCard && player.Id == mEvent.PlayerGuid).ToList();
-                var yellowCards = Match.MatchEvents
-                    .Select(eventId => MatchEventRepository.GetInstance().Find(eventId))
-                    .Where(mEvent => mEvent.GetType() == MatchEvents.YellowCard && player.Id == mEvent.PlayerGuid)
+                var redCards = Match.MatchEventIds
+                    .Select(eventId => MatchEventRepository.GetInstance().FindById(eventId))
+                    .Where(mEvent => mEvent.GetType() == MatchEvents.RedCard && player.Id == mEvent.PlayerId).ToList();
+                var yellowCards = Match.MatchEventIds
+                    .Select(eventId => MatchEventRepository.GetInstance().FindById(eventId))
+                    .Where(mEvent => mEvent.GetType() == MatchEvents.YellowCard && player.Id == mEvent.PlayerId)
                     .ToList();
 
                 if (yellowCards.Count == 0 && redCards.Count == 0)
@@ -259,11 +259,11 @@ namespace KnatteliganWPF
                     throw new ArgumentOutOfRangeException();
             }
 
-            var player = PersonRepository.GetInstance().FindPlayerById(matchEvent.PlayerGuid);
+            var player = PersonRepository.GetInstance().FindPlayerById(matchEvent.PlayerId);
             player.MatchEvents.Remove(matchEvent.Id);
             PersonRepository.GetInstance().Save();
             MatchEventRepository.GetInstance().Remove(matchEvent);
-            Match.MatchEvents.Remove(matchEvent.Id);
+            Match.MatchEventIds.Remove(matchEvent.Id);
             MatchRepository.GetInstance().Save();
 
             var matchWeekService =  new MatchWeekService();

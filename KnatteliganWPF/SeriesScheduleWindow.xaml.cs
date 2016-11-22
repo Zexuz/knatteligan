@@ -40,7 +40,7 @@ namespace KnatteliganWPF
             Trace.WriteLine("I clicked antoer!");
             var currentMatchWeek = (KeyValuePair<int, MatchWeek>)e.AddedItems[0];
 
-            var matches = currentMatchWeek.Value.Matches.Select(guid => _matchRepositoryService.Find(guid));
+            var matches = currentMatchWeek.Value.MatchIds.Select(guid => _matchRepositoryService.FindById(guid));
 
             CurrentMatchWeekMatches.ItemsSource = new ObservableCollection<Match>(matches);
         }

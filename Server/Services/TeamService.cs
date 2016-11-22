@@ -35,19 +35,14 @@ namespace knatteligan.Services
             _teamRepository.Edit(team, newTeamName, players, coach);
         }
 
-        public Team FindTeamById(Guid id)
-        {
-            return _teamRepository.FindTeamById(id);
-        }
-
-        public void ChangeTeamName(Team team, TeamName newName)
-        {
-            team.Name = newName;
-        }
-
         public Team FindById(Guid teamId)
         {
             return _teamRepository.FindBy(teamId);
+        }
+
+        public Team FindTeamByPlayerId(Guid playerId)
+        {
+            return _teamRepository.FindTeamByPlayerId(playerId);
         }
     }
 }

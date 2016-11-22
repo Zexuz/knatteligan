@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using knatteligan.Services;
 
 namespace UserHomePage
 {
@@ -19,9 +20,11 @@ namespace UserHomePage
     /// </summary>
     public partial class League : Window
     {
+        private readonly TeamService _teamService;
         public League()
         {
             InitializeComponent();
+            _teamService = new TeamService();
         }
 
         private void ManageLeague_Clicked(object sender, MouseButtonEventArgs e)

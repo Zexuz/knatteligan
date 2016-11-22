@@ -30,9 +30,22 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
-
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <DatePicker ></DatePicker>
-        <Button Grid.Column="12" Grid.Row="0" Grid.ColumnSpan="2">Back</Button>
+        <TextBlock Text="Pos" Grid.Column="0" Margin="5"/>
+        <TextBlock Text="Team Name" Margin="5" Grid.Column="1"/>
+        <TextBlock Text="GP" Margin="5" Grid.Column="2"/>
+        <TextBlock Text="W" Margin="5" Grid.Column="3"/>
+        <TextBlock Text="D" Margin="5" Grid.Column="4"/>
+        <TextBlock Text="L" Margin="5" Grid.Column="5"/>
+        <TextBlock Text="+/-" Margin="5" Grid.Column="6"/>
+        <TextBlock Text="Pts" Margin="5" Grid.Column="7"/>
+        <ListBox Name="TeamList" Grid.ColumnSpan="8" Grid.RowSpan="10" Grid.Row="1"/>
+        <Button Grid.Row="13" Margin="0,0.333,0.333,-0.333">Back</Button>
     </Grid>
 </Window>

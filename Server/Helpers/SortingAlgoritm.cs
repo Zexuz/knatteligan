@@ -2,69 +2,163 @@
 using System.Collections.Generic;
 using System.Linq;
 using knatteligan.Domain.Entities;
+using knatteligan.Domain.ValueObjects;
 using knatteligan.Repositories;
 
 namespace knatteligan.Helpers
 {
     public class SortingAlgoritm
     {
-        public static List<Player> Sort(List<Player> players, PlayerSortByTypes types)
+        private static List<Guid> GetMatchEventsIds(Player player, MatchEvents type)
         {
-            switch (types)
+            return player.MatchEvents
+                .Select(mId => MatchEventRepository.GetInstance().FindById(mId))
+                .Where(matchEvent => matchEvent.GetType() == type)
+                .Select(mEvent => mEvent.Id).ToList();
+        }
+
+        public static List<PlayerStatsInfoItem> Sort(List<Team> teams, PlayerSortByTypes type, bool desc)
+        {
+            var list = (
+                from team in teams
+                from playerId in team.PlayerIds
+                select PersonRepository.GetInstance().FindPlayerById(playerId)
+                into player
+                select new PlayerStatsInfoItem
+                {
+                    Id = player.Id,
+                    Name = player.Name,
+                    PersonalNumber = player.PersonalNumber,
+                    AssistIds = GetMatchEventsIds(player, MatchEvents.Assist),
+                    GoalIds = GetMatchEventsIds(player, MatchEvents.Goal),
+                    YellowCardIds = GetMatchEventsIds(player, MatchEvents.YellowCard),
+                    RedCardIds = GetMatchEventsIds(player, MatchEvents.RedCard),
+                    TeamName = TeamRepository.GetInstance().FindTeamByPlayerId(player.Id).Name
+                }).ToList();
+
+
+
+            return SortList(list,type,desc);
+        }
+
+        private static List<PlayerStatsInfoItem> SortList(List<PlayerStatsInfoItem> players, PlayerSortByTypes type, bool desc)
+        {
+            switch (type)
             {
                 case PlayerSortByTypes.Goal:
-                    return players
-                        .Where(p => p.MatchEvents.Count > 0)
-                        .OrderBy(
-                            p =>
-                                MatchEventRepository.GetInstance()
-                                    .GetAllGoals()
-                                    .Count(matchEvent => matchEvent.PlayerId == p.Id))
-                        .ToList();
-                case PlayerSortByTypes.Assist:
-                    return players
-                        .Where(p => p.MatchEvents.Count > 0)
-                        .OrderBy(
-                            p =>
-                                MatchEventRepository.GetInstance()
-                                    .GetAllAssists()
-                                    .Count(matchEvent => matchEvent.PlayerId == p.Id))
-                        .ToList();
-                case PlayerSortByTypes.Redcard:
-                    return players
-                        .Where(p => p.MatchEvents.Count > 0)
-                        .OrderBy(
-                            p =>
-                                MatchEventRepository.GetInstance()
-                                    .GetAllRedCards()
-                                    .Count(matchEvent => matchEvent.PlayerId == p.Id))
-                        .ToList();
-                case PlayerSortByTypes.Yellowcard:
-                    return players
-                        .Where(p => p.MatchEvents.Count > 0)
-                        .OrderBy(
-                            p =>
-                                MatchEventRepository.GetInstance()
-                                    .GetAllYellowCards()
-                                    .Count(matchEvent => matchEvent.PlayerId == p.Id))
-                        .ToList();
-                case PlayerSortByTypes.PlayerName:
+                    if (desc)
+                        return (
+                            from list in players
+                            orderby list.GoalIds.Count descending
+                            select list
+                        ).ToList();
 
-                    return players
-                        .Where(p => p.MatchEvents.Count >= 0)
-                        .OrderBy(p => p.Name.Name).ToList();
+                    return (
+                        from list in players
+                        orderby list.GoalIds.Count
+                        select list
+                    ).ToList();
+
+                case PlayerSortByTypes.Assist:
+
+                    if (desc)
+                        return (
+                            from list in players
+                            orderby list.AssistIds.Count descending
+                            select list
+                        ).ToList();
+
+                    return (
+                        from list in players
+                        orderby list.AssistIds.Count
+                        select list
+                    ).ToList();
+
+                case PlayerSortByTypes.Redcard:
+                    if (desc)
+                        return (
+                            from list in players
+                            orderby list.RedCardIds.Count descending
+                            select list
+                        ).ToList();
+
+                    return (
+                        from list in players
+                        orderby list.RedCardIds.Count
+                        select list
+                    ).ToList();
+                case PlayerSortByTypes.Yellowcard:
+                    if (desc)
+                        return (
+                            from list in players
+                            orderby list.YellowCardIds.Count descending
+                            select list
+                        ).ToList();
+
+                    return (
+                        from list in players
+                        orderby list.YellowCardIds.Count
+                        select list
+                    ).ToList();
+                case PlayerSortByTypes.PlayerName:
+                    if (desc)
+                        return (
+                            from list in players
+                            orderby list.Name.Name descending
+                            select list
+                        ).ToList();
+
+                    return (
+                        from list in players
+                        orderby list.Name.Name
+                        select list
+                    ).ToList();
+                case PlayerSortByTypes.TeamName:
+                    if (desc)
+                        return (
+                            from list in players
+                            orderby list.TeamName.Value descending
+                            select list
+                        ).ToList();
+
+                    return (
+                        from list in players
+                        orderby list.TeamName.Value
+                        select list
+                    ).ToList();
+
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(types), types, null);
+                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }
         }
-    }
 
-    public enum PlayerSortByTypes
-    {
-        Goal,
-        Assist,
-        Redcard,
-        Yellowcard,
-        PlayerName
+
+        public class PlayerStatsInfoItem
+        {
+            public List<Guid> GoalIds { get; set; }
+            public List<Guid> AssistIds { get; set; }
+            public List<Guid> RedCardIds { get; set; }
+            public List<Guid> YellowCardIds { get; set; }
+
+            public PersonName Name { get; set; }
+            public PersonalNumber PersonalNumber { get; set; }
+            public Guid Id { get; set; }
+            public TeamName TeamName { get; set; }
+
+            public override string ToString()
+            {
+                return Name.Name.ToString();
+            }
+        }
+
+        public enum PlayerSortByTypes
+        {
+            Goal,
+            Assist,
+            Redcard,
+            Yellowcard,
+            PlayerName,
+            TeamName
+        }
     }
 }

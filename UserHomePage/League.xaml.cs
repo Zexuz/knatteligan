@@ -25,6 +25,7 @@ namespace UserHomePage
         {
             InitializeComponent();
             _teamService = new TeamService();
+            TeamList.ItemsSource = _teamService.GetAllTeams();
         }
 
         private void ManageLeague_Clicked(object sender, MouseButtonEventArgs e)

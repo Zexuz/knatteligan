@@ -25,7 +25,7 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -46,6 +46,8 @@
         <TextBlock Text="+/-" Margin="5" Grid.Column="6"/>
         <TextBlock Text="Pts" Margin="5" Grid.Column="7"/>
         <ListBox Name="TeamList" Grid.ColumnSpan="8" Grid.RowSpan="10" Grid.Row="1"/>
+        <TextBox Name="SearchTextBox" Grid.RowSpan="2" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Row="1" Grid.Column="8"
+                 TextChanged="searchTextBox_TextChanged"/>
         <Button Grid.Row="13" Margin="0,0.333,0.333,-0.333">Back</Button>
     </Grid>
 </Window>

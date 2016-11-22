@@ -26,7 +26,7 @@ namespace UserHomePage
 
         private void MatchListWindowActivated(object sender, EventArgs e)
         {
-            GameWeeksList.ItemsSource = GameWeeks;
+            Resources["Drinks"] = GameWeeks;
         }
 
         private void GameWeeksList_Click(object sender, SelectionChangedEventArgs e)

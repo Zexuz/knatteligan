@@ -47,22 +47,16 @@ namespace UserHomePage
             var playerStatsResult = playerStats.ShowDialog();
         }
 
-        private void GoToMatchList_Click(object sender, RoutedEventArgs e)
-        {
-            MatchList matchList = new MatchList();
-            var matchListResult = matchList.ShowDialog();
-        }
-
         private void GoToSerieSchedule_Click(object sender, RoutedEventArgs e)
         {
             //Random test league
             var league = _leagueService.GetAll().First();
-            var serieScheduleWindow = new MatchListWindow(league.Id)
+            var matchListWindow = new MatchListWindow(league.Id)
             {
                 GameWeeks = league.MatchWeeks
             };
 
-            var serieScheduleResult = serieScheduleWindow.ShowDialog();
+            var serieScheduleResult = matchListWindow.ShowDialog();
         }
     }
 }

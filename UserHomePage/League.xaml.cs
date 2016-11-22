@@ -27,7 +27,7 @@ namespace UserHomePage
             InitializeComponent();
             _teamService = new TeamService();
             _searchService = new SearchService();
-            TeamList.ItemsSource = _teamService.GetAllTeams();
+            DataGrid.ItemsSource = _teamService.GetAllTeams();
         }
 
         private void ManageLeague_Clicked(object sender, MouseButtonEventArgs e)
@@ -53,6 +53,14 @@ namespace UserHomePage
             matchList.ShowDialog();
         }
 
-        
+
+        private void DataGrid_OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == "PlayerIds" || e.PropertyName == "CoachId" || e.PropertyName == "Id")
+                e.Cancel = true;
+
+        }
+
+      
     }
 }

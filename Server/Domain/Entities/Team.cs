@@ -10,11 +10,9 @@ namespace knatteligan.Domain.Entities
     {
         public TeamName Name { get; set; }
         public List<Guid> PlayerIds { get; set; } = new List<Guid>();
-        public List<Guid> Goals { get; set; } = new List<Guid>();
         public Guid CoachId { get; set; }
 
         public Team() { }
-
 
         public Team(TeamName name, IEnumerable<Player> players, Coach coach)
         {

@@ -4,169 +4,118 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KnatteliganWPF"
+        xmlns:converters="clr-namespace:KnatteliganWPF.Converters"
         mc:Ignorable="d"
-        Title="MatchProtocol" Height="420" Width="500" ResizeMode="NoResize">
+        Title="MatchProtocol" Height="420" Width="500">
+    <Window.Resources>
+        <converters:MatchEventToStringConverter x:Key="MatchEventToStringConverter" />
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TextBlock Name="HomeTeamName" Grid.Row="1" Grid.Column="0" TextAlignment="Right" Grid.ColumnSpan="3" Margin="10,26,46,12" Grid.RowSpan="2" FontWeight="Bold" FontSize="16">Home Team</TextBlock>
-        <TextBlock Name="AwayTeamName" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3" Margin="46,26,10,9" Grid.RowSpan="2" FontWeight="Bold" FontSize="16">Away Team</TextBlock>
-        <ListBox Name="HomeTeamList" Grid.ColumnSpan="3" Grid.RowSpan="7" Grid.Row="4" Grid.Column="0" SelectionChanged="HomeTeamList_SelectionChanged" Margin="5,12,51,17" FontWeight="Bold"/>
-        <ListBox Name="AwayTeamList" Grid.ColumnSpan="3" Grid.RowSpan="7" Grid.Row="4" Grid.Column="4" Margin="51,12,5,17" FontWeight="Bold"/>
+        <TextBlock Name="HomeTeamName" Grid.Row="1" Grid.Column="0" TextAlignment="Right" Grid.ColumnSpan="3"
+                   Margin="10,26,46,12" Grid.RowSpan="2" FontWeight="Bold" FontSize="16"/>
 
-        <TextBlock Grid.Column="2" Grid.Row="4" VerticalAlignment="Center"  HorizontalAlignment="Center" Margin="38,26,27,3" FontWeight="Bold" Grid.ColumnSpan="2" FontSize="14" Height="28" Grid.RowSpan="2" Width="47" >Goals</TextBlock>
+        <TextBlock Name="AwayTeamName" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3" Margin="46,26,10,9"
+                   Grid.RowSpan="2" FontWeight="Bold" FontSize="16"/>
+
+        <ListBox Name="HomeTeamList" Grid.ColumnSpan="3" Grid.RowSpan="7" Grid.Row="4" Grid.Column="0"
+                 Margin="5,12,51,17" FontWeight="Bold" SelectionChanged="List_OnSelected" />
+
+        <ListBox Name="AwayTeamList" Grid.ColumnSpan="3" Grid.RowSpan="7" Grid.Row="4" Grid.Column="4"
+                 Margin="51,12,5,17" FontWeight="Bold" SelectionChanged="List_OnSelected" />
+
+        <Button Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+                Content="Add one Goal"
+                Click="AddGoal_OnClick" />
+
+        <Button Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+                Content="Add one Assit"
+                Click="AddAssist_OnClick" />
+
+        <Button Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+                Content="Add one YellowCard"
+                Click="AddYellowCard_OnClick" />
+
+        <Button Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+                Content="Add one RedCard"
+                Click="AddRedCard_OnClick" />
 
 
+        <DatePicker Width="110" Grid.ColumnSpan="3" Grid.Column="2" Margin="33,5,26,0"
+                    SelectedDateChanged="DatePicker_OnSelectedDateChanged" />
+        <Button Width="110" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Click="ButtonAddAwayTeamSquad_OnClick"
+                Content="Add away team squad" />
+        <Button Width="110" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Click="ButtonAddHomeTeamSquad_OnClick"
+                Content="Add home team squad" />
 
 
+        <Button Grid.Row="12" Grid.Column="3" Margin="5" Grid.ColumnSpan="2" Click="CancelProtocol_OnClick">Cancel</Button>
+        <Button Grid.Row="12" Grid.Column="5" Margin="5" Grid.ColumnSpan="2" Click="SaveProtocol_OnClick">Save</Button>
+        <Label Name="PlayerNameLabel" Grid.Column="2" HorizontalAlignment="Left" Margin="38,27,0,0" Grid.Row="3"
+               VerticalAlignment="Top" RenderTransformOrigin="0.351,-0.5" Grid.ColumnSpan="2" Grid.RowSpan="2"
+               FontWeight="Bold" />
 
-        <ListBox Name="Goal"  Grid.Column="3" Grid.Row="4"  HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="50,14,10,0" Grid.RowSpan="2" Width="52" Height="38" VerticalAlignment="Top" SelectionChanged="Goal_SelectionChanged">
-            <ListBoxItem Content="1" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="2" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="3" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="4" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="5" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="6" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="7" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="8" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="9" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="10" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="11" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="12" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="13" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="14" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="15" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="16" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="17" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="18" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="19" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="20" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-
+        <ListBox Name="HomeTeamMatchEvents" BorderThickness="0" HorizontalContentAlignment="Right" Grid.Row="2"
+                 Grid.Column="0" Grid.ColumnSpan="3" Margin="15,23,41,0" FontWeight="Bold" FontSize="9"
+                 Grid.RowSpan="2" MouseDoubleClick="RemoveEvent_OnMouseDoubleClick">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Padding="5,0,5,0"
+                                   Text="{Binding Converter= {StaticResource MatchEventToStringConverter}}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
 
-        <TextBlock Grid.Column="2" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="33,12,23,24" FontWeight="Bold" Height="22" Width="56" Grid.RowSpan="2" FontSize="14" >Assists</TextBlock>
-
-        <TextBlock Grid.Column="2" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="10,26,16,4" FontWeight="Bold" Height="28" Width="86" FontSize="14" Grid.RowSpan="2" >Yellow Cards</TextBlock>
-
-        <TextBlock Grid.Column="2" Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="18,13,16,16" FontWeight="Bold" FontSize="14" Height="27" Width="78" Grid.RowSpan="2" >Red Cards</TextBlock>
-
-
-        <DatePicker Width="110" Grid.ColumnSpan="3" Grid.Column="2" Margin="33,5,26,0" SelectedDateChanged="DatePicker_OnSelectedDateChanged"/>
-        <Button Width="110" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Click="ButtonAddAwayTeamSquad_OnClick" Content="Add away team squad"/>
-        <Button Width="110" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Click="ButtonAddHomeTeamSquad_OnClick" Content="Add home team squad"/>
-
-
-        <Button Grid.Row="11"  Grid.Column="2" Height="20" Width="50"  Margin="6,0,0,8" Click="Clear_Click" FontSize="10">Clear</Button>
-        <Button Grid.Row="11" Grid.Column="4" Height="20" Width="50" Margin="1,0,5,8" Click="Update_Clicked" FontSize="10" >Update</Button>
-
-
-        <Button Grid.Row="12" Grid.Column="3" Margin="5" Grid.ColumnSpan="2" Click="Cancel_Clicked">Cancel</Button>
-        <Button Grid.Row="12" Grid.Column="5"  Margin="5" Grid.ColumnSpan="2"  Click="Save_Click">Save</Button>
-        <Label Name="PlayerNameLabel"  Grid.Column="2" HorizontalAlignment="Left" Margin="38,27,0,0" Grid.Row="3" VerticalAlignment="Top" RenderTransformOrigin="0.351,-0.5" Grid.ColumnSpan="2" Grid.RowSpan="2" FontWeight="Bold"/>
-        <ListBox Name="HomeTeamMatchEvents" BorderThickness="0" HorizontalContentAlignment="Right" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="15,23,41,0" FontWeight="Bold" FontSize="9" Grid.RowSpan="2">
-            <Run Text="Home Match Events"/>
-        </ListBox>
-        <ListBox Grid.Row="2" Name="AwayTeamMatchEvents" BorderThickness="0" Grid.Column="4" Grid.ColumnSpan="3" Margin="41,23,15,0" Grid.RowSpan="2" FontWeight="Bold" FontSize="9">
-            <Run Text="Away Match Events"/>
-        </ListBox>
-        <TextBlock Grid.Column="2" TextAlignment="Center" Margin="15,0,51,5" FontWeight="Bold" FontSize="10" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="1"><Run FontSize="40" Text="2"/></TextBlock>
-        <TextBlock Grid.Column="3" TextAlignment="Center" Margin="51,0,15,5" FontWeight="Bold" FontSize="10" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="1"><Run Text="2" FontSize="40"/></TextBlock>
-        <TextBlock Grid.Column="3" TextAlignment="Center" Margin="5,24,10,24" FontWeight="Bold" FontSize="10" Grid.RowSpan="3" RenderTransformOrigin="0.341,0.971"><Run Text="-" FontSize="40"/></TextBlock>
-
-        <ListBox x:Name="Assist"  Grid.Column="3" Grid.Row="6"  HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="50,0,10,20" Grid.RowSpan="2" Width="52" Height="38">
-            <ListBoxItem Content="1" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="2" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="3" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="4" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="5" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="6" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="7" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="8" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="9" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="10" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="11" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="12" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="13" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="14" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="15" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="16" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="17" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="18" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="19" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="20" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            
-
-        </ListBox>
-        
-        <ListBox x:Name="YellowCard"  Grid.Column="3" Grid.Row="7" Height="38" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="50,14,10,6" Grid.RowSpan="2" Width="52">
-            <ListBoxItem Content="1" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="2" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="3" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="4" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="5" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="6" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="7" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="8" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="9" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="10" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="11" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="12" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="13" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="14" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="15" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="16" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="17" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="18" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="19" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="20" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-
-        </ListBox>
-        <ListBox x:Name="RedCard"  Grid.Column="3" Grid.Row="8" Height="38" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="50,28,10,19" Grid.RowSpan="3" Width="52">
-            <ListBoxItem Content="1" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="2" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="3" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="4" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="5" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="6" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="7" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="8" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="9" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="18" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="10" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="11" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="12" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="13" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="14" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="15" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="16" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="17" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="18" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="19" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-            <ListBoxItem Content="20" Height="38" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="14" Width="28" RenderTransformOrigin="0.385,0.474"/>
-
+        <ListBox Grid.Row="2" Name="AwayTeamMatchEvents" BorderThickness="0" Grid.Column="4" Grid.ColumnSpan="3"
+                 Margin="41,23,15,0" Grid.RowSpan="2" FontWeight="Bold" FontSize="9"
+                 MouseDoubleClick="RemoveEvent_OnMouseDoubleClick"
+        >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Padding="5,0,5,0"
+                                   Text="{Binding Converter= {StaticResource MatchEventToStringConverter}}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
 
+
+        <TextBlock Name="HomeTeamGoals" Grid.Column="2" TextAlignment="Center" Margin="15,0,51,5" FontWeight="Bold" FontSize="40"
+                   Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="1" Text="0"/>
+
+        <TextBlock Name="AwayTeamGoals" Grid.Column="3" TextAlignment="Center" Margin="51,0,15,5" FontWeight="Bold" FontSize="40"
+                   Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="1" Text="0"/>
+
+        <TextBlock Grid.Column="3" TextAlignment="Center" Margin="5,24,10,24" FontWeight="Bold" FontSize="10"
+                   Grid.RowSpan="3" RenderTransformOrigin="0.341,0.971">
+            <Run Text="-" FontSize="40" />
+        </TextBlock>
 
     </Grid>
 </Window>

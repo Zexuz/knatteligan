@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using knatteligan.Domain.Entities;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace knatteligan.Repositories
 {
@@ -41,6 +42,10 @@ namespace knatteligan.Repositories
         public void RemoveLeague(Guid leagueGuid)
         {
             _leagues.Remove(_leagues.First(league => league.Id == leagueGuid));
+        }
+
+        public void Save() {
+            Save(_leaguePath, _leagues);
         }
     }
 }

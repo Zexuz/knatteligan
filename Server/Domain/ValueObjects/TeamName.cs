@@ -6,7 +6,7 @@ namespace knatteligan.Domain.ValueObjects
     {
         public string Value { get; set; }
 
-        public TeamName() {}
+        public TeamName() { }
 
         public TeamName(string name)
         {
@@ -15,17 +15,15 @@ namespace knatteligan.Domain.ValueObjects
 
             Value = name;
         }
-
-        //TODO: Better regex.
+        //Todo fix regex so that user has to enter at least two chars
         private static bool IsTeamName(string name)
         {
-            return Regex.IsMatch(name, @"^[1-9a-öA-Ö\s]+$"); 
+            return Regex.IsMatch(name, @"^[1-9a-öA-Ö\s]+$");
         }
 
         public override string ToString()
         {
             return Value;
         }
-
     }
 }

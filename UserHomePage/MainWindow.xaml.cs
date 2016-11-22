@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using KnatteliganWPF;
 
 namespace UserHomePage
 {
@@ -54,7 +55,13 @@ namespace UserHomePage
 
         private void GoToSerieSchedule_Click(object sender, RoutedEventArgs e)
         {
-            SerieScheduleWindow serieScheduleWindow = new SerieScheduleWindow();
+            //Random test league
+            var league = _leagueService.GetAll().First();
+            var serieScheduleWindow = new MatchListWindow(league.Id)
+            {
+                GameWeeks = league.MatchWeeks
+            };
+
             var serieScheduleResult = serieScheduleWindow.ShowDialog();
         }
     }

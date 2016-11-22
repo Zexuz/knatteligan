@@ -38,5 +38,28 @@ namespace UserHomePage
             SearchList.ItemsSource = foundMatch;
         }
 
+        private void GoToLeague_Click(object sender, RoutedEventArgs e)
+        {
+            League leagueWindow = new League();
+            var addLeagueResult = leagueWindow.ShowDialog();
+        }
+
+        private void GoToPlayerStats_Click(object sender, RoutedEventArgs e)
+        {
+            PlayerStats playerStats = new PlayerStats();
+            var playerStatsResult = playerStats.ShowDialog();
+        }
+
+        private void GoToMatchList_Click(object sender, RoutedEventArgs e)
+        {
+            MatchList matchList = new MatchList();
+            var matchListResult = matchList.ShowDialog();
+        }
+
+        private void GoToSerieSchedule_Click(object sender, RoutedEventArgs e)
+        {
+            SerieScheduleWindow serieScheduleWindow = new SerieScheduleWindow();
+            var serieScheduleResult = serieScheduleWindow.ShowDialog();
+        }
     }
 }

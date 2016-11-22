@@ -36,7 +36,7 @@ namespace KnatteliganWPF
             TeamList.ItemsSource = Teams;
             DataContext = this;
 
-            if (/*Teams.Count >= 16 && */Teams.Count % 2 == 0)
+            if (/*TeamIds.Count >= 16 && */Teams.Count % 2 == 0)
             {
                 AddLeagueButton.IsEnabled = true;
             }
@@ -54,7 +54,7 @@ namespace KnatteliganWPF
             
 
 
-            foreach (var teamId in league.Teams)
+            foreach (var teamId in league.TeamIds)
             {
                 Teams.Add(_teamService.FindById(teamId));
                 

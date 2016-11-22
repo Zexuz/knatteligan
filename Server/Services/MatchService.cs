@@ -19,9 +19,9 @@ namespace knatteligan.Services
             return _matchRepository.GetAll();
         }
 
-        public Match Find(Guid id)
+        public Match FindById(Guid id)
         {
-            return _matchRepository.Find(id);
+            return _matchRepository.FindById(id);
         }
 
         public void Add(Match match)

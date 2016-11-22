@@ -15,7 +15,7 @@ namespace knatteligan.Helpers
                 {
                     var gameWeekMatches = league.MatchWeeks[gameWeekIndex];
 
-                    if (gameWeekMatches.Matches.All(matchGuid => matchGuid != matchId)) continue;
+                    if (gameWeekMatches.MatchIds.All(matchGuid => matchGuid != matchId)) continue;
 
                     return league;
                 }
@@ -30,7 +30,7 @@ namespace knatteligan.Helpers
             {
                 var gameWeekMatches = league.MatchWeeks[gameWeekIndex];
 
-                if (gameWeekMatches.Matches.All(matchGuid => matchGuid != matchId)) continue;
+                if (gameWeekMatches.MatchIds.All(matchGuid => matchGuid != matchId)) continue;
 
                 return gameWeekIndex;
             }

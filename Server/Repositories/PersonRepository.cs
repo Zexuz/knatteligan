@@ -89,12 +89,12 @@ namespace knatteligan.Repositories
 
         public Player FindPlayerById(Guid id)
         {
-            return _players.Find(x => x.Id == id);
+            return _players.Find(player => player.Id == id);
         }
 
         public Coach FindCoachById(Guid id)
         {
-            return _coaches.Find(x => x.Id == id);
+            return _coaches.Find(coach => coach.Id == id);
         }
 
         public static PersonRepository GetInstance()
@@ -102,9 +102,9 @@ namespace knatteligan.Repositories
             return (PersonRepository)(Repo ?? (Repo = new PersonRepository()));
         }
 
-        public Person FindBy(Guid personId)
+        public Person FindById(Guid personId)
         {
-            return GetAll().First(cp => cp.Id == personId);
+            return GetAll().First(person => person.Id == personId);
         }
 
 

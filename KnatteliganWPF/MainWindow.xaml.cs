@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using knatteligan.Domain.Entities;
+using knatteligan.Helpers;
 using knatteligan.Services;
 
 namespace KnatteliganWPF

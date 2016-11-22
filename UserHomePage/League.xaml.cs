@@ -20,11 +20,13 @@ namespace UserHomePage
     /// </summary>
     public partial class League : Window
     {
+        private readonly SearchService _searchService;
         private readonly TeamService _teamService;
         public League()
         {
             InitializeComponent();
             _teamService = new TeamService();
+            _searchService = new SearchService();
             TeamList.ItemsSource = _teamService.GetAllTeams();
         }
 
@@ -34,8 +36,21 @@ namespace UserHomePage
         }
         private void searchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            throw new Exception();
+            var searchText = SearchTextBox.Text;
+            var foundMatch = _searchService.Search(searchText, true);
+            SearchList.ItemsSource = foundMatch;
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PlayerStats playerStats = new PlayerStats();
+            playerStats.ShowDialog();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MatchList matchList = new MatchList();
+            matchList.ShowDialog();
+        }
     }
 }

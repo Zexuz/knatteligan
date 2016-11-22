@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
@@ -48,7 +50,7 @@ namespace KnatteliganWPF
             _personService = new PersonService();
             var league = _leagueService.FindById(currentLeagueId);
             LeagueName = league.Name;
-            Teams = new List<Team>();
+            Teams = new ObservableCollection<Team>();
             
 
 

@@ -24,10 +24,10 @@ namespace UserHomePage
     public partial class SerieScheduleWindow : Window
     {
         public SerializableDictionary<int, MatchWeek> GameWeeks { get; set; }
-        MatchRepositoryService _matchRepositoryService;
+        MatchService _matchRepositoryService;
         public SerieScheduleWindow()
         {
-            _matchRepositoryService = new MatchRepositoryService();
+            _matchRepositoryService = new MatchService();
             InitializeComponent();
             DataContext = this;
         }

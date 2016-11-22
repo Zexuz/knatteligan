@@ -16,12 +16,17 @@ namespace KnatteliganWPF
     {
         public SerializableDictionary<int, MatchWeek> GameWeeks { get; set; }
 
-        private readonly MatchService _matchService;
+        private readonly MatchRepositoryService _matchRepositoryService;
+        private readonly LeagueService _leagueService;
+        private Guid _currentLeagueId;
 
-        public SeriesScheduleWindow()
+        public SeriesScheduleWindow(Guid currentLeagueId)
         {
-            _matchService = new MatchService();
+            _currentLeagueId = currentLeagueId;
+            _matchRepositoryService = new MatchRepositoryService();
             InitializeComponent();
+            _leagueService = new LeagueService();
+            
             DataContext = this;
         }
 
@@ -50,7 +55,12 @@ namespace KnatteliganWPF
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            new ManageLeague().Show();
+            
+            //var currentLeague = _leagueService.FindById(_currentLeagueId);
+
+            var manageLeagueWindow = new CreateLeagueWindow(_currentLeagueId);
+            
+            manageLeagueWindow.ShowDialog();
         }
     }
 }

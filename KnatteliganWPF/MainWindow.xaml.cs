@@ -43,7 +43,7 @@ namespace KnatteliganWPF
             var listBoxSender = sender as ListBox;
             var currentLeague = (League)listBoxSender.SelectedItems[0];
 
-            var scheduleWindow = new SeriesScheduleWindow
+            var scheduleWindow = new SeriesScheduleWindow(currentLeague.Id)
             {
                 GameWeeks = currentLeague.MatchWeeks
             };

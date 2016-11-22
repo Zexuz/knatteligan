@@ -150,4 +150,40 @@
     <Goals />
     <CoachId>715585e1-71de-4b98-a830-5d663ce74f13</CoachId>
   </Team>
+  <Team>
+    <Id>76e01738-990c-4c2c-8253-a0cd1610fd72</Id>
+    <Name>
+      <Value>asdf</Value>
+    </Name>
+    <PlayerIds />
+    <Goals />
+    <CoachId>2f9326e1-b740-4f67-8353-e169a1a8841d</CoachId>
+  </Team>
+  <Team>
+    <Id>5b3959cb-465d-4dd9-b5e9-c432647020b7</Id>
+    <Name>
+      <Value>asdfg</Value>
+    </Name>
+    <PlayerIds />
+    <Goals />
+    <CoachId>6cd73c32-c6b9-4c5f-9be9-25985c2d1983</CoachId>
+  </Team>
+  <Team>
+    <Id>57bd517b-da1d-4a05-89b9-879b64ffefee</Id>
+    <Name>
+      <Value>asdf</Value>
+    </Name>
+    <PlayerIds />
+    <Goals />
+    <CoachId>56656fc5-848d-4e1a-91ab-9d38ece05310</CoachId>
+  </Team>
+  <Team>
+    <Id>7e38329d-fa90-4287-8ae9-dda388cbc3fb</Id>
+    <Name>
+      <Value>asdfasdfsadf</Value>
+    </Name>
+    <PlayerIds />
+    <Goals />
+    <CoachId>8e28f371-dc1d-4790-a341-74d6a8be8386</CoachId>
+  </Team>
 </ArrayOfTeam>

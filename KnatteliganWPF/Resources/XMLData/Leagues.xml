@@ -167,4 +167,24 @@
     </MatchWeeks>
     <StartDate>0001-01-01T00:00:00</StartDate>
   </League>
+  <League>
+    <Id>f9fb1bec-2c92-4196-a8f0-48980aa7a8cd</Id>
+    <Name>
+      <Value>asdf</Value>
+    </Name>
+    <Teams />
+    <StartDate>0001-01-01T00:00:00</StartDate>
+  </League>
+  <League xsi:nil="true" />
+  <League xsi:nil="true" />
+  <League xsi:nil="true" />
+  <League xsi:nil="true" />
+  <League xsi:nil="true" />
+  <League xsi:nil="true" />
+  <League xsi:nil="true" />
+  <League xsi:nil="true" />
+  <League xsi:nil="true" />
+  <League xsi:nil="true" />
+  <League xsi:nil="true" />
+  <League xsi:nil="true" />
 </ArrayOfLeague>

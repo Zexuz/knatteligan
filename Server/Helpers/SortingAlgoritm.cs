@@ -27,13 +27,13 @@ namespace knatteligan.Helpers
                 select new PlayerStatsInfoItem
                 {
                     Id = player.Id,
-                    Name = player.Name.Name,
+                    Name = player.Name,
                     PersonalNumber = player.PersonalNumber,
-                    AssitsCount = GetMatchEventsIds(player, MatchEvents.Assist).Count,
-                    GoalCount = GetMatchEventsIds(player, MatchEvents.Goal).Count,
-                    YellowCardCount = GetMatchEventsIds(player, MatchEvents.YellowCard).Count,
-                    RedCardCount = GetMatchEventsIds(player, MatchEvents.RedCard).Count,
-                    TeamName = TeamRepository.GetInstance().FindTeamByPlayerId(player.Id).Name.Value
+                    AssistIds = GetMatchEventsIds(player, MatchEvents.Assist),
+                    GoalIds = GetMatchEventsIds(player, MatchEvents.Goal),
+                    YellowCardIds = GetMatchEventsIds(player, MatchEvents.YellowCard),
+                    RedCardIds = GetMatchEventsIds(player, MatchEvents.RedCard),
+                    TeamName = TeamRepository.GetInstance().FindTeamByPlayerId(player.Id).Name
                 }).ToList();
 
 
@@ -49,13 +49,13 @@ namespace knatteligan.Helpers
                     if (desc)
                         return (
                             from list in players
-                            orderby list.GoalCount descending
+                            orderby list.GoalIds.Count descending
                             select list
                         ).ToList();
 
                     return (
                         from list in players
-                        orderby list.GoalCount
+                        orderby list.GoalIds.Count
                         select list
                     ).ToList();
 
@@ -64,13 +64,13 @@ namespace knatteligan.Helpers
                     if (desc)
                         return (
                             from list in players
-                            orderby list.AssitsCount descending
+                            orderby list.AssistIds.Count descending
                             select list
                         ).ToList();
 
                     return (
                         from list in players
-                        orderby list.AssitsCount
+                        orderby list.AssistIds.Count
                         select list
                     ).ToList();
 
@@ -78,52 +78,52 @@ namespace knatteligan.Helpers
                     if (desc)
                         return (
                             from list in players
-                            orderby list.RedCardCount descending
+                            orderby list.RedCardIds.Count descending
                             select list
                         ).ToList();
 
                     return (
                         from list in players
-                        orderby list.RedCardCount
+                        orderby list.RedCardIds.Count
                         select list
                     ).ToList();
                 case PlayerSortByTypes.Yellowcard:
                     if (desc)
                         return (
                             from list in players
-                            orderby list.YellowCardCount descending
+                            orderby list.YellowCardIds.Count descending
                             select list
                         ).ToList();
 
                     return (
                         from list in players
-                        orderby list.YellowCardCount
+                        orderby list.YellowCardIds.Count
                         select list
                     ).ToList();
                 case PlayerSortByTypes.PlayerName:
                     if (desc)
                         return (
                             from list in players
-                            orderby list.Name descending
+                            orderby list.Name.Name descending
                             select list
                         ).ToList();
 
                     return (
                         from list in players
-                        orderby list.Name
+                        orderby list.Name.Name
                         select list
                     ).ToList();
                 case PlayerSortByTypes.TeamName:
                     if (desc)
                         return (
                             from list in players
-                            orderby list.TeamName descending
+                            orderby list.TeamName.Value descending
                             select list
                         ).ToList();
 
                     return (
                         from list in players
-                        orderby list.TeamName
+                        orderby list.TeamName.Value
                         select list
                     ).ToList();
 
@@ -135,15 +135,15 @@ namespace knatteligan.Helpers
 
         public class PlayerStatsInfoItem
         {
-            public int GoalCount { get; set; }
-            public int AssitsCount { get; set; }
-            public int RedCardCount { get; set; }
-            public int YellowCardCount { get; set; }
+            public List<Guid> GoalIds { get; set; }
+            public List<Guid> AssistIds { get; set; }
+            public List<Guid> RedCardIds { get; set; }
+            public List<Guid> YellowCardIds { get; set; }
 
-            public string Name { get; set; }
+            public PersonName Name { get; set; }
             public PersonalNumber PersonalNumber { get; set; }
             public Guid Id { get; set; }
-            public string TeamName { get; set; }
+            public TeamName TeamName { get; set; }
         }
 
         public enum PlayerSortByTypes

@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using knatteligan.Repositories;
+using knatteligan.Services;
 
 namespace UserHomePage
 {
@@ -19,9 +21,17 @@ namespace UserHomePage
     /// </summary>
     public partial class PlayerStats : Window
     {
+        private readonly PersonService _personService;
         public PlayerStats()
         {
             InitializeComponent();
+            _personService = new PersonService();
+            DataGrid.ItemsSource = _personService.GetAllPlayers();
+        }
+
+        private void DataGrid_OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            
         }
     }
 }

@@ -1,20 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using knatteligan.Domain.Entities;
 using knatteligan.Helpers;
-using knatteligan.Repositories;
-using knatteligan.Services;
 
 namespace UserHomePage
 {
@@ -25,7 +13,7 @@ namespace UserHomePage
     {
         private readonly bool _onlyOneTeam;
 
-        public PlayerStats(Team team ):this(new List<Team>{team})
+        public PlayerStats(Team team) : this(new List<Team> {team})
         {
             _onlyOneTeam = true;
         }
@@ -34,15 +22,46 @@ namespace UserHomePage
         {
             InitializeComponent();
             DataGrid.ItemsSource = SortingAlgoritm.Sort(teams, SortingAlgoritm.PlayerSortByTypes.Goal, true);
+            DataGrid.Sorting += CustomSortHandeler;
         }
 
         private void DataGrid_OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            if (e.PropertyName == "Id" || e.PropertyName == "PersonalNumber")
-                e.Cancel = true;
+            switch (e.PropertyName)
+            {
+                case "Id":
+                case "PersonalNumber":
+                    e.Cancel = true;
+                    break;
+                case "GoalCount":
+                    e.Column.Header = "G";
+                    break;
+                case "AssistCount":
+                    e.Column.Header = "A";
+                    break;
+                case "RedCardCount":
+                    e.Column.Header = "RC";
+                    break;
+                case "YellowCardCount":
+                    e.Column.Header = "YC";
+                    break;
+            }
 
             if (_onlyOneTeam && e.PropertyName == "TeamName")
                 e.Cancel = true;
+        }
+
+
+        private void CustomSortHandeler(object sender, DataGridSortingEventArgs e)
+        {
+//            var colum = e.Column;
+//
+//            var desc = colum.SortDirection.GetValueOrDefault() == ListSortDirection.Descending;
+//
+//            var listOfPlayer = (List<SortingAlgoritm.PlayerStatsInfoItem>)DataGrid.Items.SourceCollection;
+//            DataGrid.ItemsSource = SortingAlgoritm.Sort(listOfPlayer, SortingAlgoritm.PlayerSortByTypes.PlayerName, desc);
+//
+//            Trace.WriteLine(colum.Header.ToString());
         }
     }
 }

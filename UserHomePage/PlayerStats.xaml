@@ -32,7 +32,9 @@
             <ColumnDefinition Width="*"/>
 
         </Grid.ColumnDefinitions>
-        <DataGrid HorizontalAlignment="Stretch" ColumnWidth="*" IsReadOnly="True" VerticalAlignment="Stretch" Grid.ColumnSpan="6" Grid.RowSpan="13" AutoGeneratingColumn="DataGrid_OnAutoGeneratingColumn" Name="DataGrid"/>
-        <Button  Grid.Column="0" Grid.Row="13" Grid.ColumnSpan="1">Back</Button>
+        <DataGrid HorizontalAlignment="Stretch" ColumnWidth="*" IsReadOnly="True" VerticalAlignment="Stretch"
+                  Grid.ColumnSpan="6" Grid.RowSpan="13" AutoGeneratingColumn="DataGrid_OnAutoGeneratingColumn"
+                  Name="DataGrid" />
+        <Button Grid.Column="0" Grid.Row="13" Grid.ColumnSpan="1">Back</Button>
     </Grid>
 </Window>

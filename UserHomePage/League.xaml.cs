@@ -56,8 +56,37 @@ namespace UserHomePage
 
         private void DataGrid_OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            if (e.PropertyName == "PlayerIds" || e.PropertyName == "CoachId" || e.PropertyName == "Id")
+            if (e.PropertyName == "PlayerIds" || e.PropertyName == "CoachId" || e.PropertyName == "Id"
+                || e.PropertyName == "GoalsConcededIds" || e.PropertyName == "GoalsScoredIds")
                 e.Cancel = true;
+            else if (e.PropertyName == "WonMatchIds")
+            {
+                e.Column.Header = "W";
+            }
+            else if (e.PropertyName == "LostMatchIds")
+            {
+                e.Column.Header = "L";
+            }
+            else if (e.PropertyName == "DrawMatchIds")
+            {
+                e.Column.Header = "D";
+            }
+            else if (e.PropertyName == "DeltaScore")
+            {
+                e.Column.Header = "+/-";
+            }
+            else if (e.PropertyName == "Points")
+            {
+                e.Column.Header = "Pts";
+            }
+            else if (e.PropertyName == "GamesPlayedCount")
+            {
+                e.Column.Header = "Gp";
+            }
+            else if (e.PropertyName == "Name")
+            {
+                e.Column.Header = "Team Name";
+            }
 
         }
 

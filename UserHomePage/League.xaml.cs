@@ -66,36 +66,36 @@ namespace UserHomePage
 
         private void DataGrid_OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            if (e.PropertyName == "PlayerIds" || e.PropertyName == "CoachId" || e.PropertyName == "Id"
-                || e.PropertyName == "GoalsConcededIds" || e.PropertyName == "GoalsScoredIds")
-                e.Cancel = true;
-            else if (e.PropertyName == "WonMatchIds")
+            switch (e.PropertyName)
             {
-                e.Column.Header = "W";
-            }
-            else if (e.PropertyName == "LostMatchIds")
-            {
-                e.Column.Header = "L";
-            }
-            else if (e.PropertyName == "DrawMatchIds")
-            {
-                e.Column.Header = "D";
-            }
-            else if (e.PropertyName == "DeltaScore")
-            {
-                e.Column.Header = "+/-";
-            }
-            else if (e.PropertyName == "Points")
-            {
-                e.Column.Header = "Pts";
-            }
-            else if (e.PropertyName == "GamesPlayedCount")
-            {
-                e.Column.Header = "Gp";
-            }
-            else if (e.PropertyName == "Name")
-            {
-                e.Column.Header = "Team Name";
+                case "PlayerIds":
+                case "CoachId":
+                case "Id":
+                case "GoalsConcededIds":
+                case "GoalsScoredIds":
+                    e.Cancel = true;
+                    break;
+                case "WonMatchIds":
+                    e.Column.Header = "W";
+                    break;
+                case "LostMatchIds":
+                    e.Column.Header = "L";
+                    break;
+                case "DrawMatchIds":
+                    e.Column.Header = "D";
+                    break;
+                case "DeltaScore":
+                    e.Column.Header = "+/-";
+                    break;
+                case "Points":
+                    e.Column.Header = "Pts";
+                    break;
+                case "GamesPlayedCount":
+                    e.Column.Header = "Gp";
+                    break;
+                case "Name":
+                    e.Column.Header = "Team Name";
+                    break;
             }
         }
     }

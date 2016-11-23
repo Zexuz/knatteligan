@@ -40,7 +40,7 @@
 
         <TextBox Name="SearchTextBox" Grid.RowSpan="2" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Row="1" Grid.Column="8"
                  TextChanged="searchTextBox_TextChanged"/>
-        <TextBlock IsHitTestVisible="False" Grid.RowSpan="1" Grid.ColumnSpan="3" VerticalAlignment="Center" Grid.Row="1" Grid.Column="8" Text="Search..."  HorizontalAlignment="Left" Margin="5" Foreground="DarkGray">
+        <TextBlock IsHitTestVisible="False" Grid.ColumnSpan="3" VerticalAlignment="Center" Grid.Row="1" Grid.Column="8" Text="Search..."  HorizontalAlignment="Left" Margin="5" Foreground="DarkGray">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>

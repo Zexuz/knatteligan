@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using knatteligan.Services;
+using knatteligan.Domain.Entities;
 
 namespace UserHomePage
 {
@@ -20,20 +21,26 @@ namespace UserHomePage
     /// </summary>
     public partial class League : Window
     {
+        private readonly knatteligan.Domain.Entities.League _league;
+
         private readonly SearchService _searchService;
         private readonly TeamService _teamService;
-        public League()
+
+        public League(knatteligan.Domain.Entities.League league)
         {
+            _league = league;
             InitializeComponent();
             _teamService = new TeamService();
             _searchService = new SearchService();
-            DataGrid.ItemsSource = _teamService.GetAllTeams();
+            _league = league;
+            DataGrid.ItemsSource = _league.TeamIds.Select(_teamService.FindById);
         }
 
         private void ManageLeague_Clicked(object sender, MouseButtonEventArgs e)
         {
             throw new Exception();
         }
+
         private void searchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             var searchText = SearchTextBox.Text;
@@ -43,7 +50,10 @@ namespace UserHomePage
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            PlayerStats playerStats = new PlayerStats();
+            var teamSelected = (Team) DataGrid.SelectedItem;
+            if (teamSelected == null) return;
+
+            PlayerStats playerStats = new PlayerStats(teamSelected);
             playerStats.ShowDialog();
         }
 
@@ -87,9 +97,6 @@ namespace UserHomePage
             {
                 e.Column.Header = "Team Name";
             }
-
         }
-
-      
     }
 }

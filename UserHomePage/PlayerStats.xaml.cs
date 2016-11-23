@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using knatteligan.Domain.Entities;
+using knatteligan.Helpers;
 using knatteligan.Repositories;
 using knatteligan.Services;
 
@@ -21,17 +23,26 @@ namespace UserHomePage
     /// </summary>
     public partial class PlayerStats : Window
     {
-        private readonly PersonService _personService;
-        public PlayerStats()
+        private readonly bool _onlyOneTeam;
+
+        public PlayerStats(Team team ):this(new List<Team>{team})
+        {
+            _onlyOneTeam = true;
+        }
+
+        public PlayerStats(List<Team> teams)
         {
             InitializeComponent();
-            _personService = new PersonService();
-            DataGrid.ItemsSource = _personService.GetAllPlayers();
+            DataGrid.ItemsSource = SortingAlgoritm.Sort(teams, SortingAlgoritm.PlayerSortByTypes.Goal, true);
         }
 
         private void DataGrid_OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            
+            if (e.PropertyName == "Id" || e.PropertyName == "PersonalNumber")
+                e.Cancel = true;
+
+            if (_onlyOneTeam && e.PropertyName == "TeamName")
+                e.Cancel = true;
         }
     }
 }

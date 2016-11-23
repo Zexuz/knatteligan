@@ -35,12 +35,6 @@ namespace KnatteliganWPF
             Teams = new ObservableCollection<Team>();
             TeamList.ItemsSource = Teams;
             DataContext = this;
-
-            if (/*TeamIds.Count >= 16 && */Teams.Count % 2 == 0)
-            {
-                AddLeagueButton.IsEnabled = true;
-            }
-
         }
 
         public CreateLeagueWindow(Guid currentLeagueId)

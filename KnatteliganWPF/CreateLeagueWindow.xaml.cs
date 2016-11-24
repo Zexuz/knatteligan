@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
 using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
 using knatteligan.Services;
 using knatteligan.Helpers;
-using knatteligan.Repositories;
 
 namespace KnatteliganWPF
 {
@@ -37,10 +33,8 @@ namespace KnatteliganWPF
             Teams = new ObservableCollection<Team>();
             TeamList.ItemsSource = Teams;
             DataContext = this;
-            if (leagueName.GetType() == typeof(ValidationError) && leagueName.Text == string.Empty)
-            {
-                leagueName.BorderBrush = Background;
-            }
+
+
         }
 
         public CreateLeagueWindow(Guid currentLeagueId)

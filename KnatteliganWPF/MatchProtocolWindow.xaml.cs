@@ -2,7 +2,6 @@
 using knatteligan.Domain.Entities;
 using knatteligan.Repositories;
 using System;
-using System.CodeDom;
 using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,9 +13,9 @@ using knatteligan.Services;
 namespace KnatteliganWPF
 {
     /// <summary>
-    /// Interaction logic for MatchProtocol.xaml
+    /// Interaction logic for MatchProtocolWindow.xaml
     /// </summary>
-    public partial class MatchProtocol : Window
+    public partial class MatchProtocolWindow : Window
     {
         public Team HomeTeam { get; set; }
         public Team AwayTeam { get; set; }
@@ -31,7 +30,7 @@ namespace KnatteliganWPF
         private readonly ObservableCollection<MatchEvent> _matchEventsHome;
         private readonly ObservableCollection<MatchEvent> _matchEventsAway;
 
-        public MatchProtocol(Match match)
+        public MatchProtocolWindow(Match match)
         {
             _teamService = new TeamService();
             _personService = new PersonService();

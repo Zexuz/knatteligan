@@ -1,0 +1,36 @@
+﻿<Window x:Class="UserHomePage.TeamWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UserHomePage"
+        mc:Ignorable="d"
+        Title="TeamWindow" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <StackPanel>
+        <TextBlock Grid.Row="0">TEAMNAME</TextBlock> 
+        
+        <StackPanel Orientation="Horizontal">
+        <Button>Match List</Button>
+            <Button>Player stats</Button>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2">
+            <Button Grid.Row="2">Back</Button>
+        </StackPanel>
+
+        <ListBox Grid.Row="1" Name="TeamMatchList" SelectionChanged="TeamMatchList_OnClick" MouseDoubleClick="TeamMatchList_OnMouseDoubleClick">
+            
+        </ListBox>
+
+
+
+    </Grid>
+</Window>

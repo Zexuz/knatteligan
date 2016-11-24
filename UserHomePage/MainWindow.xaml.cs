@@ -1,9 +1,12 @@
-﻿using knatteligan.Services;
+﻿using System;
+using knatteligan.Services;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using knatteligan.Domain.Entities;
+using knatteligan.Domain.ValueObjects;
 
 namespace UserHomePage
 {
@@ -16,6 +19,9 @@ namespace UserHomePage
         private readonly LeagueService _leagueService;
         public List<League> Leagues { get; set; }
         SearchService searchService;
+        TeamService _teamService = new TeamService();
+        private Match testMatch;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -48,8 +54,7 @@ namespace UserHomePage
 
         private void GoToMatchList_Click(object sender, RoutedEventArgs e)
         {
-            MatchList matchList = new MatchList();
-            var matchListResult = matchList.ShowDialog();
+            
         }
 
         private void GoToSerieSchedule_Click(object sender, RoutedEventArgs e)

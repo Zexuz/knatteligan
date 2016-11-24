@@ -58,6 +58,9 @@
     <Compile Include="MatchList.xaml.cs">
       <DependentUpon>MatchList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MatchProtocol.xaml.cs">
+      <DependentUpon>MatchProtocol.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PlayerStats.xaml.cs">
       <DependentUpon>PlayerStats.xaml</DependentUpon>
     </Compile>
@@ -84,6 +87,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MatchList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MatchProtocol.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

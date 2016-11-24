@@ -6,7 +6,7 @@ using knatteligan.Domain.Entities;
 
 namespace KnatteliganWPF.Converters
 {
-    class MatchEventToStringConverter : IValueConverter
+    public class MatchEventToStringConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

@@ -45,6 +45,6 @@
                 <DataGridTextColumn Header="Team" Binding="{Binding Path=TeamName.Value}" Visibility="{Binding ElementName=PlayerStats, Path=OnlyOneTeam}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button Grid.Column="0" Grid.Row="13" Grid.ColumnSpan="1">Back</Button>
+        <Button Click="ButtonBase_OnClick" Grid.Column="0" Grid.Row="13" Grid.ColumnSpan="1">Back</Button>
     </Grid>
 </Window>

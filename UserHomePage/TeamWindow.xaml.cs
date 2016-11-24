@@ -56,5 +56,10 @@ namespace UserHomePage
             PlayerStats playerStats = new PlayerStats(team);
             playerStats.ShowDialog();
         }
+
+        private void ButtonBase_OnClick_Back(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

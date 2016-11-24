@@ -1,12 +1,13 @@
-﻿<Window x:Class="UserHomePage.SerieScheduleWindow"
+﻿<Window x:Class="UserHomePage.MatchListWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserHomePage"
         mc:Ignorable="d"
-        Title="SerieScheduleWindow" Height="300" Width="300">
-    <Grid>
+        Activated="MatchListWindowActivated"
+        Title="MatchProtocolWindow" Height="400" Width="400">
+    <Grid Margin="0,0,2,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
@@ -27,24 +28,17 @@
 
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-
-        <!--  <ListBox Name="GameWeeksList" Grid.Row="0" Grid.Column="0" Grid.RowSpan="9" Grid.ColumnSpan="2" TextElement.FontSize="16"/>
-
-        <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2"  Text="{Binding ElementName=GameWeeksList, Path=SelectedValue }"/>
--->
-
         <ListView
             Grid.Row="0"
             Grid.Column="0"
             Grid.RowSpan="8"
             Grid.ColumnSpan="2"
-            Name="GameWeeksList"
-            
-            SelectionChanged ="listView_Click">
+               Name="GameWeeksList"
+            ItemsSource="{DynamicResource Drinks}"
+            SelectionChanged ="GameWeeksList_Click">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="GameWeek nr:" DisplayMemberBinding="{Binding Key}" />
-                 
                 </GridView>
             </ListView.View>
         </ListView>
@@ -56,9 +50,9 @@
             Grid.ColumnSpan="3"
             Name="CurrentMatchWeekMatches"
             MouseDoubleClick="CurrentMatchWeekMatches_OnMouseDoubleClick" />
-        <Button Grid.Row="8" Click="ButtonBase_OnClick">Mange league</Button>
-        <!--{Binding ElementName=GameWeeksList, Path=SelectedValue }-->
-        <Button Grid.Column="12" Grid.Row="0" Grid.ColumnSpan="2">Back</Button>
-        <DatePicker Width="110" Grid.ColumnSpan="3" Grid.Column="2" Margin="33,5,26,0" SelectedDateChanged="DatePicker_OnSelectedDateChanged"/>
+        <Button Content="Back" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Width="75" Click="Back_Click"/>
+        <Button Grid.ColumnSpan="2" Content="All matches" Grid.Column="1" HorizontalAlignment="Left" Margin="4,0,0,0" Grid.Row="8" VerticalAlignment="Top" Width="75" Click="AllMatches_Click"/>
     </Grid>
+
+
 </Window>

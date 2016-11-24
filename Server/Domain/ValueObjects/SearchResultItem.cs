@@ -54,20 +54,21 @@ namespace knatteligan
 
         public override SearchResultItemType Type => SearchResultItemType.League;
 
-        public class TeamSearchResultItem : SearchResultItem
+
+    }
+    public class TeamSearchResultItem : SearchResultItem
+    {
+        public TeamSearchResultItem(Team team)
+            : base(team)
         {
-            public TeamSearchResultItem(Team team)
-                : base(team)
-            {
-            }
+        }
 
-            public override SearchResultItemType Type => SearchResultItemType.Team;
+        public override SearchResultItemType Type => SearchResultItemType.Team;
 
-            public override string ToString()
-            {
-                var team = (Team)ResultItem;
-                return $"{team.Name.Value}";
-            }
+        public override string ToString()
+        {
+            var team = (Team)ResultItem;
+            return $"{team.Name.Value}";
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using knatteligan;
 using knatteligan.Domain.Entities;
 
 namespace UserHomePage
@@ -14,7 +15,15 @@ namespace UserHomePage
     public partial class MainWindow : Window
     {
         private readonly LeagueService _leagueService;
-        private readonly SearchService _searchService;
+        private readonly TeamService _teamService;
+        private League _leagueWindow;
+        private PlayerStats _playerStatsWindow;
+        private TeamWindow _teamWindow;
+
+
+
+        public List<League> Leagues { get; set; }
+        SearchService searchService;
 
         public MainWindow()
         {
@@ -40,5 +49,33 @@ namespace UserHomePage
             var foundMatch = _searchService.Search(searchText, true);
             SearchList.ItemsSource = foundMatch;
         }
+
+        private void SearchList_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (SearchList.SelectedItem.GetType() == typeof(TeamSearchResultItem))
+            {
+                var teamObject = ((TeamSearchResultItem) SearchList.SelectedItem).ResultItem;
+                var team = (Team) teamObject;
+                _teamWindow = new TeamWindow(team.Id);
+                _teamWindow.ShowDialog();
+            }
+            //if (SearchList.SelectedItem.GetType() == typeof(PlayerSearchResultItem))
+            //{
+            //    var player = ((PlayerSearchResultItem) SearchList.SelectedItem).ResultItem;
+            //    player = (Player) player;
+            //    _playerStatsWindow = new PlayerStats();
+            //}
+            else if (SearchList.SelectedItem.GetType() == typeof(LeagueSearchResultItem))
+            {
+                var leagueObject = ((LeagueSearchResultItem) SearchList.SelectedItem).ResultItem;
+                var league = (knatteligan.Domain.Entities.League) leagueObject;
+                _leagueWindow = new League(league);
+                _leagueWindow.ShowDialog();
+            }
+
+
+        }
+
     }
+
 }

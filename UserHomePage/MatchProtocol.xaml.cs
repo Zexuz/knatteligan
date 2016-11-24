@@ -29,23 +29,11 @@ namespace UserHomePage
         public List<Player> HomeTeamPlayers { get; set; }
         public List<Player> AwayTeamPlayers { get; set; }
 
-        private readonly MatchEventService _matchEventService;
-        private readonly LeagueService _leagueService;
-        private readonly TeamService _teamService;
-        private readonly PersonService _personService;
-        private readonly MatchService _matchService;
-        private ListBox _currentFocusedListBox;
-        private readonly ObservableCollection<MatchEvent> _matchEventsHome;
-        private readonly ObservableCollection<MatchEvent> _matchEventsAway;
-
         public MatchProtocol(Match match /*Guid matchID, Guid leagueId*/) //fixa id
         {
             InitializeComponent();
             var teamService = new TeamService();
             var matchEventService = new MatchEventService();
-            var personService = new PersonService();
-
-            var homeTeamSquad = match.HomeTeamSquadId.Select(personService.FindPlayerById);
 
             var homeTeamEvents = match.MatchEventIds
                 .Select(matchEventService.FindById)

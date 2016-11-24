@@ -23,7 +23,6 @@ namespace KnatteliganWPF
         public List<Player> HomeTeamPlayers { get; set; }
         public List<Player> AwayTeamPlayers { get; set; }
 
-        private readonly TeamService _teamService;
         private readonly PersonService _personService;
         private readonly MatchService _matchService;
         private ListBox _currentFocusedListBox;
@@ -32,13 +31,14 @@ namespace KnatteliganWPF
 
         public MatchProtocolWindow(Match match)
         {
-            _teamService = new TeamService();
+            var matchEventService = new MatchEventService();
+            var teamService = new TeamService();
             _personService = new PersonService();
             _matchService = new MatchService();
 
             Match = match;
-            AwayTeam = _teamService.FindById(match.AwayTeamId);
-            HomeTeam = _teamService.FindById(match.HomeTeamId);
+            AwayTeam = teamService.FindById(match.AwayTeamId);
+            HomeTeam = teamService.FindById(match.HomeTeamId);
 
             HomeTeamPlayers =
                 HomeTeam.PlayerIds.Select(playerId => _personService.FindPlayerById(playerId)).ToList();
@@ -52,11 +52,32 @@ namespace KnatteliganWPF
             HomeTeamName.Text = HomeTeam.ToString();
             AwayTeamName.Text = AwayTeam.ToString();
 
-            _matchEventsAway = new ObservableCollection<MatchEvent>();
-            _matchEventsHome = new ObservableCollection<MatchEvent>();
+            var homeTeamEvents = match.MatchEventIds
+                .Select(matchEventService.FindById)
+                .Where(mEvent => match.HomeTeamSquadId.Contains(mEvent.PlayerId));
+
+            var awayTeamEvents = match.MatchEventIds
+                .Select(matchEventService.FindById)
+                .Where(mEvent => match.AwayTeamSquadId.Contains(mEvent.PlayerId));
+
+            var homeGoal = homeTeamEvents.Where(e => e.GetType() == MatchEvents.Goal);
+            var awayGoal = awayTeamEvents.Where(e => e.GetType() == MatchEvents.Goal);
+
+
+
+            _matchEventsAway = new ObservableCollection<MatchEvent>(awayTeamEvents.ToList());
+            _matchEventsHome = new ObservableCollection<MatchEvent>(homeTeamEvents.ToList());
 
             AwayTeamMatchEvents.ItemsSource = _matchEventsAway;
             HomeTeamMatchEvents.ItemsSource = _matchEventsHome;
+
+            HomeTeamGoals.Text = homeGoal.ToList().Count.ToString();
+            AwayTeamGoals.Text = awayGoal.ToList().Count.ToString();
+            DatePicker.DisplayDate = match.MatchDate;
+
+
+            AwayTeamList.ItemsSource = new ObservableCollection<Player>(match.AwayTeamSquadId.Select(_personService.FindPlayerById));
+            HomeTeamList.ItemsSource = new ObservableCollection<Player>(match.HomeTeamSquadId.Select(_personService.FindPlayerById));
         }
 
         #region OnClick /OnSelected Events
@@ -76,12 +97,12 @@ namespace KnatteliganWPF
 
         private void ButtonAddAwayTeamSquad_OnClick(object sender, RoutedEventArgs e)
         {
-            AddTeamSquad(false);
+            OpenAddTeamSquadAndGetPlayerIds(false);
         }
 
         private void ButtonAddHomeTeamSquad_OnClick(object sender, RoutedEventArgs e)
         {
-            AddTeamSquad(true);
+            OpenAddTeamSquadAndGetPlayerIds(true);
         }
 
         private void CancelProtocol_OnClick(object sender, RoutedEventArgs e)
@@ -179,7 +200,7 @@ namespace KnatteliganWPF
             _currentFocusedListBox = listBox;
         }
 
-        private void AddTeamSquad(bool isHomeTeam)
+        private void OpenAddTeamSquadAndGetPlayerIds(bool isHomeTeam)
         {
             var listOfPlayers = isHomeTeam ? HomeTeamPlayers : AwayTeamPlayers;
 
@@ -190,6 +211,8 @@ namespace KnatteliganWPF
                 Trace.WriteLine("Did not press the 'okey' button");
                 return;
             }
+
+            //todo refacto the "set squad code" so we can use it to set squads if the props is alredy in a played match
 
             var items = setSquadWindow.PlayerListCeckBoxes.ItemsSource;
 

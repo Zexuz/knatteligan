@@ -1,0 +1,102 @@
+﻿<Window x:Class="UserHomePage.MatchProtocol"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UserHomePage"
+        xmlns:converters1="clr-namespace:KnatteliganWPF.Converters;assembly=KnatteliganWPF"
+        mc:Ignorable="d"
+        Title="MatchProtocol" Height="420" Width="500">
+    <Window.Resources>
+        <converters1:MatchEventToStringConverter x:Key="MatchEventToStringConverter" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock Name="HomeTeamName" Grid.Row="1" Grid.Column="0" TextAlignment="Right" Grid.ColumnSpan="3"
+                   Margin="10,26,46,12" Grid.RowSpan="2" FontWeight="Bold" FontSize="16"/>
+
+        <TextBlock Name="AwayTeamName" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3" Margin="46,26,10,9"
+                   Grid.RowSpan="2" FontWeight="Bold" FontSize="16"/>
+
+    
+
+       
+
+
+        <TextBlock Name="ShowDate" Width="110" Grid.ColumnSpan="3" Grid.Column="2" Margin="33,5,26,0"   />
+      
+
+
+        
+        <Label Name="PlayerNameLabel" Grid.Column="2" HorizontalAlignment="Left" Margin="38,27,0,0" Grid.Row="3"
+               VerticalAlignment="Top" RenderTransformOrigin="0.351,-0.5" Grid.ColumnSpan="2" Grid.RowSpan="2"
+               FontWeight="Bold" />
+
+        <ListBox Name="HomeTeamMatchEvents" BorderThickness="0" HorizontalContentAlignment="Right" Grid.Row="2"
+                 Grid.Column="0" Grid.ColumnSpan="3" Margin="15,23,41,0" FontWeight="Bold" FontSize="9"
+                 Grid.RowSpan="2" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Padding="5,0,5,0"
+                                   Text="{Binding Converter= {StaticResource MatchEventToStringConverter}}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <ListBox Grid.Row="2" Name="AwayTeamMatchEvents" BorderThickness="0" Grid.Column="4" Grid.ColumnSpan="3"
+                 Margin="41,23,15,0" Grid.RowSpan="2" FontWeight="Bold" FontSize="9"
+                 
+        >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Padding="5,0,5,0"
+                                   Text="{Binding Converter= {StaticResource MatchEventToStringConverter}}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+
+        <TextBlock Name="HomeTeamGoals" Grid.Column="2" TextAlignment="Center" Margin="15,0,51,5" FontWeight="Bold" FontSize="40"
+                   Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="1" Text="0"/>
+
+        <TextBlock Name="AwayTeamGoals" Grid.Column="3" TextAlignment="Center" Margin="51,0,15,5" FontWeight="Bold" FontSize="40"
+                   Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="1" Text="0"/>
+
+        <TextBlock Grid.Column="3" TextAlignment="Center" Margin="5,24,10,24" FontWeight="Bold" FontSize="10"
+                   Grid.RowSpan="3" RenderTransformOrigin="0.341,0.971">
+            <Run Text="-" FontSize="40" />
+        </TextBlock>
+        
+        <Button Grid.Row="12" Click="Back_OnClick" Content="Back"  />
+
+        <TextBlock Name="MatchWeek" Grid.Column="6"  />
+
+    </Grid>
+</Window>

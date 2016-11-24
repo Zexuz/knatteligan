@@ -18,7 +18,7 @@
         
         <StackPanel Orientation="Horizontal">
         <Button>Match List</Button>
-            <Button>Player stats</Button>
+            <Button Click="ButtonBase_OnClick">Player stats</Button>
             </StackPanel>
         </StackPanel>
 

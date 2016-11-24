@@ -61,8 +61,8 @@
 
         <Button Click="GoToLeague_Click" Grid.Row="12" Grid.ColumnSpan="2" >Go to League</Button>
         <Button Click="GoToPlayerStats_Click" Grid.Row="12" Grid.ColumnSpan="2" Grid.Column="2" >PlayerStats</Button>
-        <Button Click="GoToMatchList_Click" Grid.Row="12" Grid.ColumnSpan="2" Grid.Column="4" >MatchList</Button>
-        <Button Click="GoToSerieSchedule_Click" Grid.Row="13" Grid.ColumnSpan="2" Grid.Column="4" >SerieSchedule</Button>
+        <Button Click="GoToSerieSchedule_Click" Grid.Row="12" Grid.ColumnSpan="2" Grid.Column="4" >SerieSchedule</Button>
+      
 
     </Grid>
 </Window>

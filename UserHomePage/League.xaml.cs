@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using knatteligan.Services;
+using knatteligan.Domain.Entities;
 
 namespace UserHomePage
 {
@@ -20,21 +21,26 @@ namespace UserHomePage
     /// </summary>
     public partial class League : Window
     {
+        private readonly knatteligan.Domain.Entities.League _league;
+
         private readonly SearchService _searchService;
         private readonly TeamService _teamService;
-        public League()
+
+        public League(knatteligan.Domain.Entities.League league)
         {
+            _league = league;
             InitializeComponent();
             _teamService = new TeamService();
             _searchService = new SearchService();
-            DataGrid.ItemsSource = _teamService.GetAllTeams();
-            
+            _league = league;
+            DataGrid.ItemsSource = _league.TeamIds.Select(_teamService.FindById);
         }
 
         private void ManageLeague_Clicked(object sender, MouseButtonEventArgs e)
         {
             throw new Exception();
         }
+
         private void searchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             var searchText = SearchTextBox.Text;
@@ -44,7 +50,10 @@ namespace UserHomePage
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            PlayerStats playerStats = new PlayerStats();
+            var teamSelected = (Team) DataGrid.SelectedItem;
+            if (teamSelected == null) return;
+
+            PlayerStats playerStats = new PlayerStats(teamSelected);
             playerStats.ShowDialog();
         }
 
@@ -57,40 +66,37 @@ namespace UserHomePage
 
         private void DataGrid_OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            if (e.PropertyName == "PlayerIds" || e.PropertyName == "CoachId" || e.PropertyName == "Id"
-                || e.PropertyName == "GoalsConcededIds" || e.PropertyName == "GoalsScoredIds")
-                e.Cancel = true;
-            else if (e.PropertyName == "WonMatchIds")
+            switch (e.PropertyName)
             {
-                e.Column.Header = "W";
+                case "PlayerIds":
+                case "CoachId":
+                case "Id":
+                case "GoalsConcededIds":
+                case "GoalsScoredIds":
+                    e.Cancel = true;
+                    break;
+                case "WonMatchIds":
+                    e.Column.Header = "W";
+                    break;
+                case "LostMatchIds":
+                    e.Column.Header = "L";
+                    break;
+                case "DrawMatchIds":
+                    e.Column.Header = "D";
+                    break;
+                case "DeltaScore":
+                    e.Column.Header = "+/-";
+                    break;
+                case "Points":
+                    e.Column.Header = "Pts";
+                    break;
+                case "GamesPlayedCount":
+                    e.Column.Header = "Gp";
+                    break;
+                case "Name":
+                    e.Column.Header = "Team Name";
+                    break;
             }
-            else if (e.PropertyName == "LostMatchIds")
-            {
-                e.Column.Header = "L";
-            }
-            else if (e.PropertyName == "DrawMatchIds")
-            {
-                e.Column.Header = "D";
-            }
-            else if (e.PropertyName == "DeltaScore")
-            {
-                e.Column.Header = "+/-";
-            }
-            else if (e.PropertyName == "Points")
-            {
-                e.Column.Header = "Pts";
-            }
-            else if (e.PropertyName == "GamesPlayedCount")
-            {
-                e.Column.Header = "Gp";
-            }
-            else if (e.PropertyName == "Name")
-            {
-                e.Column.Header = "Team Name";
-            }
-
         }
-
-      
     }
 }

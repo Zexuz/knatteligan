@@ -38,10 +38,10 @@ namespace knatteligan.Helpers
 
 
 
-            return SortList(list,type,desc);
+            return Sort(list,type,desc);
         }
 
-        private static List<PlayerStatsInfoItem> SortList(List<PlayerStatsInfoItem> players, PlayerSortByTypes type, bool desc)
+        public static List<PlayerStatsInfoItem> Sort(List<PlayerStatsInfoItem> players, PlayerSortByTypes type, bool desc)
         {
             switch (type)
             {
@@ -144,11 +144,6 @@ namespace knatteligan.Helpers
             public PersonalNumber PersonalNumber { get; set; }
             public Guid Id { get; set; }
             public TeamName TeamName { get; set; }
-
-            public override string ToString()
-            {
-                return Name.Name.ToString();
-            }
         }
 
         public enum PlayerSortByTypes

@@ -127,5 +127,10 @@ namespace UserHomePage
             Trace.WriteLine(list[0].GoalIds.Count);
             DataGrid.ItemsSource = list;
         }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

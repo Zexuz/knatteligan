@@ -108,5 +108,10 @@ namespace UserHomePage
             TeamWindow teamWindow = new TeamWindow(team.Id);
             teamWindow.ShowDialog();
         }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

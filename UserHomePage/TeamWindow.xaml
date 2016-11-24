@@ -23,7 +23,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="2">
-            <Button Grid.Row="2">Back</Button>
+            <Button Click="ButtonBase_OnClick_Back" Grid.Row="2">Back</Button>
         </StackPanel>
 
         <ListBox Grid.Row="1" Name="TeamMatchList" SelectionChanged="TeamMatchList_OnClick" MouseDoubleClick="TeamMatchList_OnMouseDoubleClick">

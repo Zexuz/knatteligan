@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using KnatteliganWPF;
 
 namespace UserHomePage
 {
@@ -60,16 +61,16 @@ namespace UserHomePage
             var playerStatsResult = playerStats.ShowDialog();
         }
 
-        private void GoToMatchList_Click(object sender, RoutedEventArgs e)
-        {
-            MatchList matchList = new MatchList();
-            var matchListResult = matchList.ShowDialog();
-        }
-
         private void GoToSerieSchedule_Click(object sender, RoutedEventArgs e)
         {
-            SerieScheduleWindow serieScheduleWindow = new SerieScheduleWindow();
-            var serieScheduleResult = serieScheduleWindow.ShowDialog();
+            //Random test league
+            var league = _leagueService.GetAll().First();
+            var matchListWindow = new MatchListWindow(league.Id)
+            {
+                GameWeeks = league.MatchWeeks
+            };
+
+            var serieScheduleResult = matchListWindow.ShowDialog();
         }
     }
 }

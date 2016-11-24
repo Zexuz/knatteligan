@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
@@ -8,7 +7,6 @@ using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
 using knatteligan.Services;
 using knatteligan.Helpers;
-using knatteligan.Repositories;
 
 namespace KnatteliganWPF
 {
@@ -35,6 +33,8 @@ namespace KnatteliganWPF
             Teams = new ObservableCollection<Team>();
             TeamList.ItemsSource = Teams;
             DataContext = this;
+
+
         }
 
         public CreateLeagueWindow(Guid currentLeagueId)

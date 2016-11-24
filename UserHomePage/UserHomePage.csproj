@@ -55,14 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="MatchList.xaml.cs">
-      <DependentUpon>MatchList.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PlayerStats.xaml.cs">
       <DependentUpon>PlayerStats.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SerieScheduleWindow.xaml.cs">
-      <DependentUpon>SerieScheduleWindow.xaml</DependentUpon>
+    <Compile Include="MatchListWindow.xaml.cs">
+      <DependentUpon>MatchListWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="League.xaml">
       <SubType>Designer</SubType>
@@ -83,15 +80,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MatchList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="PlayerStats.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SerieScheduleWindow.xaml">
+    <Page Include="MatchListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

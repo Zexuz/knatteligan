@@ -61,6 +61,9 @@
     <Compile Include="MatchListWindow.xaml.cs">
       <DependentUpon>MatchListWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TeamWindow.xaml.cs">
+      <DependentUpon>TeamWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="League.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -85,6 +88,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MatchListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TeamWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

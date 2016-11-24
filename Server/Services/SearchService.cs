@@ -19,12 +19,14 @@ namespace knatteligan.Services
 
             IEnumerable<SearchResultItem> playerResult = PersonRepo.GetAllPlayers().Where(p => p.Name.Name.Contains(freeText, ignoreCase)).Select(p => new PlayerSearchResultItem(p));
 
+            IEnumerable<SearchResultItem> playerPersonalNumber = PersonRepo.GetAllPlayers().Where(p => p.PersonalNumber.ToString().Contains(freeText, ignoreCase)).Select(p => new PlayerSearchResultItem(p));
             //IEnumerable<SearchResultItem> playerResult = PersonRepo.GetAll().Where(p => p.Name.Contains(freeText, ignoreCase) ||
             //                                                               p.DateOfBirth.Year.ToString().Contains(freeText, ignoreCase)
             //                                                               ).Select(p => new CastOrCrewSearchResultItem(p));
 
             var falseresult = leagueResult.Concat(teamResult);
-            var result = falseresult.Concat(playerResult);
+            var Realresult = falseresult.Concat(playerResult);
+            var result = Realresult.Concat(playerPersonalNumber);
             return result;
         }
         public LeagueRepository LeagueRepo => LeagueRepository.GetInstance();

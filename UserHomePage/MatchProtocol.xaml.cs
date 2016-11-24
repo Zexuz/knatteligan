@@ -29,67 +29,34 @@ namespace UserHomePage
         public List<Player> HomeTeamPlayers { get; set; }
         public List<Player> AwayTeamPlayers { get; set; }
 
-        private readonly MatchEventService _matchEventService;
-        private readonly LeagueService _leagueService;
-        private readonly TeamService _teamService;
-        private readonly PersonService _personService;
-        private readonly MatchService _matchService;
-        private ListBox _currentFocusedListBox;
-        private readonly ObservableCollection<MatchEvent> _matchEventsHome;
-        private readonly ObservableCollection<MatchEvent> _matchEventsAway;
-
         public MatchProtocol(Match match /*Guid matchID, Guid leagueId*/) //fixa id
         {
             InitializeComponent();
+            var teamService = new TeamService();
+            var matchEventService = new MatchEventService();
 
-            _matchService = new MatchService();
-            _leagueService = new LeagueService();
-            _matchEventService = new MatchEventService();
-            var homeTeamMatchEvents = new List<MatchEvent>();
-            var awayTeamMatchEvents = new List<MatchEvent>();
+            var homeTeamEvents = match.MatchEventIds
+                .Select(matchEventService.FindById)
+                .Where(mEvent => match.HomeTeamSquadId.Contains(mEvent.PlayerId));
 
-            var date = _matchService.GetAll().Select(d => d.MatchDate == match.MatchDate);
-            //var league = _leagueService.FindById(leagueId); // funkar inte än
-            //var matchWeek = MatchWeek
+            var awayTeamEvents = match.MatchEventIds
+                .Select(matchEventService.FindById)
+                .Where(mEvent => match.AwayTeamSquadId.Contains(mEvent.PlayerId));
 
-            var homeTeamName = _matchService.GetAll().Where(n => n.HomeTeamId == match.HomeTeamId).Select(n => HomeTeamName).ToString();
-            var awayTeamName = _matchService.GetAll().Where(n => n.AwayTeamId == match.AwayTeamId).Select(n => AwayTeamName).ToString();
-            var homeTeamScore = _matchService.GetAll().Where(s => s.HomeTeamId == match.HomeTeamId).Select(n => HomeTeamGoals).ToString();
-            var awayTeamScore = _matchService.GetAll().Where(s => s.AwayTeamId == match.AwayTeamId).Select(n => AwayTeamGoals).ToString();
-            var homeTeamMatchEventIds = _matchService.GetAll().Where(e => e.HomeTeamId == match.HomeTeamId).
-                SelectMany(p => p.MatchEventIds).ToList();
-
-            foreach (var homeTeamMatchEventId in homeTeamMatchEventIds)
-            {
-                homeTeamMatchEvents.Add(_matchEventService.FindById(homeTeamMatchEventId));
-            }
-
-            var awayTeamMatchEventIds = _matchService.GetAll().Where(e => e.AwayTeamId == match.AwayTeamId).
-               SelectMany(p => p.MatchEventIds).ToList();
-
-            foreach (var awayTeamMatchEventId in awayTeamMatchEventIds)
-            {
-                homeTeamMatchEvents.Add(_matchEventService.FindById(awayTeamMatchEventId));
-            }
+            var homeGoal = homeTeamEvents.Where(e => e.GetType() == MatchEvents.Goal);
+            var awayGoal = awayTeamEvents.Where(e => e.GetType() == MatchEvents.Goal);
 
 
-
-
-
-
-            ShowDate.Text = date.ToString();
+            ShowDate.Text = match.MatchDate.ToString("dd-MM-yy");
             //MatchWeek.Text = matchWeek.ToString();
-            HomeTeamName.Text = homeTeamName;
-            AwayTeamName.Text = awayTeamName;
-            HomeTeamGoals.Text = homeTeamScore;
-            AwayTeamGoals.Text = awayTeamScore;
-            HomeTeamMatchEvents.ItemsSource = homeTeamMatchEvents;
-            AwayTeamMatchEvents.ItemsSource = awayTeamMatchEvents;
-
+            HomeTeamName.Text = teamService.FindById(match.HomeTeamId).Name.Value;
+            AwayTeamName.Text = teamService.FindById(match.AwayTeamId).Name.Value;
+            HomeTeamGoals.Text = homeGoal.ToList().Count.ToString();
+            AwayTeamGoals.Text = awayGoal.ToList().Count.ToString();
+            HomeTeamMatchEvents.ItemsSource = homeTeamEvents;
+            AwayTeamMatchEvents.ItemsSource = awayTeamEvents;
         }
 
-
-       
 
         private void Back_OnClick(object sender, RoutedEventArgs e)
         {

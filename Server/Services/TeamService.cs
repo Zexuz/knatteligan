@@ -44,5 +44,10 @@ namespace knatteligan.Services
         {
             return _teamRepository.FindTeamByPlayerId(playerId);
         }
+
+        public void Save()
+        {
+            _teamRepository.Save();
+        }
     }
 }

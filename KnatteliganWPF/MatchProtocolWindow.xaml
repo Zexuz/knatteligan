@@ -64,7 +64,7 @@
                 Click="AddRedCard_OnClick" />
 
 
-        <DatePicker Width="110" Grid.ColumnSpan="3" Grid.Column="2" Margin="33,5,26,0"
+        <DatePicker Name="DatePicker" Width="110" Grid.ColumnSpan="3" Grid.Column="2" Margin="33,5,26,0"
                     SelectedDateChanged="DatePicker_OnSelectedDateChanged" />
         <Button Width="110" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Click="ButtonAddAwayTeamSquad_OnClick"
                 Content="Add away team squad" />

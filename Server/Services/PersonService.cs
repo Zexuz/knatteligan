@@ -53,5 +53,9 @@ namespace knatteligan.Services
             return _personRepository.FindById(personId);
         }
 
+        public void Save()
+        {
+            _personRepository.Save();
+        }
     }
 }

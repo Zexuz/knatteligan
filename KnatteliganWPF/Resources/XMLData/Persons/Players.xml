@@ -9,7 +9,12 @@
       <DateOfBirth>2003-08-18T00:00:00</DateOfBirth>
       <LastFour>6666</LastFour>
     </PersonalNumber>
-    <MatchEvents />
+    <MatchEvents>
+      <guid>d4fa7694-1f86-4221-9491-2a6c6ac97817</guid>
+      <guid>51cf048f-cb11-492e-bf76-cd65a7e1ece9</guid>
+      <guid>da3cefe6-0a7a-43b9-a4f7-8feaf75e717f</guid>
+      <guid>d94e312a-ba01-4d39-83d6-ff297f32b248</guid>
+    </MatchEvents>
   </Player>
   <Player>
     <Id>d73e4d93-330a-4a9a-9362-5f4f46c264d2</Id>
@@ -97,7 +102,13 @@
       <DateOfBirth>1999-06-14T00:00:00</DateOfBirth>
       <LastFour>4444</LastFour>
     </PersonalNumber>
-    <MatchEvents />
+    <MatchEvents>
+      <guid>147ed2ee-4e0f-4e37-bb2e-eb324f488eef</guid>
+      <guid>9863dcec-5bef-40fc-a5a4-ba72f8b7b397</guid>
+      <guid>5e5ed07e-82eb-497e-a034-e171b4845a78</guid>
+      <guid>cf61e5f8-5aef-4bb1-9fde-9e92d42b4399</guid>
+      <guid>dbd87964-a22a-42d8-9365-12f6ad9c8a06</guid>
+    </MatchEvents>
   </Player>
   <Player>
     <Id>a8704010-f0a1-48fa-847c-9e9f26083aad</Id>
@@ -317,7 +328,14 @@
       <DateOfBirth>1994-03-06T00:00:00</DateOfBirth>
       <LastFour>2222</LastFour>
     </PersonalNumber>
-    <MatchEvents />
+    <MatchEvents>
+      <guid>5bb220a8-3924-421c-99be-f1ed51383ff3</guid>
+      <guid>9c1f9064-1489-48d9-b27e-9e7ad6a0988d</guid>
+      <guid>893bb418-7a6a-44e8-b29d-ffd80e3ff164</guid>
+      <guid>eb8e6bbd-2398-4613-9047-1eacbd1f2a57</guid>
+      <guid>455f0b17-a337-4f3a-9fd0-67dd498ff7aa</guid>
+      <guid>1d23aa73-1c85-4065-982e-7462c3e40de4</guid>
+    </MatchEvents>
   </Player>
   <Player>
     <Id>469ac0af-4e67-461f-ac0b-94f34923b14c</Id>
@@ -658,7 +676,21 @@
       <DateOfBirth>1990-01-02T00:00:00</DateOfBirth>
       <LastFour>0000</LastFour>
     </PersonalNumber>
-    <MatchEvents />
+    <MatchEvents>
+      <guid>356ff7e0-01b1-4a50-845e-bbc4ae91514a</guid>
+      <guid>7cfa8164-55ec-474d-b7bd-be7cb3e23fd9</guid>
+      <guid>d3158dea-8c6b-40da-b4e7-97bfb9d2ca32</guid>
+      <guid>a14b46cd-a379-498e-aee0-2d677621d79b</guid>
+      <guid>81036402-9866-49e9-ac7d-00946a8c7c26</guid>
+      <guid>743dad9c-f7f1-4fed-a7f6-bd46f5442f9d</guid>
+      <guid>fa0d013f-14ba-45e8-8b7f-4986c80903a0</guid>
+      <guid>eded96a7-f7e6-41e9-8176-668a918a7eb5</guid>
+      <guid>7cd6b044-9946-4949-8cc7-551f3ce80a7a</guid>
+      <guid>387d0668-87ec-4913-9c80-9fab67bf9ac3</guid>
+      <guid>1442daed-3e03-48ec-830d-c89de7d23c18</guid>
+      <guid>cb57d2a8-b109-4d00-8a69-2058287ce2d4</guid>
+      <guid>dabc0506-1c51-4ba0-9da5-5e40679da648</guid>
+    </MatchEvents>
   </Player>
   <Player>
     <Id>c1e26ad8-d6a8-4b49-a6c4-506ed8df6302</Id>
@@ -680,7 +712,11 @@
       <DateOfBirth>1990-01-02T00:00:00</DateOfBirth>
       <LastFour>0000</LastFour>
     </PersonalNumber>
-    <MatchEvents />
+    <MatchEvents>
+      <guid>2d4cb6f5-59f6-4330-8394-e17218901809</guid>
+      <guid>e35d3f1e-084b-485c-9fd6-176ec2ff886e</guid>
+      <guid>0eda28bc-014e-4bce-9e22-505e16ffa222</guid>
+    </MatchEvents>
   </Player>
   <Player>
     <Id>ddbbc6ef-b79c-4f68-a525-dfaf627e1820</Id>
@@ -691,7 +727,11 @@
       <DateOfBirth>1997-05-11T00:00:00</DateOfBirth>
       <LastFour>3333</LastFour>
     </PersonalNumber>
-    <MatchEvents />
+    <MatchEvents>
+      <guid>15b8f2e7-51d9-4b8a-886c-5a6ca5b6e3c8</guid>
+      <guid>b4cc7b62-dcf6-4e4f-98a5-2d7afd3b2427</guid>
+      <guid>2da28c3c-d28c-4d21-b879-93751a9e4d85</guid>
+    </MatchEvents>
   </Player>
   <Player>
     <Id>fc7693b3-8b9f-4676-9265-05984c2b2d28</Id>

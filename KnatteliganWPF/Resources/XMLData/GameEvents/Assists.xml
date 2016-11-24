@@ -1,4 +1,53 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ArrayOfAssist>
-  
+<?xml version="1.0"?>
+<ArrayOfAssist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Assist>
+    <Id>d3158dea-8c6b-40da-b4e7-97bfb9d2ca32</Id>
+    <PlayerId>0acc4bc1-8884-473d-9ed1-0676cc67d591</PlayerId>
+    <MatchId>511202e9-04c2-44e0-adce-1ce405ce8475</MatchId>
+  </Assist>
+  <Assist>
+    <Id>eded96a7-f7e6-41e9-8176-668a918a7eb5</Id>
+    <PlayerId>0acc4bc1-8884-473d-9ed1-0676cc67d591</PlayerId>
+    <MatchId>511202e9-04c2-44e0-adce-1ce405ce8475</MatchId>
+  </Assist>
+  <Assist>
+    <Id>1442daed-3e03-48ec-830d-c89de7d23c18</Id>
+    <PlayerId>0acc4bc1-8884-473d-9ed1-0676cc67d591</PlayerId>
+    <MatchId>511202e9-04c2-44e0-adce-1ce405ce8475</MatchId>
+  </Assist>
+  <Assist>
+    <Id>51cf048f-cb11-492e-bf76-cd65a7e1ece9</Id>
+    <PlayerId>0eedfd11-9ffc-4f1e-8ddd-286d6fb0d302</PlayerId>
+    <MatchId>511202e9-04c2-44e0-adce-1ce405ce8475</MatchId>
+  </Assist>
+  <Assist>
+    <Id>5e5ed07e-82eb-497e-a034-e171b4845a78</Id>
+    <PlayerId>98e07c7d-f0c2-4cc3-8245-6d21394a65c0</PlayerId>
+    <MatchId>511202e9-04c2-44e0-adce-1ce405ce8475</MatchId>
+  </Assist>
+  <Assist>
+    <Id>dbd87964-a22a-42d8-9365-12f6ad9c8a06</Id>
+    <PlayerId>98e07c7d-f0c2-4cc3-8245-6d21394a65c0</PlayerId>
+    <MatchId>511202e9-04c2-44e0-adce-1ce405ce8475</MatchId>
+  </Assist>
+  <Assist>
+    <Id>9c1f9064-1489-48d9-b27e-9e7ad6a0988d</Id>
+    <PlayerId>51059ba2-0cf7-4079-8bc7-ddf62ad585b0</PlayerId>
+    <MatchId>9389e23b-3e3f-4e03-9b81-7e93c2506eca</MatchId>
+  </Assist>
+  <Assist>
+    <Id>455f0b17-a337-4f3a-9fd0-67dd498ff7aa</Id>
+    <PlayerId>51059ba2-0cf7-4079-8bc7-ddf62ad585b0</PlayerId>
+    <MatchId>9389e23b-3e3f-4e03-9b81-7e93c2506eca</MatchId>
+  </Assist>
+  <Assist>
+    <Id>e35d3f1e-084b-485c-9fd6-176ec2ff886e</Id>
+    <PlayerId>270fba88-57a3-44da-b689-84e11afef9dd</PlayerId>
+    <MatchId>9389e23b-3e3f-4e03-9b81-7e93c2506eca</MatchId>
+  </Assist>
+  <Assist>
+    <Id>b4cc7b62-dcf6-4e4f-98a5-2d7afd3b2427</Id>
+    <PlayerId>ddbbc6ef-b79c-4f68-a525-dfaf627e1820</PlayerId>
+    <MatchId>9389e23b-3e3f-4e03-9b81-7e93c2506eca</MatchId>
+  </Assist>
 </ArrayOfAssist>

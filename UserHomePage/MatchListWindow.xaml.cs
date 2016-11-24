@@ -19,6 +19,7 @@ namespace UserHomePage
 
         public MatchListWindow(Guid currentLeagueId)
         {
+            GameWeeks = new LeagueService().FindById(currentLeagueId).MatchWeeks;
             _matchRepositoryService = new MatchService();
             InitializeComponent();
             DataContext = this;

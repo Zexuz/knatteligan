@@ -37,10 +37,10 @@
                    Grid.Row ="1" FontWeight="Bold" Margin="0 0 15 0">Popular leagues:</TextBlock>
         
         <ListBox Name="SearchList" Grid.ColumnSpan="3" Grid.RowSpan="8" Grid.Row="3" Margin="5" Grid.Column="3"  FontWeight="Bold"
-                 MouseDoubleClick="ManageLeague_Clicked" MinHeight="200" MinWidth="150"></ListBox>
+                 MouseDoubleClick="SearchList_OnMouseDoubleClick" MinHeight="200" MinWidth="150"></ListBox>
         
         <ListBox Name="LeagueList" Grid.Row="3" Grid.Column="0" Margin="5" Grid.RowSpan="8" Grid.ColumnSpan="3" MinWidth="150"
-                 MinHeight="200" MouseDoubleClick="ManageLeague_Clicked"/>
+                 MinHeight="200" MouseDoubleClick="ManageLeague_Clicked" />
         
         <!--<TextBlock Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="1" Grid.Column="2" FontWeight="Bold" Text="Search"/>-->
         

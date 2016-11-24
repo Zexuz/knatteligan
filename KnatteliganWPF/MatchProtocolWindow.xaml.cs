@@ -112,13 +112,13 @@ namespace KnatteliganWPF
         private void CancelProtocol_OnClick(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
-            Close();
         }
 
         private void SaveProtocol_OnClick(object sender, RoutedEventArgs e)
         {
+
+            new MatchService().SaveMatch(Match.Id,_matchEventsTemp);
             DialogResult = true;
-            Close();
         }
 
         private void AddGoal_OnClick(object sender, RoutedEventArgs e)

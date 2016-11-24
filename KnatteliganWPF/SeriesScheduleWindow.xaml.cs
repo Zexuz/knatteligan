@@ -50,7 +50,7 @@ namespace KnatteliganWPF
             var listItem = sender as ListBox;
             var match = (Match)listItem.SelectedItems[0];
             var matchProtocolWindow = new MatchProtocolWindow(match);
-            matchProtocolWindow.Show();
+            matchProtocolWindow.ShowDialog();
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)

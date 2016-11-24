@@ -59,7 +59,7 @@ namespace UserHomePage
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            MatchList matchList = new MatchList();
+            var matchList = new MatchListWindow(_league.Id);
             matchList.ShowDialog();
         }
 

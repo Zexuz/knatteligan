@@ -34,6 +34,7 @@ namespace KnatteliganWPF
             TeamList.ItemsSource = Teams;
             DataContext = this;
 
+
         }
 
         public CreateLeagueWindow(Guid currentLeagueId)

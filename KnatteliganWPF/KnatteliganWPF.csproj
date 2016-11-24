@@ -116,7 +116,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MatchProtocol.xaml">
+    <Page Include="MatchProtocolWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -128,8 +128,8 @@
     <Compile Include="ManageLeague.xaml.cs">
       <DependentUpon>ManageLeague.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MatchProtocol.xaml.cs">
-      <DependentUpon>MatchProtocol.xaml</DependentUpon>
+    <Compile Include="MatchProtocolWindow.xaml.cs">
+      <DependentUpon>MatchProtocolWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

@@ -65,5 +65,10 @@ namespace knatteligan.Repositories
         {
             return _teams.First(team => team.PlayerIds.Contains(playerId));
         }
+
+        public void Save()
+        {
+            Save(_teamPath, _teams);
+        }
     }
 }

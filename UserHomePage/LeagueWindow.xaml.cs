@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using knatteligan.Services;
 using knatteligan.Domain.Entities;
 
@@ -19,14 +11,13 @@ namespace UserHomePage
     /// <summary>
     /// Interaction logic for League.xaml
     /// </summary>
-    public partial class League : Window
+    public partial class LeagueWindow : Window
     {
-        private readonly knatteligan.Domain.Entities.League _league;
-
+        private readonly League _league;
         private readonly SearchService _searchService;
         private readonly TeamService _teamService;
 
-        public League(knatteligan.Domain.Entities.League league)
+        public LeagueWindow(League league)
         {
             _league = league;
             InitializeComponent();
@@ -50,19 +41,16 @@ namespace UserHomePage
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           
-            
-
             var teams = _league.TeamIds.Select(_teamService.FindById).ToList();
 
-            PlayerStats playerStats = new PlayerStats(teams);
+            var playerStats = new PlayerStatsWindow(teams);
             var playerStatsResult = playerStats.ShowDialog();
         
     }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            MatchListWindow matchList = new MatchListWindow(_league.Id);
+            var matchList = new MatchListWindow(_league.Id);
             matchList.ShowDialog();
         }
 
@@ -105,7 +93,7 @@ namespace UserHomePage
         private void DataGrid_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var team = (Team)DataGrid.SelectedItem;
-            TeamWindow teamWindow = new TeamWindow(team.Id);
+            var teamWindow = new TeamWindow(team.Id);
             teamWindow.ShowDialog();
         }
 

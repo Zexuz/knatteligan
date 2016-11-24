@@ -50,7 +50,7 @@
             Grid.ColumnSpan="3"
             Name="CurrentMatchWeekMatches"
             MouseDoubleClick="CurrentMatchWeekMatches_OnMouseDoubleClick" />
-        <Button Click="ButtonBase_OnClick"  Content="Back" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Width="75" />
+        <Button Click="Back_Click"  Content="Back" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Width="75" />
         <Button Grid.ColumnSpan="2" Content="All matches" Grid.Column="1" HorizontalAlignment="Left" Margin="4,0,0,0" Grid.Row="8" VerticalAlignment="Top" Width="75" Click="AllMatches_Click"/>
     </Grid>
 

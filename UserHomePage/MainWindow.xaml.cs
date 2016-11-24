@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using knatteligan.Domain.Entities;
 
 namespace UserHomePage
 {
@@ -13,35 +14,30 @@ namespace UserHomePage
     public partial class MainWindow : Window
     {
         private readonly LeagueService _leagueService;
-        private readonly TeamService _teamService;
-
-
-        public List<League> Leagues { get; set; }
-        SearchService searchService;
+        private readonly SearchService _searchService;
 
         public MainWindow()
         {
             InitializeComponent();
-            searchService = new SearchService();
+            _searchService = new SearchService();
             _leagueService = new LeagueService();
-            _teamService = new TeamService();
 
-            var listLeagues = _leagueService.GetAll().ToList();
-            LeagueList.ItemsSource = listLeagues;
+            var leagues = _leagueService.GetAll().ToList();
+            LeagueList.ItemsSource = leagues;
         }
 
         private void ManageLeague_Clicked(object sender, MouseButtonEventArgs e)
         {
-            var leage = (knatteligan.Domain.Entities.League)LeagueList.SelectedItem;
-            if (leage == null) return;
-            League leagueWindow = new League(leage);
+            var league = (League)LeagueList.SelectedItem;
+            if (league == null) return;
+            var leagueWindow = new LeagueWindow(league);
             var addLeagueResult = leagueWindow.ShowDialog();
         }
 
         private void searchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             var searchText = searchTextBox.Text;
-            var foundMatch = searchService.Search(searchText, true);
+            var foundMatch = _searchService.Search(searchText, true);
             SearchList.ItemsSource = foundMatch;
         }
     }

@@ -16,7 +16,6 @@ namespace knatteligan.Services
 
             IEnumerable<SearchResultItem> teamResult = TeamRepo.GetAll().Where(t => t.Name.Value.Contains(freeText, ignoreCase)).Select(t => new TeamSearchResultItem(t));
 
-
             IEnumerable<SearchResultItem> playerResult = PersonRepo.GetAllPlayers().Where(p => p.Name.Name.Contains(freeText, ignoreCase)).Select(p => new PlayerSearchResultItem(p));
 
             IEnumerable<SearchResultItem> playerPersonalNumber = PersonRepo.GetAllPlayers().Where(p => p.PersonalNumber.ToString().Contains(freeText, ignoreCase)).Select(p => new PlayerSearchResultItem(p));
@@ -29,10 +28,11 @@ namespace knatteligan.Services
             var result = Realresult.Concat(playerPersonalNumber);
             return result;
         }
-        public LeagueRepository LeagueRepo => LeagueRepository.GetInstance();
 
-        public TeamRepository TeamRepo => TeamRepository.GetInstance();
+        private LeagueRepository LeagueRepo => LeagueRepository.GetInstance();
 
-        public PersonRepository PersonRepo => PersonRepository.GetInstance();
+        private TeamRepository TeamRepo => TeamRepository.GetInstance();
+
+        private PersonRepository PersonRepo => PersonRepository.GetInstance();
     }
 }

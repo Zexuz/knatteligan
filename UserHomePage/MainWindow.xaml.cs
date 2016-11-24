@@ -1,10 +1,13 @@
-﻿using knatteligan.Services;
+﻿using System;
+using knatteligan.Services;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using KnatteliganWPF;
+using knatteligan.Domain.Entities;
+using knatteligan.Domain.ValueObjects;
 
 namespace UserHomePage
 {
@@ -59,6 +62,11 @@ namespace UserHomePage
 
             PlayerStats playerStats = new PlayerStats(teams);
             var playerStatsResult = playerStats.ShowDialog();
+        }
+
+        private void GoToMatchList_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
 
         private void GoToSerieSchedule_Click(object sender, RoutedEventArgs e)

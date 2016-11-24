@@ -53,4 +53,4 @@ namespace KnatteliganWPF
             var serieScheduleResult = scheduleWindow.ShowDialog();
         }
     }
-}
+} 

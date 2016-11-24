@@ -41,8 +41,8 @@ namespace UserHomePage
         {
             var listItem = sender as ListBox;
             var match = (Match)listItem.SelectedItems[0];
-            var matchProtocol = new MatchProtocol(match);
-            matchProtocol.Show();
+            //var matchProtocol = new MatchProtocol(match);
+            //matchProtocol.Show();
         }
     }
 }

@@ -46,15 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="Resources\XMLData\GameEvents\Assists.xml" />
-    <Content Include="Resources\XMLData\GameEvents\Goals.xml" />
-    <Content Include="Resources\XMLData\GameEvents\RedCards.xml" />
-    <Content Include="Resources\XMLData\GameEvents\YellowCards.xml" />
-    <Content Include="Resources\XMLData\Leagues.xml" />
-    <Content Include="Resources\XMLData\Matches.xml" />
-    <Content Include="Resources\XMLData\Persons\Coaches.xml" />
-    <Content Include="Resources\XMLData\Persons\Players.xml" />
-    <Content Include="Resources\XMLData\Teams.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -65,6 +56,11 @@
       <Project>{3CE4D018-5F10-4A93-86C0-4FD3151D745B}</Project>
       <Name>Server</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\XMLData" />
+    <Folder Include="Resources\XMLData\GameEvents" />
+    <Folder Include="Resources\XMLData\Persons" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

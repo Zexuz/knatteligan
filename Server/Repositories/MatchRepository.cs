@@ -13,7 +13,7 @@ namespace knatteligan.Repositories
 
         private MatchRepository()
         {
-            _matchPath = GetFilePath("\\MatchIds.xml");
+            _matchPath = GetFilePath("\\Matches.xml");
             _matches = Load<Match>(_matchPath).ToList();
         }
 

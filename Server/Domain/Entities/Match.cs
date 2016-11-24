@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using knatteligan.Repositories;
 
 namespace knatteligan.Domain.Entities
@@ -14,11 +15,12 @@ namespace knatteligan.Domain.Entities
         public List<Guid> HomeTeamSquadId { get; set; }
         public List<Guid> AwayTeamSquadId { get; set; }
 
+        public bool IsPlayed => HomeTeamSquadId != null && AwayTeamSquadId != null && HomeTeamSquadId.Count > 0 && AwayTeamSquadId.Count > 0;
+
         public Match() { }
 
         public Match(Guid homeTeamId, Guid awayTeamId)
         {
-
             HomeTeamId = homeTeamId;
             AwayTeamId = awayTeamId;
 
@@ -35,9 +37,16 @@ namespace knatteligan.Domain.Entities
 
         public override string ToString()
         {
-            return $"{TeamRepository.GetInstance().FindBy(HomeTeamId).Name} - {TeamRepository.GetInstance().FindBy(AwayTeamId).Name}";
+            if (IsPlayed)
+            {
+                return $"{TeamRepository.GetInstance().FindBy(HomeTeamId).Name} - {TeamRepository.GetInstance().FindBy(AwayTeamId).Name} " +
+                  $"{MatchEventRepository.GetInstance().GetAllGoals().Count(x => x.MatchId == this.Id && x.TeamId == HomeTeamId)}" +
+                  $" - " +
+                  $"{MatchEventRepository.GetInstance().GetAllGoals().Count(x => x.MatchId == this.Id && x.TeamId == AwayTeamId)}";
+            }
+
+            return
+                $"{TeamRepository.GetInstance().FindBy(HomeTeamId).Name} - {TeamRepository.GetInstance().FindBy(AwayTeamId).Name} ";
         }
-
-
     }
 }

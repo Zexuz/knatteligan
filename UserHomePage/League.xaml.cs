@@ -50,12 +50,15 @@ namespace UserHomePage
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var teamSelected = (Team) DataGrid.SelectedItem;
-            if (teamSelected == null) return;
+           
+            
 
-            PlayerStats playerStats = new PlayerStats(teamSelected);
-            playerStats.ShowDialog();
-        }
+            var teams = _league.TeamIds.Select(_teamService.FindById).ToList();
+
+            PlayerStats playerStats = new PlayerStats(teams);
+            var playerStatsResult = playerStats.ShowDialog();
+        
+    }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {

@@ -40,10 +40,10 @@
         <TextBlock Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1">Enter league name</TextBlock>
 
 
-        <TextBox Name ="leagueName" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+        <TextBox Name="leagueName" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
                  ToolTip="{Binding ElementName=leagueName, Path=(Validation.Errors)[0].ErrorContent}">
             <TextBox.Text>
-                <Binding Path="LeagueName" UpdateSourceTrigger="PropertyChanged"
+                <Binding  Path="LeagueName" UpdateSourceTrigger="PropertyChanged"
                          Converter="{StaticResource LeagueNameToStringConverter}" >
                     <Binding.ValidationRules>
                         <validationRules:LeagueNameValidationRule/>

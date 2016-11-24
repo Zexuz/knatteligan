@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:KnatteliganWPF"
         mc:Ignorable="d"
         Activated="SeriesScheduleWindowActivated"
-        Title="MatchProtocol" Height="400" Width="400">
+        Title="MatchProtocolWindow" Height="400" Width="400">
     <Grid Margin="0,0,2,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />

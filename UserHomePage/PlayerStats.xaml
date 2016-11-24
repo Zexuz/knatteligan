@@ -33,6 +33,6 @@
 
         </Grid.ColumnDefinitions>
         <DataGrid HorizontalAlignment="Stretch" ColumnWidth="*" IsReadOnly="True" VerticalAlignment="Stretch" Grid.ColumnSpan="8" Grid.RowSpan="8" AutoGeneratingColumn="DataGrid_OnAutoGeneratingColumn" Name="DataGrid"/>
-        <Button  Grid.Column="0" Grid.Row="13" Grid.ColumnSpan="1">Back</Button>
+        <Button  Grid.Column="0" Grid.Row="13">Back</Button>
     </Grid>
 </Window>

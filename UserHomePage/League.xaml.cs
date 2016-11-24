@@ -28,6 +28,7 @@ namespace UserHomePage
             _teamService = new TeamService();
             _searchService = new SearchService();
             DataGrid.ItemsSource = _teamService.GetAllTeams();
+            
         }
 
         private void ManageLeague_Clicked(object sender, MouseButtonEventArgs e)

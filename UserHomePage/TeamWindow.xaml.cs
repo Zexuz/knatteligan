@@ -23,10 +23,15 @@ namespace UserHomePage
     public partial class TeamWindow : Window
     {
         private readonly MatchService _matchService;
+        private readonly TeamService _teamService;
+        private Guid _teamId;
         public TeamWindow(Guid teamId)
+
         {
             InitializeComponent();
-            MatchService _matchService = new MatchService();
+            _teamId = teamId;
+            _matchService = new MatchService();
+            _teamService = new TeamService();
             var teamMatchList = _matchService.GetAll().Where(m => m.HomeTeamId == teamId || m.AwayTeamId == teamId).OrderBy(m => m.MatchDate);
             TeamMatchList.ItemsSource = teamMatchList;
 
@@ -43,6 +48,18 @@ namespace UserHomePage
             var match = (Match)listItem.SelectedItems[0];
             //var matchProtocol = new MatchProtocol(match);
             //matchProtocol.Show();
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            var team = _teamService.FindById(_teamId);
+            PlayerStats playerStats = new PlayerStats(team);
+            playerStats.ShowDialog();
+        }
+
+        private void ButtonBase_OnClick_Back(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

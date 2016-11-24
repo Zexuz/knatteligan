@@ -101,5 +101,17 @@ namespace UserHomePage
                     break;
             }
         }
+
+        private void DataGrid_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var team = (Team)DataGrid.SelectedItem;
+            TeamWindow teamWindow = new TeamWindow(team.Id);
+            teamWindow.ShowDialog();
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

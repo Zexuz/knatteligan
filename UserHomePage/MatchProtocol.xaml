@@ -41,16 +41,8 @@
         <TextBlock Name="AwayTeamName" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3" Margin="46,26,10,9"
                    Grid.RowSpan="2" FontWeight="Bold" FontSize="16"/>
 
-    
-
-       
-
-
-        <TextBlock Name="ShowDate" Width="110" Grid.ColumnSpan="3" Grid.Column="2" Margin="33,5,26,0"   />
+        <TextBlock Name="ShowDate" Width="110" Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="2" Margin="33,5,26,0"   />
       
-
-
-        
         <Label Name="PlayerNameLabel" Grid.Column="2" HorizontalAlignment="Left" Margin="38,27,0,0" Grid.Row="3"
                VerticalAlignment="Top" RenderTransformOrigin="0.351,-0.5" Grid.ColumnSpan="2" Grid.RowSpan="2"
                FontWeight="Bold" />

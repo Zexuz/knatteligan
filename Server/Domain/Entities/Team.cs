@@ -18,6 +18,7 @@ namespace knatteligan.Domain.Entities
         public int GoalsConcededIds { get; set; }
         public int GoalsScoredIds { get; set; }
 
+
         public int GamesPlayedCount => WonMatchIds + LostMatchIds
             + DrawMatchIds;
 

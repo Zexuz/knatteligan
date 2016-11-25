@@ -57,6 +57,7 @@ namespace UserHomePage
 
         private void DataGrid_OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
+          
             switch (e.PropertyName)
             {
                 case "PlayerIds":
@@ -100,6 +101,11 @@ namespace UserHomePage
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void DataGrid_OnLoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            e.Row.Header = (e.Row.GetIndex() + 1).ToString();
         }
     }
 }

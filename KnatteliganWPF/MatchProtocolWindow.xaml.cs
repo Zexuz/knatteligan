@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using knatteligan.Domain.Entities;
-using knatteligan.Repositories;
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -15,7 +14,7 @@ namespace KnatteliganWPF
     /// <summary>
     /// Interaction logic for MatchProtocolWindow.xaml
     /// </summary>
-    public partial class MatchProtocolWindow : Window
+    public partial class MatchProtocolWindow
     {
         public Team HomeTeam { get; set; }
         public Team AwayTeam { get; set; }
@@ -27,6 +26,8 @@ namespace KnatteliganWPF
 
         private readonly PersonService _personService;
         private readonly MatchService _matchService;
+        private readonly TeamService _teamService;
+
         private ListBox _currentFocusedListBox;
         private readonly ObservableCollection<MatchEvent> _matchEventsHome;
         private readonly ObservableCollection<MatchEvent> _matchEventsAway;
@@ -34,13 +35,13 @@ namespace KnatteliganWPF
         public MatchProtocolWindow(Match match)
         {
             var matchEventService = new MatchEventService();
-            var teamService = new TeamService();
+            _teamService = new TeamService();
             _personService = new PersonService();
             _matchService = new MatchService();
 
             Match = match;
-            AwayTeam = teamService.FindById(match.AwayTeamId);
-            HomeTeam = teamService.FindById(match.HomeTeamId);
+            AwayTeam = _teamService.FindById(match.AwayTeamId);
+            HomeTeam = _teamService.FindById(match.HomeTeamId);
 
             HomeTeamPlayers =
                 HomeTeam.PlayerIds.Select(playerId => _personService.FindPlayerById(playerId)).ToList();
@@ -62,12 +63,15 @@ namespace KnatteliganWPF
                 .Select(matchEventService.FindById)
                 .Where(mEvent => match.AwayTeamSquadId.Contains(mEvent.PlayerId));
 
-            var homeGoal = homeTeamEvents.Where(e => e.GetType() == MatchEvents.Goal);
-            var awayGoal = awayTeamEvents.Where(e => e.GetType() == MatchEvents.Goal);
+            var matchEvents = homeTeamEvents as IList<MatchEvent> ?? homeTeamEvents.ToList();
+            var teamEvents = awayTeamEvents as IList<MatchEvent> ?? awayTeamEvents.ToList();
+
+            var homeGoal = matchEvents.Where(e => e.GetType() == MatchEvents.Goal);
+            var awayGoal = teamEvents.Where(e => e.GetType() == MatchEvents.Goal);
 
 
-            _matchEventsAway = new ObservableCollection<MatchEvent>(awayTeamEvents.ToList());
-            _matchEventsHome = new ObservableCollection<MatchEvent>(homeTeamEvents.ToList());
+            _matchEventsAway = new ObservableCollection<MatchEvent>(teamEvents);
+            _matchEventsHome = new ObservableCollection<MatchEvent>(matchEvents);
 
             AwayTeamMatchEvents.ItemsSource = _matchEventsAway;
             HomeTeamMatchEvents.ItemsSource = _matchEventsHome;
@@ -87,18 +91,6 @@ namespace KnatteliganWPF
 
         #region OnClick /OnSelected Events
 
-        private void DatePicker_OnSelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var datePicker = sender as DatePicker;
-
-            if (datePicker?.SelectedDate == null)
-            {
-                throw new Exception("DatePicker is null and therfore not good!");
-            }
-
-            _matchService.ChangeDate(Match.Id, datePicker.SelectedDate.Value);
-        }
-
         private void ButtonAddAwayTeamSquad_OnClick(object sender, RoutedEventArgs e)
         {
             OpenAddTeamSquadAndGetPlayerIds(false);
@@ -116,8 +108,10 @@ namespace KnatteliganWPF
 
         private void SaveProtocol_OnClick(object sender, RoutedEventArgs e)
         {
-
-            new MatchService().SaveMatch(Match.Id,_matchEventsTemp);
+            _matchService.SaveMatch(Match.Id, _matchEventsTemp);
+            _matchService.ChangeDate(Match.Id, DatePicker.DisplayDate);
+            _matchService.SetStartSquad(Match.Id, true, Match.HomeTeamSquadId);
+            _matchService.SetStartSquad(Match.Id, false, Match.AwayTeamSquadId);
             DialogResult = true;
         }
 
@@ -146,15 +140,13 @@ namespace KnatteliganWPF
         private void AddMatchEvent(MatchEvents type)
         {
             var player = GetSelectedPlayerFromList();
-            var team = TeamRepository.GetInstance().FindTeamByPlayerId(player.Id);
-            var awayTeam = new TeamService().FindById(Match.AwayTeamId);
-            var homeTeam = new TeamService().FindById(Match.HomeTeamId);
-            var matchEvent = GetMatchEvent(type, player, awayTeam);
+            var playersTeamId = _teamService.FindTeamByPlayerId(player.Id);
+            var matchEvent = GetMatchEvent(type, player, AwayTeam);
 
             _matchEventsTemp.Add(matchEvent);
-            if (team.Id == AwayTeam.Id)
+            if (playersTeamId.Id == AwayTeam.Id)
             {
-                var awayEvenst = GetMatchEventsForTeam(awayTeam)
+                var awayEvenst = GetMatchEventsForTeam(AwayTeam)
                     .Where(e => e.GetType() == MatchEvents.Goal)
                     .ToList();
 
@@ -164,7 +156,7 @@ namespace KnatteliganWPF
                 return;
             }
 
-            var test = GetMatchEventsForTeam(homeTeam);
+            var test = GetMatchEventsForTeam(HomeTeam);
             HomeTeamGoals.Text = test
                 .Where(e => e.GetType() == MatchEvents.Goal)
                 .ToList()
@@ -243,44 +235,10 @@ namespace KnatteliganWPF
         private void RemoveEvent_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var listBox = sender as ListBox;
-            var selectedItem = (MatchEvent) listBox.SelectedItems[0];
-            MatchEvent matchEvent;
-            switch (selectedItem.GetType())
-            {
-                case MatchEvents.RedCard:
-                    matchEvent = (RedCard) selectedItem;
-                    break;
-                case MatchEvents.YellowCard:
-                    matchEvent = (YellowCard) selectedItem;
-                    break;
-                case MatchEvents.Assist:
-                    matchEvent = (Assist) selectedItem;
-                    break;
-                case MatchEvents.Goal:
-                    matchEvent = (Goal) selectedItem;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            if (listBox?.SelectedItems[0] == null) return;
 
-            var player = PersonRepository.GetInstance().FindPlayerById(matchEvent.PlayerId);
-            player.MatchEvents.Remove(matchEvent.Id);
-            PersonRepository.GetInstance().Save();
-            MatchEventRepository.GetInstance().Remove(matchEvent);
-            Match.MatchEventIds.Remove(matchEvent.Id);
-            MatchRepository.GetInstance().Save();
-
-            var matchWeekService = new MatchWeekService();
-
-            if (matchEvent.GetType() == MatchEvents.RedCard)
-            {
-                matchWeekService.RemoveSuspension(3, player, Match.Id);
-            }
-
-            if (matchEvent.GetType() == MatchEvents.YellowCard)
-            {
-                matchWeekService.RemoveSuspension(1, player, Match.Id);
-            }
+            var matchEvent = (MatchEvent) listBox.SelectedItems[0];
+            _matchEventsTemp.Remove(matchEvent);
         }
 
         private List<MatchEvent> GetMatchEventsForTeam(Team team)

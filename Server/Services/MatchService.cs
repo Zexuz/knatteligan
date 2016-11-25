@@ -79,6 +79,7 @@ namespace knatteligan.Services
 
             GetAllCardsAndSuspenPlayers(match, players);
             teamService.Save();
+            Save();
         }
 
         public void ChangeDate(Guid matchId, DateTime newDate)
@@ -90,11 +91,11 @@ namespace knatteligan.Services
 
         public void SetStartSquad(Guid matchId, bool homeTeam, List<Guid> players)
         {
-            var matchService = new MatchService();
-            var match = matchService.FindById(matchId);
+            var match = FindById(matchId);
 
             if (homeTeam) match.HomeTeamSquadId = players;
             else match.AwayTeamSquadId = players;
+            Save();
         }
 
         private void SaveMatchEventsFromMatch(Match match, List<MatchEvent> matchEvents)

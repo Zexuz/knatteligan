@@ -25,7 +25,7 @@ namespace UserHomePage
             _teamService = new TeamService();
             var teamMatchList = _matchService.GetAll().Where(m => m.HomeTeamId == teamId || m.AwayTeamId == teamId).OrderBy(m => m.MatchDate);
             TeamMatchList.ItemsSource = teamMatchList;
-
+            TeamNameTxt.Text = _teamService.FindById(teamId).Name.Value;
         }
         
         private void TeamMatchList_OnClick(object sender, SelectionChangedEventArgs e)

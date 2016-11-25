@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
         
         <StackPanel>
-        <TextBlock Grid.Row="0">TEAMNAME</TextBlock> 
+            <TextBlock Name="TeamNameTxt" Grid.Row="0"></TextBlock> 
         
         <StackPanel Orientation="Horizontal">
         <Button>Match List</Button>

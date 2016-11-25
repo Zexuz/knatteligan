@@ -16,14 +16,8 @@ namespace UserHomePage
     {
         private readonly LeagueService _leagueService;
         private readonly TeamService _teamService;
-        private League _leagueWindow;
-        private PlayerStats _playerStatsWindow;
+        private readonly SearchService _searchService;
         private TeamWindow _teamWindow;
-
-
-
-        public List<League> Leagues { get; set; }
-        SearchService searchService;
 
         public MainWindow()
         {
@@ -68,9 +62,9 @@ namespace UserHomePage
             else if (SearchList.SelectedItem.GetType() == typeof(LeagueSearchResultItem))
             {
                 var leagueObject = ((LeagueSearchResultItem) SearchList.SelectedItem).ResultItem;
-                var league = (knatteligan.Domain.Entities.League) leagueObject;
-                _leagueWindow = new League(league);
-                _leagueWindow.ShowDialog();
+                var league = (League) leagueObject;
+                 var leagueWindow = new LeagueWindow(league);
+                leagueWindow.ShowDialog();
             }
 
 

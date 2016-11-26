@@ -44,10 +44,6 @@ namespace knatteligan.Services
 
             var homeTeam = teamService.FindById(match.HomeTeamId);
             var awayTeam = teamService.FindById(match.AwayTeamId);
-
-            RemoveMatchEventsFromMatchAndTeams(match, awayTeam, homeTeam);
-
-
             SaveMatchEventsFromMatch(match, matchEvents);
 
             var homeTeamEvents = GetMatchEventsForTeam(match, match.HomeTeamSquadId);
@@ -127,7 +123,7 @@ namespace knatteligan.Services
             teamThatMadeTheScore.GoalsScoredIds++;
 
             var teamIsAwayTeam = teamThatMadeTheScore.Id == match.AwayTeamId;
-            var teamId = teamIsAwayTeam ? match.AwayTeamId : match.HomeTeamId;
+            var teamId = teamIsAwayTeam ? match.HomeTeamId : match.AwayTeamId;
             teamService.FindById(teamId).GoalsConcededIds++;
             teamService.Save();
         }
@@ -167,8 +163,12 @@ namespace knatteligan.Services
             }
         }
 
-        private void RemoveMatchEventsFromMatchAndTeams(Match match, Team awayTeam, Team homeTeam)
+        public void RemoveMatchEventsFromMatchAndTeams(Guid matchId, Guid awayTeamId, Guid homeTeamId)
         {
+            var match = FindById(matchId);
+            var awayTeam= new TeamService().FindById(awayTeamId);
+            var homeTeam = new TeamService().FindById(homeTeamId);
+
             var homeGoals = GetGoalsForTeam(match, homeTeam);
             var awayGoals = GetGoalsForTeam(match, awayTeam);
 

@@ -7,7 +7,6 @@ using System.Windows.Input;
 using knatteligan.Domain.Entities;
 using knatteligan.Helpers;
 using knatteligan.Services;
-using KnatteliganWPF;
 
 namespace UserHomePage
 {

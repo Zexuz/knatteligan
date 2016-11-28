@@ -14,15 +14,17 @@ namespace UserHomePage
     public partial class MainPage : Page
     {
         private readonly LeagueService _leagueService;
-        private readonly TeamService _teamService;
+        private TeamService _teamService;
         private readonly SearchService _searchService;
         private TeamWindow _teamWindow;
+        private PlayerStatsWindow _playerStatsWindow;
 
         public MainPage()
         {
             InitializeComponent();
             _searchService = new SearchService();
             _leagueService = new LeagueService();
+            _teamService = new TeamService();
 
             var leagues = _leagueService.GetAll().ToList();
             LeagueList.ItemsSource = leagues;
@@ -55,12 +57,15 @@ namespace UserHomePage
                 _teamWindow = new TeamWindow(team.Id);
                 _teamWindow.ShowDialog();
             }
-            //if (SearchList.SelectedItem.GetType() == typeof(PlayerSearchResultItem))
-            //{
-            //    var player = ((PlayerSearchResultItem) SearchList.SelectedItem).ResultItem;
-            //    player = (Player) player;
-            //    _playerStatsWindow = new PlayerStats();
-            //}
+            if (SearchList.SelectedItem is PlayerSearchResultItem)
+            {
+                var playerObject = ((PlayerSearchResultItem)SearchList.SelectedItem).ResultItem;
+                var player = (Player)playerObject;
+                var team = _teamService.FindTeamByPlayerId(player.Id);
+                _playerStatsWindow = new PlayerStatsWindow(team);
+                _playerStatsWindow.ShowDialog();
+
+            }
             else if (SearchList.SelectedItem.GetType() == typeof(LeagueSearchResultItem))
             {
                 var leagueObject = ((LeagueSearchResultItem)SearchList.SelectedItem).ResultItem;

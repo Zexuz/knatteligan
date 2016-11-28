@@ -18,6 +18,8 @@ namespace UserHomePage
         private readonly League _league;
         private readonly SearchService _searchService;
         private readonly TeamService _teamService;
+        private TeamWindow _teamWindow;
+        private PlayerStatsWindow _playerStatsWindow;
 
         public LeaguePage(League league)
         {
@@ -100,7 +102,7 @@ namespace UserHomePage
 
         private void DataGrid_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var team = (Team)DataGrid.SelectedItem;
+            var team = (Team) DataGrid.SelectedItem;
             var teamWindow = new TeamWindow(team.Id);
             teamWindow.ShowDialog();
         }
@@ -111,5 +113,30 @@ namespace UserHomePage
         }
 
 
+        private void SearchList_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (SearchList.SelectedItem.GetType() == typeof(TeamSearchResultItem))
+            {
+                var teamObject = ((TeamSearchResultItem) SearchList.SelectedItem).ResultItem;
+                var team = (Team) teamObject;
+                _teamWindow = new TeamWindow(team.Id);
+                _teamWindow.ShowDialog();
+            }
+            if (SearchList.SelectedItem is PlayerSearchResultItem)
+            {
+                var playerObject = ((PlayerSearchResultItem) SearchList.SelectedItem).ResultItem;
+                var player = (Player) playerObject;
+                var team = _teamService.FindTeamByPlayerId(player.Id);
+                _playerStatsWindow = new PlayerStatsWindow(team);
+                _playerStatsWindow.ShowDialog();
+
+            }
+            else if (SearchList.SelectedItem.GetType() == typeof(LeagueSearchResultItem))
+            {
+                var leagueObject = ((LeagueSearchResultItem) SearchList.SelectedItem).ResultItem;
+                var league = (League) leagueObject;
+                NavigationService.Navigate(new LeaguePage(league));
+            }
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using knatteligan.Domain.Entities;
 using knatteligan.Repositories;
 
@@ -39,8 +40,14 @@ namespace knatteligan.Services
         {
             var teamService = new TeamService();
             var personService = new PersonService();
-
             var match = FindById(matchId);
+
+            var homeTeam = teamService.FindById(match.HomeTeamId);
+            var awayTeam = teamService.FindById(match.AwayTeamId);
+
+            RemoveMatchEventsFromMatchAndTeams(match, awayTeam, homeTeam);
+
+
             SaveMatchEventsFromMatch(match, matchEvents);
 
             var homeTeamEvents = GetMatchEventsForTeam(match, match.HomeTeamSquadId);
@@ -48,9 +55,6 @@ namespace knatteligan.Services
 
             var homeGoal = homeTeamEvents.Where(e => e.GetType() == MatchEvents.Goal).ToList();
             var awayGoal = awayTeamEvents.Where(e => e.GetType() == MatchEvents.Goal).ToList();
-
-            var homeTeam = teamService.FindById(match.HomeTeamId);
-            var awayTeam = teamService.FindById(match.AwayTeamId);
 
 
             if (homeGoal.Count > awayGoal.Count)
@@ -75,12 +79,22 @@ namespace knatteligan.Services
 
             GetAllCardsAndSuspenPlayers(match, players);
             teamService.Save();
+            Save();
         }
 
         public void ChangeDate(Guid matchId, DateTime newDate)
         {
             var match = FindById(matchId);
             match.MatchDate = newDate;
+            Save();
+        }
+
+        public void SetStartSquad(Guid matchId, bool homeTeam, List<Guid> players)
+        {
+            var match = FindById(matchId);
+
+            if (homeTeam) match.HomeTeamSquadId = players;
+            else match.AwayTeamSquadId = players;
             Save();
         }
 
@@ -125,6 +139,14 @@ namespace knatteligan.Services
                 .Where(mEvent => teamPlayers.Contains(mEvent.PlayerId)).ToList();
         }
 
+        private List<Goal> GetGoalsForTeam(Match match, Team team)
+        {
+            return GetMatchEventsForTeam(match, team.PlayerIds)
+                .Where(e => e.GetType() == MatchEvents.Goal)
+                .Select(g => (Goal) g)
+                .ToList();
+        }
+
         private void GetAllCardsAndSuspenPlayers(Match match, List<Player> listOfAllPlayes)
         {
             var matchEventService = new MatchEventService();
@@ -143,6 +165,74 @@ namespace knatteligan.Services
 
                 new MatchWeekService().SetSuspensionLength(yellowCards.Count, redCards.Count, player, match.Id);
             }
+        }
+
+        private void RemoveMatchEventsFromMatchAndTeams(Match match, Team awayTeam, Team homeTeam)
+        {
+            var homeGoals = GetGoalsForTeam(match, homeTeam);
+            var awayGoals = GetGoalsForTeam(match, awayTeam);
+
+            homeTeam.GoalsScoredIds -= homeGoals.Count;
+            awayTeam.GoalsConcededIds -= homeGoals.Count;
+
+            awayTeam.GoalsScoredIds -= awayGoals.Count;
+            homeTeam.GoalsConcededIds -= awayGoals.Count;
+
+            RemoveMatchEventsFromPlayersInMatch(match);
+
+            if (homeGoals.Count > awayGoals.Count)
+            {
+                homeTeam.WonMatchIds--;
+                awayTeam.LostMatchIds--;
+            }
+            else if (homeGoals.Count < awayGoals.Count)
+            {
+                awayTeam.WonMatchIds--;
+                homeTeam.LostMatchIds--;
+            }
+            else
+            {
+                awayTeam.DrawMatchIds--;
+                homeTeam.DrawMatchIds--;
+            }
+
+            match.MatchEventIds = new List<Guid>();
+            match.HomeTeamSquadId = new List<Guid>();
+            match.AwayTeamSquadId = new List<Guid>();
+        }
+
+        private void RemoveMatchEventsFromPlayersInMatch(Match match)
+        {
+            var personSerivce = new PersonService();
+            var matchEventService = new MatchEventService();
+            var matchWeekService = new MatchWeekService();
+
+
+            foreach (var matchEventId in match.MatchEventIds)
+            {
+                var mEvent = matchEventService.FindById(matchEventId);
+                var player = personSerivce.FindPlayerById(mEvent.PlayerId);
+
+                var matchEvents = player.MatchEvents
+                    .Select(matchEventService.FindById)
+                    .Where(e => e.MatchId == match.Id);
+
+
+                var yellowCards = 0;
+                foreach (var matchEvent in matchEvents)
+                {
+                    var type = matchEvent.GetType();
+
+                    if (type == MatchEvents.RedCard) matchWeekService.RemoveSuspension(3, player, match.Id);
+                    if (type == MatchEvents.YellowCard) yellowCards++;
+
+                    player.MatchEvents.Remove(matchEvent.Id);
+                }
+
+                if (yellowCards > 1) matchWeekService.RemoveSuspension(1, player, match.Id);
+            }
+
+            personSerivce.Save();
         }
     }
 }

@@ -22,6 +22,7 @@ namespace UserHomePage
             InitializeComponent();
             _searchService = new SearchService();
             _leagueService = new LeagueService();
+            _teamService = new TeamService();
 
             var leagues = _leagueService.GetAll().ToList();
             LeagueList.ItemsSource = leagues;
@@ -53,17 +54,19 @@ namespace UserHomePage
                 var team = (Team)teamObject;
                 NavigationService?.Navigate(new TeamPage(team.Id));
             }
-            //if (SearchList.SelectedItem.GetType() == typeof(PlayerSearchResultItem))
-            //{
-            //    var player = ((PlayerSearchResultItem) SearchList.SelectedItem).ResultItem;
-            //    player = (Player) player;
-            //    _playerStatsWindow = new PlayerStats();
-            //}
+            if (SearchList.SelectedItem is PlayerSearchResultItem)
+            {
+                var playerObject = ((PlayerSearchResultItem)SearchList.SelectedItem).ResultItem;
+                var player = (Player)playerObject;
+                var team = _teamService.FindTeamByPlayerId(player.Id);
+                NavigationService?.Navigate(new PlayerStatsPage(team));
+
+            }
             else if (SearchList.SelectedItem.GetType() == typeof(LeagueSearchResultItem))
             {
                 var leagueObject = ((LeagueSearchResultItem)SearchList.SelectedItem).ResultItem;
                 var league = (League)leagueObject;
-                NavigationService.Navigate(new LeaguePage(league));
+                NavigationService?.Navigate(new LeaguePage(league));
             }
         }
     }

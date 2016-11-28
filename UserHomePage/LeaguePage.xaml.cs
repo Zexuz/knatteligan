@@ -64,5 +64,28 @@ namespace UserHomePage
             NavigationService?.Navigate(new TeamPage(team.Id));
         }
 
+
+        private void SearchList_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (SearchList.SelectedItem.GetType() == typeof(TeamSearchResultItem))
+            {
+                var teamObject = ((TeamSearchResultItem)SearchList.SelectedItem).ResultItem;
+                var team = (Team)teamObject;
+                NavigationService?.Navigate(new TeamPage(team.Id));
+            }
+            if (SearchList.SelectedItem is PlayerSearchResultItem)
+            {
+                var playerObject = ((PlayerSearchResultItem)SearchList.SelectedItem).ResultItem;
+                var player = (Player)playerObject;
+                var team = _teamService.FindTeamByPlayerId(player.Id);
+                NavigationService?.Navigate(new PlayerStatsPage(team));
+            }
+            else if (SearchList.SelectedItem.GetType() == typeof(LeagueSearchResultItem))
+            {
+                var leagueObject = ((LeagueSearchResultItem)SearchList.SelectedItem).ResultItem;
+                var league = (League)leagueObject;
+                NavigationService.Navigate(new LeaguePage(league));
+            }
+        }
     }
 }

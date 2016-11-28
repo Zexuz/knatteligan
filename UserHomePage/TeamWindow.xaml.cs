@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Navigation;
 using knatteligan.Domain.Entities;
 using knatteligan.Services;
 
@@ -39,8 +40,7 @@ namespace UserHomePage
         private void Players_OnClick(object sender, RoutedEventArgs e)
         {
             var team = _teamService.FindById(_teamId);
-            var playerStatsWindow = new PlayerStatsWindow(team);
-            playerStatsWindow.ShowDialog();
+
         }
 
         private void ButtonBase_OnClick_Back(object sender, RoutedEventArgs e)

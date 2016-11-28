@@ -55,6 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LeaguePage.xaml.cs">
+      <DependentUpon>LeaguePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerStatsPage.xaml.cs">
+      <DependentUpon>PlayerStatsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PlayerStatsWindow.xaml.cs">
       <DependentUpon>PlayerStatsWindow.xaml</DependentUpon>
     </Compile>
@@ -64,7 +73,11 @@
     <Compile Include="TeamWindow.xaml.cs">
       <DependentUpon>TeamWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="LeagueWindow.xaml">
+    <Page Include="LeaguePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -75,9 +88,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="LeagueWindow.xaml.cs">
-      <DependentUpon>LeagueWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MatchProtocol.xaml.cs">
       <DependentUpon>MatchProtocol.xaml</DependentUpon>
@@ -90,6 +100,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PlayerStatsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PlayerStatsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

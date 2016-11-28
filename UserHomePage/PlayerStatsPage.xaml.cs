@@ -1,30 +1,41 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 using knatteligan.Domain.Entities;
 using knatteligan.Helpers;
 
 namespace UserHomePage
 {
     /// <summary>
-    /// Interaction logic for PlayerStatsWindow.xaml
+    /// Interaction logic for PlayerStatsPage.xaml
     /// </summary>
-    public partial class PlayerStatsWindow : Window
+    public partial class PlayerStatsPage : Page
     {
         private readonly bool _onlyOneTeam;
         private readonly Dictionary<SortingAlgorithm.PlayerSortByTypes, bool> _lastState;
         //private int _counter;
 
-        public PlayerStatsWindow(Team team) : this(new List<Team> {team})
+        public PlayerStatsPage(Team team) : this(new List<Team> {team})
         {
             _onlyOneTeam = true;
             //Removes team column
             DataGrid.Columns[1].Visibility = Visibility.Collapsed;
         }
 
-        public PlayerStatsWindow(List<Team> teams)
+        public PlayerStatsPage(List<Team> teams)
         {
             DataContext = this;
             InitializeComponent();
@@ -73,7 +84,7 @@ namespace UserHomePage
         private void CustomSortHandeler(object sender, DataGridSortingEventArgs e)
         {
             var column = e.Column;
-            if(column.SortDirection == null) return;
+            if (column.SortDirection == null) return;
 
             SortingAlgorithm.PlayerSortByTypes type;
             switch (column.Header.ToString())
@@ -112,16 +123,12 @@ namespace UserHomePage
                 column.SortDirection = ListSortDirection.Ascending;
             }
 
-            var listOfPlayer = (List<SortingAlgorithm.PlayerStatsInfoItem>) DataGrid.Items.SourceCollection;
+            var listOfPlayer = (List<SortingAlgorithm.PlayerStatsInfoItem>)DataGrid.Items.SourceCollection;
 
-            var list = SortingAlgorithm.Sort(listOfPlayer, type,_lastState[type]);
+            var list = SortingAlgorithm.Sort(listOfPlayer, type, _lastState[type]);
             Trace.WriteLine(list[0].GoalIds.Count);
             DataGrid.ItemsSource = list;
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
     }
 }

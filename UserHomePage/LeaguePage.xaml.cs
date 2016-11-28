@@ -1,23 +1,25 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using knatteligan.Services;
+using knatteligan;
 using knatteligan.Domain.Entities;
+using knatteligan.Services;
 
 namespace UserHomePage
 {
     /// <summary>
-    /// Interaction logic for League.xaml
+    /// Interaction logic for LeaguePage.xaml
     /// </summary>
-    public partial class LeagueWindow : Window
+    public partial class LeaguePage : Page
     {
         private readonly League _league;
         private readonly SearchService _searchService;
         private readonly TeamService _teamService;
 
-        public LeagueWindow(League league)
+        public LeaguePage(League league)
         {
             _league = league;
             InitializeComponent();
@@ -36,6 +38,10 @@ namespace UserHomePage
         {
             var searchText = SearchTextBox.Text;
             var foundMatch = _searchService.Search(searchText, true);
+            if (string.IsNullOrEmpty(searchText))
+            {
+                foundMatch = new List<SearchResultItem>();
+            }
             SearchList.ItemsSource = foundMatch;
         }
 
@@ -45,8 +51,8 @@ namespace UserHomePage
 
             var playerStats = new PlayerStatsWindow(teams);
             var playerStatsResult = playerStats.ShowDialog();
-        
-    }
+
+        }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -57,7 +63,7 @@ namespace UserHomePage
 
         private void DataGrid_OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-          
+
             switch (e.PropertyName)
             {
                 case "PlayerIds":
@@ -100,12 +106,13 @@ namespace UserHomePage
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            Close();
         }
 
         private void DataGrid_OnLoadingRow(object sender, DataGridRowEventArgs e)
         {
             e.Row.Header = (e.Row.GetIndex() + 1).ToString();
         }
+
+
     }
 }

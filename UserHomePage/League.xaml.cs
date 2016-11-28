@@ -30,6 +30,8 @@ namespace UserHomePage
         {
             _league = league;
             InitializeComponent();
+            DataGrid.AutoGenerateColumns = false;
+
             _teamService = new TeamService();
             _searchService = new SearchService();
             _league = league;
@@ -64,42 +66,6 @@ namespace UserHomePage
         {
             MatchListWindow matchList = new MatchListWindow(_league.Id);
             matchList.ShowDialog();
-        }
-
-
-        private void DataGrid_OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
-            switch (e.PropertyName)
-            {
-                case "PlayerIds":
-                case "CoachId":
-                case "Id":
-                case "GoalsConcededIds":
-                case "GoalsScoredIds":
-                    e.Cancel = true;
-                    break;
-                case "WonMatchIds":
-                    e.Column.Header = "W";
-                    break;
-                case "LostMatchIds":
-                    e.Column.Header = "L";
-                    break;
-                case "DrawMatchIds":
-                    e.Column.Header = "D";
-                    break;
-                case "DeltaScore":
-                    e.Column.Header = "+/-";
-                    break;
-                case "Points":
-                    e.Column.Header = "Pts";
-                    break;
-                case "GamesPlayedCount":
-                    e.Column.Header = "Gp";
-                    break;
-                case "Name":
-                    e.Column.Header = "Team Name";
-                    break;
-            }
         }
 
         private void DataGrid_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)

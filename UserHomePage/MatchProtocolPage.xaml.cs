@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Windows;
+using System.Windows.Controls;
 using knatteligan.Domain.Entities;
 using knatteligan.Services;
 
 namespace UserHomePage
 {
     /// <summary>
-    /// Interaction logic for MatchProtocoll.xaml
+    /// Interaction logic for MatchProtocolPage.xaml
     /// </summary>
-    public partial class MatchProtocol : Window
+    public partial class MatchProtocolPage : Page
     {
         public Team HomeTeam { get; set; }
         public Team AwayTeam { get; set; }
@@ -17,7 +17,7 @@ namespace UserHomePage
         public List<Player> HomeTeamPlayers { get; set; }
         public List<Player> AwayTeamPlayers { get; set; }
 
-        public MatchProtocol(Match match /*Guid matchID, Guid leagueId*/) //fixa id
+        public MatchProtocolPage(Match match /*Guid matchID, Guid leagueId*/) //fixa id
         {
             InitializeComponent();
             var teamService = new TeamService();
@@ -45,10 +45,5 @@ namespace UserHomePage
             AwayTeamMatchEvents.ItemsSource = awayTeamEvents;
         }
 
-
-        private void Back_OnClick(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
     }
 }

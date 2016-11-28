@@ -10,13 +10,16 @@ using knatteligan.Services;
 
 namespace UserHomePage
 {
-    public partial class MatchListWindow
+    /// <summary>
+    /// Interaction logic for SerieSchedulePage.xaml
+    /// </summary>
+    public partial class SerieSchedulePage : Page
     {
         public SerializableDictionary<int, MatchWeek> GameWeeks { get; set; }
 
         private readonly MatchService _matchRepositoryService;
 
-        public MatchListWindow(Guid currentLeagueId)
+        public SerieSchedulePage(Guid currentLeagueId)
         {
             GameWeeks = new LeagueService().FindById(currentLeagueId).MatchWeeks;
             _matchRepositoryService = new MatchService();
@@ -40,13 +43,7 @@ namespace UserHomePage
         {
             var listItem = sender as ListBox;
             var match = (Match)listItem.SelectedItems[0];
-            var matchProtocol = new MatchProtocol(match);
-            matchProtocol.Show();
-        }
-
-        private void Back_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            this.Close();
+            NavigationService.Navigate(new MatchProtocolPage(match));
         }
 
         private void AllMatches_Click(object sender, System.Windows.RoutedEventArgs e)

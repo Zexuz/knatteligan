@@ -97,6 +97,5 @@
                 </MultiBinding>
             </Button.IsEnabled>
         </Button>
-
     </Grid>
 </Window>

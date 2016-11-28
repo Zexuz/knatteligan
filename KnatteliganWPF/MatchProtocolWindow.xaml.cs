@@ -65,15 +65,15 @@ namespace KnatteliganWPF
                 .Select(matchEventService.FindById)
                 .Where(mEvent => match.AwayTeamSquadId.Contains(mEvent.PlayerId));
 
-            var matchEvents = homeTeamEvents as IList<MatchEvent> ?? homeTeamEvents.ToList();
-            var teamEvents = awayTeamEvents as IList<MatchEvent> ?? awayTeamEvents.ToList();
+            var homeMatchEvents = homeTeamEvents as IList<MatchEvent> ?? homeTeamEvents.ToList();
+            var awayMatchEvents = awayTeamEvents as IList<MatchEvent> ?? awayTeamEvents.ToList();
 
-            var homeGoal = matchEvents.Where(e => e.GetType() == MatchEvents.Goal);
-            var awayGoal = teamEvents.Where(e => e.GetType() == MatchEvents.Goal);
+            var homeGoal = homeMatchEvents.Where(e => e.GetType() == MatchEvents.Goal);
+            var awayGoal = awayMatchEvents.Where(e => e.GetType() == MatchEvents.Goal);
 
 
-            _matchEventsAway = new ObservableCollection<MatchEvent>(teamEvents);
-            _matchEventsHome = new ObservableCollection<MatchEvent>(matchEvents);
+            _matchEventsAway = new ObservableCollection<MatchEvent>(awayMatchEvents);
+            _matchEventsHome = new ObservableCollection<MatchEvent>(homeMatchEvents);
 
             AwayTeamMatchEvents.ItemsSource = _matchEventsAway;
             HomeTeamMatchEvents.ItemsSource = _matchEventsHome;
@@ -241,6 +241,17 @@ namespace KnatteliganWPF
 
             var matchEvent = (MatchEvent) listBox.SelectedItems[0];
             _matchEventsTemp.Remove(matchEvent);
+            _matchEventsAway.Remove(matchEvent);
+            _matchEventsHome.Remove(matchEvent);
+
+
+            var homeTeam= new TeamService().FindById(Match.HomeTeamId);
+            var awayTeam= new TeamService().FindById(Match.AwayTeamId);
+
+            var homeGoal = GetMatchEventsForTeam(homeTeam).Where(ev => ev.GetType() == MatchEvents.Goal);
+            var awayGoal = GetMatchEventsForTeam(awayTeam).Where(ev => ev.GetType() == MatchEvents.Goal);
+            HomeTeamGoals.Text = homeGoal.ToList().Count.ToString();
+            AwayTeamGoals.Text = awayGoal.ToList().Count.ToString();
         }
 
         private List<MatchEvent> GetMatchEventsForTeam(Team team)

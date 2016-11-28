@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using knatteligan.Domain.Entities;
 using knatteligan.Helpers;
 using knatteligan.Repositories;
@@ -7,7 +8,9 @@ namespace knatteligan.Services
 {
     public class MatchWeekService
     {
-        public MatchWeekService() { }
+        public MatchWeekService()
+        {
+        }
 
         public bool IsPlayerSuspended(Guid playerId, Guid matchId)
         {
@@ -29,7 +32,7 @@ namespace knatteligan.Services
                 rounds = league.MatchWeeks.Count - currentMatchWeek;
             }
 
-            for (var i = currentMatchWeek + 1; i < rounds + currentMatchWeek; i++)
+            for (var i = currentMatchWeek + 1; i < rounds + currentMatchWeek + 1; i++)
             {
                 league.MatchWeeks[i].SuspendedPlayerIds.Add(player.Id);
             }
@@ -37,7 +40,7 @@ namespace knatteligan.Services
             LeagueRepository.GetInstance().Save();
         }
 
-        public void RemoveSuspension(int rounds,Player player, Guid matchId)
+        public void RemoveSuspension(int rounds, Player player, Guid matchId)
         {
             League league;
             int currentMatchWeek;
@@ -48,7 +51,7 @@ namespace knatteligan.Services
                 rounds = league.MatchWeeks.Count - currentMatchWeek;
             }
 
-            for (var i = currentMatchWeek + 1; i < rounds + currentMatchWeek; i++)
+            for (var i = currentMatchWeek + 1; i < rounds + currentMatchWeek + 1; i++)
             {
                 league.MatchWeeks[i].SuspendedPlayerIds.Remove(player.Id);
             }

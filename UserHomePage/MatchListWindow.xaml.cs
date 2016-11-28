@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using knatteligan.Domain.Entities;
 using knatteligan.Helpers;
 using knatteligan.Services;
-using KnatteliganWPF;
 
 namespace UserHomePage
 {
@@ -55,11 +53,6 @@ namespace UserHomePage
         {
             var matches = _matchRepositoryService.GetAll();
             CurrentMatchWeekMatches.ItemsSource = new ObservableCollection<Match>(matches);
-        }
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            Close();
         }
     }
 }

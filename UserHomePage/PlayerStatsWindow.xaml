@@ -1,0 +1,50 @@
+﻿<Window x:Class="UserHomePage.PlayerStatsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UserHomePage"
+        mc:Ignorable="d"
+        Title="PlayerStatsWindow" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+
+        </Grid.ColumnDefinitions>
+        <DataGrid HorizontalAlignment="Stretch" ColumnWidth="*" IsReadOnly="True" VerticalAlignment="Stretch"
+                  Grid.ColumnSpan="6" Grid.RowSpan="13"
+                  Name="DataGrid"
+                    >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Path=Name.Name}" />
+                <DataGridTextColumn Header="Team" Binding="{Binding Path=TeamName.Value}" Visibility="{Binding ElementName=PlayerStats, Path=OnlyOneTeam}" />
+                <DataGridTextColumn Header="G" Binding="{Binding Path=GoalIds.Count}"  />
+                <DataGridTextColumn Header="A" Binding="{Binding Path=AssistIds.Count}" />
+                <DataGridTextColumn Header="YC" Binding="{Binding Path=YellowCardIds.Count}" />
+                <DataGridTextColumn Header="RC" Binding="{Binding Path=RedCardIds.Count}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Click="ButtonBase_OnClick" Grid.Column="0" Grid.Row="13" Grid.ColumnSpan="1">Back</Button>
+    </Grid>
+</Window>

@@ -45,14 +45,4 @@
     <PlayerId>270fba88-57a3-44da-b689-84e11afef9dd</PlayerId>
     <MatchId>9389e23b-3e3f-4e03-9b81-7e93c2506eca</MatchId>
   </RedCard>
-  <RedCard>
-    <Id>833745c3-c5ad-4f66-b856-4de5724d95b4</Id>
-    <PlayerId>7e3be5dc-61ab-45fb-b13b-ec7825b7e46c</PlayerId>
-    <MatchId>51ccf973-f801-4ebd-995c-8102e6d9875a</MatchId>
-  </RedCard>
-  <RedCard>
-    <Id>d7e6b91a-0eb7-44b2-93d6-e42579d6aa69</Id>
-    <PlayerId>1441c1b2-f272-47ac-b45c-67f5873da892</PlayerId>
-    <MatchId>511202e9-04c2-44e0-adce-1ce405ce8475</MatchId>
-  </RedCard>
 </ArrayOfRedCard>

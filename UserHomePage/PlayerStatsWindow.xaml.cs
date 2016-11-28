@@ -1,53 +1,47 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using knatteligan.Domain.Entities;
 using knatteligan.Helpers;
 
 namespace UserHomePage
 {
     /// <summary>
-    /// Interaction logic for PlayerStats.xaml
+    /// Interaction logic for PlayerStatsWindow.xaml
     /// </summary>
-    public partial class PlayerStats : Window
+    public partial class PlayerStatsWindow : Window
     {
         private readonly bool _onlyOneTeam;
-        private int _counter;
-        private Dictionary<SortingAlgoritm.PlayerSortByTypes, bool> _lastState;
+        private readonly Dictionary<SortingAlgorithm.PlayerSortByTypes, bool> _lastState;
+        //private int _counter;
 
-        public PlayerStats(Team team) : this(new List<Team> {team})
+        public PlayerStatsWindow(Team team) : this(new List<Team> {team})
         {
             _onlyOneTeam = true;
-            DataGrid.Columns[5].Visibility = Visibility.Collapsed;
+            //Removes team column
+            DataGrid.Columns[1].Visibility = Visibility.Collapsed;
         }
 
-        public PlayerStats(List<Team> teams)
+        public PlayerStatsWindow(List<Team> teams)
         {
             DataContext = this;
             InitializeComponent();
 
             DataGrid.AutoGenerateColumns = false;
-            DataGrid.ItemsSource = SortingAlgoritm.Sort(teams, SortingAlgoritm.PlayerSortByTypes.Goal, true);
+            DataGrid.ItemsSource = SortingAlgorithm.Sort(teams, SortingAlgorithm.PlayerSortByTypes.Goal, true);
             DataGrid.Sorting += CustomSortHandeler;
 
-            _lastState = new Dictionary<SortingAlgoritm.PlayerSortByTypes, bool>
+            _lastState = new Dictionary<SortingAlgorithm.PlayerSortByTypes, bool>
             {
-                {SortingAlgoritm.PlayerSortByTypes.Assist, false},
-                {SortingAlgoritm.PlayerSortByTypes.Goal, false},
-                {SortingAlgoritm.PlayerSortByTypes.PlayerName, false},
-                {SortingAlgoritm.PlayerSortByTypes.Redcard, false},
-                {SortingAlgoritm.PlayerSortByTypes.TeamName, false},
-                {SortingAlgoritm.PlayerSortByTypes.Yellowcard, false}
+                {SortingAlgorithm.PlayerSortByTypes.Assist, false},
+                {SortingAlgorithm.PlayerSortByTypes.Goal, false},
+                {SortingAlgorithm.PlayerSortByTypes.PlayerName, false},
+                {SortingAlgorithm.PlayerSortByTypes.Redcard, false},
+                {SortingAlgorithm.PlayerSortByTypes.TeamName, false},
+                {SortingAlgorithm.PlayerSortByTypes.Yellowcard, false}
             };
-
         }
 
         private void DataGrid_OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -64,11 +58,11 @@ namespace UserHomePage
                 case "AssistCount":
                     e.Column.Header = "A";
                     break;
-                case "RedCardIds":
-                    e.Column.Header = "RC";
-                    break;
                 case "YellowCardIds":
                     e.Column.Header = "YC";
+                    break;
+                case "RedCardIds":
+                    e.Column.Header = "RC";
                     break;
             }
 
@@ -76,34 +70,31 @@ namespace UserHomePage
                 e.Cancel = true;
         }
 
-
         private void CustomSortHandeler(object sender, DataGridSortingEventArgs e)
         {
             var column = e.Column;
-
             if(column.SortDirection == null) return;
 
-
-            SortingAlgoritm.PlayerSortByTypes type;
+            SortingAlgorithm.PlayerSortByTypes type;
             switch (column.Header.ToString())
             {
-                case "G":
-                    type = SortingAlgoritm.PlayerSortByTypes.Goal;
-                    break;
-                case "A":
-                    type = SortingAlgoritm.PlayerSortByTypes.Assist;
-                    break;
-                case "RC":
-                    type = SortingAlgoritm.PlayerSortByTypes.Redcard;
-                    break;
-                case "YC":
-                    type = SortingAlgoritm.PlayerSortByTypes.Yellowcard;
-                    break;
                 case "Name":
-                    type = SortingAlgoritm.PlayerSortByTypes.PlayerName;
+                    type = SortingAlgorithm.PlayerSortByTypes.PlayerName;
                     break;
                 case "Team":
-                    type = SortingAlgoritm.PlayerSortByTypes.TeamName;
+                    type = SortingAlgorithm.PlayerSortByTypes.TeamName;
+                    break;
+                case "G":
+                    type = SortingAlgorithm.PlayerSortByTypes.Goal;
+                    break;
+                case "A":
+                    type = SortingAlgorithm.PlayerSortByTypes.Assist;
+                    break;
+                case "YC":
+                    type = SortingAlgorithm.PlayerSortByTypes.Yellowcard;
+                    break;
+                case "RC":
+                    type = SortingAlgorithm.PlayerSortByTypes.Redcard;
                     break;
                 default:
                     return;
@@ -121,9 +112,9 @@ namespace UserHomePage
                 column.SortDirection = ListSortDirection.Ascending;
             }
 
-            var listOfPlayer = (List<SortingAlgoritm.PlayerStatsInfoItem>) DataGrid.Items.SourceCollection;
+            var listOfPlayer = (List<SortingAlgorithm.PlayerStatsInfoItem>) DataGrid.Items.SourceCollection;
 
-            var list = SortingAlgoritm.Sort(listOfPlayer, type,_lastState[type]);
+            var list = SortingAlgorithm.Sort(listOfPlayer, type,_lastState[type]);
             Trace.WriteLine(list[0].GoalIds.Count);
             DataGrid.ItemsSource = list;
         }

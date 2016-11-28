@@ -121,9 +121,14 @@
                     <Binding ElementName="TeamNameTxt" Path="(Validation.Errors)[0]"/>
                     <Binding ElementName="TeamNameTxt" Path="Text"/>
                     <Binding ElementName="CoachNameTextBox" Path="(Validation.Errors)[0]"/>
+                    <Binding ElementName="CoachNameTextBox" Path="Text"/>
                     <Binding ElementName="PersonalNumberTextBox" Path="(Validation.Errors)[0]"/>
+                    <Binding ElementName="PersonalNumberTextBox" Path="Text"/>
                     <Binding ElementName="PhoneNumberTextBox" Path="(Validation.Errors)[0]"/>
+                    <Binding ElementName="PhoneNumberTextBox" Path="Text"/>
                     <Binding ElementName="CoachEmailTextBox" Path="(Validation.Errors)[0]"/>
+                    <Binding ElementName="CoachEmailTextBox" Path="Text"/>
+                    <Binding ElementName="PlayerList" Path="Items.Count"/>
                 </MultiBinding>
             </Button.IsEnabled>
         </Button>

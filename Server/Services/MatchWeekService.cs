@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using knatteligan.Domain.Entities;
 using knatteligan.Helpers;
 using knatteligan.Repositories;
@@ -29,7 +30,7 @@ namespace knatteligan.Services
                 rounds = league.MatchWeeks.Count - currentMatchWeek;
             }
 
-            for (var i = currentMatchWeek + 1; i < rounds + currentMatchWeek; i++)
+            for (var i = currentMatchWeek + 1; i < rounds + currentMatchWeek+1; i++)
             {
                 league.MatchWeeks[i].SuspendedPlayerIds.Add(player.Id);
             }

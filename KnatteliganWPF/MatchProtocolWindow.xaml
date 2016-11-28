@@ -69,9 +69,9 @@
 
 
         <DatePicker Name="DatePicker" Width="110" Grid.ColumnSpan="3" Grid.Column="2" Margin="33,5,26,0" />
-        <Button Width="110" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Click="ButtonAddAwayTeamSquad_OnClick"
+        <Button Width="130" Height="30" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Click="ButtonAddAwayTeamSquad_OnClick"
                 Content="Add away team squad" />
-        <Button Width="110" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Click="ButtonAddHomeTeamSquad_OnClick"
+        <Button Width="130" Height="30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Click="ButtonAddHomeTeamSquad_OnClick"
                 Content="Add home team squad" />
 
 

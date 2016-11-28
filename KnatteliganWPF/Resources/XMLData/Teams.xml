@@ -25,7 +25,9 @@
     <CoachId>50fed6a7-c187-411c-9600-f363f71e733e</CoachId>
     <WonMatchIds />
     <LostMatchIds />
-    <DrawMatchIds />
+    <DrawMatchIds>
+      <guid>511202e9-04c2-44e0-adce-1ce405ce8475</guid>
+    </DrawMatchIds>
     <GoalsConcededIds />
     <GoalsScoredIds />
   </Team>
@@ -114,7 +116,9 @@
     <CoachId>ac9d2f77-4ea5-48cf-a9b8-10d46986a207</CoachId>
     <WonMatchIds />
     <LostMatchIds />
-    <DrawMatchIds />
+    <DrawMatchIds>
+      <guid>511202e9-04c2-44e0-adce-1ce405ce8475</guid>
+    </DrawMatchIds>
     <GoalsConcededIds />
     <GoalsScoredIds />
   </Team>

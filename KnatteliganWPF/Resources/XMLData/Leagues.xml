@@ -40,10 +40,7 @@
               <guid>8023325f-aaf9-4efa-814a-e987f36d88a9</guid>
               <guid>ac18328d-6968-427a-986a-bd92dc9dd6b2</guid>
             </MatchIds>
-            <SuspendedPlayerIds>
-              <guid>0acc4bc1-8884-473d-9ed1-0676cc67d591</guid>
-              <guid>51059ba2-0cf7-4079-8bc7-ddf62ad585b0</guid>
-            </SuspendedPlayerIds>
+            <SuspendedPlayerIds />
           </MatchWeek>
         </value>
       </item>

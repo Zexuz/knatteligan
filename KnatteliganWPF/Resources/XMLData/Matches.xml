@@ -5,9 +5,12 @@
     <HomeTeamId>88550dff-ad8f-49a6-a215-56753bed0cef</HomeTeamId>
     <AwayTeamId>baf13120-4598-42f5-93e7-c964c18160fe</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
-    <MatchEventIds />
-    <HomeTeamSquadId />
-    <AwayTeamSquadId />
+    <MatchEventIds>
+      <guid>d7e6b91a-0eb7-44b2-93d6-e42579d6aa69</guid>
+    </MatchEventIds>
+    <HomeTeamSquadId>
+      <guid>1441c1b2-f272-47ac-b45c-67f5873da892</guid>
+    </HomeTeamSquadId>
   </Match>
   <Match>
     <Id>9389e23b-3e3f-4e03-9b81-7e93c2506eca</Id>

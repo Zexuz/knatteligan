@@ -16,7 +16,7 @@ namespace KnatteliganWPF.ValidationRules
             }
             catch (Exception)
             {
-                return new ValidationResult(false, "Not a valid email.");
+                return new ValidationResult(false, "Invalid email.");
             }
         }
     }

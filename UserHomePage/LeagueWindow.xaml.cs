@@ -67,6 +67,12 @@ namespace UserHomePage
                 case "GoalsScoredIds":
                     e.Cancel = true;
                     break;
+                case "Name":
+                    e.Column.Header = "Team Name";
+                    break;
+                case "GamesPlayedCount":
+                    e.Column.Header = "Gp";
+                    break;
                 case "WonMatchIds":
                     e.Column.Header = "W";
                     break;
@@ -81,12 +87,6 @@ namespace UserHomePage
                     break;
                 case "Points":
                     e.Column.Header = "Pts";
-                    break;
-                case "GamesPlayedCount":
-                    e.Column.Header = "Gp";
-                    break;
-                case "Name":
-                    e.Column.Header = "Team Name";
                     break;
             }
         }

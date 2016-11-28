@@ -20,7 +20,8 @@ namespace UserHomePage
         public PlayerStatsWindow(Team team) : this(new List<Team> {team})
         {
             _onlyOneTeam = true;
-            DataGrid.Columns[5].Visibility = Visibility.Collapsed;
+            //Removes team column
+            DataGrid.Columns[1].Visibility = Visibility.Collapsed;
         }
 
         public PlayerStatsWindow(List<Team> teams)
@@ -57,11 +58,11 @@ namespace UserHomePage
                 case "AssistCount":
                     e.Column.Header = "A";
                     break;
-                case "RedCardIds":
-                    e.Column.Header = "RC";
-                    break;
                 case "YellowCardIds":
                     e.Column.Header = "YC";
+                    break;
+                case "RedCardIds":
+                    e.Column.Header = "RC";
                     break;
             }
 
@@ -78,23 +79,23 @@ namespace UserHomePage
             SortingAlgorithm.PlayerSortByTypes type;
             switch (column.Header.ToString())
             {
+                case "Name":
+                    type = SortingAlgorithm.PlayerSortByTypes.PlayerName;
+                    break;
+                case "Team":
+                    type = SortingAlgorithm.PlayerSortByTypes.TeamName;
+                    break;
                 case "G":
                     type = SortingAlgorithm.PlayerSortByTypes.Goal;
                     break;
                 case "A":
                     type = SortingAlgorithm.PlayerSortByTypes.Assist;
                     break;
-                case "RC":
-                    type = SortingAlgorithm.PlayerSortByTypes.Redcard;
-                    break;
                 case "YC":
                     type = SortingAlgorithm.PlayerSortByTypes.Yellowcard;
                     break;
-                case "Name":
-                    type = SortingAlgorithm.PlayerSortByTypes.PlayerName;
-                    break;
-                case "Team":
-                    type = SortingAlgorithm.PlayerSortByTypes.TeamName;
+                case "RC":
+                    type = SortingAlgorithm.PlayerSortByTypes.Redcard;
                     break;
                 default:
                     return;

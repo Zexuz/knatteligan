@@ -37,12 +37,12 @@
                   Name="DataGrid"
                     >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="G" Binding="{Binding Path=GoalIds.Count}"  />
-                <DataGridTextColumn Header="A" Binding="{Binding Path=AssistIds.Count}" />
-                <DataGridTextColumn Header="RC" Binding="{Binding Path=RedCardIds.Count}" />
-                <DataGridTextColumn Header="YC" Binding="{Binding Path=YellowCardIds.Count}" />
                 <DataGridTextColumn Header="Name" Binding="{Binding Path=Name.Name}" />
                 <DataGridTextColumn Header="Team" Binding="{Binding Path=TeamName.Value}" Visibility="{Binding ElementName=PlayerStats, Path=OnlyOneTeam}" />
+                <DataGridTextColumn Header="G" Binding="{Binding Path=GoalIds.Count}"  />
+                <DataGridTextColumn Header="A" Binding="{Binding Path=AssistIds.Count}" />
+                <DataGridTextColumn Header="YC" Binding="{Binding Path=YellowCardIds.Count}" />
+                <DataGridTextColumn Header="RC" Binding="{Binding Path=RedCardIds.Count}" />
             </DataGrid.Columns>
         </DataGrid>
         <Button Click="ButtonBase_OnClick" Grid.Column="0" Grid.Row="13" Grid.ColumnSpan="1">Back</Button>

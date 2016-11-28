@@ -27,21 +27,16 @@ namespace UserHomePage
             TeamMatchList.ItemsSource = teamMatchList;
             TeamNameTxt.Text = _teamService.FindById(teamId).Name.Value;
         }
-        
-        private void TeamMatchList_OnClick(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
 
         private void TeamMatchList_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var listItem = sender as ListBox;
             var match = (Match)listItem.SelectedItems[0];
-            //var matchProtocol = new MatchProtocol(match);
-            //matchProtocol.Show();
+            var matchProtocol = new MatchProtocol(match);
+            matchProtocol.Show();
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void Players_OnClick(object sender, RoutedEventArgs e)
         {
             var team = _teamService.FindById(_teamId);
             var playerStatsWindow = new PlayerStatsWindow(team);

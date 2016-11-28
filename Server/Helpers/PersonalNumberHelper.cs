@@ -7,9 +7,9 @@ namespace knatteligan.Helpers
     public class PersonalNumberHelper
     {
         private const string Dash10RegExString = @"^(\d{2})(\d{2})(\d{2})-(\d{4})$";
-        private const string NoDash10RegExString = @"(\d{2})(\d{2})(\d{2})(\d{4})$";
-        private const string Dash12RegExString = @"(\d{4})(\d{2})(\d{2})-(\d{4})$";
-        private const string NoDash12RegExString = @"(\d{4})(\d{2})(\d{2})(\d{4})$";
+        private const string NoDash10RegExString = @"^(\d{2})(\d{2})(\d{2})(\d{4})$";
+        private const string Dash12RegExString = @"^(\d{4})(\d{2})(\d{2})-(\d{4})$";
+        private const string NoDash12RegExString = @"^(\d{4})(\d{2})(\d{2})(\d{4})$";
 
 
         public static PersonNumberType GetPersonalTypeForString(string str)

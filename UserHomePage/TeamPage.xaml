@@ -19,11 +19,10 @@
             <TextBlock Name="TeamNameTxt" Grid.Row="0"></TextBlock>
 
             <StackPanel Orientation="Horizontal">
-                <Button>Match List</Button>
                 <Button Click="Players_OnClick">Player stats</Button>
             </StackPanel>
         </StackPanel>
-
+        
         <ListBox Grid.Row="1" Name="TeamMatchList" MouseDoubleClick="TeamMatchList_OnMouseDoubleClick">
 
         </ListBox>

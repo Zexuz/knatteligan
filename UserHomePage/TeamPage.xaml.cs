@@ -38,7 +38,9 @@ namespace UserHomePage
         private void Players_OnClick(object sender, RoutedEventArgs e)
         {
             var team = _teamService.FindById(_teamId);
+            NavigationService?.Navigate(new PlayerStatsPage(team));
 
         }
+
     }
 }

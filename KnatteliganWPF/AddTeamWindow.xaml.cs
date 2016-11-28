@@ -44,6 +44,10 @@ namespace KnatteliganWPF
             _personService = new PersonService();
             Players = new ObservableCollection<Player>();
             DataContext = this;
+            if (TeamNameTxt.Text.Equals(string.Empty))
+            {
+                
+            }
         }
 
         private void AddTeamWindowActivated(object sender, EventArgs e)

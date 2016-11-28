@@ -23,6 +23,8 @@ namespace UserHomePage
         {
             _league = league;
             InitializeComponent();
+            DataGrid.AutoGenerateColumns = false;
+
             _teamService = new TeamService();
             _searchService = new SearchService();
             _league = league;
@@ -63,7 +65,6 @@ namespace UserHomePage
 
         private void DataGrid_OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-
             switch (e.PropertyName)
             {
                 case "PlayerIds":
@@ -72,12 +73,6 @@ namespace UserHomePage
                 case "GoalsConcededIds":
                 case "GoalsScoredIds":
                     e.Cancel = true;
-                    break;
-                case "Name":
-                    e.Column.Header = "Team Name";
-                    break;
-                case "GamesPlayedCount":
-                    e.Column.Header = "Gp";
                     break;
                 case "WonMatchIds":
                     e.Column.Header = "W";
@@ -94,6 +89,12 @@ namespace UserHomePage
                 case "Points":
                     e.Column.Header = "Pts";
                     break;
+                case "GamesPlayedCount":
+                    e.Column.Header = "Gp";
+                    break;
+                case "Name":
+                    e.Column.Header = "Team Name";
+                    break;
             }
         }
 
@@ -102,10 +103,6 @@ namespace UserHomePage
             var team = (Team)DataGrid.SelectedItem;
             var teamWindow = new TeamWindow(team.Id);
             teamWindow.ShowDialog();
-        }
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
         }
 
         private void DataGrid_OnLoadingRow(object sender, DataGridRowEventArgs e)

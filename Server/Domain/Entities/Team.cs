@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using knatteligan.Domain.ValueObjects;
 
 namespace knatteligan.Domain.Entities
@@ -12,21 +11,21 @@ namespace knatteligan.Domain.Entities
         public List<Guid> PlayerIds { get; set; } = new List<Guid>();
         public Guid CoachId { get; set; }
 
-        public int WonMatchIds { get; set; }
-        public int LostMatchIds { get; set; }
-        public int DrawMatchIds { get; set; }
-        public int GoalsConcededIds { get; set; }
-        public int GoalsScoredIds { get; set; }
+        public List<Guid> WonMatchIds { get; set; }
+        public List<Guid> LostMatchIds { get; set; }
+        public List<Guid> DrawMatchIds { get; set; }
+        public List<Guid> GoalsConcededIds { get; set; }
+        public List<Guid> GoalsScoredIds { get; set; }
 
-        public int GamesPlayedCount => WonMatchIds + LostMatchIds
-            + DrawMatchIds;
+        public int GamesPlayedCount => WonMatchIds.Count + LostMatchIds.Count + DrawMatchIds.Count;
 
-        public int Points => WonMatchIds*3 + DrawMatchIds;
+        public int Points => WonMatchIds.Count * 3 + DrawMatchIds.Count;
 
-        public int DeltaScore => GoalsConcededIds - GoalsScoredIds;
+        public int DeltaScore => GoalsConcededIds.Count - GoalsScoredIds.Count;
 
-
-        public Team() { }
+        public Team()
+        {
+        }
 
         public Team(TeamName name, IEnumerable<Player> players, Coach coach)
         {
@@ -34,6 +33,7 @@ namespace knatteligan.Domain.Entities
             CoachId = coach.Id;
             PlayerIds = players.Select(player => player.Id).ToList();
         }
+
         public override string ToString()
         {
             return Name.Value;

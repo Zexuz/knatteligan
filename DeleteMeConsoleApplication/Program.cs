@@ -78,7 +78,7 @@ namespace DeleteMeConsoleApplication
                 {
                     TeamIds = teamIds,
                     MatchWeeks = gameWeeks,
-                    Name = new LeagueName($"Robins Test league {j}")
+                    Name = new LeagueName($"Robins Test league {(char)j}")
                 };
 
 

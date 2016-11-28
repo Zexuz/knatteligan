@@ -7,7 +7,7 @@ using knatteligan.Repositories;
 
 namespace knatteligan.Helpers
 {
-    public class SortingAlgoritm
+    public class SortingAlgorithm
     {
         private static List<Guid> GetMatchEventsIds(Player player, MatchEvents type)
         {

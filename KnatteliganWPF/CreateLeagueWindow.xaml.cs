@@ -33,8 +33,6 @@ namespace KnatteliganWPF
             Teams = new ObservableCollection<Team>();
             TeamList.ItemsSource = Teams;
             DataContext = this;
-
-
         }
 
         public CreateLeagueWindow(Guid currentLeagueId)
@@ -45,20 +43,16 @@ namespace KnatteliganWPF
             var league = _leagueService.FindById(currentLeagueId);
             LeagueName = league.Name;
             Teams = new ObservableCollection<Team>();
-            
-
 
             foreach (var teamId in league.TeamIds)
             {
                 Teams.Add(_teamService.FindById(teamId));
-                
             }
 
             InitializeComponent();
             TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
             leagueName.Text = LeagueName.Value;
             //TODO LeagueName does not show in textbox
-
         }
 
 

@@ -11,21 +11,18 @@ namespace knatteligan.Domain.Entities
         public List<Guid> PlayerIds { get; set; } = new List<Guid>();
         public Guid CoachId { get; set; }
 
+        public int GamesPlayedCount => WonMatchIds.Count + LostMatchIds.Count
+            + DrawMatchIds.Count;
+
         public List<Guid> WonMatchIds { get; set; }
-        public List<Guid> LostMatchIds { get; set; }
         public List<Guid> DrawMatchIds { get; set; }
+        public List<Guid> LostMatchIds { get; set; }
+        public int DeltaScore => GoalsConcededIds.Count - GoalsScoredIds.Count;
+        public int Points => WonMatchIds.Count * 3 + DrawMatchIds.Count;
         public List<Guid> GoalsConcededIds { get; set; }
         public List<Guid> GoalsScoredIds { get; set; }
 
-        public int GamesPlayedCount => WonMatchIds.Count + LostMatchIds.Count + DrawMatchIds.Count;
-
-        public int Points => WonMatchIds.Count * 3 + DrawMatchIds.Count;
-
-        public int DeltaScore => GoalsConcededIds.Count - GoalsScoredIds.Count;
-
-        public Team()
-        {
-        }
+        public Team() { }
 
         public Team(TeamName name, IEnumerable<Player> players, Coach coach)
         {

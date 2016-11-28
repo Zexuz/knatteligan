@@ -62,54 +62,12 @@ namespace UserHomePage
             matchList.ShowDialog();
         }
 
-
-        private void DataGrid_OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
-            switch (e.PropertyName)
-            {
-                case "PlayerIds":
-                case "CoachId":
-                case "Id":
-                case "GoalsConcededIds":
-                case "GoalsScoredIds":
-                    e.Cancel = true;
-                    break;
-                case "WonMatchIds":
-                    e.Column.Header = "W";
-                    break;
-                case "LostMatchIds":
-                    e.Column.Header = "L";
-                    break;
-                case "DrawMatchIds":
-                    e.Column.Header = "D";
-                    break;
-                case "DeltaScore":
-                    e.Column.Header = "+/-";
-                    break;
-                case "Points":
-                    e.Column.Header = "Pts";
-                    break;
-                case "GamesPlayedCount":
-                    e.Column.Header = "Gp";
-                    break;
-                case "Name":
-                    e.Column.Header = "Team Name";
-                    break;
-            }
-        }
-
         private void DataGrid_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var team = (Team)DataGrid.SelectedItem;
             var teamWindow = new TeamWindow(team.Id);
             teamWindow.ShowDialog();
         }
-
-        private void DataGrid_OnLoadingRow(object sender, DataGridRowEventArgs e)
-        {
-            e.Row.Header = (e.Row.GetIndex() + 1).ToString();
-        }
-
 
     }
 }

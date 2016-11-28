@@ -76,8 +76,20 @@ namespace KnatteliganWPF
 
         private void CloseCommandHandler_Clicked(object sender, RoutedEventArgs e)
         {
-            DialogResult = false;
-            this.Close();
+            if (TeamNameTxt.Text.Length > 0 || CoachNameTextBox.Text.Length > 0 || PersonalNumberTextBox.Text.Length > 0 || PhoneNumberTextBox.Text.Length > 0 || CoachEmailTextBox.Text.Length > 0)
+            {
+                MessageBoxResult result = MessageBox.Show("Are you sure you want to cancel?", "Message", MessageBoxButton.YesNo);
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+                        Close();
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
+
+            }
+            else Close();
         }
 
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)

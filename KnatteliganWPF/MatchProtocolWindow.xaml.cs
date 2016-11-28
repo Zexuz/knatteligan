@@ -259,5 +259,27 @@ namespace KnatteliganWPF
             var list = _matchEventsTemp.Where(mEvent => team.PlayerIds.Contains(mEvent.PlayerId));
             return list.ToList();
         }
+
+        
+
+        private void RemoveMatchEvent_OnClick(object sender, RoutedEventArgs e)
+        {
+            var listBox = sender as ListBox;
+            if (listBox?.SelectedItems[0] == null) return;
+
+            var matchEvent = (MatchEvent)listBox.SelectedItems[0];
+            _matchEventsTemp.Remove(matchEvent);
+            _matchEventsAway.Remove(matchEvent);
+            _matchEventsHome.Remove(matchEvent);
+
+
+            var homeTeam = new TeamService().FindById(Match.HomeTeamId);
+            var awayTeam = new TeamService().FindById(Match.AwayTeamId);
+
+            var homeGoal = GetMatchEventsForTeam(homeTeam).Where(ev => ev.GetType() == MatchEvents.Goal);
+            var awayGoal = GetMatchEventsForTeam(awayTeam).Where(ev => ev.GetType() == MatchEvents.Goal);
+            HomeTeamGoals.Text = homeGoal.ToList().Count.ToString();
+            AwayTeamGoals.Text = awayGoal.ToList().Count.ToString();
+        }
     }
 }

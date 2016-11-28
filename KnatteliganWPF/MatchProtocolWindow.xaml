@@ -47,21 +47,25 @@
         <ListBox Name="AwayTeamList" Grid.ColumnSpan="3" Grid.RowSpan="7" Grid.Row="4" Grid.Column="4"
                  Margin="51,12,5,17" FontWeight="Bold" SelectionChanged="List_OnSelected" />
 
-        <Button Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+        <Button Height="30"
+            Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="3" HorizontalAlignment="Center"
                 Content="Add one Goal"
-                Click="AddGoal_OnClick" />
+                Click="AddGoal_OnClick" Margin="53,0,47,0" Width="111" />
 
-        <Button Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+        <Button Height="30"
+            Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="3" HorizontalAlignment="Center"
                 Content="Add one Assit"
-                Click="AddAssist_OnClick" />
+                Click="AddAssist_OnClick" Margin="53,10,47,20" Grid.RowSpan="2" Width="111" />
 
-        <Button Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+        <Button Width="111" Height="30"
+            Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="3" HorizontalAlignment="Center"
                 Content="Add one YellowCard"
-                Click="AddYellowCard_OnClick" />
+                Click="AddYellowCard_OnClick" Margin="54,20,47,10" Grid.RowSpan="2" />
 
-        <Button Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+        <Button Width="111" Height="30"
+            Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="3" 
                 Content="Add one RedCard"
-                Click="AddRedCard_OnClick" />
+                Click="AddRedCard_OnClick" Margin="54,0,47,0" />
 
 
         <DatePicker Name="DatePicker" Width="110" Grid.ColumnSpan="3" Grid.Column="2" Margin="33,5,26,0" />
@@ -89,6 +93,8 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
+        <Button Grid.ColumnSpan="3" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" Content="&lt;- Remove Event -&gt;" Margin="54,0,47,0" Width="111" Height="30" Click="RemoveMatchEvent_OnClick"></Button>
 
         <ListBox Grid.Row="2" Name="AwayTeamMatchEvents" BorderThickness="0" Grid.Column="4" Grid.ColumnSpan="3"
                  Margin="41,23,15,0" Grid.RowSpan="2" FontWeight="Bold" FontSize="9"

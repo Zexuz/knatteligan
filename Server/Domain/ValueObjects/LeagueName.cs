@@ -18,7 +18,7 @@ namespace knatteligan.Domain.ValueObjects
 
         private static bool IsLeagueName(string name)
         {
-            return Regex.IsMatch(name, @"^[1-9a-öA-Ö\s]+$");
+            return Regex.IsMatch(name, "^[a-ö\\sA-ö1-9àáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð-]{2,30}$");
         }
 
         public override string ToString()

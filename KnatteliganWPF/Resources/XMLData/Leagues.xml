@@ -58,10 +58,7 @@
               <guid>b4a09379-7863-4061-be6f-b0fce1019b30</guid>
               <guid>5571ee80-c506-4003-b1e8-822177cf4cd2</guid>
             </MatchIds>
-            <SuspendedPlayerIds>
-              <guid>0acc4bc1-8884-473d-9ed1-0676cc67d591</guid>
-              <guid>51059ba2-0cf7-4079-8bc7-ddf62ad585b0</guid>
-            </SuspendedPlayerIds>
+            <SuspendedPlayerIds />
           </MatchWeek>
         </value>
       </item>

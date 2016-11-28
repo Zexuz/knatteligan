@@ -23,6 +23,11 @@
       <guid>3578ebd4-c932-409a-8c6f-15279d80f9a2</guid>
     </PlayerIds>
     <CoachId>50fed6a7-c187-411c-9600-f363f71e733e</CoachId>
+    <WonMatchIds />
+    <LostMatchIds />
+    <DrawMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>6ac91103-f4e4-404f-988e-c39c3efd81f9</Id>
@@ -47,6 +52,11 @@
       <guid>469ac0af-4e67-461f-ac0b-94f34923b14c</guid>
     </PlayerIds>
     <CoachId>f244fc32-c011-4417-84dc-d93116ccce9b</CoachId>
+    <WonMatchIds />
+    <LostMatchIds />
+    <DrawMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>857d4c5d-d7c6-499c-adc6-be5f30338879</Id>
@@ -71,6 +81,13 @@
       <guid>5fb9081c-5dc9-4785-8b7d-9e83e08ffe81</guid>
     </PlayerIds>
     <CoachId>c7c18ee7-b9c0-4ddf-9aa4-bbdbc1901515</CoachId>
+    <WonMatchIds />
+    <LostMatchIds />
+    <DrawMatchIds>
+      <guid>51ccf973-f801-4ebd-995c-8102e6d9875a</guid>
+    </DrawMatchIds>
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>88550dff-ad8f-49a6-a215-56753bed0cef</Id>
@@ -95,6 +112,11 @@
       <guid>0acc4bc1-8884-473d-9ed1-0676cc67d591</guid>
     </PlayerIds>
     <CoachId>ac9d2f77-4ea5-48cf-a9b8-10d46986a207</CoachId>
+    <WonMatchIds />
+    <LostMatchIds />
+    <DrawMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>3d90a6ca-f54f-4824-acf5-962fe720edc2</Id>
@@ -119,6 +141,11 @@
       <guid>d3972e93-1971-4727-a57b-1373c632cdea</guid>
     </PlayerIds>
     <CoachId>c6ade280-5d66-462b-834a-b50b4496d724</CoachId>
+    <WonMatchIds />
+    <LostMatchIds />
+    <DrawMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>7f4ae072-dece-4961-bb7a-75f1749328d2</Id>
@@ -143,5 +170,12 @@
       <guid>e6187fc4-42f6-4979-ab40-79a6dc4b6e0c</guid>
     </PlayerIds>
     <CoachId>d0072d3d-fed9-4e0d-a98a-3f574c82a9f9</CoachId>
+    <WonMatchIds />
+    <LostMatchIds />
+    <DrawMatchIds>
+      <guid>51ccf973-f801-4ebd-995c-8102e6d9875a</guid>
+    </DrawMatchIds>
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
 </ArrayOfTeam>

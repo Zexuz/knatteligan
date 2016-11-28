@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,6 +22,12 @@ namespace KnatteliganWPF
 
         public MainWindow()
         {
+            Trace.WriteLine(PersonalNumberHelper.GetPersonalTypeForString("199611071136"));
+            Trace.WriteLine(PersonalNumberHelper.GetPersonalTypeForString("19961107-1136"));
+            Trace.WriteLine(PersonalNumberHelper.GetPersonalTypeForString("9611071136"));
+            Trace.WriteLine(PersonalNumberHelper.GetPersonalTypeForString("961107-1136"));
+            Trace.WriteLine(PersonalNumberHelper.GetPersonalTypeForString("961107asdasd"));
+            Trace.WriteLine(PersonalNumberHelper.GetPersonalTypeForString("1996110711361"));
             InitializeComponent();
             _leagueService = new LeagueService();
             Leagues = new ObservableCollection<League>(_leagueService.GetAll().ToList());

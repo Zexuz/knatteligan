@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading;
 using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
@@ -17,9 +18,9 @@ namespace DeleteMeConsoleApplication
             // Our new "test" for createSeries
             // new TestClass().Start();
             // Environment.Exit(0);
-
             for (var j = 0; j < 10; j++)
             {
+
                 var teamNames = new List<string>
                 {
                     "The Mad Amigos",
@@ -78,7 +79,7 @@ namespace DeleteMeConsoleApplication
                 {
                     TeamIds = teamIds,
                     MatchWeeks = gameWeeks,
-                    Name = new LeagueName($"Robins Test league {(char)j}")
+                    Name = new LeagueName($"Robins Test league {Convert.ToChar(j+100)}")
                 };
 
 

@@ -16,7 +16,6 @@ namespace UserHomePage
         private readonly LeagueService _leagueService;
         private readonly TeamService _teamService;
         private readonly SearchService _searchService;
-        private TeamWindow _teamWindow;
 
         public MainPage()
         {
@@ -52,8 +51,7 @@ namespace UserHomePage
             {
                 var teamObject = ((TeamSearchResultItem)SearchList.SelectedItem).ResultItem;
                 var team = (Team)teamObject;
-                _teamWindow = new TeamWindow(team.Id);
-                _teamWindow.ShowDialog();
+                NavigationService?.Navigate(new TeamPage(team.Id));
             }
             //if (SearchList.SelectedItem.GetType() == typeof(PlayerSearchResultItem))
             //{

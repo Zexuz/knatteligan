@@ -47,19 +47,15 @@ namespace UserHomePage
             SearchList.ItemsSource = foundMatch;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Players_Click(object sender, RoutedEventArgs e)
         {
             var teams = _league.TeamIds.Select(_teamService.FindById).ToList();
-
-            var playerStats = new PlayerStatsWindow(teams);
-            var playerStatsResult = playerStats.ShowDialog();
-
+            NavigationService?.Navigate(new PlayerStatsPage(teams));
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var matchList = new MatchListWindow(_league.Id);
-            matchList.ShowDialog();
+            NavigationService?.Navigate(new SerieSchedulePage(_league.Id));
         }
 
 
@@ -101,8 +97,7 @@ namespace UserHomePage
         private void DataGrid_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var team = (Team)DataGrid.SelectedItem;
-            var teamWindow = new TeamWindow(team.Id);
-            teamWindow.ShowDialog();
+            NavigationService?.Navigate(new TeamPage(team.Id));
         }
 
         private void DataGrid_OnLoadingRow(object sender, DataGridRowEventArgs e)

@@ -3,21 +3,20 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Navigation;
 using knatteligan.Domain.Entities;
 using knatteligan.Services;
 
 namespace UserHomePage
 {
     /// <summary>
-    /// Interaction logic for TeamWindow.xaml
+    /// Interaction logic for TeamPage.xaml
     /// </summary>
-    public partial class TeamWindow : Window
+    public partial class TeamPage : Page
     {
         private readonly MatchService _matchService;
         private readonly TeamService _teamService;
         private readonly Guid _teamId;
-        public TeamWindow(Guid teamId)
+        public TeamPage(Guid teamId)
 
         {
             InitializeComponent();
@@ -33,19 +32,13 @@ namespace UserHomePage
         {
             var listItem = sender as ListBox;
             var match = (Match)listItem.SelectedItems[0];
-            var matchProtocol = new MatchProtocol(match);
-            matchProtocol.Show();
+            NavigationService?.Navigate(new MatchProtocolPage(match));
         }
 
         private void Players_OnClick(object sender, RoutedEventArgs e)
         {
             var team = _teamService.FindById(_teamId);
 
-        }
-
-        private void ButtonBase_OnClick_Back(object sender, RoutedEventArgs e)
-        {
-            Close();
         }
     }
 }

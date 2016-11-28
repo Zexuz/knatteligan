@@ -56,9 +56,9 @@
             </TextBlock.Style>
         </TextBlock>
         <ListBox Name="SearchList" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="9" />
-        <Button Grid.Row="11" Grid.Column="4" Grid.ColumnSpan="2" Click="Button_Click">Players</Button>
+        <Button Grid.Row="11" Grid.Column="4" Grid.ColumnSpan="3" Click="Players_Click" Height="23" Margin="0,0.333,27,0" VerticalAlignment="Top">Players</Button>
         <Button Grid.Row="11" Grid.Column="6" Grid.ColumnSpan="2" Click="Button_Click_1">Matches</Button>
-        <DataGrid MouseDoubleClick="DataGrid_OnMouseDoubleClick" IsReadOnly="True" ColumnWidth="*" AutoGeneratingColumn="DataGrid_OnAutoGeneratingColumn"  Name="DataGrid" HorizontalAlignment="Stretch" Margin="29,28.333,0,0" Grid.Row="1" VerticalAlignment="Stretch" Grid.ColumnSpan="8" Grid.RowSpan="10"/>
+        <DataGrid MouseDoubleClick="DataGrid_OnMouseDoubleClick" IsReadOnly="True" ColumnWidth="*" AutoGeneratingColumn="DataGrid_OnAutoGeneratingColumn"  Name="DataGrid" HorizontalAlignment="Stretch" Margin="29,28.333,0,0" Grid.Row="1" VerticalAlignment="Stretch" Grid.ColumnSpan="8" Grid.RowSpan="10" />
     </Grid>
 
 </Page>

@@ -61,12 +61,16 @@ namespace UserHomePage
         private void DataGrid_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var team = (Team)DataGrid.SelectedItem;
+            if(team== null) return;
+
             NavigationService?.Navigate(new TeamPage(team.Id));
         }
 
 
         private void SearchList_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            if (SearchList.SelectedItems == null) return;
+
             if (SearchList.SelectedItem.GetType() == typeof(TeamSearchResultItem))
             {
                 var teamObject = ((TeamSearchResultItem)SearchList.SelectedItem).ResultItem;
@@ -84,7 +88,7 @@ namespace UserHomePage
             {
                 var leagueObject = ((LeagueSearchResultItem)SearchList.SelectedItem).ResultItem;
                 var league = (League)leagueObject;
-                NavigationService.Navigate(new LeaguePage(league));
+                NavigationService?.Navigate(new LeaguePage(league));
             }
         }
     }

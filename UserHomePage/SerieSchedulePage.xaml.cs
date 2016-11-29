@@ -42,8 +42,10 @@ namespace UserHomePage
         private void CurrentMatchWeekMatches_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var listItem = sender as ListBox;
+            if (listItem?.SelectedItems == null) return;
+
             var match = (Match)listItem.SelectedItems[0];
-            NavigationService.Navigate(new MatchProtocolPage(match));
+            NavigationService?.Navigate(new MatchProtocolPage(match));
         }
 
         private void AllMatches_Click(object sender, System.Windows.RoutedEventArgs e)

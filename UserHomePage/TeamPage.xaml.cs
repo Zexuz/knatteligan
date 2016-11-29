@@ -31,6 +31,7 @@ namespace UserHomePage
         private void TeamMatchList_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var listItem = sender as ListBox;
+            if (listItem?.SelectedItems == null) return;
             var match = (Match)listItem.SelectedItems[0];
             NavigationService?.Navigate(new MatchProtocolPage(match));
         }

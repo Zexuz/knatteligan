@@ -146,14 +146,6 @@ namespace KnatteliganWPF
                 switch (result)
                 { 
                     case MessageBoxResult.Yes:
-                        leagueName.Text = "";
-                        foreach (var team in Teams)
-                        {
-                            _teamService.Remove(team);
-                        }
-                        Teams = new ObservableCollection<Team>();
-                        TeamList.ItemsSource = Teams;
-                         
                         NavigationService.GoBack();
                         break;
                     case MessageBoxResult.No:

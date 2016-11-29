@@ -15,7 +15,8 @@ namespace KnatteliganWPF
     public partial class MainPage : Page
     {
         private readonly LeagueService _leagueService;
-        public ObservableCollection<League> Leagues { get; set; }
+        //Static bara för att createLeaguePage ska kunna lägga till
+        public static ObservableCollection<League> Leagues { get; set; }
 
         public MainPage()
         {
@@ -31,12 +32,7 @@ namespace KnatteliganWPF
 
         private void CreateLeague_Clicked(object sender, RoutedEventArgs e)
         {
-            var createLeagueWindow = new CreateLeagueWindow();
-            var createLeagueResult = createLeagueWindow.ShowDialog();
-            if (!createLeagueResult.HasValue) return;
-
-            _leagueService.Add(createLeagueWindow.League);
-            Leagues.Add(createLeagueWindow.League);
+            NavigationService?.Navigate(new CreateLeaguePage());
         }
 
         private void ManageLeague_Clicked(object sender, RoutedEventArgs e)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,17 +17,28 @@ namespace KnatteliganWPF
         public ObservableCollection<CheckBox> PlayerList { get; set; }
         private readonly List<Player> _players;
 
-        public SetTeamSquadWindow(List<Player> players, Guid matchId)
+        public SetTeamSquadWindow(List<Player> players, Guid matchId, List<Guid> alreadySetPlayersId)
         {
             InitializeComponent();
             _players = players;
 
-            var listOfCheckBoxes = players.Select(player => new CheckBox
+            if(alreadySetPlayersId == null)
+                alreadySetPlayersId = new List<Guid>();
+
+            Trace.WriteLine(alreadySetPlayersId.Count);
+
+            var listOfCheckBoxes = new List<CheckBox>();
+            foreach (var player in players)
             {
-                Content = player.Name,
-                Tag = player.Id,
-                IsEnabled = !new MatchWeekService().IsPlayerSuspended(player.Id, matchId)
-            }).ToList();
+                var playerIsSuspenden = new MatchWeekService().IsPlayerSuspended(player.Id, matchId);
+                var checkBox = new CheckBox();
+                checkBox.Content = player.Name;
+                checkBox.Tag = player.Id;
+                checkBox.IsChecked = alreadySetPlayersId.Contains(player.Id);
+                checkBox.IsEnabled = !(alreadySetPlayersId.Contains(player.Id) || playerIsSuspenden);
+                listOfCheckBoxes.Add(checkBox);
+            }
+
 
             PlayerList = new ObservableCollection<CheckBox>(listOfCheckBoxes);
             DataContext = this;

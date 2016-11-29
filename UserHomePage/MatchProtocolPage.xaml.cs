@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using knatteligan.Domain.Entities;
 using knatteligan.Services;
@@ -45,5 +46,9 @@ namespace UserHomePage
             AwayTeamMatchEvents.ItemsSource = awayTeamEvents;
         }
 
+        private void MatchProtocolPage_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

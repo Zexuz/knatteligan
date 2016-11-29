@@ -55,8 +55,8 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <ListBox Name="SearchList" MouseDoubleClick="SearchList_OnMouseDoubleClick" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="9" />
-        <Button Grid.Row="11" Grid.Column="4" Grid.ColumnSpan="2" Click="Players_Click">Players</Button>
+        <ListBox Name="SearchList" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="9" />
+        <Button Grid.Row="11" Grid.Column="4" Grid.ColumnSpan="3" Click="Players_Click" Height="23" Margin="0,0.333,27,0" VerticalAlignment="Top">Players</Button>
         <Button Grid.Row="11" Grid.Column="6" Grid.ColumnSpan="2" Click="Button_Click_1">Matches</Button>
 
         <DataGrid HorizontalAlignment="Stretch" ColumnWidth="*" IsReadOnly="True"

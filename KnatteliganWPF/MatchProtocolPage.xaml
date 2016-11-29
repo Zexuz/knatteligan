@@ -1,4 +1,4 @@
-﻿<Window x:Class="KnatteliganWPF.MatchProtocolWindow"
+﻿<Page x:Class="KnatteliganWPF.MatchProtocolPage"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:KnatteliganWPF"
         xmlns:converters="clr-namespace:KnatteliganWPF.Converters"
         mc:Ignorable="d"
-        Title="MatchProtocolWindow" Height="420" Width="500">
-    <Window.Resources>
+        Title="MatchProtocolPage" Height="420" Width="500">
+    <Page.Resources>
         <converters:MatchEventToStringConverter x:Key="MatchEventToStringConverter" />
-    </Window.Resources>
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -64,7 +64,7 @@
                 Click="AddRedCard_OnClick" />
 
 
-        <DatePicker Name="DatePicker" Width="110" Grid.ColumnSpan="3" Grid.Column="2" Margin="33,5,26,0" />
+        <DatePicker Name="DatePicker" Width="110" Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="2" Margin="33,5,26,0" />
         <Button Width="110" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Click="ButtonAddAwayTeamSquad_OnClick"
                 Content="Add away team squad" />
         <Button Width="110" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Click="ButtonAddHomeTeamSquad_OnClick"
@@ -118,4 +118,4 @@
         </TextBlock>
 
     </Grid>
-</Window>
+</Page>

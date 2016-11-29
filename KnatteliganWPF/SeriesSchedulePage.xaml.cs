@@ -12,7 +12,7 @@ using knatteligan.Services;
 
 namespace KnatteliganWPF
 {
-    public partial class SeriesScheduleWindow
+    public partial class SeriesSchedulePage : Page
     {
         public SerializableDictionary<int, MatchWeek> GameWeeks { get; set; }
 
@@ -20,28 +20,26 @@ namespace KnatteliganWPF
         private readonly LeagueService _leagueService;
         private readonly Guid _currentLeagueId;
 
-        public SeriesScheduleWindow(Guid currentLeagueId)
+        public SeriesSchedulePage(Guid currentLeagueId)
         {
+            InitializeComponent();
+            DataContext = this;
+
             _currentLeagueId = currentLeagueId;
             _matchRepositoryService = new MatchService();
-            InitializeComponent();
             _leagueService = new LeagueService();
-
-            DataContext = this;
         }
 
-        private void SeriesScheduleWindowActivated(object sender, EventArgs e)
+        private void SeriesSchedulePage_OnLoaded(object sender, RoutedEventArgs e)
         {
-            Resources["Drinks"] = GameWeeks;
+            GameWeeksList.ItemsSource = GameWeeks;
         }
 
         private void listView_Click(object sender, SelectionChangedEventArgs e)
         {
             Trace.WriteLine("I clicked antoer!");
             var currentMatchWeek = (KeyValuePair<int, MatchWeek>)e.AddedItems[0];
-
             var matches = currentMatchWeek.Value.MatchIds.Select(guid => _matchRepositoryService.FindById(guid));
-
             CurrentMatchWeekMatches.ItemsSource = new ObservableCollection<Match>(matches);
         }
 
@@ -49,8 +47,7 @@ namespace KnatteliganWPF
         {
             var listItem = sender as ListBox;
             var match = (Match)listItem.SelectedItems[0];
-            var matchProtocolWindow = new MatchProtocolWindow(match);
-            matchProtocolWindow.ShowDialog();
+            NavigationService?.Navigate(new MatchProtocolPage(match));
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
@@ -62,5 +59,7 @@ namespace KnatteliganWPF
 
             manageLeagueWindow.ShowDialog();
         }
+
+
     }
 }

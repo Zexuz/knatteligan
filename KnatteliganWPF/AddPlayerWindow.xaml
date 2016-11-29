@@ -82,6 +82,7 @@
                     <Binding ElementName="PersonNameTextBox" Path="(Validation.Errors)[0]"/>
                     <Binding ElementName="PersonNameTextBox" Path="Text"/>
                     <Binding ElementName="PersonalNumberTextBox" Path="(Validation.Errors)[0]"/>
+                    <Binding ElementName="PersonalNumberTextBox" Path="Text"/>
                 </MultiBinding>
             </Button.IsEnabled>
         </Button>
@@ -92,9 +93,9 @@
                     <Binding ElementName="PersonNameTextBox" Path="(Validation.Errors)[0]"/>
                     <Binding ElementName="PersonNameTextBox" Path="Text"/>
                     <Binding ElementName="PersonalNumberTextBox" Path="(Validation.Errors)[0]"/>
+                    <Binding ElementName="PersonalNumberTextBox" Path="Text"/>
                 </MultiBinding>
             </Button.IsEnabled>
         </Button>
-
     </Grid>
 </Window>

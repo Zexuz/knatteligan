@@ -12,9 +12,9 @@ using knatteligan.Services;
 namespace KnatteliganWPF
 {
     /// <summary>
-    /// Interaction logic for MatchProtocolWindow.xaml
+    /// Interaction logic for MatchProtocolPage.xaml
     /// </summary>
-    public partial class MatchProtocolWindow
+    public partial class MatchProtocolPage : Page
     {
         public Team HomeTeam { get; set; }
         public Team AwayTeam { get; set; }
@@ -34,7 +34,7 @@ namespace KnatteliganWPF
         private List<Guid> _awayTeamSquadId;
         private List<Guid> _homeTeamSquadId;
 
-        public MatchProtocolWindow(Match match)
+        public MatchProtocolPage(Match match)
         {
             var matchEventService = new MatchEventService();
             _teamService = new TeamService();
@@ -65,15 +65,15 @@ namespace KnatteliganWPF
                 .Select(matchEventService.FindById)
                 .Where(mEvent => match.AwayTeamSquadId.Contains(mEvent.PlayerId));
 
-            var matchEvents = homeTeamEvents as IList<MatchEvent> ?? homeTeamEvents.ToList();
-            var teamEvents = awayTeamEvents as IList<MatchEvent> ?? awayTeamEvents.ToList();
+            var homeMatchEvents = homeTeamEvents as IList<MatchEvent> ?? homeTeamEvents.ToList();
+            var awayMatchEvents = awayTeamEvents as IList<MatchEvent> ?? awayTeamEvents.ToList();
 
-            var homeGoal = matchEvents.Where(e => e.GetType() == MatchEvents.Goal);
-            var awayGoal = teamEvents.Where(e => e.GetType() == MatchEvents.Goal);
+            var homeGoal = homeMatchEvents.Where(e => e.GetType() == MatchEvents.Goal);
+            var awayGoal = awayMatchEvents.Where(e => e.GetType() == MatchEvents.Goal);
 
 
-            _matchEventsAway = new ObservableCollection<MatchEvent>(teamEvents);
-            _matchEventsHome = new ObservableCollection<MatchEvent>(matchEvents);
+            _matchEventsAway = new ObservableCollection<MatchEvent>(awayMatchEvents);
+            _matchEventsHome = new ObservableCollection<MatchEvent>(homeMatchEvents);
 
             AwayTeamMatchEvents.ItemsSource = _matchEventsAway;
             HomeTeamMatchEvents.ItemsSource = _matchEventsHome;
@@ -105,7 +105,7 @@ namespace KnatteliganWPF
 
         private void CancelProtocol_OnClick(object sender, RoutedEventArgs e)
         {
-            DialogResult = false;
+            NavigationService?.GoBack();
         }
 
         private void SaveProtocol_OnClick(object sender, RoutedEventArgs e)
@@ -114,8 +114,8 @@ namespace KnatteliganWPF
             _matchService.ChangeDate(Match.Id, DatePicker.DisplayDate);
             _matchService.SetStartSquad(Match.Id, true, _homeTeamSquadId);
             _matchService.SetStartSquad(Match.Id, false, _awayTeamSquadId);
-            _matchService.SaveMatch(Match.Id, _matchEventsTemp);
-            DialogResult = true;
+            _matchService.SaveMatch(Match.Id, _matchEventsTemp);NavigationService?.GoBack();
+
         }
 
         private void AddGoal_OnClick(object sender, RoutedEventArgs e)
@@ -238,10 +238,21 @@ namespace KnatteliganWPF
         private void RemoveEvent_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var listBox = sender as ListBox;
-            if (listBox?.SelectedItems[0] == null) return;
+            if (listBox?.SelectedItems == null) return;
 
             var matchEvent = (MatchEvent) listBox.SelectedItems[0];
             _matchEventsTemp.Remove(matchEvent);
+            _matchEventsAway.Remove(matchEvent);
+            _matchEventsHome.Remove(matchEvent);
+
+
+            var homeTeam= new TeamService().FindById(Match.HomeTeamId);
+            var awayTeam= new TeamService().FindById(Match.AwayTeamId);
+
+            var homeGoal = GetMatchEventsForTeam(homeTeam).Where(ev => ev.GetType() == MatchEvents.Goal);
+            var awayGoal = GetMatchEventsForTeam(awayTeam).Where(ev => ev.GetType() == MatchEvents.Goal);
+            HomeTeamGoals.Text = homeGoal.ToList().Count.ToString();
+            AwayTeamGoals.Text = awayGoal.ToList().Count.ToString();
         }
 
         private List<MatchEvent> GetMatchEventsForTeam(Team team)

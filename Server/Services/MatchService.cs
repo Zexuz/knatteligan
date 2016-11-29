@@ -55,18 +55,18 @@ namespace knatteligan.Services
 
             if (homeGoal.Count > awayGoal.Count)
             {
-                homeTeam.WonMatchIds++;
-                awayTeam.LostMatchIds++;
+                homeTeam.WonMatchIds.Add(matchId);
+                awayTeam.LostMatchIds.Add(matchId);
             }
             else if (homeGoal.Count < awayGoal.Count)
             {
-                awayTeam.WonMatchIds++;
-                homeTeam.LostMatchIds++;
+                awayTeam.WonMatchIds.Add(matchId);
+                homeTeam.LostMatchIds.Add(matchId);
             }
             else
             {
-                awayTeam.DrawMatchIds++;
-                homeTeam.DrawMatchIds++;
+                awayTeam.DrawMatchIds.Add(matchId);
+                homeTeam.DrawMatchIds.Add(matchId);
             }
 
             var players = new List<Player>();
@@ -111,20 +111,20 @@ namespace knatteligan.Services
 
                 var goal = (Goal) e;
                 var team = teamService.FindById(goal.TeamId);
-                AddGoalMadeAndConcedToTeams(team, match);
+                AddGoalMadeAndConcedToTeams(team, match, goal);
             }
 
             personService.Save();
         }
 
-        private void AddGoalMadeAndConcedToTeams(Team teamThatMadeTheScore, Match match)
+        private void AddGoalMadeAndConcedToTeams(Team teamThatMadeTheScore, Match match, Goal goal)
         {
             var teamService = new TeamService();
-            teamThatMadeTheScore.GoalsScoredIds++;
+            teamThatMadeTheScore.GoalsScoredIds.Add(goal.Id);
 
             var teamIsAwayTeam = teamThatMadeTheScore.Id == match.AwayTeamId;
-            var teamId = teamIsAwayTeam ? match.HomeTeamId : match.AwayTeamId;
-            teamService.FindById(teamId).GoalsConcededIds++;
+            var teamId = teamIsAwayTeam ? match.AwayTeamId : match.HomeTeamId;
+            teamService.FindById(teamId).GoalsConcededIds.Add(goal.Id);
             teamService.Save();
         }
 
@@ -172,28 +172,34 @@ namespace knatteligan.Services
             var homeGoals = GetGoalsForTeam(match, homeTeam);
             var awayGoals = GetGoalsForTeam(match, awayTeam);
 
-            homeTeam.GoalsScoredIds -= homeGoals.Count;
-            awayTeam.GoalsConcededIds -= homeGoals.Count;
+            foreach (var homeGoal in homeGoals)
+            {
+                homeTeam.GoalsScoredIds.Remove(homeGoal.Id);
+                awayTeam.GoalsConcededIds.Remove(homeGoal.Id);
+            }
 
-            awayTeam.GoalsScoredIds -= awayGoals.Count;
-            homeTeam.GoalsConcededIds -= awayGoals.Count;
+            foreach (var awayGoal in awayGoals)
+            {
+                awayTeam.GoalsScoredIds.Remove(awayGoal.Id);
+                homeTeam.GoalsConcededIds.Remove(awayGoal.Id);
+            }
 
             RemoveMatchEventsFromPlayersInMatch(match);
 
             if (homeGoals.Count > awayGoals.Count)
             {
-                homeTeam.WonMatchIds--;
-                awayTeam.LostMatchIds--;
+                homeTeam.WonMatchIds.Remove(match.Id);
+                awayTeam.LostMatchIds.Remove(match.Id);
             }
             else if (homeGoals.Count < awayGoals.Count)
             {
-                awayTeam.WonMatchIds--;
-                homeTeam.LostMatchIds--;
+                awayTeam.WonMatchIds.Remove(match.Id);
+                homeTeam.LostMatchIds.Remove(match.Id);
             }
             else
             {
-                awayTeam.DrawMatchIds--;
-                homeTeam.DrawMatchIds--;
+                awayTeam.DrawMatchIds.Remove(match.Id);
+                homeTeam.DrawMatchIds.Remove(match.Id);
             }
 
             match.MatchEventIds = new List<Guid>();

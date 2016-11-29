@@ -30,7 +30,7 @@ namespace knatteligan
         public override string ToString()
         {
             var league = (League)ResultItem;
-            return $"{league.Name}";
+            return $"(L) {league.Name}";
         }
 
         //public override string ToString()
@@ -48,7 +48,7 @@ namespace knatteligan
         public override string ToString()
         {
             var player = (Player)ResultItem;
-            return $"{player.Name}";
+            return $"(P) {player.Name}";
         }
 
 
@@ -68,7 +68,7 @@ namespace knatteligan
         public override string ToString()
         {
             var team = (Team)ResultItem;
-            return $"{team.Name.Value}";
+            return $"(T) {team.Name.Value}";
         }
     }
 }

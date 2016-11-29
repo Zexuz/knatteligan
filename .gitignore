@@ -261,3 +261,4 @@ ModelManifest.xml
 /Server/obj/Debug/Server.csprojResolveAssemblyReference.cache
 /Testing/Email.cs
 *.DotSettings
+*.config

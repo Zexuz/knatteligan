@@ -45,8 +45,20 @@ namespace KnatteliganWPF
 
         private void CloseCommandHandler_Clicked(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("");
-            this.Close();
+            if (PersonNameTextBox.Text.Length > 0 || PersonalNumberTextBox.Text.Length > 0)
+            {
+                MessageBoxResult result = MessageBox.Show("Are you sure you want to cancel?", "Message", MessageBoxButton.YesNo);
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+                        Close();
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
+
+            }
+            else Close();
         }
 
         private void AddPlayerClick(object sender, RoutedEventArgs e)

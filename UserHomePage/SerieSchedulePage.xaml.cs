@@ -2,23 +2,24 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using knatteligan.Domain.Entities;
 using knatteligan.Helpers;
 using knatteligan.Services;
-using KnatteliganWPF;
 
 namespace UserHomePage
 {
-    public partial class MatchListWindow
+    /// <summary>
+    /// Interaction logic for SerieSchedulePage.xaml
+    /// </summary>
+    public partial class SerieSchedulePage : Page
     {
         public SerializableDictionary<int, MatchWeek> GameWeeks { get; set; }
 
         private readonly MatchService _matchRepositoryService;
 
-        public MatchListWindow(Guid currentLeagueId)
+        public SerieSchedulePage(Guid currentLeagueId)
         {
             GameWeeks = new LeagueService().FindById(currentLeagueId).MatchWeeks;
             _matchRepositoryService = new MatchService();
@@ -42,24 +43,13 @@ namespace UserHomePage
         {
             var listItem = sender as ListBox;
             var match = (Match)listItem.SelectedItems[0];
-            var matchProtocol = new MatchProtocol(match);
-            matchProtocol.Show();
-        }
-
-        private void Back_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            this.Close();
+            NavigationService.Navigate(new MatchProtocolPage(match));
         }
 
         private void AllMatches_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             var matches = _matchRepositoryService.GetAll();
             CurrentMatchWeekMatches.ItemsSource = new ObservableCollection<Match>(matches);
-        }
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            Close();
         }
     }
 }

@@ -35,8 +35,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MahApps.Metro, Version=1.3.0.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.3.0\lib\net45\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.3.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -64,19 +72,26 @@
     <Compile Include="Converters\PersonNameToStringConverter.cs" />
     <Compile Include="Converters\PhoneNumberToStringConverter.cs" />
     <Compile Include="Converters\TeamNameToStringConverter.cs" />
-    <Compile Include="CreateLeagueWindow.xaml.cs">
-      <DependentUpon>CreateLeagueWindow.xaml</DependentUpon>
+    <Compile Include="CreateLeaguePage.xaml.cs">
+      <DependentUpon>CreateLeaguePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ValidationRules\PersonNameValidationRule.cs" />
     <Compile Include="ValidationRules\PhoneNumberValidationRule.cs" />
     <Compile Include="ValidationRules\TeamNameValidationRule.cs" />
     <Compile Include="ValidationRules\LeagueNameValidationRule.cs" />
     <Compile Include="ValidationRules\PersonalNumberValidationRule.cs" />
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="SetTeamSquadWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SeriesScheduleWindow.xaml">
+    <Page Include="SeriesSchedulePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -88,7 +103,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="CreateLeagueWindow.xaml">
+    <Page Include="CreateLeaguePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -116,20 +131,20 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MatchProtocolWindow.xaml">
+    <Page Include="MatchProtocolPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SeriesScheduleWindow.xaml.cs">
-      <DependentUpon>SeriesScheduleWindow.xaml</DependentUpon>
+    <Compile Include="SeriesSchedulePage.xaml.cs">
+      <DependentUpon>SeriesSchedulePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ManageLeague.xaml.cs">
       <DependentUpon>ManageLeague.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MatchProtocolWindow.xaml.cs">
-      <DependentUpon>MatchProtocolWindow.xaml</DependentUpon>
+    <Compile Include="MatchProtocolPage.xaml.cs">
+      <DependentUpon>MatchProtocolPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -148,6 +163,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

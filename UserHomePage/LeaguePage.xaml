@@ -1,0 +1,79 @@
+﻿<Page x:Class="UserHomePage.LeaguePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UserHomePage"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="LeaguePage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBox Name="SearchTextBox" Grid.RowSpan="2" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Row="1"
+                 Grid.Column="8"
+                 TextChanged="searchTextBox_TextChanged" />
+        <TextBlock IsHitTestVisible="False" Grid.ColumnSpan="3" VerticalAlignment="Center" Grid.Row="1" Grid.Column="8"
+                   Text="Search..." HorizontalAlignment="Left" Margin="5" Foreground="DarkGray">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=SearchTextBox}" Value="">
+                            <Setter Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <ListBox Name="SearchList" MouseDoubleClick="SearchList_OnMouseDoubleClick" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="9" />
+        <Button Grid.Row="11" Grid.Column="4" Grid.ColumnSpan="3" Click="Players_Click" Height="23" Margin="0,0.333,27,0" VerticalAlignment="Top">Players</Button>
+        <Button Grid.Row="11" Grid.Column="6" Grid.ColumnSpan="2" Click="Button_Click_1">Matches</Button>
+
+        <DataGrid HorizontalAlignment="Stretch" ColumnWidth="*" IsReadOnly="True"
+                  Margin="29,28.333,0,0" Grid.Row="1" VerticalAlignment="Stretch" Grid.ColumnSpan="8" Grid.RowSpan="10"
+                  Name="DataGrid"
+                  MouseDoubleClick="DataGrid_OnMouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Team" Binding="{Binding Path=Name.Value}" />
+                <DataGridTextColumn Header="W" Binding="{Binding Path=WonMatchIds.Count}" />
+                <DataGridTextColumn Header="L" Binding="{Binding Path=LostMatchIds.Count}" />
+                <DataGridTextColumn Header="D" Binding="{Binding Path=DrawMatchIds.Count}" />
+                <DataGridTextColumn Header="Gp" Binding="{Binding Path=GamesPlayedCount}" />
+                <DataGridTextColumn Header="Pts" Binding="{Binding Path=Points}"/>
+                <DataGridTextColumn Header="+/-" Binding="{Binding Path=DeltaScore}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+
+</Page>

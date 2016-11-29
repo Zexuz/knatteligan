@@ -1,0 +1,84 @@
+﻿<Controls:MetroWindow x:Class="FootballLeagueManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:FootballLeagueManager"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="768" Width="1024">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="256"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Leagues" VerticalAlignment="Bottom" Margin="5" FontSize="24" ></TextBlock>
+
+
+        <ListBox Name="LeagueList" Grid.Row="1" Grid.Column="0" Margin="5">
+            <ListBoxItem MouseDoubleClick="LeagueList_OnDoubleClick">TestLeague</ListBoxItem>
+        </ListBox>
+        <Button Grid.Row="2" Grid.Column="0" VerticalAlignment="Bottom"  Name="CreateLeague" FontSize="16"
+                Click="Create_League_OnClick">+ Create League</Button>
+        <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="256"></ColumnDefinition>
+                <ColumnDefinition Width="256"></ColumnDefinition>
+                <ColumnDefinition Width="256"></ColumnDefinition>
+
+
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Name="CreateLeagueHeader" VerticalAlignment="Bottom" Margin="5" FontSize="16" FontWeight="Light">Create League</TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="1" Name="AddTeamHeader" VerticalAlignment="Bottom" Margin="5" FontSize="16" FontWeight="Light">Add Team</TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="2" Name="AddPlayerHeader" VerticalAlignment="Bottom" Margin="5" FontSize="16" FontWeight="Light">Add Player</TextBlock>
+
+            <StackPanel Name="CreateLeagueColumn" Grid.Row="1" Grid.Column="0" Orientation="Vertical" IsEnabled="False" Visibility="Visible">
+                <TextBox Text="Enter League Name" Name="LeagueName" Margin="5" MaxHeight="24" 
+                 VerticalAlignment="Top"></TextBox>
+                <ListBox Name="TeamList" Margin="5"></ListBox>
+                <StackPanel Orientation="Horizontal">
+                    <Button Name="AddTeam" HorizontalAlignment="Right" Click="AddTeam_OnClick">+</Button>
+                    <Button Name="RemoveTeam" HorizontalAlignment="Right" >-</Button>
+                    <Button Name="EditTeam">Edit</Button>
+
+                </StackPanel>
+                <Button x:Name="GenerateSchedule" HorizontalAlignment="Left" Content="Generate Schedule"/>
+            </StackPanel>
+
+            <StackPanel Name="AddTeamColumn" Grid.Row="1" Grid.Column="1" Orientation="Vertical" IsEnabled="False" Visibility="Visible">
+                <TextBox Text="Enter Team Name" Name="TeamName" Margin="5" MaxHeight="24"></TextBox>
+                <TextBox Text="Enter Coach Name" Name="CoachName" Margin="5" MaxHeight="24"></TextBox>
+                <TextBox Text="Enter Personal Number" Name="PersonalNumber" Margin="5" MaxHeight="24"></TextBox>
+                <TextBox Text="Enter Phone Number" Name="PhoneNumber" Margin="5" MaxHeight="24"></TextBox>
+                <TextBox Text="Enter Email" Name="Email" Margin="5" MaxHeight="24"></TextBox>
+                <ListBox Name="PlayerList" Margin="5"></ListBox>
+                <StackPanel Orientation="Horizontal">
+                    <Button Name="AddPlayer" HorizontalAlignment="Right" Margin="5" Click="AddPlayer_OnClick">+</Button>
+                    <Button Name="RemovePlayer" HorizontalAlignment="Right" Margin="5">-</Button>
+                    <Button Name="EditPlayer" Margin="5">Edit</Button>
+
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Name="AddPlayerColumn" Grid.Row="1" Grid.Column="2" Orientation="Vertical" IsEnabled="False" Visibility="Visible">
+                <TextBox Text="Enter Player Name" Name="PlayerName" Margin="5" MaxHeight="24"></TextBox>
+                <TextBox Text="Enter Personal Number" Name="PlayerPersonalNumber" Margin="5" MaxHeight="24"></TextBox>
+
+            </StackPanel>
+        </Grid>
+
+
+    </Grid>
+</Controls:MetroWindow>

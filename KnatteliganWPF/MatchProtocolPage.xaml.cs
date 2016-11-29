@@ -114,10 +114,11 @@ namespace KnatteliganWPF
 
         private void SaveProtocol_OnClick(object sender, RoutedEventArgs e)
         {
-            _matchService.SaveMatch(Match.Id, _matchEventsTemp);
+            _matchService.RemoveMatchEventsFromMatchAndTeams(Match.Id, Match.AwayTeamId, Match.HomeTeamId);
             _matchService.ChangeDate(Match.Id, DatePicker.DisplayDate);
             _matchService.SetStartSquad(Match.Id, true, _homeTeamSquadId.Select(p => p.Id).ToList());
             _matchService.SetStartSquad(Match.Id, false, _awayTeamSquadId.Select(p => p.Id).ToList());
+            _matchService.SaveMatch(Match.Id, _matchEventsTemp);
             NavigationService?.GoBack();
         }
 

@@ -53,6 +53,7 @@ namespace KnatteliganWPF
             InitializeComponent();
             TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
             leagueName.Text = LeagueName.Value;
+            DataContext = this;
             //TODO LeagueName does not show in textbox
         }
 
@@ -139,7 +140,8 @@ namespace KnatteliganWPF
 
         private void CloseCommandHandler_Click(object sender, RoutedEventArgs e)
         {
-            
+            Trace.WriteLine(LeagueName);
+            Trace.WriteLine(LeagueName.Value);
             if (leagueName.Text.Length > 0 || Teams.Count > 0)
             {
                 var result = MessageBox.Show("Are you sure you want to cancel?", "Message", MessageBoxButton.YesNo);              

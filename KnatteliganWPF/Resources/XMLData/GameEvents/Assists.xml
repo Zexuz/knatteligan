@@ -1,4 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ArrayOfAssist>
-  
+<?xml version="1.0"?>
+<ArrayOfAssist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Assist>
+    <Id>89cf1808-7f26-412b-b108-8f0efb4194cc</Id>
+    <PlayerId>ba3d84c5-5b12-4c1e-9c34-6660c49f3f3c</PlayerId>
+    <MatchId>51ccf973-f801-4ebd-995c-8102e6d9875a</MatchId>
+  </Assist>
 </ArrayOfAssist>

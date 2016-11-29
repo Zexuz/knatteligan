@@ -5,179 +5,276 @@
     <HomeTeamId>88550dff-ad8f-49a6-a215-56753bed0cef</HomeTeamId>
     <AwayTeamId>baf13120-4598-42f5-93e7-c964c18160fe</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>9389e23b-3e3f-4e03-9b81-7e93c2506eca</Id>
     <HomeTeamId>6ac91103-f4e4-404f-988e-c39c3efd81f9</HomeTeamId>
     <AwayTeamId>3d90a6ca-f54f-4824-acf5-962fe720edc2</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>51ccf973-f801-4ebd-995c-8102e6d9875a</Id>
     <HomeTeamId>857d4c5d-d7c6-499c-adc6-be5f30338879</HomeTeamId>
     <AwayTeamId>7f4ae072-dece-4961-bb7a-75f1749328d2</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds>
+      <guid>70d634c7-5018-473a-8955-8100b89036c0</guid>
+      <guid>52bf9748-5f32-4845-b1a4-f43fc961cd34</guid>
+      <guid>a3947d3e-22e1-4a64-94d9-b6ef3d22f1f7</guid>
+      <guid>89cf1808-7f26-412b-b108-8f0efb4194cc</guid>
+    </MatchEventIds>
+    <HomeTeamSquadId>
+      <guid>ba3d84c5-5b12-4c1e-9c34-6660c49f3f3c</guid>
+    </HomeTeamSquadId>
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>b2a778d5-4236-4613-bf6d-5b85389403e4</Id>
     <HomeTeamId>baf13120-4598-42f5-93e7-c964c18160fe</HomeTeamId>
     <AwayTeamId>3d90a6ca-f54f-4824-acf5-962fe720edc2</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>8023325f-aaf9-4efa-814a-e987f36d88a9</Id>
     <HomeTeamId>88550dff-ad8f-49a6-a215-56753bed0cef</HomeTeamId>
     <AwayTeamId>7f4ae072-dece-4961-bb7a-75f1749328d2</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>ac18328d-6968-427a-986a-bd92dc9dd6b2</Id>
     <HomeTeamId>6ac91103-f4e4-404f-988e-c39c3efd81f9</HomeTeamId>
     <AwayTeamId>857d4c5d-d7c6-499c-adc6-be5f30338879</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>9d14e69d-3e66-4ff3-bfac-52e2f9f6bdad</Id>
     <HomeTeamId>7f4ae072-dece-4961-bb7a-75f1749328d2</HomeTeamId>
     <AwayTeamId>baf13120-4598-42f5-93e7-c964c18160fe</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>b4a09379-7863-4061-be6f-b0fce1019b30</Id>
     <HomeTeamId>3d90a6ca-f54f-4824-acf5-962fe720edc2</HomeTeamId>
     <AwayTeamId>857d4c5d-d7c6-499c-adc6-be5f30338879</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>5571ee80-c506-4003-b1e8-822177cf4cd2</Id>
     <HomeTeamId>88550dff-ad8f-49a6-a215-56753bed0cef</HomeTeamId>
     <AwayTeamId>6ac91103-f4e4-404f-988e-c39c3efd81f9</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>236af919-621b-4244-b147-a1c01769f2ae</Id>
     <HomeTeamId>baf13120-4598-42f5-93e7-c964c18160fe</HomeTeamId>
     <AwayTeamId>857d4c5d-d7c6-499c-adc6-be5f30338879</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>c0d60c29-17c9-4d5a-9ff5-4a713499f1b1</Id>
     <HomeTeamId>7f4ae072-dece-4961-bb7a-75f1749328d2</HomeTeamId>
     <AwayTeamId>6ac91103-f4e4-404f-988e-c39c3efd81f9</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>d8c2d457-06f4-4dff-8f50-fcc343af4314</Id>
     <HomeTeamId>3d90a6ca-f54f-4824-acf5-962fe720edc2</HomeTeamId>
     <AwayTeamId>88550dff-ad8f-49a6-a215-56753bed0cef</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>47b6c58b-ac4e-4ce4-a62e-537d408c5f2f</Id>
     <HomeTeamId>6ac91103-f4e4-404f-988e-c39c3efd81f9</HomeTeamId>
     <AwayTeamId>baf13120-4598-42f5-93e7-c964c18160fe</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>4abcbe70-7752-4fda-b15c-11cf87f08613</Id>
     <HomeTeamId>857d4c5d-d7c6-499c-adc6-be5f30338879</HomeTeamId>
     <AwayTeamId>88550dff-ad8f-49a6-a215-56753bed0cef</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>23e1b91d-5141-4805-8168-989773f03d9e</Id>
     <HomeTeamId>7f4ae072-dece-4961-bb7a-75f1749328d2</HomeTeamId>
     <AwayTeamId>3d90a6ca-f54f-4824-acf5-962fe720edc2</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>28dc12f3-72de-4982-9c5e-892eb371e5c5</Id>
     <HomeTeamId>baf13120-4598-42f5-93e7-c964c18160fe</HomeTeamId>
     <AwayTeamId>88550dff-ad8f-49a6-a215-56753bed0cef</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>cd399a01-4768-45b8-8dbc-a0a2ef778ff9</Id>
     <HomeTeamId>3d90a6ca-f54f-4824-acf5-962fe720edc2</HomeTeamId>
     <AwayTeamId>6ac91103-f4e4-404f-988e-c39c3efd81f9</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>6926652a-b505-4dd0-8881-1b66bc6d3345</Id>
     <HomeTeamId>7f4ae072-dece-4961-bb7a-75f1749328d2</HomeTeamId>
     <AwayTeamId>857d4c5d-d7c6-499c-adc6-be5f30338879</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>70e11cf9-1106-4cf5-a997-f034961be80f</Id>
     <HomeTeamId>3d90a6ca-f54f-4824-acf5-962fe720edc2</HomeTeamId>
     <AwayTeamId>baf13120-4598-42f5-93e7-c964c18160fe</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>9b079ef2-5bf3-40d2-a07d-e62d86b5c4a8</Id>
     <HomeTeamId>7f4ae072-dece-4961-bb7a-75f1749328d2</HomeTeamId>
     <AwayTeamId>88550dff-ad8f-49a6-a215-56753bed0cef</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>6f019db5-3c10-4914-802d-4326b8ecd7a5</Id>
     <HomeTeamId>857d4c5d-d7c6-499c-adc6-be5f30338879</HomeTeamId>
     <AwayTeamId>6ac91103-f4e4-404f-988e-c39c3efd81f9</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>6ebe8de1-8ee1-47ea-9b6f-4595c232c067</Id>
     <HomeTeamId>baf13120-4598-42f5-93e7-c964c18160fe</HomeTeamId>
     <AwayTeamId>7f4ae072-dece-4961-bb7a-75f1749328d2</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>9c0b66dd-2f8a-4782-bc80-55e0440b54c6</Id>
     <HomeTeamId>857d4c5d-d7c6-499c-adc6-be5f30338879</HomeTeamId>
     <AwayTeamId>3d90a6ca-f54f-4824-acf5-962fe720edc2</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>516acfc2-6588-4238-a043-d23bf258a6b6</Id>
     <HomeTeamId>6ac91103-f4e4-404f-988e-c39c3efd81f9</HomeTeamId>
     <AwayTeamId>88550dff-ad8f-49a6-a215-56753bed0cef</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>adecb938-69fe-4e62-8c33-931d90637970</Id>
     <HomeTeamId>857d4c5d-d7c6-499c-adc6-be5f30338879</HomeTeamId>
     <AwayTeamId>baf13120-4598-42f5-93e7-c964c18160fe</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>52b6bbd4-3329-42da-b9aa-61ddaca08235</Id>
     <HomeTeamId>6ac91103-f4e4-404f-988e-c39c3efd81f9</HomeTeamId>
     <AwayTeamId>7f4ae072-dece-4961-bb7a-75f1749328d2</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>a821bce8-0a03-4c38-b82a-32db868a1940</Id>
     <HomeTeamId>88550dff-ad8f-49a6-a215-56753bed0cef</HomeTeamId>
     <AwayTeamId>3d90a6ca-f54f-4824-acf5-962fe720edc2</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>993570ed-a8ba-4090-b868-f50a26c9b455</Id>
     <HomeTeamId>baf13120-4598-42f5-93e7-c964c18160fe</HomeTeamId>
     <AwayTeamId>6ac91103-f4e4-404f-988e-c39c3efd81f9</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>7bc032c7-c18a-438d-9baa-78648c409449</Id>
     <HomeTeamId>88550dff-ad8f-49a6-a215-56753bed0cef</HomeTeamId>
     <AwayTeamId>857d4c5d-d7c6-499c-adc6-be5f30338879</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
   <Match>
     <Id>b86e5fc8-1b35-4dfd-bfeb-c226e53f43bb</Id>
     <HomeTeamId>3d90a6ca-f54f-4824-acf5-962fe720edc2</HomeTeamId>
     <AwayTeamId>7f4ae072-dece-4961-bb7a-75f1749328d2</AwayTeamId>
     <MatchDate>0001-01-01T00:00:00</MatchDate>
+    <MatchEventIds />
+    <HomeTeamSquadId />
+    <AwayTeamSquadId />
   </Match>
 </ArrayOfMatch>

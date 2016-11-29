@@ -339,7 +339,10 @@
       <DateOfBirth>1994-03-06T00:00:00</DateOfBirth>
       <LastFour>2222</LastFour>
     </PersonalNumber>
-    <MatchEvents />
+    <MatchEvents>
+      <guid>a3947d3e-22e1-4a64-94d9-b6ef3d22f1f7</guid>
+      <guid>89cf1808-7f26-412b-b108-8f0efb4194cc</guid>
+    </MatchEvents>
   </Player>
   <Player>
     <Id>a1a7694f-f55f-497d-b54f-2e8da7073389</Id>
@@ -350,7 +353,10 @@
       <DateOfBirth>1994-03-06T00:00:00</DateOfBirth>
       <LastFour>2222</LastFour>
     </PersonalNumber>
-    <MatchEvents />
+    <MatchEvents>
+      <guid>70d634c7-5018-473a-8955-8100b89036c0</guid>
+      <guid>52bf9748-5f32-4845-b1a4-f43fc961cd34</guid>
+    </MatchEvents>
   </Player>
   <Player>
     <Id>70f6cde1-c5b0-4ab6-b2d3-fd827bc7ee9a</Id>

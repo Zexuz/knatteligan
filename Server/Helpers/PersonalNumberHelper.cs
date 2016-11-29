@@ -35,26 +35,30 @@ namespace knatteligan.Helpers
             switch (type)
             {
                 case PersonNumberType.Dash12:
-                    return GetNumberFromRegEx(new Regex(Dash12RegExString), str);
+                    return GetNumberFromRegEx(new Regex(Dash12RegExString), str,false);
                 case PersonNumberType.NoDash12:
-                    return GetNumberFromRegEx(new Regex(NoDash12RegExString), str);
+                    return GetNumberFromRegEx(new Regex(NoDash12RegExString), str,false);
                 case PersonNumberType.Dash10:
-                    return GetNumberFromRegEx(new Regex(Dash10RegExString), str);
+                    return GetNumberFromRegEx(new Regex(Dash10RegExString), str, true);
                 case PersonNumberType.NoDash10:
-                    return GetNumberFromRegEx(new Regex(NoDash10RegExString), str);
+                    return GetNumberFromRegEx(new Regex(NoDash10RegExString), str,true);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }
         }
 
-        private static PersonalNumber GetNumberFromRegEx(Regex regEx, string str)
+        private static PersonalNumber GetNumberFromRegEx(Regex regEx, string str, bool isTenChar)
         {
             var match = regEx.Match(str);
             var year = Convert.ToInt32(match.Groups[1].Value);
             var month = Convert.ToInt32(match.Groups[2].Value);
             var day = Convert.ToInt32(match.Groups[3].Value);
+
+            if (isTenChar)
+                year += year > DateTime.Now.Year - 2000 ? 1900 : 2000;
+
             var dateTime = new DateTime(year, month, day);
-            var last4 = match.Groups[3].Value;
+            var last4 = match.Groups[4].Value;
             return new PersonalNumber(dateTime, last4);
         }
     }

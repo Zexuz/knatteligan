@@ -13,11 +13,19 @@ namespace KnatteliganWPF.ValidationRules
             var str = value.ToString();
 
 
-            var type=  PersonalNumberHelper.GetPersonalTypeForString(str);
+            var type = PersonalNumberHelper.GetPersonalTypeForString(str);
 
-            if(type == PersonNumberType.InvalidSyntax)
+            if (type == PersonNumberType.InvalidSyntax)
                 return new ValidationResult(false, "Not a valid social number");
 
+            try
+            {
+                PersonalNumberHelper.GetPersonalNumberFromStringWhenTypeIsKnowned(str, type);
+            }
+            catch (Exception)
+            {
+                return new ValidationResult(false, "Not a valid social number");
+            }
             return new ValidationResult(true, "");
         }
     }

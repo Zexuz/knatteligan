@@ -92,9 +92,7 @@ namespace KnatteliganWPF
                 _homeTeamSquadId = match.HomeTeamSquadId.Select(_personService.FindPlayerById).ToList();
                 HomeTeamList.ItemsSource = new ObservableCollection<Player>(_homeTeamSquadId);
             }
-            _matchEventsTemp = new List<MatchEvent>();
-
-            
+            _matchEventsTemp = new List<MatchEvent>(Match.MatchEventIds.Select(new MatchEventService().FindById));
         }
 
         #region OnClick /OnSelected Events
@@ -126,7 +124,6 @@ namespace KnatteliganWPF
 
         private void AddGoal_OnClick(object sender, RoutedEventArgs e)
         {
-            
             AddMatchEvent(MatchEvents.Goal);
         }
 
@@ -173,6 +170,7 @@ namespace KnatteliganWPF
                 .Count.ToString();
 
             _matchEventsHome.Add(matchEvent);
+            PlayerHasMaxCardsOnHim(player);
         }
 
         private MatchEvent GetMatchEvent(MatchEvents type, Player player, Team team)
@@ -204,7 +202,7 @@ namespace KnatteliganWPF
             return (Player) _currentFocusedListBox.SelectedValue;
         }
 
-        private void List_OnSelected(object sender, RoutedEventArgs e)
+        private void List_OnMouseUp(object sender, RoutedEventArgs e)
         {
             var listBox = sender as ListBox;
             _currentFocusedListBox = listBox;
@@ -212,6 +210,10 @@ namespace KnatteliganWPF
             AddAssistButton.IsEnabled = true;
             AddYellowCardButton.IsEnabled = true;
             AddRedCardButton.IsEnabled = true;
+
+            if (listBox?.SelectedItems == null) return;
+            var player = (Player) listBox.SelectedItem;
+            PlayerHasMaxCardsOnHim(player);
         }
 
         private void OpenAddTeamSquadAndGetPlayerIds(bool isHomeTeam)
@@ -272,6 +274,25 @@ namespace KnatteliganWPF
         {
             var list = _matchEventsTemp.Where(mEvent => team.PlayerIds.Contains(mEvent.PlayerId));
             return list.ToList();
+        }
+
+
+        private void PlayerHasMaxCardsOnHim(Player player)
+        {
+            var playerId = player.Id;
+            var redCards = _matchEventsTemp.Where(e => e.PlayerId == playerId && e.GetType() == MatchEvents.RedCard);
+            var yellowCards =
+                _matchEventsTemp.Where(e => e.PlayerId == playerId && e.GetType() == MatchEvents.YellowCard);
+
+            if (redCards.ToList().Count > 0)
+            {
+                AddRedCardButton.IsEnabled = false;
+            }
+
+            if (yellowCards.ToList().Count > 1)
+            {
+                AddYellowCardButton.IsEnabled = false;
+            }
         }
     }
 }

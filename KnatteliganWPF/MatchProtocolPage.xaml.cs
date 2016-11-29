@@ -12,9 +12,9 @@ using knatteligan.Services;
 namespace KnatteliganWPF
 {
     /// <summary>
-    /// Interaction logic for MatchProtocolWindow.xaml
+    /// Interaction logic for MatchProtocolPage.xaml
     /// </summary>
-    public partial class MatchProtocolWindow
+    public partial class MatchProtocolPage : Page
     {
         public Team HomeTeam { get; set; }
         public Team AwayTeam { get; set; }
@@ -34,7 +34,7 @@ namespace KnatteliganWPF
         private IEnumerable<Player> _awayTeamSquadId;
         private List<Player> _homeTeamSquadId;
 
-        public MatchProtocolWindow(Match match)
+        public MatchProtocolPage(Match match)
         {
             var matchEventService = new MatchEventService();
             _teamService = new TeamService();
@@ -109,7 +109,7 @@ namespace KnatteliganWPF
 
         private void CancelProtocol_OnClick(object sender, RoutedEventArgs e)
         {
-            DialogResult = false;
+            NavigationService?.GoBack();
         }
 
         private void SaveProtocol_OnClick(object sender, RoutedEventArgs e)
@@ -118,7 +118,7 @@ namespace KnatteliganWPF
             _matchService.ChangeDate(Match.Id, DatePicker.DisplayDate);
             _matchService.SetStartSquad(Match.Id, true, _homeTeamSquadId.Select(p => p.Id).ToList());
             _matchService.SetStartSquad(Match.Id, false, _awayTeamSquadId.Select(p => p.Id).ToList());
-            DialogResult = true;
+            NavigationService?.GoBack();
         }
 
         private void AddGoal_OnClick(object sender, RoutedEventArgs e)

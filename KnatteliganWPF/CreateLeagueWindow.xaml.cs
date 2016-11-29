@@ -132,7 +132,20 @@ namespace KnatteliganWPF
 
         private void CloseCommandHandler_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            if (leagueName.Text.Length > 0)
+            {
+                MessageBoxResult result = MessageBox.Show("Are you sure you want to cancel?", "Message", MessageBoxButton.YesNo);              
+                switch (result)
+                { 
+                    case MessageBoxResult.Yes:  
+                        Close();
+                        break;
+                    case MessageBoxResult.No:
+                        break;        
+                }
+                
+            }
+            else Close();  
         }
     }
 }

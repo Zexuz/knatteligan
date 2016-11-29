@@ -16,7 +16,7 @@ namespace KnatteliganWPF.ValidationRules
             }
             catch (Exception)
             {
-                return new ValidationResult(false, "Not a valid phone number.");
+                return new ValidationResult(false, "Valid format: 07XXXXXXXX / +467XXXXXXXX");
             }
         }
     }

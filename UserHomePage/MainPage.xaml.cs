@@ -16,13 +16,13 @@ namespace UserHomePage
         private readonly LeagueService _leagueService;
         private readonly TeamService _teamService;
         private readonly SearchService _searchService;
-        private TeamWindow _teamWindow;
 
         public MainPage()
         {
             InitializeComponent();
             _searchService = new SearchService();
             _leagueService = new LeagueService();
+            _teamService = new TeamService();
 
             var leagues = _leagueService.GetAll().ToList();
             LeagueList.ItemsSource = leagues;
@@ -52,20 +52,21 @@ namespace UserHomePage
             {
                 var teamObject = ((TeamSearchResultItem)SearchList.SelectedItem).ResultItem;
                 var team = (Team)teamObject;
-                _teamWindow = new TeamWindow(team.Id);
-                _teamWindow.ShowDialog();
+                NavigationService?.Navigate(new TeamPage(team.Id));
             }
-            //if (SearchList.SelectedItem.GetType() == typeof(PlayerSearchResultItem))
-            //{
-            //    var player = ((PlayerSearchResultItem) SearchList.SelectedItem).ResultItem;
-            //    player = (Player) player;
-            //    _playerStatsWindow = new PlayerStats();
-            //}
+            if (SearchList.SelectedItem is PlayerSearchResultItem)
+            {
+                var playerObject = ((PlayerSearchResultItem)SearchList.SelectedItem).ResultItem;
+                var player = (Player)playerObject;
+                var team = _teamService.FindTeamByPlayerId(player.Id);
+                NavigationService?.Navigate(new PlayerStatsPage(team));
+
+            }
             else if (SearchList.SelectedItem.GetType() == typeof(LeagueSearchResultItem))
             {
                 var leagueObject = ((LeagueSearchResultItem)SearchList.SelectedItem).ResultItem;
                 var league = (League)leagueObject;
-                NavigationService.Navigate(new LeaguePage(league));
+                NavigationService?.Navigate(new LeaguePage(league));
             }
         }
     }

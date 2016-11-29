@@ -47,27 +47,45 @@ namespace UserHomePage
             SearchList.ItemsSource = foundMatch;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Players_Click(object sender, RoutedEventArgs e)
         {
             var teams = _league.TeamIds.Select(_teamService.FindById).ToList();
-
-            var playerStats = new PlayerStatsWindow(teams);
-            var playerStatsResult = playerStats.ShowDialog();
-
+            NavigationService?.Navigate(new PlayerStatsPage(teams));
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var matchList = new MatchListWindow(_league.Id);
-            matchList.ShowDialog();
+            NavigationService?.Navigate(new SerieSchedulePage(_league.Id));
         }
 
         private void DataGrid_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var team = (Team)DataGrid.SelectedItem;
-            var teamWindow = new TeamWindow(team.Id);
-            teamWindow.ShowDialog();
+            NavigationService?.Navigate(new TeamPage(team.Id));
         }
 
+
+        private void SearchList_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (SearchList.SelectedItem.GetType() == typeof(TeamSearchResultItem))
+            {
+                var teamObject = ((TeamSearchResultItem)SearchList.SelectedItem).ResultItem;
+                var team = (Team)teamObject;
+                NavigationService?.Navigate(new TeamPage(team.Id));
+            }
+            if (SearchList.SelectedItem is PlayerSearchResultItem)
+            {
+                var playerObject = ((PlayerSearchResultItem)SearchList.SelectedItem).ResultItem;
+                var player = (Player)playerObject;
+                var team = _teamService.FindTeamByPlayerId(player.Id);
+                NavigationService?.Navigate(new PlayerStatsPage(team));
+            }
+            else if (SearchList.SelectedItem.GetType() == typeof(LeagueSearchResultItem))
+            {
+                var leagueObject = ((LeagueSearchResultItem)SearchList.SelectedItem).ResultItem;
+                var league = (League)leagueObject;
+                NavigationService.Navigate(new LeaguePage(league));
+            }
+        }
     }
 }

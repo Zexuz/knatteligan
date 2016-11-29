@@ -15,8 +15,8 @@ namespace KnatteliganWPF.ValidationRules
 
             var type = PersonalNumberHelper.GetPersonalTypeForString(str);
 
-            if (type == PersonNumberType.InvalidSyntax)
-                return new ValidationResult(false, "Not a valid social number");
+            if(type == PersonNumberType.InvalidSyntax)
+                return new ValidationResult(false, "Valid format: YYMMDD-XXXX");
 
             try
             {

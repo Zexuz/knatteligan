@@ -64,8 +64,8 @@
     <Compile Include="Converters\PersonNameToStringConverter.cs" />
     <Compile Include="Converters\PhoneNumberToStringConverter.cs" />
     <Compile Include="Converters\TeamNameToStringConverter.cs" />
-    <Compile Include="CreateLeagueWindow.xaml.cs">
-      <DependentUpon>CreateLeagueWindow.xaml</DependentUpon>
+    <Compile Include="CreateLeaguePage.xaml.cs">
+      <DependentUpon>CreateLeaguePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -95,7 +95,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="CreateLeagueWindow.xaml">
+    <Page Include="CreateLeaguePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

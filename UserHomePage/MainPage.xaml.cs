@@ -14,10 +14,8 @@ namespace UserHomePage
     public partial class MainPage : Page
     {
         private readonly LeagueService _leagueService;
-        private TeamService _teamService;
+        private readonly TeamService _teamService;
         private readonly SearchService _searchService;
-        private TeamWindow _teamWindow;
-        private PlayerStatsWindow _playerStatsWindow;
 
         public MainPage()
         {
@@ -54,23 +52,21 @@ namespace UserHomePage
             {
                 var teamObject = ((TeamSearchResultItem)SearchList.SelectedItem).ResultItem;
                 var team = (Team)teamObject;
-                _teamWindow = new TeamWindow(team.Id);
-                _teamWindow.ShowDialog();
+                NavigationService?.Navigate(new TeamPage(team.Id));
             }
             if (SearchList.SelectedItem is PlayerSearchResultItem)
             {
                 var playerObject = ((PlayerSearchResultItem)SearchList.SelectedItem).ResultItem;
                 var player = (Player)playerObject;
                 var team = _teamService.FindTeamByPlayerId(player.Id);
-                _playerStatsWindow = new PlayerStatsWindow(team);
-                _playerStatsWindow.ShowDialog();
+                NavigationService?.Navigate(new PlayerStatsPage(team));
 
             }
             else if (SearchList.SelectedItem.GetType() == typeof(LeagueSearchResultItem))
             {
                 var leagueObject = ((LeagueSearchResultItem)SearchList.SelectedItem).ResultItem;
                 var league = (League)leagueObject;
-                NavigationService.Navigate(new LeaguePage(league));
+                NavigationService?.Navigate(new LeaguePage(league));
             }
         }
     }

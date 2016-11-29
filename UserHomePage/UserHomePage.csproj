@@ -61,17 +61,17 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MatchProtocolPage.xaml.cs">
+      <DependentUpon>MatchProtocolPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PlayerStatsPage.xaml.cs">
       <DependentUpon>PlayerStatsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PlayerStatsWindow.xaml.cs">
-      <DependentUpon>PlayerStatsWindow.xaml</DependentUpon>
+    <Compile Include="SerieSchedulePage.xaml.cs">
+      <DependentUpon>SerieSchedulePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MatchListWindow.xaml.cs">
-      <DependentUpon>MatchListWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TeamWindow.xaml.cs">
-      <DependentUpon>TeamWindow.xaml</DependentUpon>
+    <Compile Include="TeamPage.xaml.cs">
+      <DependentUpon>TeamPage.xaml</DependentUpon>
     </Compile>
     <Page Include="LeaguePage.xaml">
       <SubType>Designer</SubType>
@@ -89,30 +89,23 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MatchProtocol.xaml.cs">
-      <DependentUpon>MatchProtocol.xaml</DependentUpon>
-    </Compile>
-    <Page Include="MatchProtocol.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MatchProtocolPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PlayerStatsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PlayerStatsWindow.xaml">
+    <Page Include="SerieSchedulePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MatchListWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="TeamWindow.xaml">
+    <Page Include="TeamPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

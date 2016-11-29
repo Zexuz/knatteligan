@@ -1,47 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using knatteligan.Domain.Entities;
 using knatteligan.Helpers;
 using knatteligan.Services;
 
-namespace KnatteliganWPF
+namespace UserHomePage
 {
-    public partial class SeriesScheduleWindow
+    /// <summary>
+    /// Interaction logic for SerieSchedulePage.xaml
+    /// </summary>
+    public partial class SerieSchedulePage : Page
     {
         public SerializableDictionary<int, MatchWeek> GameWeeks { get; set; }
 
         private readonly MatchService _matchRepositoryService;
-        private readonly LeagueService _leagueService;
-        private readonly Guid _currentLeagueId;
 
-        public SeriesScheduleWindow(Guid currentLeagueId)
+        public SerieSchedulePage(Guid currentLeagueId)
         {
-            _currentLeagueId = currentLeagueId;
+            GameWeeks = new LeagueService().FindById(currentLeagueId).MatchWeeks;
             _matchRepositoryService = new MatchService();
             InitializeComponent();
-            _leagueService = new LeagueService();
-
             DataContext = this;
         }
 
-        private void SeriesScheduleWindowActivated(object sender, EventArgs e)
+        private void MatchListWindowActivated(object sender, EventArgs e)
         {
             Resources["Drinks"] = GameWeeks;
         }
 
-        private void listView_Click(object sender, SelectionChangedEventArgs e)
+        private void GameWeeksList_Click(object sender, SelectionChangedEventArgs e)
         {
-            Trace.WriteLine("I clicked antoer!");
             var currentMatchWeek = (KeyValuePair<int, MatchWeek>)e.AddedItems[0];
-
             var matches = currentMatchWeek.Value.MatchIds.Select(guid => _matchRepositoryService.FindById(guid));
-
             CurrentMatchWeekMatches.ItemsSource = new ObservableCollection<Match>(matches);
         }
 
@@ -49,18 +43,13 @@ namespace KnatteliganWPF
         {
             var listItem = sender as ListBox;
             var match = (Match)listItem.SelectedItems[0];
-            var matchProtocolWindow = new MatchProtocolWindow(match);
-            matchProtocolWindow.ShowDialog();
+            NavigationService.Navigate(new MatchProtocolPage(match));
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void AllMatches_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
-            //var currentLeague = _leagueService.FindById(_currentLeagueId);
-
-            var manageLeagueWindow = new CreateLeagueWindow(_currentLeagueId);
-
-            manageLeagueWindow.ShowDialog();
+            var matches = _matchRepositoryService.GetAll();
+            CurrentMatchWeekMatches.ItemsSource = new ObservableCollection<Match>(matches);
         }
     }
 }

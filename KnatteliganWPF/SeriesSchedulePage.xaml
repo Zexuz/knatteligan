@@ -1,12 +1,12 @@
-<Window x:Class="KnatteliganWPF.SeriesScheduleWindow"
+<Page x:Class="KnatteliganWPF.SeriesSchedulePage"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KnatteliganWPF"
         mc:Ignorable="d"
-        Activated="SeriesScheduleWindowActivated"
-        Title="MatchProtocolWindow" Height="400" Width="400">
+        Title="MatchProtocolPage" Height="400" Width="400"
+      Loaded="SeriesSchedulePage_OnLoaded">
     <Grid Margin="0,0,2,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -40,7 +40,6 @@
             Grid.RowSpan="8"
             Grid.ColumnSpan="2"
             Name="GameWeeksList"
-            ItemsSource="{DynamicResource Drinks}"
             SelectionChanged ="listView_Click">
             <ListView.View>
                 <GridView>
@@ -67,4 +66,4 @@
     </Grid>
 
 
-</Window>
+</Page>

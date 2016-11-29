@@ -126,6 +126,7 @@ namespace KnatteliganWPF
         private void RemovePlayerBtn_Click(object sender, RoutedEventArgs e)
         {
             var player = (Player)PlayerList.SelectedItem;
+            if(player== null) return;
             _personService.RemovePlayer(player.Id);
             Players.Remove(player);
         }
@@ -133,6 +134,7 @@ namespace KnatteliganWPF
         private void EditPlayerBtn_Click(object sender, RoutedEventArgs e)
         {
             var player = (Player)PlayerList.SelectedItem;
+            if(player== null) return;
 
             var addPlayerWindow = new AddPlayerWindow(true)
             {

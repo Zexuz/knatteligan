@@ -210,6 +210,10 @@ namespace KnatteliganWPF
             AddAssistButton.IsEnabled = true;
             AddYellowCardButton.IsEnabled = true;
             AddRedCardButton.IsEnabled = true;
+
+            if (listBox?.SelectedItems == null) return;
+            var player = (Player) listBox.SelectedItem;
+            PlayerHasMaxCardsOnHim(player);
         }
 
         private void OpenAddTeamSquadAndGetPlayerIds(bool isHomeTeam)

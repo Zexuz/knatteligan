@@ -212,6 +212,8 @@ namespace KnatteliganWPF
             AddAssistButton.IsEnabled = true;
             AddYellowCardButton.IsEnabled = true;
             AddRedCardButton.IsEnabled = true;
+
+            
         }
 
         private void OpenAddTeamSquadAndGetPlayerIds(bool isHomeTeam)

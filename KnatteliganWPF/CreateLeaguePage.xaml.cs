@@ -136,12 +136,20 @@ namespace KnatteliganWPF
         private void CloseCommandHandler_Click(object sender, RoutedEventArgs e)
         {
             
-            if (leagueName.Text.Length > 0)
+            if (leagueName.Text.Length > 0 || Teams.Count > 0)
             {
                 var result = MessageBox.Show("Are you sure you want to cancel?", "Message", MessageBoxButton.YesNo);              
                 switch (result)
                 { 
-                    case MessageBoxResult.Yes:  
+                    case MessageBoxResult.Yes:
+                        leagueName.Text = "";
+                        foreach (var team in Teams)
+                        {
+                            _teamService.Remove(team);
+                        }
+                        Teams = new ObservableCollection<Team>();
+                        TeamList.ItemsSource = Teams;
+                         
                         NavigationService.GoBack();
                         break;
                     case MessageBoxResult.No:

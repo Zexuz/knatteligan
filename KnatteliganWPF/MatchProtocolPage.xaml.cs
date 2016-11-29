@@ -31,8 +31,8 @@ namespace KnatteliganWPF
         private ListBox _currentFocusedListBox;
         private readonly ObservableCollection<MatchEvent> _matchEventsHome;
         private readonly ObservableCollection<MatchEvent> _matchEventsAway;
-        private List<Guid> _awayTeamSquadId;
-        private List<Guid> _homeTeamSquadId;
+        private IEnumerable<Player> _awayTeamSquadId;
+        private List<Player> _homeTeamSquadId;
 
         public MatchProtocolPage(Match match)
         {
@@ -82,12 +82,16 @@ namespace KnatteliganWPF
             AwayTeamGoals.Text = awayGoal.ToList().Count.ToString();
             DatePicker.DisplayDate = match.MatchDate;
 
-
-            AwayTeamList.ItemsSource =
-                new ObservableCollection<Player>(match.AwayTeamSquadId.Select(_personService.FindPlayerById));
-            HomeTeamList.ItemsSource =
-                new ObservableCollection<Player>(match.HomeTeamSquadId.Select(_personService.FindPlayerById));
-
+            if (match.AwayTeamSquadId != null)
+            {
+                _awayTeamSquadId = match.AwayTeamSquadId.Select(_personService.FindPlayerById).ToList();
+                AwayTeamList.ItemsSource = new ObservableCollection<Player>(_awayTeamSquadId);
+            }
+            if (match.HomeTeamSquadId != null)
+            {
+                _homeTeamSquadId = match.HomeTeamSquadId.Select(_personService.FindPlayerById).ToList();
+                HomeTeamList.ItemsSource = new ObservableCollection<Player>(_homeTeamSquadId);
+            }
             _matchEventsTemp = new List<MatchEvent>();
         }
 
@@ -206,8 +210,10 @@ namespace KnatteliganWPF
         private void OpenAddTeamSquadAndGetPlayerIds(bool isHomeTeam)
         {
             var listOfPlayers = isHomeTeam ? HomeTeamPlayers : AwayTeamPlayers;
+            var listOfPlayersAlreadySet = isHomeTeam ? _homeTeamSquadId : _awayTeamSquadId;
 
-            var setSquadWindow = new SetTeamSquadWindow(listOfPlayers, Match.Id);
+            var setSquadWindow = new SetTeamSquadWindow(listOfPlayers, Match.Id,
+                listOfPlayersAlreadySet.Select(p => p.Id).ToList());
             var resWindow = setSquadWindow.ShowDialog();
             if (resWindow.HasValue && !resWindow.Value)
             {
@@ -225,12 +231,12 @@ namespace KnatteliganWPF
 
             if (isHomeTeam)
             {
-                _homeTeamSquadId = players.Select(p => p.Id).ToList();
+                _homeTeamSquadId = players;
                 HomeTeamList.ItemsSource = new ObservableCollection<Player>(players);
             }
             else
             {
-                _awayTeamSquadId = players.Select(p => p.Id).ToList();
+                _awayTeamSquadId = players;
                 AwayTeamList.ItemsSource = new ObservableCollection<Player>(players);
             }
         }

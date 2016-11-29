@@ -175,7 +175,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="package.config" />
     <Content Include="Resources\XMLData\GameEvents\Assists.xml" />
     <Content Include="Resources\XMLData\GameEvents\Goals.xml" />
     <Content Include="Resources\XMLData\GameEvents\RedCards.xml" />

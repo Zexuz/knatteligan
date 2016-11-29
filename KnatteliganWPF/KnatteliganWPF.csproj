@@ -67,7 +67,6 @@
       <DependentUpon>AddTeamWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\IsEnabledConverter.cs" />
-    <Compile Include="Converters\IsSelectedMultiConverter.cs" />
     <Compile Include="Converters\MatchEventToStringConverter.cs" />
     <Compile Include="Converters\LeagueNameToStringConverter.cs" />
     <Compile Include="Converters\PersonNameToStringConverter.cs" />

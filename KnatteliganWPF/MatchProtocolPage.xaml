@@ -8,8 +8,7 @@
         mc:Ignorable="d"
         Title="MatchProtocolPage" Height="420" Width="500">
     <Page.Resources>
-        <converters:MatchEventToStringConverter x:Key="MatchEventToStringConverter" />
-        <converters:IsSelectedMultiConverter x:Key="IsSelectedMultiConverter" />
+        <converters:MatchEventToStringConverter x:Key="MatchEventToStringConverter"/>
     </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -48,29 +47,22 @@
         <ListBox Name="AwayTeamList" Grid.ColumnSpan="3" Grid.RowSpan="7" Grid.Row="4" Grid.Column="4"
                  Margin="51,12,5,17" FontWeight="Bold" SelectionChanged="List_OnSelected" />
 
-        <Button Name="AddGoalButton"  Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+        <Button Name="AddGoalButton" IsEnabled="False"  Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center"
                 Content="Add Goal"
-                Click="AddGoal_OnClick">
-            <Button.IsEnabled>
-            <MultiBinding Converter="{StaticResource IsSelectedMultiConverter}">
-                    <Binding ElementName="HomeTeamList" Path="SelectedItems.Count"/>
-                </MultiBinding>
-            </Button.IsEnabled>
-
-        </Button>
+                Click="AddGoal_OnClick"/>
             
-
-        <Button Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+        <Button Name="AddAssistButton" IsEnabled="False" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Center"
                 Content="Add Assist"
-                Click="AddAssist_OnClick" />
-
-        <Button Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+                Click="AddAssist_OnClick"/>
+            
+        <Button Name="AddYellowCardButton" IsEnabled="False" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Center"
                 Content="Add YellowCard"
-                Click="AddYellowCard_OnClick" />
-
-        <Button Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+                Click="AddYellowCard_OnClick"/>
+            
+        <Button Name="AddRedCardButton" IsEnabled="False" Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="2" HorizontalAlignment="Center"
                 Content="Add RedCard"
-                Click="AddRedCard_OnClick" />
+                Click="AddRedCard_OnClick"/>
+            
 
 
         <DatePicker Name="DatePicker" Width="110" Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="2" Margin="33,5,26,0" />

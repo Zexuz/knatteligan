@@ -89,6 +89,8 @@ namespace KnatteliganWPF
                 new ObservableCollection<Player>(match.HomeTeamSquadId.Select(_personService.FindPlayerById));
 
             _matchEventsTemp = new List<MatchEvent>();
+
+            
         }
 
         #region OnClick /OnSelected Events
@@ -119,6 +121,7 @@ namespace KnatteliganWPF
 
         private void AddGoal_OnClick(object sender, RoutedEventArgs e)
         {
+            
             AddMatchEvent(MatchEvents.Goal);
         }
 

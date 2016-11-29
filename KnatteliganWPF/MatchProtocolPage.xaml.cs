@@ -110,12 +110,12 @@ namespace KnatteliganWPF
 
         private void SaveProtocol_OnClick(object sender, RoutedEventArgs e)
         {
-            _matchService.RemoveMatchEventsFromMatchAndTeams(Match.Id,Match.AwayTeamId,Match.HomeTeamId);
+            _matchService.RemoveMatchEventsFromMatchAndTeams(Match.Id, Match.AwayTeamId, Match.HomeTeamId);
             _matchService.ChangeDate(Match.Id, DatePicker.DisplayDate);
             _matchService.SetStartSquad(Match.Id, true, _homeTeamSquadId);
             _matchService.SetStartSquad(Match.Id, false, _awayTeamSquadId);
-            _matchService.SaveMatch(Match.Id, _matchEventsTemp);NavigationService?.GoBack();
-
+            _matchService.SaveMatch(Match.Id, _matchEventsTemp);
+            NavigationService?.GoBack();
         }
 
         private void AddGoal_OnClick(object sender, RoutedEventArgs e)
@@ -246,8 +246,8 @@ namespace KnatteliganWPF
             _matchEventsHome.Remove(matchEvent);
 
 
-            var homeTeam= new TeamService().FindById(Match.HomeTeamId);
-            var awayTeam= new TeamService().FindById(Match.AwayTeamId);
+            var homeTeam = new TeamService().FindById(Match.HomeTeamId);
+            var awayTeam = new TeamService().FindById(Match.AwayTeamId);
 
             var homeGoal = GetMatchEventsForTeam(homeTeam).Where(ev => ev.GetType() == MatchEvents.Goal);
             var awayGoal = GetMatchEventsForTeam(awayTeam).Where(ev => ev.GetType() == MatchEvents.Goal);

@@ -24,6 +24,11 @@
       <guid>836e89c6-6aa2-4392-8c4e-8aa1561296d1</guid>
     </PlayerIds>
     <CoachId>da135020-fc63-4573-a53f-ddf861a99fa8</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>0fe2356e-6719-4b96-a196-eb00fa8a9821</Id>
@@ -49,6 +54,11 @@
       <guid>896d49d5-14ea-4974-9ea4-517458ca044c</guid>
     </PlayerIds>
     <CoachId>f793aeb7-2aba-42e8-b343-66ccd47ca17a</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>3622e3d6-d7f6-47c2-8939-10baada14ab1</Id>
@@ -74,6 +84,11 @@
       <guid>dd386c5e-8169-4036-a8d2-d72e442ec32a</guid>
     </PlayerIds>
     <CoachId>8660d852-b748-4878-9732-a4ad15d19469</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>ba7f9b98-90ea-4354-b40b-b6ecddab9c5a</Id>
@@ -99,6 +114,11 @@
       <guid>28537341-23e4-46e5-b7e0-454a549a37c1</guid>
     </PlayerIds>
     <CoachId>26c26430-af55-4ffc-bd20-b8e93e01817c</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>40834913-f583-4db1-8a35-13a6fccd6255</Id>
@@ -124,6 +144,11 @@
       <guid>5cf154ed-4c70-44c9-bcf6-23c05e612c60</guid>
     </PlayerIds>
     <CoachId>a2c0f122-7f9d-4860-a400-fb920d6596f3</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>e1305562-3c78-4c30-9003-9c64150354d0</Id>
@@ -149,6 +174,11 @@
       <guid>1c55d6d7-33f6-4577-a3b5-f8073cddb149</guid>
     </PlayerIds>
     <CoachId>5e24194a-e6b5-4a38-90d5-b1b5ea3c0dbe</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>f218a457-b058-4f45-932a-d31dcc46792f</Id>
@@ -174,6 +204,11 @@
       <guid>d723d943-8577-41e0-a101-6f5f2dee4a38</guid>
     </PlayerIds>
     <CoachId>20d22ad9-4eb4-4c47-b656-c4474aec56a2</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>d5ee1095-f2bc-4336-8dfa-852ece7e10c0</Id>
@@ -199,6 +234,11 @@
       <guid>d665ee80-7da0-4e15-ab24-a24b586ff82c</guid>
     </PlayerIds>
     <CoachId>1140cea7-d625-4445-9850-57ffa73e5e8f</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>13659735-2045-4fb9-a3dd-ac00002116af</Id>
@@ -224,6 +264,11 @@
       <guid>dcb0a25f-ee06-455b-8c48-55a4b63190cc</guid>
     </PlayerIds>
     <CoachId>29494e70-bb2e-4dbd-b5b9-9dc8d7c1dae4</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>9bd55070-2a08-483d-a3d7-cafc1fd15cc7</Id>
@@ -249,6 +294,11 @@
       <guid>8c15bd2a-ec88-424a-9519-0cfadb3e2c1a</guid>
     </PlayerIds>
     <CoachId>c1be9f41-c03a-43f7-8c27-d3dce0b91cb7</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>755afdbd-abd2-4d3d-81bd-b123ecc60ed4</Id>
@@ -274,6 +324,11 @@
       <guid>0d69d0ce-82d6-40a6-be10-c5467d085f71</guid>
     </PlayerIds>
     <CoachId>ce27c54a-b17e-4b68-9a66-368be6ade903</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>29c5a7f3-7f50-4968-a227-509bafb04780</Id>
@@ -299,6 +354,11 @@
       <guid>efe98607-662d-44f1-bff9-b374c4928a4d</guid>
     </PlayerIds>
     <CoachId>7a88c479-1408-4c9e-982f-799d8f51aa96</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>06cd0f99-5007-425b-a928-6fdf633d01e9</Id>
@@ -324,6 +384,11 @@
       <guid>bbc89504-d3bf-453c-9bd2-cfae380dd3bd</guid>
     </PlayerIds>
     <CoachId>90684844-c8e1-47f3-93fa-93a568f9e873</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>6b97dcfb-475e-4ff5-b9eb-b5b0594b39b3</Id>
@@ -349,6 +414,11 @@
       <guid>ce43bb3b-1a54-47db-a7e3-ef4de3785241</guid>
     </PlayerIds>
     <CoachId>d6fc50a6-95c6-4d5d-87a2-072f70e89cad</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>a7641924-a95a-4714-bc3b-3e79581d6507</Id>
@@ -374,6 +444,11 @@
       <guid>121db275-87a9-45da-84fd-904078ed0278</guid>
     </PlayerIds>
     <CoachId>9a3ccf70-4eaa-47d8-8ee8-88fe2830f2af</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>8c922ac5-4c07-4505-a9d3-ec1c498aa757</Id>
@@ -399,6 +474,11 @@
       <guid>fcf4a077-6149-4e7e-8ed4-47fb7c2bb9ef</guid>
     </PlayerIds>
     <CoachId>77883ce7-9f58-41ca-af74-1ff6c11dd762</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>1abf3dac-4176-481b-8aac-861feed5f8cf</Id>
@@ -424,6 +504,11 @@
       <guid>b1dd61b1-1230-4167-88d4-b20f511ab721</guid>
     </PlayerIds>
     <CoachId>8642e565-9e69-4841-b22d-1a4484afaa6b</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>e61644c3-bb6e-4694-a272-af9a5dd8da7c</Id>
@@ -449,6 +534,11 @@
       <guid>f15ade5f-304c-4977-abe3-3f37770d4ef8</guid>
     </PlayerIds>
     <CoachId>c5304625-624c-47a5-9c83-a6a37ec25999</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>80ec8055-7357-41c1-b038-a509db1e106c</Id>
@@ -474,6 +564,11 @@
       <guid>dcf8c677-f270-4255-8591-f1c754e7a86f</guid>
     </PlayerIds>
     <CoachId>281d29ca-27e1-496a-9bf4-499be5fc7bbb</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>09f79bc1-d9bf-4d94-b8db-6a320d04e1ad</Id>
@@ -499,6 +594,11 @@
       <guid>a6cec3e5-1ed3-4bc7-8443-7f59164eac07</guid>
     </PlayerIds>
     <CoachId>07329616-b009-49cd-925d-12b1d8316b90</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>1e0a9c50-7944-47ad-bc4e-afaacf3563da</Id>
@@ -524,6 +624,11 @@
       <guid>adb9afbd-8eca-43e4-b700-86420ba3ef9c</guid>
     </PlayerIds>
     <CoachId>19a5c61c-590d-49e2-9022-0793b2a20ef3</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>b5068cf9-ddca-4bac-b66a-cce452b10c5f</Id>
@@ -549,6 +654,11 @@
       <guid>740c7ec6-abd4-44ee-8a79-2f3af0bfaf03</guid>
     </PlayerIds>
     <CoachId>c04511e2-13a6-4a88-8e46-7c369cb43dac</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>c93caae2-c87e-4471-82f6-a999201f20d0</Id>
@@ -574,6 +684,11 @@
       <guid>8b0e2d2e-c522-45cf-be96-1d883fa12e7c</guid>
     </PlayerIds>
     <CoachId>7b0c4ed4-79d5-4558-a2e8-fc053b271c66</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>139099a3-4a55-49c8-9c5b-4bcc199e6eb1</Id>
@@ -599,6 +714,11 @@
       <guid>16ea72f3-2930-477d-afd7-f0803315a1de</guid>
     </PlayerIds>
     <CoachId>af9d0bb4-f5b9-4a86-babf-5a22fa21634f</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>747b231b-80f4-41e6-b41e-8fae347aeb17</Id>
@@ -624,6 +744,11 @@
       <guid>49c39c5a-1900-4b51-b0df-b718ebc76b97</guid>
     </PlayerIds>
     <CoachId>abf8dbbc-8bff-4c07-817c-f4f471b7a465</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>938a0c8c-72e1-49a0-9d63-ed00b5763efb</Id>
@@ -649,6 +774,11 @@
       <guid>5187159c-45d7-43da-a910-fece1b6edfd3</guid>
     </PlayerIds>
     <CoachId>e06f5428-797e-4d94-ac87-105945b12f8b</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>8c78eb0b-8b68-415a-899f-76785c942d7e</Id>
@@ -674,6 +804,11 @@
       <guid>b6e29268-83b8-47fb-96c7-7e6a081d10bc</guid>
     </PlayerIds>
     <CoachId>f100cfe6-e1d0-474b-881e-c53f4203d24c</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>b8f3a88b-797b-490e-b451-d87c9618409f</Id>
@@ -699,6 +834,11 @@
       <guid>d0703715-8bed-4d14-a759-60dd06992223</guid>
     </PlayerIds>
     <CoachId>ef923f23-a63b-4b33-b944-52e739010ccd</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>bbaa55fb-8e6c-4983-9cb1-8b72c81c137f</Id>
@@ -724,6 +864,11 @@
       <guid>36311f52-2884-4b11-874a-ed93facfd085</guid>
     </PlayerIds>
     <CoachId>f5f3cabd-07cc-4427-b205-8abcb29f169a</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>09c88e72-74b4-4c6f-9bfd-aec91fcdfaa8</Id>
@@ -749,6 +894,11 @@
       <guid>ead64545-5e37-438c-aa9a-821efc0cd4c2</guid>
     </PlayerIds>
     <CoachId>31ff7570-5ce7-4212-be3d-404d1f7b5f99</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>907ee63e-1ccd-439b-987b-396a9f8e32a1</Id>
@@ -774,6 +924,11 @@
       <guid>3a078c6d-17e1-4cd9-9008-f35ae5ce4cfc</guid>
     </PlayerIds>
     <CoachId>695b77f4-5f0d-4e30-8067-2bb25e0e0256</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>9e816b56-05ba-4a69-8f61-a3483b16634d</Id>
@@ -799,6 +954,11 @@
       <guid>421d37f8-e7bf-41e0-b2a5-98b354ecc831</guid>
     </PlayerIds>
     <CoachId>de92cddf-0fe8-4a5f-a1ed-4bcf64152260</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>167e801b-0d4d-4cbd-b951-ebfb503801f6</Id>
@@ -824,6 +984,11 @@
       <guid>57969cdf-ce50-4510-a982-4605674bec7a</guid>
     </PlayerIds>
     <CoachId>29dc6b71-0880-4d96-a9f6-17e43a510e16</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>9c0259ae-21e6-437d-a6e4-89aca05e2217</Id>
@@ -849,6 +1014,11 @@
       <guid>b6e2f250-b86e-4d41-9b85-41b4fd61eb19</guid>
     </PlayerIds>
     <CoachId>9f784718-85e4-4502-a959-8c3a4a2000d2</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>1b1053e1-9455-4665-898b-f29cf16027df</Id>
@@ -874,6 +1044,11 @@
       <guid>671668f0-98cd-4347-afca-b816e53e6707</guid>
     </PlayerIds>
     <CoachId>47ee74ea-5a0e-498d-8be7-f2f51cfa5992</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>6e265560-a248-4c90-9086-77ea089310fd</Id>
@@ -899,6 +1074,11 @@
       <guid>4befd54e-1988-4cd5-a05f-ff6f759f4575</guid>
     </PlayerIds>
     <CoachId>fc6459f6-e698-40d2-ae21-2dc46ccace51</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>be5503e9-9ca9-4237-8a91-627f3b5c5a91</Id>
@@ -924,6 +1104,11 @@
       <guid>72bf658a-4dcb-491c-90f1-23d91c10a975</guid>
     </PlayerIds>
     <CoachId>2ea6a3ce-d5e4-488d-a80a-6c235deb2033</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>b1a91a5a-98db-4d52-a216-e4a6ce448418</Id>
@@ -949,6 +1134,11 @@
       <guid>efc23a12-2474-4bb8-ab14-a2ed118dd5cb</guid>
     </PlayerIds>
     <CoachId>3f1db4ee-f017-431a-b136-df2dde503dc8</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>eaf396cc-5e65-4ff2-8492-438f1d23e91e</Id>
@@ -974,6 +1164,11 @@
       <guid>a8bba68c-390c-49b5-ba73-9c1b11d17724</guid>
     </PlayerIds>
     <CoachId>f84d6221-96ea-46a4-8ea3-17fb0d561bb0</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>8419c37a-8db6-4677-b99b-933167ad0ae0</Id>
@@ -999,6 +1194,11 @@
       <guid>64c7af3c-a409-40d3-87a4-3a5259aa14be</guid>
     </PlayerIds>
     <CoachId>50e0b7ed-34ec-4101-9049-acd8f27931f0</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>fd6c9252-12a4-4e5d-b02c-c06adf694cfe</Id>
@@ -1024,6 +1224,11 @@
       <guid>0794d922-e1a8-4edf-979f-d98d8b788219</guid>
     </PlayerIds>
     <CoachId>731db3a5-7a51-475d-95e9-eeeb15d55125</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>868b0274-d119-4efd-b612-f5476555597c</Id>
@@ -1049,6 +1254,11 @@
       <guid>a772e705-2b45-4a06-a39c-172befa31e3a</guid>
     </PlayerIds>
     <CoachId>33f83e44-5125-450c-bd0b-b9a0d9ae4ca4</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>234ac205-de48-4689-879f-cc7b79ae1216</Id>
@@ -1074,6 +1284,11 @@
       <guid>4c2b8ed0-9f28-462a-b257-0f10648abc5a</guid>
     </PlayerIds>
     <CoachId>dca65cd6-6a8d-4279-b91b-aef4f3f0f028</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>f60c5039-4d70-45fc-83a1-d04826a3427f</Id>
@@ -1099,6 +1314,11 @@
       <guid>9f6feae6-d0ed-445d-b647-b6973266bd7a</guid>
     </PlayerIds>
     <CoachId>0f0b5e50-1d62-4cfa-b754-f4707040863f</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>0f2036f5-f392-4808-baf6-fdd638394911</Id>
@@ -1124,6 +1344,11 @@
       <guid>ba443628-86ea-4847-9e92-1bc295db251c</guid>
     </PlayerIds>
     <CoachId>c192797b-f1fc-41f7-a752-4809edfd5abb</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>9db668ef-2007-4711-a7b3-acfe84011f4b</Id>
@@ -1149,6 +1374,11 @@
       <guid>e013dde0-1a86-45ce-a04a-7154b89bd557</guid>
     </PlayerIds>
     <CoachId>03ae6a99-ab99-4fd6-8f7c-e5c296cb0895</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>13effd77-7bf1-4908-a93d-47e9ba33779d</Id>
@@ -1174,6 +1404,11 @@
       <guid>32013562-0e70-49fa-b303-16cd96191227</guid>
     </PlayerIds>
     <CoachId>8aac3890-c12e-4d2b-ad79-04d4e1dce2bc</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>5f2078ef-f09d-4740-8b7e-c9f7129849a7</Id>
@@ -1199,6 +1434,11 @@
       <guid>f1f369fa-3e34-4205-84b3-f74c29dc9d79</guid>
     </PlayerIds>
     <CoachId>c8be4171-363d-4fe2-bd06-411724840b3f</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>89d9490a-f796-47d1-a5bf-053141eb2599</Id>
@@ -1224,6 +1464,11 @@
       <guid>0c293806-2d2c-48c0-98ca-23fe46bca6c7</guid>
     </PlayerIds>
     <CoachId>a617ff14-bf89-4503-88c8-a15dbfab45b9</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>4802d53b-8519-4fbc-bcfd-879743a27014</Id>
@@ -1249,6 +1494,11 @@
       <guid>ead01e93-9d66-4c54-a8d4-bfc0e56b9944</guid>
     </PlayerIds>
     <CoachId>55f8368d-9a42-4d65-a073-4aa7f229e971</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>7ce11e1a-1dae-4c52-942e-60d91d580ef0</Id>
@@ -1274,6 +1524,11 @@
       <guid>7f5616c3-f87d-4c70-9ba0-d655758ad46d</guid>
     </PlayerIds>
     <CoachId>4d52089d-c557-4121-afb0-2b6e83be721d</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>9176431e-b95c-426a-8c1b-b6e67def6d12</Id>
@@ -1299,6 +1554,11 @@
       <guid>7292fa99-1ff0-4833-bb9a-11f70ebe5431</guid>
     </PlayerIds>
     <CoachId>7b3c32e1-4411-4a43-9e3d-fe6a9fc993ab</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>6d293c78-1d82-4554-a7ba-aaec10bf1d7e</Id>
@@ -1324,6 +1584,11 @@
       <guid>21d24df7-4936-4761-b4d8-d4e95860358b</guid>
     </PlayerIds>
     <CoachId>5ced7d1b-da4f-469d-8d68-dede01465443</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>d12cd0ff-cc0e-4c2d-9ea0-7d158aec0f3b</Id>
@@ -1349,6 +1614,11 @@
       <guid>ddfdd2b3-3305-4f91-a237-f09b3f1d7bd6</guid>
     </PlayerIds>
     <CoachId>8dbd624a-44ed-4be1-9ac6-8e446d7cbaa8</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>bc208c27-61b8-4ac1-b59b-47f49ceed211</Id>
@@ -1374,6 +1644,11 @@
       <guid>c40b27ff-6625-404d-b93e-e0f7faef86a5</guid>
     </PlayerIds>
     <CoachId>33ce7778-d806-45fa-af97-dd653634460a</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>b0bef248-aeff-4806-8209-ea6d597b43d8</Id>
@@ -1399,6 +1674,11 @@
       <guid>7549e6f6-7062-4ed7-89f9-80e09384b6fc</guid>
     </PlayerIds>
     <CoachId>336f70f8-c69b-47b8-914c-ced4f72c4497</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>b0bbf470-0435-492a-9b4f-f17fc9ee692a</Id>
@@ -1424,6 +1704,11 @@
       <guid>615492cb-d419-4b1d-b06a-4dd10bd4d3ef</guid>
     </PlayerIds>
     <CoachId>2b54d722-af96-4a69-a167-f0d5b10bf725</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>0e493998-716b-4c23-92ba-ab0a743636b3</Id>
@@ -1449,6 +1734,11 @@
       <guid>e099b139-d031-4f03-bb7c-5c40f054cb2a</guid>
     </PlayerIds>
     <CoachId>d5e8d7e8-ae22-40f1-896e-90aa33ebc883</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>e7b3690f-f39d-434b-91b3-fe19890fb936</Id>
@@ -1474,6 +1764,11 @@
       <guid>a64e596a-7ebd-4213-80ca-71f81073a88f</guid>
     </PlayerIds>
     <CoachId>fe25acd0-dcaf-47a7-ba3d-f2ecad7c94f9</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>97b2c8f5-e57e-4f1d-9c41-9bea65a4524c</Id>
@@ -1499,6 +1794,11 @@
       <guid>8e1d7a4d-2dc4-4487-8686-af03d4222ee9</guid>
     </PlayerIds>
     <CoachId>87b69f0c-1429-45d7-92e7-07cba3fb4758</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>8f8b0237-0c1f-4f96-8ae2-f388f60f4546</Id>
@@ -1524,6 +1824,11 @@
       <guid>28a587c5-9d00-4468-9110-4c43a2bd2b39</guid>
     </PlayerIds>
     <CoachId>f9233e27-904d-4986-bd8f-07db0c011366</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>46386b71-3730-41af-9db1-4d8467810943</Id>
@@ -1549,6 +1854,11 @@
       <guid>3e52ab1b-d165-42bd-86d3-8c8c6384425f</guid>
     </PlayerIds>
     <CoachId>6affbe60-5452-4394-bb5a-d9a91e5c3a67</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>c2766a0e-cc32-4656-b3da-036c85f3e906</Id>
@@ -1574,6 +1884,11 @@
       <guid>be121a3a-cd79-4808-88b7-06deb56b69ca</guid>
     </PlayerIds>
     <CoachId>3541b634-6605-49cc-9d2c-75b68dfa43ca</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>7545af3f-a571-4b1e-a6b1-67723c0dbac7</Id>
@@ -1599,6 +1914,11 @@
       <guid>28c6a2fd-738f-407a-8283-4980ff98b301</guid>
     </PlayerIds>
     <CoachId>1b86d16d-ec3b-4d17-8715-8e641d1c3c57</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>e8672255-c706-46f4-a3e7-7ae207b4ff3c</Id>
@@ -1624,6 +1944,11 @@
       <guid>9f562217-2b21-409c-b50f-8a0482465704</guid>
     </PlayerIds>
     <CoachId>0f2dd3aa-3ed1-49f1-9a82-5a12cd2ec157</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>2f986970-f5b1-4777-ba86-33c06e4e2637</Id>
@@ -1649,6 +1974,11 @@
       <guid>2281af89-e642-420a-a47e-40efeac3e054</guid>
     </PlayerIds>
     <CoachId>5f972a26-e9dc-4da7-a56e-1c1c47ea1327</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>70fced90-b947-471e-84e9-59d1564676d4</Id>
@@ -1674,6 +2004,11 @@
       <guid>245444c2-ef5c-46b1-a7a6-04c9c4e14ac6</guid>
     </PlayerIds>
     <CoachId>ca4befac-e622-4bdd-bdd8-1e447c175a3a</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>ffebdc9d-2b2c-4a1f-93a1-ff06bb385dcf</Id>
@@ -1699,6 +2034,11 @@
       <guid>d42aa486-3c55-477b-95e6-f39d2cf2509e</guid>
     </PlayerIds>
     <CoachId>f9e77977-c38f-4f32-a31b-ea93532823fd</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>c3f68a9c-b1cf-4ae6-9346-1ea87ab16750</Id>
@@ -1724,6 +2064,11 @@
       <guid>67132ff3-d5c7-47d8-944b-c6469ae11344</guid>
     </PlayerIds>
     <CoachId>9791afa1-00d1-469c-9217-a8aac0c9c3a3</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>6777df16-a671-4856-b8e8-e8966d68ea81</Id>
@@ -1749,6 +2094,11 @@
       <guid>c4965ea5-8fa7-4df7-a592-c9c823266cb8</guid>
     </PlayerIds>
     <CoachId>fa59eca9-28d7-4c1e-a53c-e6a478a3b9fd</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>064ef5b3-cf8e-4b70-b006-defb35e5cf37</Id>
@@ -1774,6 +2124,11 @@
       <guid>33ac7263-3997-4b10-af0e-388a45336bd0</guid>
     </PlayerIds>
     <CoachId>69c9a00e-37cf-49ff-8193-005d6d400229</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>83fa2597-2862-463e-9fa9-365261e35b52</Id>
@@ -1799,6 +2154,11 @@
       <guid>c2d4d2e0-bc96-4d32-87c4-d1e600d51d3f</guid>
     </PlayerIds>
     <CoachId>9fbd2f94-1faf-4cd0-a5e8-14311c58ddad</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>422f1e64-bbc4-4215-8ba6-299d8846cb62</Id>
@@ -1824,6 +2184,11 @@
       <guid>347303f5-52f2-41d9-aa8b-008d13bf72bd</guid>
     </PlayerIds>
     <CoachId>dc54aab9-bd98-4374-bf2a-d1128d8363a5</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>e17cb397-4ee5-4013-bfd3-5a74249506cf</Id>
@@ -1849,6 +2214,11 @@
       <guid>729ce8ac-fc34-43d8-be72-2551b6e62d18</guid>
     </PlayerIds>
     <CoachId>41698098-04ba-4990-9880-f5f4d0f897b3</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>9cd7b6ea-8f7e-4ed4-9461-f44dc6054442</Id>
@@ -1874,6 +2244,11 @@
       <guid>21ccd335-e80e-4362-98d8-dd4eb9eadfc8</guid>
     </PlayerIds>
     <CoachId>317011a8-659e-4639-83d3-8899d54e9185</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>6ace70c6-3c3b-4355-89cc-b5cd6780b717</Id>
@@ -1899,6 +2274,11 @@
       <guid>a8dad811-df24-46c8-a1a8-7e41ab0b6495</guid>
     </PlayerIds>
     <CoachId>ccd5e9ce-0314-4bf5-af71-26723a361580</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>681cdd86-ddbc-497e-8bf7-50d9c607c888</Id>
@@ -1924,6 +2304,11 @@
       <guid>8172e68d-3dea-4024-90f2-90ed67efcbf9</guid>
     </PlayerIds>
     <CoachId>e8c81db6-b968-4c3d-8bf0-4408eb412e93</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>25dc3b55-68e6-478f-ba82-eacc0805653d</Id>
@@ -1949,6 +2334,11 @@
       <guid>98a3cfca-b545-41a6-b6cf-201e5aac7258</guid>
     </PlayerIds>
     <CoachId>b4bbb75c-0ff7-496c-9512-2bf8d7746adf</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>9c2d2129-9fcd-401c-9c9e-8b73aff42123</Id>
@@ -1974,6 +2364,11 @@
       <guid>f71bbaff-0e08-4d75-8154-cbf8476dea84</guid>
     </PlayerIds>
     <CoachId>e1695bf1-a050-4c55-a6a0-7d12e77dd667</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>bd32a69a-b21a-452e-b82f-e899dd6d96fa</Id>
@@ -1999,6 +2394,11 @@
       <guid>70efb787-2fa5-4c3a-8664-4ac929603bdd</guid>
     </PlayerIds>
     <CoachId>5e1ad107-8a3b-492b-ba05-91cfe4544bc3</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>1e1a0964-43ca-4b69-93c0-3331ea110efa</Id>
@@ -2024,6 +2424,11 @@
       <guid>d6fd7338-041c-45ca-8ce5-b427d1cbb225</guid>
     </PlayerIds>
     <CoachId>2a681dc8-1927-4859-8b61-25848a0e6024</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>996615ac-8acd-4fb1-889d-e0a076aa9bd2</Id>
@@ -2049,6 +2454,11 @@
       <guid>f45886b5-8f8c-459b-8235-8e0fdeeacfc4</guid>
     </PlayerIds>
     <CoachId>78dc9a12-f413-4db9-ae63-44ad59c70626</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>b6b15223-dd86-48fe-b14b-55a49d4a4576</Id>
@@ -2074,6 +2484,11 @@
       <guid>7bc1f78b-d326-4e16-a4e6-5a3fcb3581b3</guid>
     </PlayerIds>
     <CoachId>9053416d-7def-4c12-8b1b-33d52e00c65c</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>16500539-38d7-428b-b230-fc89e52b1a26</Id>
@@ -2099,6 +2514,11 @@
       <guid>047e8b33-e690-4058-b674-e32fe72197c0</guid>
     </PlayerIds>
     <CoachId>3ec80d4f-bd01-4d73-adf9-66b8cf2e9fe0</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>29870e34-65dd-443a-b8c5-baf62d4f2765</Id>
@@ -2124,6 +2544,11 @@
       <guid>2770de47-be01-4996-aa76-893d703e4a5d</guid>
     </PlayerIds>
     <CoachId>e1a44027-c99b-4779-9472-874d4e3f56e3</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>c248abe5-ba17-4ee9-90c3-3f0d104906cc</Id>
@@ -2149,6 +2574,11 @@
       <guid>3b6e92cf-d87d-4d71-ad3d-19c0a8b2b0cc</guid>
     </PlayerIds>
     <CoachId>2e281e9e-7e37-456a-99a2-7a797fe59981</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>e0fa0752-3f10-4ce4-a0d3-2c99cd14d609</Id>
@@ -2174,6 +2604,11 @@
       <guid>88a380ae-cf73-4f59-ac25-de674607bedd</guid>
     </PlayerIds>
     <CoachId>2c6a0620-953a-4d83-b330-9c9187732d98</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>ce4c775b-dd51-424c-b565-556438b982cb</Id>
@@ -2199,6 +2634,11 @@
       <guid>8e49f0de-267b-43a9-8b62-c12e54ba9dee</guid>
     </PlayerIds>
     <CoachId>36dd3aa1-fc86-4b22-93f6-b1e576aab383</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>8221e454-7ea7-43e9-9d61-9386d7948158</Id>
@@ -2224,6 +2664,11 @@
       <guid>8e2c0699-185e-4cba-a7e8-ed27149e140e</guid>
     </PlayerIds>
     <CoachId>10a18e0c-93e6-4901-9711-79db75c59269</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>502676b6-a83b-4971-9687-6efb5b282101</Id>
@@ -2249,6 +2694,11 @@
       <guid>a231c5fd-354b-480c-82c9-d4c5f76e6308</guid>
     </PlayerIds>
     <CoachId>7ba6376f-1e58-480b-9320-9cca268bbdfa</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>00b0acbe-94ee-4ff1-b26e-787df43c48b4</Id>
@@ -2274,6 +2724,11 @@
       <guid>52cdae25-f933-4873-a8a7-ee3b514cccd7</guid>
     </PlayerIds>
     <CoachId>a874eafa-d47d-4be8-9119-bcb20fbc290e</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>f1117dcd-a758-4394-ab22-eb5a450cebb8</Id>
@@ -2299,6 +2754,11 @@
       <guid>51e73d23-9fa6-4f5a-9914-67f978de542f</guid>
     </PlayerIds>
     <CoachId>56e7f8e5-c03e-468b-b1e6-38f72929e634</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>0f798753-879f-432e-bc5e-bd609f823120</Id>
@@ -2324,6 +2784,11 @@
       <guid>d92bead5-8406-4844-a7fb-b5cea58517f7</guid>
     </PlayerIds>
     <CoachId>558fd8d7-1886-4d89-9768-7547ddcc2f53</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>b43ce849-f51c-4524-995f-3eeba0f19f78</Id>
@@ -2349,6 +2814,11 @@
       <guid>cf6aefe2-ca0e-44be-aa3e-0b57a6f0766a</guid>
     </PlayerIds>
     <CoachId>d83f8eab-1995-4ee6-8db9-cfb08f88ecfd</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>4829562d-ce8c-46a3-9928-25f2a953c488</Id>
@@ -2374,6 +2844,11 @@
       <guid>fb70c5ff-b84e-4ddc-bea4-7ec909423d69</guid>
     </PlayerIds>
     <CoachId>5190db5d-12e9-4e4f-9cb0-86b9294834ad</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>184da136-a428-416c-8700-7531f46f15ff</Id>
@@ -2399,6 +2874,11 @@
       <guid>6e85c71b-df5a-415c-8e44-a1c8e832c04d</guid>
     </PlayerIds>
     <CoachId>4c51c272-ffce-4fde-8beb-852b999a02dd</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>5fd07148-62db-4455-810e-324cade7845f</Id>
@@ -2424,6 +2904,11 @@
       <guid>8ec5200d-ade6-4192-9e9a-e74c21d96e17</guid>
     </PlayerIds>
     <CoachId>463d3aea-a585-415a-ae5c-8417f4d1fcf1</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>13fd89f0-2202-44f3-a1ed-9a8986dd23a7</Id>
@@ -2449,6 +2934,11 @@
       <guid>8fbce997-9ed8-4be2-8e19-4bf9685a186e</guid>
     </PlayerIds>
     <CoachId>37902ff2-a986-4c05-9f59-f227d44dc479</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>c6d69252-1e04-46b7-8d6a-7828a9fbf317</Id>
@@ -2474,6 +2964,11 @@
       <guid>8e18e6c5-ea70-45c2-8ca2-7116c2157e64</guid>
     </PlayerIds>
     <CoachId>7043a87f-3aac-4417-9cab-e83cc61e0ddb</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>1e9f0d2e-e083-4566-a114-cfd57594495c</Id>
@@ -2499,6 +2994,11 @@
       <guid>9dafc9fc-3228-4d87-8c55-a003ee2e28bc</guid>
     </PlayerIds>
     <CoachId>5547acd3-1fb9-499a-9091-09d106180dc9</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>a24a6556-c56f-4ffc-9aa5-2cff34a86a12</Id>
@@ -2524,6 +3024,11 @@
       <guid>5b218a17-4add-4ba6-a071-6b1955675c26</guid>
     </PlayerIds>
     <CoachId>2882e671-4ad2-4101-ad3f-d79ea61f1a85</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>b34c4519-6605-457d-8992-20457c4da325</Id>
@@ -2549,6 +3054,11 @@
       <guid>23382995-6f32-4c12-8947-f6a067c52041</guid>
     </PlayerIds>
     <CoachId>5fa4c9ca-b65d-4375-9c1b-005171d8619f</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>87b20e7e-ce1a-4b21-b87f-93685752aa30</Id>
@@ -2574,6 +3084,11 @@
       <guid>a13c61fc-f784-4d0e-bfc7-27720ccc8ecb</guid>
     </PlayerIds>
     <CoachId>fed97e14-ec7a-4603-90c0-51864d77615c</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>e53ff961-bf3b-4b53-9a68-002b3fafb87e</Id>
@@ -2599,6 +3114,11 @@
       <guid>d4f8f289-0d3d-4f4f-a168-00d1bf0e8147</guid>
     </PlayerIds>
     <CoachId>c5abf68c-faf8-4ae7-8f88-c407cc60b860</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>8730fcf9-e4c1-4e45-b7d6-49cdc429cb05</Id>
@@ -2624,6 +3144,11 @@
       <guid>3179ef2a-8843-4fbc-bb35-2101653c9041</guid>
     </PlayerIds>
     <CoachId>415ea716-04ee-4e64-a1a6-c81d13dc72de</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>93767380-4056-4fa9-8919-37d265c6ca03</Id>
@@ -2649,6 +3174,11 @@
       <guid>33950237-6e9d-4a32-9771-57f8c87e75c2</guid>
     </PlayerIds>
     <CoachId>969f0fa9-495f-46ae-8c04-b5211af78bdc</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>12182b52-edf6-4dbc-953e-e1d890e25cf5</Id>
@@ -2674,6 +3204,11 @@
       <guid>f45a1689-c300-45b6-ae15-9f1aac1cdcc9</guid>
     </PlayerIds>
     <CoachId>53cc0d54-679c-4b88-bed6-9eb76d611e49</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>3adb00f6-d26e-45bb-aab6-39ecdd2d6812</Id>
@@ -2699,6 +3234,11 @@
       <guid>1e7bcd3c-2614-4b3a-b89f-6519d9d0470c</guid>
     </PlayerIds>
     <CoachId>6ad4cde0-35ae-424c-827d-76724dafdecc</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>2b8fc003-9370-415b-936d-bb91d0f32c9f</Id>
@@ -2724,6 +3264,11 @@
       <guid>f5404cab-facc-46ac-8958-143961bfee5f</guid>
     </PlayerIds>
     <CoachId>f3090b93-c529-49ce-b1d8-b8fff2d07e85</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>9d27f460-a831-459d-ac7c-ba1afea298a2</Id>
@@ -2749,6 +3294,11 @@
       <guid>c82a5230-6a99-4ea8-b6c0-f5b84f64c39e</guid>
     </PlayerIds>
     <CoachId>ea8946da-d372-49a6-b42d-395255875f93</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>af70b5c3-f0b1-4fe2-813c-ef35197cc51a</Id>
@@ -2774,6 +3324,11 @@
       <guid>a396a391-319b-4053-a7d1-193f3b50ae22</guid>
     </PlayerIds>
     <CoachId>161207df-7867-4df8-8ff0-15060b79ac43</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>cb6b57cf-5898-4ab2-9230-327692c90b30</Id>
@@ -2799,6 +3354,11 @@
       <guid>7be38eac-eb3b-4f71-9520-c997c4818ec3</guid>
     </PlayerIds>
     <CoachId>580a10d5-0fc7-466b-8509-e62e01d6fa6d</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>f4d2dbc3-a11a-42a5-b1fe-82c75559a7cb</Id>
@@ -2824,6 +3384,11 @@
       <guid>cb0218eb-98d2-43bd-ba3b-27bda49fe366</guid>
     </PlayerIds>
     <CoachId>8260ca24-90c1-4947-b91f-55c0ed581e11</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>d367ddf8-d0fe-4f4f-89b1-97c3100345ff</Id>
@@ -2849,6 +3414,11 @@
       <guid>703f2bae-a502-45bd-8e3c-cbc45057f19b</guid>
     </PlayerIds>
     <CoachId>3edca1ea-d414-4996-83f8-9fbcbaceeb8d</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>fcdfc869-7e5f-4009-bb07-5f38a5fb53f0</Id>
@@ -2874,6 +3444,11 @@
       <guid>72b8a493-5b1f-46df-9e04-75499e5b7e50</guid>
     </PlayerIds>
     <CoachId>c7c8ee78-29e1-4e60-90ce-a75d3ec4a107</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>dfc53304-1293-4a6a-a0c3-7719f1821206</Id>
@@ -2899,6 +3474,11 @@
       <guid>7487df0f-6e0e-4980-83d6-8a6a329d70ef</guid>
     </PlayerIds>
     <CoachId>5061d092-267c-43a6-b0c3-1f14e614dbc5</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>1a8dbbb5-2ac2-4357-ad57-7d3b3a39e41b</Id>
@@ -2924,6 +3504,11 @@
       <guid>6b4c9748-5519-4b39-9d4f-e45d0b0e4810</guid>
     </PlayerIds>
     <CoachId>040f8163-8bbb-4be9-a026-7714dc489c45</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>3646fccb-6079-4cdc-baee-5272f78f9141</Id>
@@ -2949,6 +3534,11 @@
       <guid>363d004a-dc1e-4e8a-8a3f-d8e9bbbe499e</guid>
     </PlayerIds>
     <CoachId>b2897365-603b-4989-a7e0-b25217328769</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>a2b147a0-2e2c-408f-aafe-720aab9a7192</Id>
@@ -2974,6 +3564,11 @@
       <guid>67aed85f-afa3-406b-b9c1-96f6ce159466</guid>
     </PlayerIds>
     <CoachId>5fc012cd-4b62-4c24-a2f9-d58f274c7fb2</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>9e8b3f34-0afb-49e0-ad10-a6a106e6bd02</Id>
@@ -2999,6 +3594,11 @@
       <guid>4ca6a7f8-5be0-432d-9c80-2d9164085621</guid>
     </PlayerIds>
     <CoachId>81c3d712-8d78-4c58-b777-4205e865a598</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>f3a4f697-f6a2-4295-b748-1fdaaf0066ce</Id>
@@ -3024,6 +3624,11 @@
       <guid>8ffb841f-1df3-4e12-98f6-4b49c7793180</guid>
     </PlayerIds>
     <CoachId>59a8a37f-7327-4a90-9c8b-fe86c07669d0</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>b39395d8-9458-473b-ae31-d6cb95e93936</Id>
@@ -3049,6 +3654,11 @@
       <guid>b35928ad-6f93-42a2-b91a-01a5a5ba62fd</guid>
     </PlayerIds>
     <CoachId>50805db4-7ce8-4fa1-ae8f-5175e29181e4</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>78f5d808-08fc-49e0-bee4-796600c5706d</Id>
@@ -3074,6 +3684,11 @@
       <guid>2328b35c-0e32-460d-80d2-5eee8cd41cfe</guid>
     </PlayerIds>
     <CoachId>02dbcd59-a7b9-46b0-9c65-ea9bfd148757</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>663bb84f-7761-47f3-ba2a-987cce6245ae</Id>
@@ -3099,6 +3714,11 @@
       <guid>4a2bb056-a481-42bd-919e-d11705f3f3ba</guid>
     </PlayerIds>
     <CoachId>b934f9a9-148e-416d-af9a-059e28a24734</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>c1717263-6d8f-44fe-aa80-7008509a7442</Id>
@@ -3124,6 +3744,11 @@
       <guid>2dc33ad9-b854-455a-81f6-68085dd48d85</guid>
     </PlayerIds>
     <CoachId>8b0bdf3a-a6c1-41c1-bcb0-7cb536c78807</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>bfec633e-4a08-442f-9aeb-2b17b16e5162</Id>
@@ -3149,6 +3774,11 @@
       <guid>fb1e5499-6c69-4e75-8d66-609f88d83afb</guid>
     </PlayerIds>
     <CoachId>4ca05f49-83c0-4902-b583-5e94b8ccc20d</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>9545b687-b059-44a6-ae4e-1db7f832bafb</Id>
@@ -3174,6 +3804,11 @@
       <guid>9f12eb4c-61fa-40d6-b1ad-75f3c18bd6a7</guid>
     </PlayerIds>
     <CoachId>b25eb1ee-4e52-4967-861f-729009efcf3d</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>8621d27e-9f4c-439e-a553-6ddf9c630aed</Id>
@@ -3199,6 +3834,11 @@
       <guid>e6dc5a04-26cc-41bd-9c61-e3c6116a7934</guid>
     </PlayerIds>
     <CoachId>caf5a505-a60f-41a0-9806-5cec3aba1ea6</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>f5e7b24b-fb79-40f4-8840-ef905172127d</Id>
@@ -3224,6 +3864,11 @@
       <guid>436dbe1d-a5fc-4c3c-a39f-fc9ff1506028</guid>
     </PlayerIds>
     <CoachId>10d8a493-07cc-4e6d-b430-2d1ba18df3ff</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>1b11555c-63f7-45b8-89ed-ab2b44dcc3fc</Id>
@@ -3249,6 +3894,11 @@
       <guid>0503d93c-2d10-438a-8583-6c780d56022e</guid>
     </PlayerIds>
     <CoachId>e5793de6-56d5-43c6-bae4-57c0b7a7ac02</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>acf93c87-f0ef-4615-a285-2601b1240a1b</Id>
@@ -3274,6 +3924,11 @@
       <guid>33413edd-e8bb-423c-a6e9-81a8f3a26ac9</guid>
     </PlayerIds>
     <CoachId>2e694d10-826b-4a3f-97a9-db4d20bc321a</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>c936ab18-371f-45f8-bfe9-a9be83101ee9</Id>
@@ -3299,6 +3954,11 @@
       <guid>128d492a-519a-4b53-9c02-f9b3ca7365a6</guid>
     </PlayerIds>
     <CoachId>49cc7b49-3c10-4efd-b1eb-d12108f43e89</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>861da028-f55f-4638-bc01-526574776bd7</Id>
@@ -3324,6 +3984,11 @@
       <guid>54f1412e-cde6-43e3-815f-2325f7ac10df</guid>
     </PlayerIds>
     <CoachId>6b84d11c-80c8-4b82-bbfa-a140849b3cf2</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>95dc787d-da53-4146-931c-5fe8dc902c7f</Id>
@@ -3349,6 +4014,11 @@
       <guid>e1c0976f-f377-4584-893f-aa3a0799283d</guid>
     </PlayerIds>
     <CoachId>b9285017-d4fd-4673-8f39-5e606f4b4279</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>69229138-7889-44c6-831d-657dd9fd4e9e</Id>
@@ -3374,6 +4044,11 @@
       <guid>a0e989bf-514b-4b53-ace2-1ea129a50905</guid>
     </PlayerIds>
     <CoachId>acd258e1-3816-4c94-93d4-c0ea25a78be7</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>8958b627-eb5b-4434-ba10-54e842f30195</Id>
@@ -3399,6 +4074,11 @@
       <guid>6b23b271-eb36-4267-b12f-75af2690ac9b</guid>
     </PlayerIds>
     <CoachId>e8979c2d-9ce3-48e0-b8a2-03011fcc49bb</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>22173413-2178-45af-9c39-02c731b81db8</Id>
@@ -3424,6 +4104,11 @@
       <guid>2cafe3f4-5980-433d-a7b4-f2ecab01d91e</guid>
     </PlayerIds>
     <CoachId>b30d85c3-7438-422b-aadc-777358f8c6c8</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>4acbca5a-1dac-43d6-be9f-e0f01ac61b2f</Id>
@@ -3449,6 +4134,11 @@
       <guid>2246ac6f-d81e-47e9-9282-39369ce022be</guid>
     </PlayerIds>
     <CoachId>2410cf07-fa86-4f61-a496-1f245d54d803</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>8811e171-83e9-4477-9b2f-a0d4fc928f9b</Id>
@@ -3474,6 +4164,11 @@
       <guid>91f4121e-b873-4c46-a1d8-6a6f2ef867de</guid>
     </PlayerIds>
     <CoachId>9657b348-af98-43b7-a6f4-639d4e140be6</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>bd571f56-2e59-4c8c-b7ad-9ada975b9693</Id>
@@ -3499,6 +4194,11 @@
       <guid>ddb0474a-a991-42a4-b365-84f430ec767d</guid>
     </PlayerIds>
     <CoachId>40d75db2-86c4-4b36-80b5-523e23ef55ec</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>1cad6d9a-f83a-48f3-9b9f-3d5447907fb8</Id>
@@ -3524,6 +4224,11 @@
       <guid>c03c327e-4291-4f9f-9336-7a89f6a6e3e7</guid>
     </PlayerIds>
     <CoachId>fd7c7d0a-a2f7-4990-9136-391ef87336d2</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>23fdb3bf-04ca-4015-863c-9a30977a6c9a</Id>
@@ -3549,6 +4254,11 @@
       <guid>05c217c6-4763-40e8-b356-3b40de1973a9</guid>
     </PlayerIds>
     <CoachId>644bd862-c484-4930-84fc-e5ff039f87cf</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>6c6e2120-8e80-4787-94a3-72c5f529de91</Id>
@@ -3574,6 +4284,11 @@
       <guid>54e90980-879e-4115-81a0-567786366730</guid>
     </PlayerIds>
     <CoachId>004e7a7b-e93d-4dd5-9c9c-b1fe11137f71</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>aade5158-387b-4449-8691-2901f00063dd</Id>
@@ -3599,6 +4314,11 @@
       <guid>0ad54679-cfe9-4a97-8c21-54fbd57b7d55</guid>
     </PlayerIds>
     <CoachId>67ee9a5f-3b6b-46f6-8bb2-490e4d686cfc</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>eec44161-b59d-462f-9930-0afb202c6d4b</Id>
@@ -3624,6 +4344,11 @@
       <guid>9887576b-e9dd-4b15-9c2b-54ffdabb0db0</guid>
     </PlayerIds>
     <CoachId>bdd79b1a-a91c-4e75-9a44-b75772e1dc36</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>9a3c40f9-1db5-49c7-9b81-3a0bed716306</Id>
@@ -3649,6 +4374,11 @@
       <guid>f8ae6507-0c53-413d-8004-3c13ae5a5624</guid>
     </PlayerIds>
     <CoachId>d38caf00-d5cc-4da9-965b-adc07e8711ff</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>4dab2e5c-ae24-49ba-980e-e67c1ae16029</Id>
@@ -3674,6 +4404,11 @@
       <guid>7b486a8f-016a-4b13-8b3d-f00af9286596</guid>
     </PlayerIds>
     <CoachId>944e679c-df51-474c-9b6d-5b313aa183f6</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>c09f70a3-670c-4539-a123-f9479c765407</Id>
@@ -3699,6 +4434,11 @@
       <guid>84a288cd-5c64-4f9e-b20e-8d05922aea68</guid>
     </PlayerIds>
     <CoachId>25f640ec-808c-402b-80c0-7f0b390e0ff8</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>cdae7b5b-55d9-478f-84a1-79ecc55b1eb2</Id>
@@ -3724,6 +4464,11 @@
       <guid>2873b738-1dd1-4112-bfb2-9f8a0fe2fe78</guid>
     </PlayerIds>
     <CoachId>a60bd5ae-dca2-4cff-bdb9-761b7c2feae7</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>449b7b3b-6e1b-4401-86ce-b308f654d9a1</Id>
@@ -3749,6 +4494,11 @@
       <guid>7ec293fc-bf3f-49aa-a294-6f2f2d79b6c5</guid>
     </PlayerIds>
     <CoachId>6e8b094d-99ab-479f-99a9-4ca60c0f9740</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>840267d7-a459-4a6d-8b17-1f0a217a64d4</Id>
@@ -3774,6 +4524,11 @@
       <guid>1a8a9a7c-0904-4c5e-a345-668b1d2b4206</guid>
     </PlayerIds>
     <CoachId>eedb2734-78ec-43a0-a170-4fab0fbed1fb</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>399a48ee-ee4c-4096-bf68-2e609574c138</Id>
@@ -3799,6 +4554,11 @@
       <guid>d718cdc1-0f46-4298-8bd5-7c547b105216</guid>
     </PlayerIds>
     <CoachId>9538eea7-aab7-4124-a55e-9fd2cfd3d80e</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>f08881a5-1e85-4d64-803f-136d558471b7</Id>
@@ -3824,6 +4584,11 @@
       <guid>bfa0a13d-add4-4b9b-b250-a9fe06624157</guid>
     </PlayerIds>
     <CoachId>e00b3e71-f867-45be-8d0c-1995c3437c0f</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>fe6eb1df-d526-4213-9d2e-7dcfaa0e398f</Id>
@@ -3849,6 +4614,11 @@
       <guid>a26fb239-af5f-49d8-aa36-be61e1cd056a</guid>
     </PlayerIds>
     <CoachId>209763a3-fe1b-42a5-85d8-4578209c1d67</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>a5bd36d4-5b85-48cf-aba2-beb58f37ce3f</Id>
@@ -3874,6 +4644,11 @@
       <guid>331f3a34-2531-4fe9-a565-6ddf7ebe0219</guid>
     </PlayerIds>
     <CoachId>1be06072-a7ed-49e5-b607-757381073d7a</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>721598e2-2397-469c-a285-4fc92553d536</Id>
@@ -3899,6 +4674,11 @@
       <guid>ccadb359-7d33-410f-825e-cc6594043a67</guid>
     </PlayerIds>
     <CoachId>3d6676f0-325c-4963-8a22-a52dbf709623</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>0a7a9804-de43-4952-9ec8-60ce03bece34</Id>
@@ -3924,6 +4704,11 @@
       <guid>07604469-3dd6-4335-bf04-25d76bec5acf</guid>
     </PlayerIds>
     <CoachId>2b3978b5-6c73-4d1a-a782-e3d5f0d13793</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>7f7f533b-ca6e-49b6-a863-a1834e50a1ea</Id>
@@ -3949,6 +4734,11 @@
       <guid>67810fbd-333f-48d1-8f8f-62b670181f3c</guid>
     </PlayerIds>
     <CoachId>25d01614-ba4f-48e8-bc6a-029d198fb18b</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>9577802a-ea3b-4155-b8b8-9d41355c7e24</Id>
@@ -3974,6 +4764,11 @@
       <guid>d32ed64f-c707-4329-bff8-6873447e7b40</guid>
     </PlayerIds>
     <CoachId>e5ecaac6-9a07-408b-aa68-66392fc7e4f0</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
   <Team>
     <Id>e39b51ad-12b1-42f2-9e38-59eca9f7dde4</Id>
@@ -3999,5 +4794,10 @@
       <guid>40692a0f-0671-42c3-b508-6d401b26ed58</guid>
     </PlayerIds>
     <CoachId>3a45016b-98c4-4111-8790-ee6d20dbeb91</CoachId>
+    <WonMatchIds />
+    <DrawMatchIds />
+    <LostMatchIds />
+    <GoalsConcededIds />
+    <GoalsScoredIds />
   </Team>
 </ArrayOfTeam>

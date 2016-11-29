@@ -69,7 +69,7 @@ namespace UserHomePage
 
         private void SearchList_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (SearchList.SelectedItems == null) return;
+            if (SearchList.SelectedItems == null ||SearchList.SelectedItems.Count ==0) return;
 
             if (SearchList.SelectedItem.GetType() == typeof(TeamSearchResultItem))
             {

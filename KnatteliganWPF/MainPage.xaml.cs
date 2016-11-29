@@ -38,7 +38,7 @@ namespace KnatteliganWPF
         private void ManageLeague_Clicked(object sender, RoutedEventArgs e)
         {
             var listBoxSender = sender as ListBox;
-            if (listBoxSender == null || listBoxSender.SelectedItems == null) return;
+            if (listBoxSender?.SelectedItems == null ||listBoxSender.SelectedItems.Count ==0) return;
 
             var currentLeague = (League)listBoxSender.SelectedItems[0];
 

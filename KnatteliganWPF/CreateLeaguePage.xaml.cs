@@ -101,6 +101,8 @@ namespace KnatteliganWPF
         private void RemoveTeam_Click(object sender, RoutedEventArgs e)
         {
             var team = (Team)TeamList.SelectedItem;
+            if(team== null) return;
+
             _teamService.Remove(team);
             Teams.Remove(team);
         }
@@ -108,6 +110,8 @@ namespace KnatteliganWPF
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             var team = (Team)TeamList.SelectedItem;
+            if(team== null) return;
+
             var coach = _personService.FindCoachById(team.CoachId);
             var players = team.PlayerIds.Select(teamPersonId => _personService.FindPlayerById(teamPersonId));
             var playerOc = new ObservableCollection<Player>(players);

@@ -211,7 +211,7 @@ namespace KnatteliganWPF
             AddYellowCardButton.IsEnabled = true;
             AddRedCardButton.IsEnabled = true;
 
-            if (listBox?.SelectedItems == null) return;
+            if (listBox?.SelectedItems == null ||listBox.SelectedItems.Count ==0) return;
             var player = (Player) listBox.SelectedItem;
             PlayerHasMaxCardsOnHim(player);
         }
@@ -253,7 +253,7 @@ namespace KnatteliganWPF
         private void RemoveEvent_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var listBox = sender as ListBox;
-            if (listBox?.SelectedItems == null) return;
+            if (listBox?.SelectedItems == null || listBox.SelectedItems.Count ==0) return;
 
             var matchEvent = (MatchEvent) listBox.SelectedItems[0];
             _matchEventsTemp.Remove(matchEvent);

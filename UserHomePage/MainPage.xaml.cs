@@ -48,6 +48,7 @@ namespace UserHomePage
 
         private void SearchList_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            if (SearchList.SelectedItem == null) return;
             if (SearchList.SelectedItem.GetType() == typeof(TeamSearchResultItem))
             {
                 var teamObject = ((TeamSearchResultItem)SearchList.SelectedItem).ResultItem;

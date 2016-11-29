@@ -46,6 +46,7 @@ namespace KnatteliganWPF
         private void CurrentMatchWeekMatches_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var listItem = sender as ListBox;
+            if (listItem?.SelectedItems == null ||listItem.SelectedItems.Count ==0) return;
             var match = (Match)listItem.SelectedItems[0];
             NavigationService?.Navigate(new MatchProtocolPage(match));
         }
@@ -54,7 +55,7 @@ namespace KnatteliganWPF
         {
             //var currentLeague = _leagueService.FindById(_currentLeagueId);
 
-            NavigationService.Navigate(new CreateLeaguePage(_currentLeagueId));
+            NavigationService?.Navigate(new CreateLeaguePage(_currentLeagueId));
         }
 
 

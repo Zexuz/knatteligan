@@ -93,6 +93,8 @@ namespace KnatteliganWPF
                 HomeTeamList.ItemsSource = new ObservableCollection<Player>(_homeTeamSquadId);
             }
             _matchEventsTemp = new List<MatchEvent>();
+
+            
         }
 
         #region OnClick /OnSelected Events
@@ -124,6 +126,7 @@ namespace KnatteliganWPF
 
         private void AddGoal_OnClick(object sender, RoutedEventArgs e)
         {
+            
             AddMatchEvent(MatchEvents.Goal);
         }
 
@@ -205,6 +208,10 @@ namespace KnatteliganWPF
         {
             var listBox = sender as ListBox;
             _currentFocusedListBox = listBox;
+            AddGoalButton.IsEnabled = true;
+            AddAssistButton.IsEnabled = true;
+            AddYellowCardButton.IsEnabled = true;
+            AddRedCardButton.IsEnabled = true;
         }
 
         private void OpenAddTeamSquadAndGetPlayerIds(bool isHomeTeam)

@@ -42,10 +42,10 @@
                    Grid.RowSpan="2" FontWeight="Bold" FontSize="16" />
 
         <ListBox Name="HomeTeamList" Grid.ColumnSpan="3" Grid.RowSpan="7" Grid.Row="4" Grid.Column="0"
-                 Margin="5,12,51,17" FontWeight="Bold" SelectionChanged="List_OnSelected" />
+                 Margin="5,12,51,17" FontWeight="Bold" MouseUp="List_OnMouseUp" />
 
         <ListBox Name="AwayTeamList" Grid.ColumnSpan="3" Grid.RowSpan="7" Grid.Row="4" Grid.Column="4"
-                 Margin="51,12,5,17" FontWeight="Bold" SelectionChanged="List_OnSelected" />
+                 Margin="51,12,5,17" FontWeight="Bold" MouseUp="List_OnMouseUp" />
 
         <Button Name="AddGoalButton" IsEnabled="False"  Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center"
                 Content="Add Goal"

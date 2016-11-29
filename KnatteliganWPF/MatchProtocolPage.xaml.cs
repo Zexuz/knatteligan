@@ -202,7 +202,7 @@ namespace KnatteliganWPF
             return (Player) _currentFocusedListBox.SelectedValue;
         }
 
-        private void List_OnSelected(object sender, RoutedEventArgs e)
+        private void List_OnMouseUp(object sender, RoutedEventArgs e)
         {
             var listBox = sender as ListBox;
             _currentFocusedListBox = listBox;

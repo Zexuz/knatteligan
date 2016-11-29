@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
 using knatteligan.Services;
@@ -11,9 +12,9 @@ using knatteligan.Helpers;
 namespace KnatteliganWPF
 {
     /// <summary>
-    /// Interaction logic for CreateLeagueWindow.xaml
+    /// Interaction logic for CreateLeaguePage.xaml
     /// </summary>
-    public partial class CreateLeagueWindow : Window
+    public partial class CreateLeaguePage : Page
     {
         public League League { get; set; }
         public LeagueName LeagueName { get; set; }
@@ -24,7 +25,7 @@ namespace KnatteliganWPF
         private readonly PersonService _personService;
 
 
-        public CreateLeagueWindow()
+        public CreateLeaguePage()
         {
             InitializeComponent();
             _leagueService = new LeagueService();
@@ -35,7 +36,7 @@ namespace KnatteliganWPF
             DataContext = this;
         }
 
-        public CreateLeagueWindow(Guid currentLeagueId)
+        public CreateLeaguePage(Guid currentLeagueId)
         {
             _leagueService = new LeagueService();
             _teamService = new TeamService();
@@ -91,8 +92,10 @@ namespace KnatteliganWPF
             League = new League(LeagueName, teamIds);
             var newSerie = new CreateSeriesSchedule().GetFullSeries(Teams.ToList());
             League.MatchWeeks = newSerie;
-            DialogResult = true;
-            Close();
+            
+            MainPage.Leagues.Add(League);
+            _leagueService.Add(League);
+            NavigationService.GoBack();
         }
 
         private void RemoveTeam_Click(object sender, RoutedEventArgs e)
@@ -132,20 +135,21 @@ namespace KnatteliganWPF
 
         private void CloseCommandHandler_Click(object sender, RoutedEventArgs e)
         {
+            
             if (leagueName.Text.Length > 0)
             {
-                MessageBoxResult result = MessageBox.Show("Are you sure you want to cancel?", "Message", MessageBoxButton.YesNo);              
+                var result = MessageBox.Show("Are you sure you want to cancel?", "Message", MessageBoxButton.YesNo);              
                 switch (result)
                 { 
                     case MessageBoxResult.Yes:  
-                        Close();
+                        NavigationService.GoBack();
                         break;
                     case MessageBoxResult.No:
                         break;        
                 }
                 
             }
-            else Close();  
+            else NavigationService.GoBack();
         }
     }
 }

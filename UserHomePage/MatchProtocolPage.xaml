@@ -49,32 +49,32 @@
                VerticalAlignment="Top" RenderTransformOrigin="0.351,-0.5" Grid.ColumnSpan="2" Grid.RowSpan="2"
                FontWeight="Bold" />
 
-        <ListBox Name="HomeTeamMatchEvents" BorderThickness="0" HorizontalContentAlignment="Right" Grid.Row="2"
+        <ItemsControl Name="HomeTeamMatchEvents" BorderThickness="0" HorizontalContentAlignment="Right" Grid.Row="2"
                  Grid.Column="0" Grid.ColumnSpan="3" Margin="15,23,41,0" FontWeight="Bold" FontSize="9"
                  Grid.RowSpan="2" >
-            <ListBox.ItemTemplate>
+            <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Padding="5,0,5,0"
                                    Text="{Binding Converter= {StaticResource MatchEventToStringConverter}}" />
                     </StackPanel>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
 
-        <ListBox Grid.Row="2" Name="AwayTeamMatchEvents" BorderThickness="0" Grid.Column="4" Grid.ColumnSpan="3"
+        <ItemsControl Grid.Row="2" Name="AwayTeamMatchEvents" BorderThickness="0" Grid.Column="4" Grid.ColumnSpan="3"
                  Margin="41,23,15,0" Grid.RowSpan="2" FontWeight="Bold" FontSize="9"
                  
         >
-            <ListBox.ItemTemplate>
+            <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Padding="5,0,5,0"
                                    Text="{Binding Converter= {StaticResource MatchEventToStringConverter}}" />
                     </StackPanel>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
 
 
         <TextBlock Name="HomeTeamGoals" Grid.Column="2" TextAlignment="Center" Margin="15,0,51,5" FontWeight="Bold" FontSize="40"

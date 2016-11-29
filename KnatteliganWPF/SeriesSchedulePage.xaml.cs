@@ -52,12 +52,9 @@ namespace KnatteliganWPF
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-
             //var currentLeague = _leagueService.FindById(_currentLeagueId);
 
-            var manageLeagueWindow = new CreateLeagueWindow(_currentLeagueId);
-
-            manageLeagueWindow.ShowDialog();
+            NavigationService.Navigate(new CreateLeaguePage(_currentLeagueId));
         }
 
 

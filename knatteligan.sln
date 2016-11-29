@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeleteMeConsoleApplication"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserHomePage", "UserHomePage\UserHomePage.csproj", "{500CBFC4-8F65-4D17-BF13-9A8BAF12FDFB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballLeagueManager", "FootballLeagueManager\FootballLeagueManager.csproj", "{BB2B0F4D-7766-4134-A873-4C2ED5C2CC62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{500CBFC4-8F65-4D17-BF13-9A8BAF12FDFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{500CBFC4-8F65-4D17-BF13-9A8BAF12FDFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{500CBFC4-8F65-4D17-BF13-9A8BAF12FDFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB2B0F4D-7766-4134-A873-4C2ED5C2CC62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB2B0F4D-7766-4134-A873-4C2ED5C2CC62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB2B0F4D-7766-4134-A873-4C2ED5C2CC62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB2B0F4D-7766-4134-A873-4C2ED5C2CC62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

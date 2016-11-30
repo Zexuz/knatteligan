@@ -294,5 +294,11 @@ namespace KnatteliganWPF
                 AddYellowCardButton.IsEnabled = false;
             }
         }
+
+        private void List_OnLostFocus(object sender, RoutedEventArgs e)
+        {
+            var list = sender as ListBox;
+            if (list != null) list.SelectedItem = null;
+        }
     }
 }

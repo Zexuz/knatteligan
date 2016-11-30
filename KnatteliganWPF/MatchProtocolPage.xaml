@@ -42,10 +42,10 @@
                    Grid.RowSpan="2" FontWeight="Bold" FontSize="16" />
 
         <ListBox Name="HomeTeamList" Grid.ColumnSpan="3" Grid.RowSpan="7" Grid.Row="4" Grid.Column="0"
-                 Margin="5,12,51,17" FontWeight="Bold" MouseUp="List_OnMouseUp" />
+                 Margin="5,12,51,17" FontWeight="Bold" MouseUp="List_OnMouseUp" LostFocus="List_OnLostFocus" />
 
         <ListBox Name="AwayTeamList" Grid.ColumnSpan="3" Grid.RowSpan="7" Grid.Row="4" Grid.Column="4"
-                 Margin="51,12,5,17" FontWeight="Bold" MouseUp="List_OnMouseUp" />
+                 Margin="51,12,5,17" FontWeight="Bold" MouseUp="List_OnMouseUp" LostFocus="List_OnLostFocus" />
 
         <Button Name="AddGoalButton" IsEnabled="False"  Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center"
                 Content="Add Goal"
@@ -65,7 +65,12 @@
             
 
 
-        <DatePicker Name="DatePicker" Width="110" Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="2" Margin="33,5,26,0" />
+        <DatePicker Name="DatePicker" Width="110" Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="2" Margin="33,5,26,0" >
+            <DatePicker.BlackoutDates>
+                <CalendarDateRange Start="1/1/0001" End="12/31/2015"/>
+                <CalendarDateRange Start="1/1/2018"></CalendarDateRange>
+            </DatePicker.BlackoutDates>
+        </DatePicker>
         <Button Width="110" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Click="ButtonAddAwayTeamSquad_OnClick"
                 Content="Add away team squad" />
         <Button Width="110" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Click="ButtonAddHomeTeamSquad_OnClick"

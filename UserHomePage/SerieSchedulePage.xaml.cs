@@ -27,9 +27,10 @@ namespace UserHomePage
             DataContext = this;
         }
 
-        private void MatchListWindowActivated(object sender, EventArgs e)
+        private void SerieSchedulePage_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
             Resources["Drinks"] = GameWeeks;
+
         }
 
         private void GameWeeksList_Click(object sender, SelectionChangedEventArgs e)
@@ -53,5 +54,7 @@ namespace UserHomePage
             var matches = _matchRepositoryService.GetAll();
             CurrentMatchWeekMatches.ItemsSource = new ObservableCollection<Match>(matches);
         }
+
+      
     }
 }

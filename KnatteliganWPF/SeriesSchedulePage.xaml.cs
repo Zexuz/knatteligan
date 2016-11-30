@@ -19,6 +19,7 @@ namespace KnatteliganWPF
         private readonly MatchService _matchRepositoryService;
         private readonly LeagueService _leagueService;
         private readonly Guid _currentLeagueId;
+        private readonly TeamService _teamService;
 
         public SeriesSchedulePage(Guid currentLeagueId)
         {
@@ -28,6 +29,9 @@ namespace KnatteliganWPF
             _currentLeagueId = currentLeagueId;
             _matchRepositoryService = new MatchService();
             _leagueService = new LeagueService();
+            _teamService = new TeamService();
+
+            leagueNameTextBox.Text = _leagueService.FindById(currentLeagueId).Name.Value;
         }
 
         private void SeriesSchedulePage_OnLoaded(object sender, RoutedEventArgs e)
@@ -51,13 +55,19 @@ namespace KnatteliganWPF
             NavigationService?.Navigate(new MatchProtocolPage(match));
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void ManageLeagueBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            //var currentLeague = _leagueService.FindById(_currentLeagueId);
+            var league = _leagueService.FindById(_currentLeagueId);
 
-            NavigationService?.Navigate(new CreateLeaguePage(_currentLeagueId));
+            var teams = league.TeamIds.Select(_teamService.FindById);
+            var teamsOc = new ObservableCollection<Team>(teams);
+
+            NavigationService?.Navigate(new CreateLeaguePage(true)
+            {
+                League = league ,
+                LeagueName = league.Name,
+                Teams = teamsOc
+            });
         }
-
-
     }
 }

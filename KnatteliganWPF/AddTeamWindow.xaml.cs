@@ -53,7 +53,6 @@ namespace KnatteliganWPF
         private void AddTeamWindowActivated(object sender, EventArgs e)
         {
             PlayerList.ItemsSource = Players;
-            //TODO: fuck, is this really needed?
             if (PersonalNumber != null)
             {
                 PersonalNumberTextBox.Text = PersonalNumber.ToString();

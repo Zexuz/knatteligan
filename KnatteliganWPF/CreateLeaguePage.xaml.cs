@@ -8,6 +8,7 @@ using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
 using knatteligan.Services;
 using knatteligan.Helpers;
+using knatteligan.Repositories;
 
 namespace KnatteliganWPF
 {
@@ -25,36 +26,70 @@ namespace KnatteliganWPF
         private readonly PersonService _personService;
 
 
-        public CreateLeaguePage()
+        public CreateLeaguePage(bool isEdit)
         {
             InitializeComponent();
+            DataContext = this;
             _leagueService = new LeagueService();
             _teamService = new TeamService();
             _personService = new PersonService();
             Teams = new ObservableCollection<Team>();
             TeamList.ItemsSource = Teams;
-            DataContext = this;
-        }
 
-        public CreateLeaguePage(Guid currentLeagueId)
-        {
-            _leagueService = new LeagueService();
-            _teamService = new TeamService();
-            _personService = new PersonService();
-            var league = _leagueService.FindById(currentLeagueId);
-            LeagueName = league.Name;
-            Teams = new ObservableCollection<Team>();
-
-            foreach (var teamId in league.TeamIds)
+            if (isEdit)
             {
-                Teams.Add(_teamService.FindById(teamId));
+                EditLeagueBtn.Visibility = Visibility.Visible;
+                AddLeagueButton.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                EditLeagueBtn.Visibility = Visibility.Hidden;
+                AddLeagueButton.Visibility = Visibility.Visible;
             }
 
-            InitializeComponent();
-            TeamList.ItemsSource = new ObservableCollection<Team>(Teams);
-            leagueName.Text = LeagueName.Value;
-            DataContext = this;
-            //TODO LeagueName does not show in textbox
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            TeamList.ItemsSource = Teams;
+        }
+
+        private void SaveEditLeagueBtn_Click(object sender, RoutedEventArgs e)
+        {
+            League.Name = LeagueName;
+            League.TeamIds = Teams.Select(x => x.Id).ToList();
+            _leagueService.Edit(League, LeagueName, Teams.Select(x => x.Id).ToList());
+
+            //TODO: INotifyPropChanged
+            MainPage.Leagues.Remove(League);
+            MainPage.Leagues.Add(League);
+            NavigationService?.GoBack();
+        }
+
+        private void AddLeague_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (League == null)
+            {
+
+            }
+            var teamIds = Teams.Select(x => x.Id).ToList();
+            League = new League(LeagueName, teamIds);
+            var newSerie = new CreateSeriesSchedule().GetFullSeries(Teams.ToList());
+            League.MatchWeeks = newSerie;
+
+            MainPage.Leagues.Add(League);
+            _leagueService.Add(League);
+            NavigationService?.GoBack();
+        }
+
+        private void RemoveTeam_Click(object sender, RoutedEventArgs e)
+        {
+            var team = (Team)TeamList.SelectedItem;
+            if (team == null) return;
+
+            _teamService.Remove(team);
+            Teams.Remove(team);
         }
 
 
@@ -87,28 +122,9 @@ namespace KnatteliganWPF
             Teams.Add(addTeamWindow.Team);
         }
 
-        private void AddLeague_Click(object sender, RoutedEventArgs e)
-        {
-            var teamIds = Teams.Select(x => x.Id).ToList();
-            League = new League(LeagueName, teamIds);
-            var newSerie = new CreateSeriesSchedule().GetFullSeries(Teams.ToList());
-            League.MatchWeeks = newSerie;
-            
-            MainPage.Leagues.Add(League);
-            _leagueService.Add(League);
-            NavigationService.GoBack();
-        }
+       
 
-        private void RemoveTeam_Click(object sender, RoutedEventArgs e)
-        {
-            var team = (Team)TeamList.SelectedItem;
-            if(team== null) return;
-
-            _teamService.Remove(team);
-            Teams.Remove(team);
-        }
-
-        private void Edit_Click(object sender, RoutedEventArgs e)
+        private void EditTeam_Click(object sender, RoutedEventArgs e)
         {
             var team = (Team)TeamList.SelectedItem;
             if(team== null) return;
@@ -140,8 +156,7 @@ namespace KnatteliganWPF
 
         private void CloseCommandHandler_Click(object sender, RoutedEventArgs e)
         {
-            Trace.WriteLine(LeagueName);
-            Trace.WriteLine(LeagueName.Value);
+    
             if (leagueName.Text.Length > 0 || Teams.Count > 0)
             {
                 var result = MessageBox.Show("Are you sure you want to cancel?", "Message", MessageBoxButton.YesNo);              
@@ -155,7 +170,9 @@ namespace KnatteliganWPF
                 }
                 
             }
-            else NavigationService.GoBack();
+            else NavigationService?.GoBack();
         }
+
+       
     }
 }

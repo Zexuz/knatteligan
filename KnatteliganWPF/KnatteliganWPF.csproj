@@ -127,10 +127,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ManageLeague.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MatchProtocolPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -139,9 +135,6 @@
   <ItemGroup>
     <Compile Include="SeriesSchedulePage.xaml.cs">
       <DependentUpon>SeriesSchedulePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ManageLeague.xaml.cs">
-      <DependentUpon>ManageLeague.xaml</DependentUpon>
     </Compile>
     <Compile Include="MatchProtocolPage.xaml.cs">
       <DependentUpon>MatchProtocolPage.xaml</DependentUpon>

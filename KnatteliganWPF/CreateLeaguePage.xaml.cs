@@ -95,6 +95,8 @@ namespace KnatteliganWPF
             
             MainPage.Leagues.Add(League);
             _leagueService.Add(League);
+            new PersonService().Save();
+            new TeamService().Save();
             NavigationService.GoBack();
         }
 

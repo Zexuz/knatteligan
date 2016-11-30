@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
@@ -46,8 +47,10 @@ namespace KnatteliganWPF
             DataContext = this;
             if (TeamNameTxt.Text.Equals(string.Empty))
             {
-                
+
             }
+            
+            
         }
 
         private void AddTeamWindowActivated(object sender, EventArgs e)
@@ -62,7 +65,8 @@ namespace KnatteliganWPF
 
         private void AddPlayer_Clicked(object sender, RoutedEventArgs e)
         {
-            var addPlayerWindow = new AddPlayerWindow(false);
+            var playerList = PlayerList.Items.Cast<Player>().ToList();
+            var addPlayerWindow = new AddPlayerWindow(false, playerList);
             var addPlayerResult = addPlayerWindow.ShowDialog();
             if (addPlayerResult.HasValue && !addPlayerResult.Value)
             {
@@ -99,7 +103,11 @@ namespace KnatteliganWPF
 
             Coach = new Coach(PersonName, PersonalNumber, PhoneNumber, Email);
             Team = new Team(TeamName, Players, Coach);
-
+            foreach (var item in PlayerList.Items)
+            {
+                var player = (Player) item;
+                player.HasTeam = true;
+            }
             DialogResult = true;
             Close();
         }
@@ -126,17 +134,24 @@ namespace KnatteliganWPF
         private void RemovePlayerBtn_Click(object sender, RoutedEventArgs e)
         {
             var player = (Player)PlayerList.SelectedItem;
-            if(player== null) return;
-            _personService.RemovePlayer(player.Id);
+            
+            if (player == null) return;
+            player.HasTeam = false;
+
+            Team.PlayerIds.Remove(player.Id);
+            TeamService teamService = new TeamService();
+            teamService.Save();
+            _personService.Save();
             Players.Remove(player);
+
         }
 
         private void EditPlayerBtn_Click(object sender, RoutedEventArgs e)
         {
             var player = (Player)PlayerList.SelectedItem;
-            if(player== null) return;
+            if (player == null) return;
 
-            var addPlayerWindow = new AddPlayerWindow(true)
+            var addPlayerWindow = new AddPlayerWindow(true,null)
             {
                 Player = player,
                 PlayerName = player.Name,

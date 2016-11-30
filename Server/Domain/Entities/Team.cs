@@ -17,7 +17,7 @@ namespace knatteligan.Domain.Entities
         public List<Guid> WonMatchIds { get; set; }
         public List<Guid> DrawMatchIds { get; set; }
         public List<Guid> LostMatchIds { get; set; }
-        public int DeltaScore => GoalsConcededIds.Count - GoalsScoredIds.Count;
+        public int DeltaScore => GoalsScoredIds.Count - GoalsConcededIds.Count ;
         public int Points => WonMatchIds.Count * 3 + DrawMatchIds.Count;
         public List<Guid> GoalsConcededIds { get; set; }
         public List<Guid> GoalsScoredIds { get; set; }

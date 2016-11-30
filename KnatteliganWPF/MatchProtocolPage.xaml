@@ -65,7 +65,12 @@
             
 
 
-        <DatePicker Name="DatePicker" Width="110" Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="2" Margin="33,5,26,0" />
+        <DatePicker Name="DatePicker" Width="110" Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="2" Margin="33,5,26,0" >
+            <DatePicker.BlackoutDates>
+                <CalendarDateRange Start="1/1/0001" End="12/31/2015"/>
+                <CalendarDateRange Start="1/1/2018"></CalendarDateRange>
+            </DatePicker.BlackoutDates>
+        </DatePicker>
         <Button Width="110" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Click="ButtonAddAwayTeamSquad_OnClick"
                 Content="Add away team squad" />
         <Button Width="110" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Click="ButtonAddHomeTeamSquad_OnClick"

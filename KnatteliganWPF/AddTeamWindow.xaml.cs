@@ -108,6 +108,7 @@ namespace KnatteliganWPF
                 var player = (Player) item;
                 player.HasTeam = true;
             }
+            //TODO bertil
             DialogResult = true;
             Close();
         }

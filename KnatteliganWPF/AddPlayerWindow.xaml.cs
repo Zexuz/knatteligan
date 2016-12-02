@@ -1,8 +1,13 @@
 ﻿using knatteligan.Domain.Entities;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
+using System.Windows.Input;
 using knatteligan.Domain.ValueObjects;
 using knatteligan.Helpers;
+using knatteligan.Repositories;
+using knatteligan.Services;
 
 namespace KnatteliganWPF
 {
@@ -15,7 +20,7 @@ namespace KnatteliganWPF
         public PersonName PlayerName { get; set; }
         public PersonalNumber PersonalNumber { get; set; }
 
-        public AddPlayerWindow(bool isEdit)
+        public AddPlayerWindow(bool isEdit, List<Player> playersFromTeam)
         {
             InitializeComponent();
 
@@ -32,6 +37,17 @@ namespace KnatteliganWPF
 
 
             DataContext = this;
+
+            if (playersFromTeam == null)
+                playersFromTeam = new List<Player>();
+            var freeAgents = PersonRepository.GetInstance().GetAllPlayers().Where(x => x.HasTeam.Equals(false));
+            var playersFromTeamId = playersFromTeam.Select(p => p.Id).ToList();
+            var aviliobePlayers  = freeAgents.Where(player => !playersFromTeamId.Contains(player.Id)).ToList();
+
+            if (isEdit)
+                 FreeAgentsList.Visibility = Visibility.Hidden;
+            FreeAgentsList.ItemsSource = aviliobePlayers;
+
         }
 
         private void AddPlayerWindowActivated(object sender, EventArgs e)
@@ -80,6 +96,15 @@ namespace KnatteliganWPF
 
             Player.Name = PlayerName;
             Player.PersonalNumber = PersonalNumber;
+            DialogResult = true;
+            Close();
+        }
+
+
+        private void FreeAgentsList_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Player = (Player)FreeAgentsList.SelectedItem;
+            
             DialogResult = true;
             Close();
         }

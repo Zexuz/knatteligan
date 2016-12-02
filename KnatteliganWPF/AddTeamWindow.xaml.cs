@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
@@ -46,7 +47,6 @@ namespace KnatteliganWPF
             DataContext = this;
             if (TeamNameTxt.Text.Equals(string.Empty))
             {
-                
             }
         }
 
@@ -61,7 +61,8 @@ namespace KnatteliganWPF
 
         private void AddPlayer_Clicked(object sender, RoutedEventArgs e)
         {
-            var addPlayerWindow = new AddPlayerWindow(false);
+            var playerList = PlayerList.Items.Cast<Player>().ToList();
+            var addPlayerWindow = new AddPlayerWindow(false, playerList);
             var addPlayerResult = addPlayerWindow.ShowDialog();
             if (addPlayerResult.HasValue && !addPlayerResult.Value)
             {
@@ -69,15 +70,22 @@ namespace KnatteliganWPF
                 return;
             }
 
-            _personService.Add(addPlayerWindow.Player);
+            var newPlayer = addPlayerWindow.Player;
+
+            var playerAlredyExist = _personService.FindPlayerById(newPlayer.Id) != null;
+
+            if (!playerAlredyExist)
+                _personService.Add(newPlayer);
             Players.Add(addPlayerWindow.Player);
         }
 
         private void CloseCommandHandler_Clicked(object sender, RoutedEventArgs e)
         {
-            if (TeamNameTxt.Text.Length > 0 || CoachNameTextBox.Text.Length > 0 || PersonalNumberTextBox.Text.Length > 0 || PhoneNumberTextBox.Text.Length > 0 || CoachEmailTextBox.Text.Length > 0)
+            if (TeamNameTxt.Text.Length > 0 || CoachNameTextBox.Text.Length > 0 || PersonalNumberTextBox.Text.Length > 0 ||
+                PhoneNumberTextBox.Text.Length > 0 || CoachEmailTextBox.Text.Length > 0)
             {
-                MessageBoxResult result = MessageBox.Show("Are you sure you want to cancel?", "Message", MessageBoxButton.YesNo);
+                MessageBoxResult result = MessageBox.Show("Are you sure you want to cancel?", "Message",
+                    MessageBoxButton.YesNo);
                 switch (result)
                 {
                     case MessageBoxResult.Yes:
@@ -86,7 +94,6 @@ namespace KnatteliganWPF
                     case MessageBoxResult.No:
                         break;
                 }
-
             }
             else Close();
         }
@@ -98,7 +105,12 @@ namespace KnatteliganWPF
 
             Coach = new Coach(PersonName, PersonalNumber, PhoneNumber, Email);
             Team = new Team(TeamName, Players, Coach);
-
+            foreach (var item in PlayerList.Items)
+            {
+                var player = (Player) item;
+                player.HasTeam = true;
+            }
+            //TODO bertil
             DialogResult = true;
             Close();
         }
@@ -124,18 +136,23 @@ namespace KnatteliganWPF
 
         private void RemovePlayerBtn_Click(object sender, RoutedEventArgs e)
         {
-            var player = (Player)PlayerList.SelectedItem;
-            if(player== null) return;
-            _personService.RemovePlayer(player.Id);
+            var player = (Player) PlayerList.SelectedItem;
+
+            if (player == null) return;
+            player.HasTeam = false;
+
+            TeamService teamService = new TeamService();
+            teamService.Save();
+            _personService.Save();
             Players.Remove(player);
         }
 
         private void EditPlayerBtn_Click(object sender, RoutedEventArgs e)
         {
-            var player = (Player)PlayerList.SelectedItem;
-            if(player== null) return;
+            var player = (Player) PlayerList.SelectedItem;
+            if (player == null) return;
 
-            var addPlayerWindow = new AddPlayerWindow(true)
+            var addPlayerWindow = new AddPlayerWindow(true, null)
             {
                 Player = player,
                 PlayerName = player.Name,
@@ -149,7 +166,6 @@ namespace KnatteliganWPF
             //TODO: Replace this hack
             Players.Remove(addPlayerWindow.Player);
             Players.Add(addPlayerWindow.Player);
-
         }
     }
 }

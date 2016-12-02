@@ -59,11 +59,7 @@
             Grid.ColumnSpan="3"
             Name="CurrentMatchWeekMatches"
             MouseDoubleClick="CurrentMatchWeekMatches_OnMouseDoubleClick" />
-        <Button Grid.Row="8" Click="ButtonBase_OnClick">Mange league</Button>
+        <Button Grid.Row="8" Click="ManageLeagueBtn_OnClick">Mange league</Button>
         <!--{Binding ElementName=GameWeeksList, Path=SelectedValue }-->
-
-
     </Grid>
-
-
 </Page>

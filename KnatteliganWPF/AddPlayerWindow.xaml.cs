@@ -52,7 +52,6 @@ namespace KnatteliganWPF
 
         private void AddPlayerWindowActivated(object sender, EventArgs e)
         {
-            //TODO: fuck, is this really needed?
             if (PersonalNumber != null)
             {
                 PersonalNumberTextBox.Text = PersonalNumber.ToString();
@@ -72,14 +71,12 @@ namespace KnatteliganWPF
                     case MessageBoxResult.No:
                         break;
                 }
-
             }
             else Close();
         }
 
         private void AddPlayerClick(object sender, RoutedEventArgs e)
         {
-            //TODO: fuck, is this really needed?
             if (PersonNameTextBox.Text != string.Empty)
             {
                 var str = PersonalNumberTextBox.Text;
@@ -93,8 +90,6 @@ namespace KnatteliganWPF
 
         private void SaveEditBtn_Click(object sender, RoutedEventArgs e)
         {
-
-
 
             var str = PersonalNumberTextBox.Text;
             PersonalNumber = ConvertHelper.ConvertStringToPersonalNumber(str);

@@ -32,7 +32,7 @@ namespace KnatteliganWPF
 
         private void CreateLeague_Clicked(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new CreateLeaguePage());
+            NavigationService?.Navigate(new CreateLeaguePage(false));
         }
 
         private void ManageLeague_Clicked(object sender, RoutedEventArgs e)
@@ -40,10 +40,12 @@ namespace KnatteliganWPF
             var listBoxSender = sender as ListBox;
             if (listBoxSender?.SelectedItems == null ||listBoxSender.SelectedItems.Count ==0) return;
 
-            var currentLeague = (League)listBoxSender.SelectedItems[0];
+            var league = (League)listBoxSender.SelectedItems[0];
 
-            var seriesSchedulePage = new SeriesSchedulePage(currentLeague.Id);
-            seriesSchedulePage.GameWeeks = currentLeague.MatchWeeks;
+            var seriesSchedulePage = new SeriesSchedulePage(league)
+            {
+                GameWeeks = league.MatchWeeks
+            };
 
             NavigationService?.Navigate(seriesSchedulePage);
         }

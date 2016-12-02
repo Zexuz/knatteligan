@@ -40,11 +40,11 @@ namespace KnatteliganWPF
             var listBoxSender = sender as ListBox;
             if (listBoxSender?.SelectedItems == null ||listBoxSender.SelectedItems.Count ==0) return;
 
-            var currentLeague = (League)listBoxSender.SelectedItems[0];
+            var league = (League)listBoxSender.SelectedItems[0];
 
-            var seriesSchedulePage = new SeriesSchedulePage(currentLeague.Id)
+            var seriesSchedulePage = new SeriesSchedulePage(league)
             {
-                GameWeeks = currentLeague.MatchWeeks
+                GameWeeks = league.MatchWeeks
             };
 
             NavigationService?.Navigate(seriesSchedulePage);

@@ -60,11 +60,6 @@
             Name="CurrentMatchWeekMatches"
             MouseDoubleClick="CurrentMatchWeekMatches_OnMouseDoubleClick" />
         <Button Grid.Row="8" Click="ManageLeagueBtn_OnClick">Mange league</Button>
-        <TextBlock Name="leagueNameTextBox" Grid.Column="2" HorizontalAlignment="Left" Margin="61.667,13,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Row="8"/>
         <!--{Binding ElementName=GameWeeksList, Path=SelectedValue }-->
-
-
     </Grid>
-
-
 </Page>

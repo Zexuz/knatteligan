@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
@@ -8,7 +7,6 @@ using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
 using knatteligan.Services;
 using knatteligan.Helpers;
-using knatteligan.Repositories;
 
 namespace KnatteliganWPF
 {
@@ -34,7 +32,6 @@ namespace KnatteliganWPF
             _teamService = new TeamService();
             _personService = new PersonService();
             Teams = new ObservableCollection<Team>();
-            TeamList.ItemsSource = Teams;
 
             if (isEdit)
             {

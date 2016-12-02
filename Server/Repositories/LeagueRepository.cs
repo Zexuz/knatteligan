@@ -38,6 +38,7 @@ namespace knatteligan.Repositories
         {
             league.Name = newLeagueName;
             league.TeamIds = newTeamIds;
+            Save(_leaguePath, _leagues);
         }
 
         public League FindById(Guid leagueId)

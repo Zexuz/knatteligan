@@ -7,13 +7,14 @@ using knatteligan.Domain.Entities;
 using knatteligan.Domain.ValueObjects;
 using knatteligan.Helpers;
 using knatteligan.Services;
+using MahApps.Metro.Controls;
 
 namespace KnatteliganWPF
 {
     /// <summary>
     /// Interaction logic for AddTeamWindow.xaml
     /// </summary>
-    public partial class AddTeamWindow : Window
+    public partial class AddTeamWindow : MetroWindow
     {
         public Team Team { get; set; }
         public Coach Coach { get; set; }

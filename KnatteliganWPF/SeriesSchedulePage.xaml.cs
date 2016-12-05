@@ -24,15 +24,21 @@ namespace KnatteliganWPF
         {
             InitializeComponent();
             DataContext = this;
+           
 
             _currentLeagueId = currentLeagueId;
             _matchRepositoryService = new MatchService();
             _leagueService = new LeagueService();
+            LeagueNameHeader.Text = _leagueService.FindById(_currentLeagueId).Name.Value;
+
+
+
         }
 
         private void SeriesSchedulePage_OnLoaded(object sender, RoutedEventArgs e)
         {
             GameWeeksList.ItemsSource = GameWeeks;
+            
         }
 
         private void listView_Click(object sender, SelectionChangedEventArgs e)
@@ -48,13 +54,12 @@ namespace KnatteliganWPF
             var listItem = sender as ListBox;
             if (listItem?.SelectedItems == null ||listItem.SelectedItems.Count ==0) return;
             var match = (Match)listItem.SelectedItems[0];
-            NavigationService?.Navigate(new MatchProtocolPage(match));
+            var league = _leagueService.FindById(_currentLeagueId);
+            NavigationService?.Navigate(new MatchProtocolPage(match, league));
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            //var currentLeague = _leagueService.FindById(_currentLeagueId);
-
             NavigationService?.Navigate(new CreateLeaguePage(_currentLeagueId));
         }
 

@@ -27,6 +27,7 @@ namespace KnatteliganWPF
         private readonly PersonService _personService;
         private readonly MatchService _matchService;
         private readonly TeamService _teamService;
+        
 
         private ListBox _currentFocusedListBox;
         private readonly ObservableCollection<MatchEvent> _matchEventsHome;
@@ -34,12 +35,15 @@ namespace KnatteliganWPF
         private IEnumerable<Player> _awayTeamSquadId;
         private List<Player> _homeTeamSquadId;
 
-        public MatchProtocolPage(Match match)
+        public MatchProtocolPage(Match match, League league)
         {
             var matchEventService = new MatchEventService();
             _teamService = new TeamService();
             _personService = new PersonService();
             _matchService = new MatchService();
+            var str = league.Name.ToString();
+            
+            
 
             Match = match;
             AwayTeam = _teamService.FindById(match.AwayTeamId);
@@ -53,6 +57,7 @@ namespace KnatteliganWPF
 
             //this needs to be before adding the list to WPF.. DHOOO!
             InitializeComponent();
+            LeagueNameHeader.Text = str;
 
             HomeTeamName.Text = HomeTeam.ToString();
             AwayTeamName.Text = AwayTeam.ToString();

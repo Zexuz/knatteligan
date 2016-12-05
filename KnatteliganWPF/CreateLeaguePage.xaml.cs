@@ -64,16 +64,6 @@ namespace KnatteliganWPF
         }
 
     
-        private void RemoveTeam_Click(object sender, RoutedEventArgs e)
-        {
-            var team = (Team)TeamList.SelectedItem;
-            if (team == null) return;
-
-            _teamService.Remove(team);
-            Teams.Remove(team);
-        }
-
-
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
             var addTeamWindow = new AddTeamWindow(false);
@@ -125,6 +115,7 @@ namespace KnatteliganWPF
             _teamService.Remove(team);
             Teams.Remove(team);
         }
+
 
         private void EditTeam_Click(object sender, RoutedEventArgs e)
         {

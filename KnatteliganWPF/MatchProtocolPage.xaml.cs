@@ -32,8 +32,8 @@ namespace KnatteliganWPF
         private ListBox _currentFocusedListBox;
         private readonly ObservableCollection<MatchEvent> _matchEventsHome;
         private readonly ObservableCollection<MatchEvent> _matchEventsAway;
-        private IEnumerable<Player> _awayTeamSquadId;
-        private List<Player> _homeTeamSquadId;
+        private List<Player> _awayTeamSquadIds;
+        private List<Player> _homeTeamSquadIds;
 
         public MatchProtocolPage(Match match, League league)
         {
@@ -89,13 +89,13 @@ namespace KnatteliganWPF
 
             if (match.AwayTeamSquadId != null)
             {
-                _awayTeamSquadId = match.AwayTeamSquadId.Select(_personService.FindPlayerById).ToList();
-                AwayTeamList.ItemsSource = new ObservableCollection<Player>(_awayTeamSquadId);
+                _awayTeamSquadIds = match.AwayTeamSquadId.Select(_personService.FindPlayerById).ToList();
+                AwayTeamList.ItemsSource = new ObservableCollection<Player>(_awayTeamSquadIds);
             }
             if (match.HomeTeamSquadId != null)
             {
-                _homeTeamSquadId = match.HomeTeamSquadId.Select(_personService.FindPlayerById).ToList();
-                HomeTeamList.ItemsSource = new ObservableCollection<Player>(_homeTeamSquadId);
+                _homeTeamSquadIds = match.HomeTeamSquadId.Select(_personService.FindPlayerById).ToList();
+                HomeTeamList.ItemsSource = new ObservableCollection<Player>(_homeTeamSquadIds);
             }
             _matchEventsTemp = new List<MatchEvent>(Match.MatchEventIds.Select(new MatchEventService().FindById));
         }
@@ -121,8 +121,8 @@ namespace KnatteliganWPF
         {
             _matchService.RemoveMatchEventsFromMatchAndTeams(Match.Id, Match.AwayTeamId, Match.HomeTeamId);
             _matchService.ChangeDate(Match.Id, DatePicker.DisplayDate);
-            _matchService.SetStartSquad(Match.Id, true, _homeTeamSquadId.Select(p => p.Id).ToList());
-            _matchService.SetStartSquad(Match.Id, false, _awayTeamSquadId.Select(p => p.Id).ToList());
+            _matchService.SetStartSquad(Match.Id, true, _homeTeamSquadIds.Select(p => p.Id).ToList());
+            _matchService.SetStartSquad(Match.Id, false, _awayTeamSquadIds.Select(p => p.Id).ToList());
             _matchService.SaveMatch(Match.Id, _matchEventsTemp);
             NavigationService?.GoBack();
         }
@@ -204,7 +204,7 @@ namespace KnatteliganWPF
 
         private Player GetSelectedPlayerFromList()
         {
-            return (Player) _currentFocusedListBox.SelectedValue;
+            return (Player)_currentFocusedListBox.SelectedValue;
         }
 
         private void List_OnMouseUp(object sender, RoutedEventArgs e)
@@ -216,15 +216,15 @@ namespace KnatteliganWPF
             AddYellowCardButton.IsEnabled = true;
             AddRedCardButton.IsEnabled = true;
 
-            if (listBox?.SelectedItems == null ||listBox.SelectedItems.Count ==0) return;
-            var player = (Player) listBox.SelectedItem;
+            if (listBox?.SelectedItems == null || listBox.SelectedItems.Count == 0) return;
+            var player = (Player)listBox.SelectedItem;
             PlayerHasMaxCardsOnHim(player);
         }
 
         private void OpenAddTeamSquadAndGetPlayerIds(bool isHomeTeam)
         {
             var listOfPlayers = isHomeTeam ? HomeTeamPlayers : AwayTeamPlayers;
-            var listOfPlayersAlreadySet = isHomeTeam ? _homeTeamSquadId : _awayTeamSquadId;
+            var listOfPlayersAlreadySet = isHomeTeam ? _homeTeamSquadIds : _awayTeamSquadIds;
 
             var setSquadWindow = new SetTeamSquadWindow(listOfPlayers, Match.Id,
                 listOfPlayersAlreadySet.Select(p => p.Id).ToList());
@@ -239,18 +239,18 @@ namespace KnatteliganWPF
 
             var items = setSquadWindow.PlayerListCeckBoxes.ItemsSource;
 
-            var players = ((IEnumerable<CheckBox>) items)
+            var players = ((IEnumerable<CheckBox>)items)
                 .Where(checkBox => checkBox.IsChecked.HasValue && checkBox.IsChecked.Value)
-                .Select(checkBox => _personService.FindPlayerById((Guid) checkBox.Tag)).ToList();
+                .Select(checkBox => _personService.FindPlayerById((Guid)checkBox.Tag)).ToList();
 
             if (isHomeTeam)
             {
-                _homeTeamSquadId = players;
+                _homeTeamSquadIds = players;
                 HomeTeamList.ItemsSource = new ObservableCollection<Player>(players);
             }
             else
             {
-                _awayTeamSquadId = players;
+                _awayTeamSquadIds = players;
                 AwayTeamList.ItemsSource = new ObservableCollection<Player>(players);
             }
         }
@@ -258,9 +258,9 @@ namespace KnatteliganWPF
         private void RemoveEvent_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var listBox = sender as ListBox;
-            if (listBox?.SelectedItems == null || listBox.SelectedItems.Count ==0) return;
+            if (listBox?.SelectedItems == null || listBox.SelectedItems.Count == 0) return;
 
-            var matchEvent = (MatchEvent) listBox.SelectedItems[0];
+            var matchEvent = (MatchEvent)listBox.SelectedItems[0];
             _matchEventsTemp.Remove(matchEvent);
             _matchEventsAway.Remove(matchEvent);
             _matchEventsHome.Remove(matchEvent);
@@ -298,6 +298,12 @@ namespace KnatteliganWPF
             {
                 AddYellowCardButton.IsEnabled = false;
             }
+        }
+
+        private void List_OnLostFocus(object sender, RoutedEventArgs e)
+        {
+            var list = sender as ListBox;
+            if (list != null) list.SelectedItem = null;
         }
     }
 }

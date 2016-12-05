@@ -37,7 +37,7 @@
 
         <TextBlock Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Margin="10 5 0 0">Name:</TextBlock>
         
-        <TextBox Name="PersonNameTextBox" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" VerticalContentAlignment="Center" Margin="10 0 0 0"
+        <TextBox Name="PersonNameTextBox" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalContentAlignment="Center" Margin="10 0 0 0"
             ToolTip="{Binding ElementName=PersonNameTextBox, Path=(Validation.Errors)[0].ErrorContent}">
             <TextBox.Text>
                 <Binding Path="PlayerName" UpdateSourceTrigger="PropertyChanged"
@@ -51,7 +51,7 @@
         
         <TextBlock Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3" Margin="10 5 0 0">Personal number:</TextBlock>
         
-        <TextBox Name="PersonalNumberTextBox" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" VerticalContentAlignment="Center" Margin="10 0 0 0"
+        <TextBox Name="PersonalNumberTextBox" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalContentAlignment="Center" Margin="10 0 0 0"
                  ToolTip="{Binding ElementName=PersonalNumberTextBox, Path=(Validation.Errors)[0].ErrorContent}">
             <TextBox.Text>
                 <Binding Path="PersonalNumber" UpdateSourceTrigger="PropertyChanged" >
@@ -74,6 +74,10 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
+        <ListBox Name="FreeAgentsList" MouseDoubleClick="FreeAgentsList_OnMouseDoubleClick" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="4" BorderThickness="1">
+            
+        </ListBox>
+        <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Grid.ColumnSpan="2">PlayerList</TextBlock>
 
         <Button Grid.Row="6" Grid.Column="1" Margin="5" Click="CloseCommandHandler_Clicked">Cancel</Button>
         <Button Name="AddPlayerBtn"  Grid.Row="6" Grid.Column="2"  Margin="5" Content="Add" Click="AddPlayerClick">

@@ -44,6 +44,4 @@
             <Button HorizontalAlignment="Left" Click="ButtonBase_OnClick">Edit League</Button>
         </StackPanel>
     </Grid>
-
-
 </Page>

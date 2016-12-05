@@ -8,11 +8,15 @@ namespace knatteligan.Domain.Entities
     {
         public List<Guid> MatchEvents { get; set; }
 
+        public bool HasTeam { get; set; }
+
+
         public Player() { }
 
         public Player(PersonName name, PersonalNumber personalNumber) : base(name, personalNumber)
         {
             MatchEvents = new List<Guid>();
+            HasTeam = true;
         }
 
         public override Persons GetType()

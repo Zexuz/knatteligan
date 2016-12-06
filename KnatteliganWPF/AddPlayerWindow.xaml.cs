@@ -46,7 +46,11 @@ namespace KnatteliganWPF
             var aviliobePlayers  = freeAgents.Where(player => !playersFromTeamId.Contains(player.Id)).ToList();
 
             if (isEdit)
-                 FreeAgentsList.Visibility = Visibility.Hidden;
+            {
+                FreeAgentsList.Visibility = Visibility.Hidden;
+                FreeAgentsHeader.Visibility = Visibility.Hidden;
+            }
+                
             FreeAgentsList.ItemsSource = aviliobePlayers;
 
         }

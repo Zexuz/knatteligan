@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using knatteligan.Domain.Entities;
+using knatteligan.Domain.ValueObjects;
 using knatteligan.Repositories;
 
 namespace knatteligan.Services
@@ -27,6 +28,11 @@ namespace knatteligan.Services
         public void Remove(Guid leagueId)
         {
             _leagueRepository.Remove(leagueId);
+        }
+
+        public void Edit(League league, LeagueName newLeagueName, List<Guid> newTeamIds)
+        {
+            _leagueRepository.Edit(league, newLeagueName, newTeamIds);
         }
 
         public League FindById(Guid leagueId)

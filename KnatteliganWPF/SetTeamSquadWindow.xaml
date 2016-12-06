@@ -1,44 +1,39 @@
-<Window x:Class="KnatteliganWPF.SetTeamSquadWindow"
+<Controls:MetroWindow x:Class="KnatteliganWPF.SetTeamSquadWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:KnatteliganWPF"
         xmlns:entities="clr-namespace:knatteligan.Domain.Entities;assembly=knatteligan"
         mc:Ignorable="d"
         Activated="WindowActivated"
-        Title="MatchProtocolPage" Height="400" Width="400" d:DataContext="{d:DesignInstance }">
-    <Grid Margin="0,0,2,0">
+        Title="Match Day Squad" Height="400" Width="250"
+                      ResizeMode="NoResize"
+        d:DataContext="{d:DesignInstance}"
+                      WindowStartupLocation="CenterOwner">
+    <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-
-            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <ListBox Name="PlayerListCeckBoxes"
-                 Grid.Row="0" Grid.Column="0" Grid.RowSpan="9" Grid.ColumnSpan="5"
-                 ItemsSource="{Binding PlayerList}" />
+        <TextBlock Text="Pick Squad"  Grid.ColumnSpan="2" Margin="5"></TextBlock>
+        
+        <ListBox Name="PlayerListCeckBoxes" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  ItemsSource="{Binding PlayerList}" />
 
-        <Button Grid.Row="8" Grid.Column="0" Content="Add" Click="Add_OnClick"/>
-        <Button Grid.Row="8" Grid.Column="4" Content="Cancel"  Click="Cancel_OnClick"/>
-
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="1">
+            <Button Content="Cancel"  Click="Cancel_OnClick"/>
+            <Button Content="Save" Click="Add_OnClick"/>
+        </StackPanel>
 
     </Grid>
 
 
-</Window>
+</Controls:MetroWindow>

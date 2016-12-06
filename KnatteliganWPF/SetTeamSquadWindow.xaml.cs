@@ -7,10 +7,11 @@ using System.Windows;
 using System.Windows.Controls;
 using knatteligan.Domain.Entities;
 using knatteligan.Services;
+using MahApps.Metro.Controls;
 
 namespace KnatteliganWPF
 {
-    public partial class SetTeamSquadWindow
+    public partial class SetTeamSquadWindow : MetroWindow
     {
         public List<Player> StartSquadPlayers { get; set; }
 

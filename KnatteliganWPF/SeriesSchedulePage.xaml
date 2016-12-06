@@ -5,65 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KnatteliganWPF"
         mc:Ignorable="d"
-        Title="MatchProtocolPage" Height="400" Width="400"
+        Title="MatchProtocolPage"  Height="450" Width="625"
       Loaded="SeriesSchedulePage_OnLoaded">
-    <Grid Margin="0,0,2,0">
+    <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-
+            <RowDefinition Height="30" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
 
-            <ColumnDefinition />
         </Grid.ColumnDefinitions>
-
-        <!--  <ListBox Name="GameWeeksList" Grid.Row="0" Grid.Column="0" Grid.RowSpan="9" Grid.ColumnSpan="2" TextElement.FontSize="16"/>
-
-        <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2"  Text="{Binding ElementName=GameWeeksList, Path=SelectedValue }"/>
--->
-
-        <ListView
-            Grid.Row="0"
-            Grid.Column="0"
-            Grid.RowSpan="8"
-            Grid.ColumnSpan="2"
-            Name="GameWeeksList"
-            SelectionChanged ="listView_Click">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="GameWeek nr:" DisplayMemberBinding="{Binding Key}" />
-                    <!-- <GridViewColumn Header="Name"
-                                    DisplayMemberBinding="{Binding Value.Name}" />
-                    <GridViewColumn Header="Popularity"
-                                    DisplayMemberBinding="{Binding Value.Popularity}" />-->
-                </GridView>
-            </ListView.View>
-        </ListView>
-
-        <ListBox
-            Grid.Row="0"
-            Grid.RowSpan="8"
-            Grid.Column="2"
-            Grid.ColumnSpan="3"
-            Name="CurrentMatchWeekMatches"
-            MouseDoubleClick="CurrentMatchWeekMatches_OnMouseDoubleClick" />
-        <Button Grid.Row="8" Click="ButtonBase_OnClick">Mange league</Button>
-        <!--{Binding ElementName=GameWeeksList, Path=SelectedValue }-->
-
-
+        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="5">
+            <TextBlock   HorizontalAlignment="Left" VerticalAlignment="Bottom" Name="LeagueNameHeader" FontSize="16" Margin="5"></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                
+                <StackPanel HorizontalAlignment="Right">
+                    <ListView  Name="GameWeeksList" SelectionChanged ="listView_Click"  Height="315" Margin="3" >
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Width="100" Header="Match Weeks"  DisplayMemberBinding="{Binding Key}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </StackPanel>
+                <StackPanel  HorizontalAlignment="Left">
+                    <ListView Name="CurrentMatchWeekMatches" MouseDoubleClick="CurrentMatchWeekMatches_OnMouseDoubleClick" HorizontalAlignment="Left" Height="315" Margin="3">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Width="350" Header="Matches"></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </StackPanel>
+            </StackPanel>
+            <Button HorizontalAlignment="Left" Click="ManageLeagueBtn_OnClick">Edit League</Button>
+        </StackPanel>
     </Grid>
-
-
 </Page>

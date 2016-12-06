@@ -6,117 +6,103 @@
         xmlns:local="clr-namespace:KnatteliganWPF"
         xmlns:converters="clr-namespace:KnatteliganWPF.Converters"
         mc:Ignorable="d"
-        Title="MatchProtocolPage" Height="420" Width="500">
+        Title="Match Protocol" Height="450" Width="625">
     <Page.Resources>
         <converters:MatchEventToStringConverter x:Key="MatchEventToStringConverter"/>
     </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="90" />
+            <RowDefinition Height="260" />
+            <RowDefinition Height="30" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition />
+            <ColumnDefinition Width="220" />
         </Grid.ColumnDefinitions>
-        <TextBlock Name="HomeTeamName" Grid.Row="1" Grid.Column="0" TextAlignment="Right" Grid.ColumnSpan="3"
-                   Margin="10,26,46,12" Grid.RowSpan="2" FontWeight="Bold" FontSize="16" />
 
-        <TextBlock Name="AwayTeamName" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3" Margin="46,26,10,9"
-                   Grid.RowSpan="2" FontWeight="Bold" FontSize="16" />
-
-        <ListBox Name="HomeTeamList" Grid.ColumnSpan="3" Grid.RowSpan="7" Grid.Row="4" Grid.Column="0"
-                 Margin="5,12,51,17" FontWeight="Bold" MouseUp="List_OnMouseUp" />
-
-        <ListBox Name="AwayTeamList" Grid.ColumnSpan="3" Grid.RowSpan="7" Grid.Row="4" Grid.Column="4"
-                 Margin="51,12,5,17" FontWeight="Bold" MouseUp="List_OnMouseUp" />
-
-        <Button Name="AddGoalButton" IsEnabled="False"  Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center"
-                Content="Add Goal"
-                Click="AddGoal_OnClick"/>
-            
-        <Button Name="AddAssistButton" IsEnabled="False" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Center"
-                Content="Add Assist"
-                Click="AddAssist_OnClick"/>
-            
-        <Button Name="AddYellowCardButton" IsEnabled="False" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Center"
-                Content="Add YellowCard"
-                Click="AddYellowCard_OnClick"/>
-            
-        <Button Name="AddRedCardButton" IsEnabled="False" Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="2" HorizontalAlignment="Center"
-                Content="Add RedCard"
-                Click="AddRedCard_OnClick"/>
-            
-
-
-        <DatePicker Name="DatePicker" Width="110" Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="2" Margin="33,5,26,0" />
-        <Button Width="110" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Click="ButtonAddAwayTeamSquad_OnClick"
-                Content="Add away team squad" />
-        <Button Width="110" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Click="ButtonAddHomeTeamSquad_OnClick"
-                Content="Add home team squad" />
-
-
-        <Button Grid.Row="12" Grid.Column="3" Margin="5" Grid.ColumnSpan="2" Click="CancelProtocol_OnClick">Cancel</Button>
-        <Button Grid.Row="12" Grid.Column="5" Margin="5" Grid.ColumnSpan="2" Click="SaveProtocol_OnClick">Save</Button>
-        <Label Name="PlayerNameLabel" Grid.Column="2" HorizontalAlignment="Left" Margin="38,27,0,0" Grid.Row="3"
-               VerticalAlignment="Top" RenderTransformOrigin="0.351,-0.5" Grid.ColumnSpan="2" Grid.RowSpan="2"
-               FontWeight="Bold" />
-
-        <ListBox Name="HomeTeamMatchEvents" BorderThickness="0" HorizontalContentAlignment="Right" Grid.Row="2"
-                 Grid.Column="0" Grid.ColumnSpan="3" Margin="15,23,41,0" FontWeight="Bold" FontSize="9"
-                 Grid.RowSpan="2" MouseDoubleClick="RemoveEvent_OnMouseDoubleClick">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Padding="5,0,5,0"
-                                   Text="{Binding Converter= {StaticResource MatchEventToStringConverter}}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-
-        <ListBox Grid.Row="2" Name="AwayTeamMatchEvents" BorderThickness="0" Grid.Column="4" Grid.ColumnSpan="3"
-                 Margin="41,23,15,0" Grid.RowSpan="2" FontWeight="Bold" FontSize="9"
+        <TextBlock Name="HomeTeamName" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="18" Margin="5" />
+        <ListBox Name="HomeTeamMatchEvents" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Right" FontSize="7"  Margin="5" 
                  MouseDoubleClick="RemoveEvent_OnMouseDoubleClick">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="Padding" Value="0,0,0,0"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Converter= {StaticResource MatchEventToStringConverter}}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Vertical">
+            <Button Click="ButtonAddHomeTeamSquad_OnClick" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5" Content="Home Team Squad" />
+            <ListBox Name="HomeTeamList" MouseUp="List_OnMouseUp" HorizontalContentAlignment="Right" Margin="5" MaxHeight="210"  />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <TextBlock Name="LeagueNameHeader" HorizontalAlignment="Center" Margin="0" FontSize="8" Text=""></TextBlock>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Name="HomeTeamGoals" FontWeight="Bold" FontSize="35" Text="0" Margin="2" />
+                <TextBlock Name="GoalSeparator" FontWeight="Bold" FontSize="35" Text="-" Margin="2"></TextBlock>
+                <TextBlock Name="AwayTeamGoals" FontWeight="Bold" FontSize="35" Text="0" Margin="2" />
+            </StackPanel>
+        </StackPanel>
+
+        <DatePicker Name="DatePicker" Width="110" Height="20" Grid.Row="1" Grid.Column="1">
+            <DatePicker.BlackoutDates>
+                <CalendarDateRange Start="1/1/0001" End="12/31/2015" />
+                <CalendarDateRange Start="12/31/2017" />
+            </DatePicker.BlackoutDates>
+        </DatePicker>
+        <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1">
+            <TextBlock Text="Add" HorizontalAlignment="Center" Margin="5,40,0,0" FontSize="10" ></TextBlock>
+            <Button Name="AddGoalButton" IsEnabled="False" Margin="5,0,0,0" HorizontalAlignment="Center" Content="Goal" Click="AddGoal_OnClick"  Width="90"/>
+            <Button Name="AddAssistButton" IsEnabled="False" Margin="5,0,0,0" HorizontalAlignment="Center" Content="Assist" Click="AddAssist_OnClick"  Width="90"/>
+            <Button Name="AddYellowCardButton" IsEnabled="False" Margin="5,0,0,0" HorizontalAlignment="Center" Content="Yellow Card" Click="AddYellowCard_OnClick" Width="90"/>
+            <Button Name="AddRedCardButton" IsEnabled="False" Margin="5,0,0,0" HorizontalAlignment="Center" Content="Red Card" Click="AddRedCard_OnClick"  Width="90"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Margin="5,20,0,0">
+                <Button  Click="CancelProtocol_OnClick">Cancel</Button>
+                <Button Click="SaveProtocol_OnClick">Save</Button>
+            </StackPanel>
+        </StackPanel>
+
+        <TextBlock Name="AwayTeamName" Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="18" Margin="5" />
+        <ListBox Grid.Row="1" Grid.Column="2" Name="AwayTeamMatchEvents" FontSize="9" MouseDoubleClick="RemoveEvent_OnMouseDoubleClick">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="Padding" Value="0,0,0,0"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Padding="5,0,5,0"
-                                   Text="{Binding Converter= {StaticResource MatchEventToStringConverter}}" />
+                        <TextBlock Text="{Binding Converter= {StaticResource MatchEventToStringConverter}}" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
+        <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Vertical">
+            <Button Click="ButtonAddAwayTeamSquad_OnClick" Content="Away Team Squad" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5" />
+            <ListBox Name="AwayTeamList" MouseUp="List_OnMouseUp" HorizontalContentAlignment="Left" Margin="5" MaxHeight="210"   />
+        </StackPanel>
 
-        <TextBlock Name="HomeTeamGoals" Grid.Column="2" TextAlignment="Center" Margin="15,0,51,5" FontWeight="Bold"
-                   FontSize="40"
-                   Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="1" Text="0" />
 
-        <TextBlock Name="AwayTeamGoals" Grid.Column="3" TextAlignment="Center" Margin="51,0,15,5" FontWeight="Bold"
-                   FontSize="40"
-                   Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="1" Text="0" />
 
-        <TextBlock Grid.Column="3" TextAlignment="Center" Margin="5,24,10,24" FontWeight="Bold" FontSize="10"
-                   Grid.RowSpan="3" RenderTransformOrigin="0.341,0.971">
-            <Run Text="-" FontSize="40" />
-        </TextBlock>
+
+
+
+
+
+
+
+
+
+
 
     </Grid>
 </Page>

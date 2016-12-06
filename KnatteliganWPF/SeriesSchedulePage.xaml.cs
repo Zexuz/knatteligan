@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using knatteligan.Domain.Entities;
+using knatteligan.Domain.ValueObjects;
 using knatteligan.Helpers;
 using knatteligan.Services;
 
@@ -14,30 +13,33 @@ namespace KnatteliganWPF
 {
     public partial class SeriesSchedulePage : Page
     {
+        public League League { get; set; }
         public SerializableDictionary<int, MatchWeek> GameWeeks { get; set; }
-
         private readonly MatchService _matchRepositoryService;
-        private readonly LeagueService _leagueService;
-        private readonly Guid _currentLeagueId;
+        private readonly TeamService _teamService;
 
-        public SeriesSchedulePage(Guid currentLeagueId)
+        public SeriesSchedulePage(League league)
         {
             InitializeComponent();
             DataContext = this;
 
-            _currentLeagueId = currentLeagueId;
+            League = league;
             _matchRepositoryService = new MatchService();
-            _leagueService = new LeagueService();
+            _teamService = new TeamService();
+            LeagueNameHeader.Text = League.Name.Value;
+
+
+
         }
 
         private void SeriesSchedulePage_OnLoaded(object sender, RoutedEventArgs e)
         {
             GameWeeksList.ItemsSource = GameWeeks;
+            
         }
 
         private void listView_Click(object sender, SelectionChangedEventArgs e)
         {
-            Trace.WriteLine("I clicked antoer!");
             var currentMatchWeek = (KeyValuePair<int, MatchWeek>)e.AddedItems[0];
             var matches = currentMatchWeek.Value.MatchIds.Select(guid => _matchRepositoryService.FindById(guid));
             CurrentMatchWeekMatches.ItemsSource = new ObservableCollection<Match>(matches);
@@ -46,18 +48,24 @@ namespace KnatteliganWPF
         private void CurrentMatchWeekMatches_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var listItem = sender as ListBox;
-            if (listItem?.SelectedItems == null ||listItem.SelectedItems.Count ==0) return;
+            if (listItem?.SelectedItems == null || listItem.SelectedItems.Count == 0) return;
             var match = (Match)listItem.SelectedItems[0];
-            NavigationService?.Navigate(new MatchProtocolPage(match));
+            
+            NavigationService?.Navigate(new MatchProtocolPage(match, League));
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void ManageLeagueBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            //var currentLeague = _leagueService.FindById(_currentLeagueId);
 
-            NavigationService?.Navigate(new CreateLeaguePage(_currentLeagueId));
+            var teams = League.TeamIds.Select(_teamService.FindById);
+            var teamsOc = new ObservableCollection<Team>(teams);
+
+            NavigationService?.Navigate(new CreateLeaguePage(true, League)
+            {
+                League = League,
+                LeagueName = League.Name,
+                Teams = teamsOc
+            });
         }
-
-
     }
 }

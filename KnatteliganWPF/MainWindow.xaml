@@ -6,8 +6,14 @@
         xmlns:local="clr-namespace:KnatteliganWPF"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="Knatteligan" Height="350" Width="525">
+        Title="Football League Manager" Height="450" Width="625"
+                      ResizeMode="NoResize"
+                      BorderBrush="{DynamicResource AccentColorBrush}"
+                      BorderThickness="1"
+                      WindowStartupLocation="CenterScreen"
+                      >
     <Grid>
-   <Frame Name="MainFrame"/>
-   </Grid>
+        
+        <Frame Name="MainFrame" BorderThickness="1"/>
+    </Grid>
 </Controls:MetroWindow>

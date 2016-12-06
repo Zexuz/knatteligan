@@ -36,6 +36,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Annotations.cs" />
     <Compile Include="CustomExceptions\InvalidEmailException.cs" />
     <Compile Include="CustomExceptions\InvalidMatchDateException.cs" />
     <Compile Include="CustomExceptions\InvalidNumberOfTeamsException.cs" />

@@ -7,70 +7,64 @@
         xmlns:validationRules="clr-namespace:KnatteliganWPF.ValidationRules"
         xmlns:converters="clr-namespace:KnatteliganWPF.Converters"
         mc:Ignorable="d"
-        Title="CreateLeaguePage" Height="400" Width="400">
+        Title="CreateLeaguePage" Height="450" Width="625">
     <Page.Resources>
         <converters:LeagueNameToStringConverter x:Key="LeagueNameToStringConverter"/>
         <converters:IsEnabledConverter x:Key="IsEnabledConverter"/>
     </Page.Resources>
-    <Grid Margin="10">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="54"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="400"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1">Enter league name</TextBlock>
-
-
-        <TextBox Name="leagueName" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
-                 ToolTip="{Binding ElementName=leagueName, Path=(Validation.Errors)[0].ErrorContent}">
-            <TextBox.Text>
-                <Binding  Path="LeagueName" UpdateSourceTrigger="PropertyChanged"
-                         Converter="{StaticResource LeagueNameToStringConverter}" >
-                    <Binding.ValidationRules>
-                        <validationRules:LeagueNameValidationRule/>
-                    </Binding.ValidationRules>
-                </Binding>
-            </TextBox.Text>
-        </TextBox>
-
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3" Margin="0, 5">Add TeamIds (Maximum 16 and only even amounts)</TextBlock>
-
-        <ListBox Name="TeamList" Grid.ColumnSpan="4" Grid.RowSpan="5" Grid.Row="4" Grid.Column="0"/>
-
-        <Button Name="EditBtn" IsEnabled="{Binding ElementName=TeamList, Path=SelectedItems.Count}"  Grid.Row="9"  Grid.Column="0" Margin="0,0,10,10" Click="Edit_Click" >Edit</Button>
-        <Button Name="RemoveTeamBtn" IsEnabled="{Binding ElementName=TeamList, Path=SelectedItems.Count}"  Grid.Row="9" Grid.Column="3" Click="RemoveTeam_Click" Margin="0,0,23,10">-</Button>
-        <Button Grid.Row="9" Grid.Column="3" Click="AddTeam_Clicked" Margin="30,0,0,10" RenderTransformOrigin="1.179,1.5">+</Button>
-
-        <Button Grid.Row="12" Grid.Column="5" Margin="5" Click="CloseCommandHandler_Click">Cancel</Button>
         
-        <Button Name="AddLeagueButton" Grid.Row="12" Grid.Column="6"  Margin="5" Content="Add" Click="AddLeague_Click">
-            <Button.IsEnabled>
-                <MultiBinding Converter="{StaticResource IsEnabledConverter}">
-                    <Binding ElementName="leagueName" Path="(Validation.Errors)[0]"/>
-                    <Binding ElementName="leagueName" Path="Text"/>
-                    <Binding ElementName="TeamList" Path="Items.Count"/>
-                </MultiBinding>
-            </Button.IsEnabled>
-        </Button>
+
+        <StackPanel Orientation="Vertical" Margin="5" Grid.Row="0" HorizontalAlignment="Left" Height="400">
+            <TextBlock Margin="0,5,0,0">League Name</TextBlock>
+
+
+            <TextBox Name="leagueName" ToolTip="{Binding ElementName=leagueName, Path=(Validation.Errors)[0].ErrorContent}">
+                <TextBox.Text>
+                    <Binding  Path="LeagueName" UpdateSourceTrigger="PropertyChanged"
+                         Converter="{StaticResource LeagueNameToStringConverter}" >
+                        <Binding.ValidationRules>
+                            <validationRules:LeagueNameValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
+            <TextBlock ToolTip="Minumum 16 Teams to Start" Margin="0,5,0,0">Teams</TextBlock>
+
+            <ListBox Name="TeamList" MouseUp="Page_Loaded" Height="260" Width="380"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Click="AddTeam_Clicked"  Width="20" Height="20">+</Button>
+                <Button Name="RemoveTeamBtn" IsEnabled="{Binding ElementName=TeamList, Path=SelectedItems.Count}" Click="RemoveTeamBtn_Click" Width="20" Height="20">-</Button>
+                <Button Name="EditBtn" IsEnabled="{Binding ElementName=TeamList, Path=SelectedItems.Count}" Click="EditTeamBtn_Click" Width="auto" Height="20">Edit</Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="2">
+                <Button Name="AddLeagueButton" Content="Start League" Click="AddLeague_Click">
+                    <Button.IsEnabled>
+                        <MultiBinding Converter="{StaticResource IsEnabledConverter}">
+                            <Binding ElementName="leagueName" Path="(Validation.Errors)[0]"/>
+                            <Binding ElementName="leagueName" Path="Text"/>
+                            <Binding ElementName="TeamList" Path="Items.Count"/>
+                        </MultiBinding>
+                    </Button.IsEnabled>
+                </Button>
+                <Button  Click="CloseCommandHandler_Click">Cancel</Button>
+                <Button Click="SaveEditLeagueBtn_Click" Name="SaveEditLeagueBtn">Save</Button>
+            </StackPanel>
+        </StackPanel>
+       
+
+
+
+
 
     </Grid>
 </Page>

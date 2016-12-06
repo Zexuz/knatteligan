@@ -125,8 +125,9 @@ namespace knatteligan.Services
             teamThatMadeTheScore.GoalsScoredIds.Add(goal.Id);
 
             var teamIsAwayTeam = teamThatMadeTheScore.Id == match.AwayTeamId;
-            var teamId = teamIsAwayTeam ? match.AwayTeamId : match.HomeTeamId;
-            teamService.FindById(teamId).GoalsConcededIds.Add(goal.Id);
+            var teamId = teamIsAwayTeam ? match.HomeTeamId : match.AwayTeamId;
+            var testTeam = teamService.FindById(teamId);
+                testTeam.GoalsConcededIds.Add(goal.Id);
             teamService.Save();
         }
 

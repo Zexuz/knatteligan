@@ -1,16 +1,18 @@
 using knatteligan.Domain.ValueObjects;
 
-namespace knatteligan.Domain.Entities {
+namespace knatteligan.Domain.Entities
+{
 
-    public class Coach : TeamPerson {
+    public class Coach : Person
+    {
 
         public Email Email { get; set; }
         public PhoneNumber PhoneNumber { get; set; }
-        //TODO: Skalbart att ha dessa p� alla person?
 
-        public Coach() {}
+        public Coach() { }
 
-        public Coach(PersonName name, PersonalNumber personalNumber, PhoneNumber phoneNumber, Email email, Team team) : base(name, personalNumber, team) {
+        public Coach(PersonName name, PersonalNumber personalNumber, PhoneNumber phoneNumber, Email email) : base(name, personalNumber)
+        {
             PhoneNumber = phoneNumber;
             Email = email;
         }

@@ -1,35 +1,31 @@
-using System;
 using System.Text.RegularExpressions;
 
 namespace knatteligan.Domain.ValueObjects
 {
     public class PersonName
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string Name { get; set; }
 
-        public PersonName() {
+        public PersonName() { }
 
-        }
-
-        public PersonName(string firstName, string lastName)
+        public PersonName(string name)
         {
-            if (!IsName(firstName, lastName))
+            if (!IsName(name))
                 throw new InvalidPersonNameException("Bad name.");
 
-            FirstName = firstName;
-            LastName = lastName;
+            Name = name;
         }
 
-        private static bool IsName(string firstName, string lastName)
+        private static bool IsName(string name)
         {
-            const string regExString =
-                "^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð,.'-]{2,30}$";
-            return Regex.IsMatch(firstName, regExString) && Regex.IsMatch(lastName, regExString);
+            const string regExString = 
+                "^[a-z\\sA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð-]{2,30}$";
+            return Regex.IsMatch(name, regExString);
         }
 
-        public override string ToString() {
-            return $"{FirstName} {LastName}";
+        public override string ToString()
+        {
+            return $"{Name}";
         }
 
     }

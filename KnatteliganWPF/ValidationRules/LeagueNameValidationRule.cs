@@ -16,10 +16,8 @@ namespace KnatteliganWPF.ValidationRules
             }
             catch (Exception)
             {
-                return new ValidationResult(false, "Not a valid league name.");
+                return new ValidationResult(false, "2-30 characters & no symbols");
             }
-
-          
-        }   
+        }
     }
 }

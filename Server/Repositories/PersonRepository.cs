@@ -2,12 +2,12 @@ using System;
 using knatteligan.Domain.Entities;
 using System.Collections.Generic;
 using System.Linq;
+using knatteligan.Domain.ValueObjects;
 
 namespace knatteligan.Repositories
 {
     public class PersonRepository : Repository<Person>
     {
-        #region props
 
         private readonly List<Player> _players;
         private readonly List<Coach> _coaches;
@@ -15,7 +15,6 @@ namespace knatteligan.Repositories
         private static string _playerPath;
         private static string _coachPath;
 
-        #endregion
 
         public PersonRepository()
         {
@@ -71,24 +70,65 @@ namespace knatteligan.Repositories
 
         private void AddAndSaveCoach(Person person)
         {
-            var coach = (Coach) person;
+            var coach = (Coach)person;
             _coaches.Add(coach);
-            Save(_coachPath,_coaches);
+            Save(_coachPath, _coaches);
 
         }
 
         private void AddAndSavePlayer(Person person)
         {
-            var player = (Player) person;
+            var player = (Player)person;
             _players.Add(player);
-            Save(_playerPath,_players);
+            Save(_playerPath, _players);
         }
 
         #endregion
 
+        //TODO: Just one search method for both coach and player.
+
+        public Player FindPlayerById(Guid id)
+        {
+            return _players.Find(player => player.Id == id);
+        }
+
+        public Coach FindCoachById(Guid id)
+        {
+            return _coaches.Find(coach => coach.Id == id);
+        }
+
         public static PersonRepository GetInstance()
         {
-            return (PersonRepository) (Repo ?? (Repo = new PersonRepository()));
+            return (PersonRepository)(Repo ?? (Repo = new PersonRepository()));
+        }
+
+        public Person FindById(Guid personId)
+        {
+            return GetAll().First(person => person.Id == personId);
+        }
+
+
+        public void RemovePlayer(Guid id)
+        {
+            var player = FindPlayerById(id);
+
+            _players.Remove(player);
+
+            Save(_coachPath, _coaches);
+        }
+
+        public void Save()
+        {
+            Save(_playerPath, _players);
+            Save(_coachPath, _coaches);
+        }
+
+
+        public void Edit(Player player, PersonName name, PersonalNumber personId)
+        {
+            player.Name = name;
+            player.PersonalNumber = personId;
+            Save(_playerPath, _players);
         }
     }
 }

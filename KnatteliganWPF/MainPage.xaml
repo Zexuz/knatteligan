@@ -1,0 +1,34 @@
+﻿<Page x:Class="KnatteliganWPF.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="625"
+      Title="MainPage">
+    
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="2" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock FontWeight="Bold" Margin="5" >Leagues</TextBlock>
+
+            <ListBox Name="LeagueList" Margin="5" MinWidth="150" MinHeight="200" MouseDoubleClick="ManageLeague_Clicked" BorderThickness="1"/>
+            <Button Click="CreateLeague_Clicked" MaxHeight="20" Margin="5">Create a new league</Button>
+        </StackPanel>
+    </Grid>
+
+</Page>

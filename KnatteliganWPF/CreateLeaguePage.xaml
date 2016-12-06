@@ -1,0 +1,70 @@
+﻿<Page x:Class="KnatteliganWPF.CreateLeaguePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KnatteliganWPF"
+        xmlns:validationRules="clr-namespace:KnatteliganWPF.ValidationRules"
+        xmlns:converters="clr-namespace:KnatteliganWPF.Converters"
+        mc:Ignorable="d"
+        Title="CreateLeaguePage" Height="450" Width="625">
+    <Page.Resources>
+        <converters:LeagueNameToStringConverter x:Key="LeagueNameToStringConverter"/>
+        <converters:IsEnabledConverter x:Key="IsEnabledConverter"/>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+
+        <StackPanel Orientation="Vertical" Margin="5" Grid.Row="0" HorizontalAlignment="Left" Height="400">
+            <TextBlock Margin="0,5,0,0">League Name</TextBlock>
+
+
+            <TextBox Name="leagueName" ToolTip="{Binding ElementName=leagueName, Path=(Validation.Errors)[0].ErrorContent}">
+                <TextBox.Text>
+                    <Binding  Path="LeagueName" UpdateSourceTrigger="PropertyChanged"
+                         Converter="{StaticResource LeagueNameToStringConverter}" >
+                        <Binding.ValidationRules>
+                            <validationRules:LeagueNameValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
+            <TextBlock ToolTip="Minumum 16 Teams to Start" Margin="0,5,0,0">Teams</TextBlock>
+
+            <ListBox Name="TeamList" MouseUp="Page_Loaded" Height="280" Width="400"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Click="AddTeam_Clicked"  Width="20" Height="20">+</Button>
+                <Button Name="RemoveTeamBtn" IsEnabled="{Binding ElementName=TeamList, Path=SelectedItems.Count}" Click="RemoveTeamBtn_Click" Width="20" Height="20">-</Button>
+                <Button Name="EditBtn" IsEnabled="{Binding ElementName=TeamList, Path=SelectedItems.Count}" Click="EditTeamBtn_Click" Width="auto" Height="20">Edit</Button>
+            </StackPanel>
+            
+        </StackPanel>
+        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="2">
+            <Button Name="AddLeagueButton" Content="Start League" Click="AddLeague_Click">
+                <Button.IsEnabled>
+                    <MultiBinding Converter="{StaticResource IsEnabledConverter}">
+                        <Binding ElementName="leagueName" Path="(Validation.Errors)[0]"/>
+                        <Binding ElementName="leagueName" Path="Text"/>
+                        <Binding ElementName="TeamList" Path="Items.Count"/>
+                    </MultiBinding>
+                </Button.IsEnabled>
+            </Button>
+            <Button  Click="CloseCommandHandler_Click">Cancel</Button>
+            <Button Click="SaveEditLeagueBtn_Click" Name="SaveEditLeagueBtn">Save</Button>
+        </StackPanel>
+
+
+
+
+
+    </Grid>
+</Page>

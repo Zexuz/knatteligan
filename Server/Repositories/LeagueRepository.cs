@@ -1,6 +1,8 @@
-﻿﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using knatteligan.Domain.Entities;
 using System.Linq;
+using knatteligan.Domain.ValueObjects;
 
 namespace knatteligan.Repositories
 {
@@ -29,7 +31,29 @@ namespace knatteligan.Repositories
 
         public static LeagueRepository GetInstance()
         {
-            return (LeagueRepository) (Repo ?? (Repo = new LeagueRepository()));
+            return (LeagueRepository)(Repo ?? (Repo = new LeagueRepository()));
+        }
+
+        public void Edit(League league, LeagueName newLeagueName, List<Guid> newTeamIds)
+        {
+            league.Name = newLeagueName;
+            league.TeamIds = newTeamIds;
+            Save(_leaguePath, _leagues);
+        }
+
+        public League FindById(Guid leagueId)
+        {
+            return _leagues.First(league => league.Id == leagueId);
+        }
+
+        public void Remove(Guid leagueId)
+        {
+            _leagues.Remove(_leagues.First(league => league.Id == leagueId));
+        }
+
+        public void Save()
+        {
+            Save(_leaguePath, _leagues);
         }
     }
 }

@@ -33,12 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Domain\ValueObjects" />
-    <Folder Include="Repositories" />
-    <Folder Include="Services" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Compile Include="Annotations.cs" />
     <Compile Include="CustomExceptions\InvalidEmailException.cs" />
     <Compile Include="CustomExceptions\InvalidMatchDateException.cs" />
     <Compile Include="CustomExceptions\InvalidNumberOfTeamsException.cs" />
@@ -56,7 +55,6 @@
     <Compile Include="Domain\Entities\Person.cs" />
     <Compile Include="Domain\Entities\Player.cs" />
     <Compile Include="Domain\Entities\Team.cs" />
-    <Compile Include="Domain\Entities\TeamPerson.cs" />
     <Compile Include="Domain\Entities\YellowCard.cs" />
     <Compile Include="Domain\Entities\RedCard.cs" />
     <Compile Include="Domain\ValueObjects\MatchDate.cs" />
@@ -66,8 +64,15 @@
     <Compile Include="Domain\ValueObjects\PhoneNumber.cs" />
     <Compile Include="Domain\ValueObjects\TeamName.cs" />
     <Compile Include="Domain\ValueObjects\LeagueName.cs" />
+    <Compile Include="Helpers\ConvertHelper.cs" />
     <Compile Include="Helpers\CreateSeriesSchedule.cs" />
+    <Compile Include="Helpers\MatchHelper.cs" />
+    <Compile Include="Helpers\MatchWeek.cs" />
+    <Compile Include="Helpers\PersonalNumberHelper.cs" />
     <Compile Include="Helpers\Serializer.cs" />
+    <Compile Include="Helpers\SerializableDictionary.cs" />
+    <Compile Include="Helpers\SortingAlgorithm.cs" />
+    <Compile Include="Helpers\StringUtil.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\LeagueRepository.cs" />
     <Compile Include="Repositories\MatchEventRepository.cs" />
@@ -75,13 +80,25 @@
     <Compile Include="Repositories\PersonRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\TeamRepository.cs" />
+    <Compile Include="Domain\ValueObjects\SearchResultItem.cs" />
     <Compile Include="Services\LeagueService.cs" />
+    <Compile Include="Services\MatchEventService.cs" />
     <Compile Include="Services\MatchService.cs" />
+    <Compile Include="Services\MatchWeekService.cs" />
     <Compile Include="Services\PersonService.cs" />
+    <Compile Include="Services\SearchService.cs" />
     <Compile Include="Services\TeamService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="MahApps.Metro, Version=1.3.0.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.3.0\lib\net45\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.3.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

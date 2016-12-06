@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using knatteligan.Domain.Entities;
@@ -110,6 +111,7 @@ namespace knatteligan.Services
                 if (e.GetType() != MatchEvents.Goal) continue;
 
                 var goal = (Goal) e;
+                Trace.WriteLine(goal.TeamId);
                 var team = teamService.FindById(goal.TeamId);
                 AddGoalMadeAndConcedToTeams(team, match, goal);
             }

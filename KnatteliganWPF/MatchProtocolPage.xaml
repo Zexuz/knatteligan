@@ -52,7 +52,12 @@
             </StackPanel>
         </StackPanel>
 
-        <DatePicker Name="DatePicker" Width="110" Height="20" Grid.Row="1" Grid.Column="1" />
+        <DatePicker Name="DatePicker" Width="110" Height="20" Grid.Row="1" Grid.Column="1">
+            <DatePicker.BlackoutDates>
+                <CalendarDateRange Start="1/1/0001" End="12/31/2015" />
+                <CalendarDateRange Start="12/31/2017" />
+            </DatePicker.BlackoutDates>
+        </DatePicker>
         <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1">
             <TextBlock Text="Add" HorizontalAlignment="Center" Margin="5,40,0,0" FontSize="10" ></TextBlock>
             <Button Name="AddGoalButton" IsEnabled="False" Margin="5,0,0,0" HorizontalAlignment="Center" Content="Goal" Click="AddGoal_OnClick"  Width="90"/>

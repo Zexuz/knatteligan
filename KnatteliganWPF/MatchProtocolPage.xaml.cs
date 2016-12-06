@@ -152,11 +152,11 @@ namespace KnatteliganWPF
         private void AddMatchEvent(MatchEvents type)
         {
             var player = GetSelectedPlayerFromList();
-            var playersTeamId = _teamService.FindTeamByPlayerId(player.Id);
-            var matchEvent = GetMatchEvent(type, player, AwayTeam);
+            var playersTeam = _teamService.FindTeamByPlayerId(player.Id);
+            var matchEvent = GetMatchEvent(type, player, playersTeam);
 
             _matchEventsTemp.Add(matchEvent);
-            if (playersTeamId.Id == AwayTeam.Id)
+            if (playersTeam.Id == AwayTeam.Id)
             {
                 var awayEvenst = GetMatchEventsForTeam(AwayTeam)
                     .Where(e => e.GetType() == MatchEvents.Goal)

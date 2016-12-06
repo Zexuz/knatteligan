@@ -41,7 +41,7 @@
                     </ListView>
                 </StackPanel>
             </StackPanel>
-            <Button HorizontalAlignment="Left" Click="ButtonBase_OnClick">Edit League</Button>
+            <Button HorizontalAlignment="Left" Click="ManageLeagueBtn_OnClick">Edit League</Button>
         </StackPanel>
     </Grid>
 </Page>

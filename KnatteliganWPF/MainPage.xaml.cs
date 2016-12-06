@@ -17,6 +17,7 @@ namespace KnatteliganWPF
         private readonly LeagueService _leagueService;
         //Static bara för att createLeaguePage ska kunna lägga till
         public static ObservableCollection<League> Leagues { get; set; }
+        public ObservableCollection<Team> Teams { get; set; } 
 
         public MainPage()
         {

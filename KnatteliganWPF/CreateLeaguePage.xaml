@@ -15,30 +15,15 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="54"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="400"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        
 
-        <StackPanel Orientation="Vertical" Margin="5" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="8" Grid.Row="0">
+        <StackPanel Orientation="Vertical" Margin="5" Grid.Row="0" HorizontalAlignment="Left" Height="400">
             <TextBlock Margin="0,5,0,0">League Name</TextBlock>
 
 
@@ -55,16 +40,15 @@
 
             <TextBlock ToolTip="Minumum 16 Teams to Start" Margin="0,5,0,0">Teams</TextBlock>
 
-            <ListBox Name="TeamList"/>
+            <ListBox Name="TeamList" MouseUp="Page_Loaded" Height="280" Width="400"/>
             <StackPanel Orientation="Horizontal">
                 <Button Click="AddTeam_Clicked"  Width="20" Height="20">+</Button>
-                <Button Name="RemoveTeamBtn" IsEnabled="{Binding ElementName=TeamList, Path=SelectedItems.Count}" Click="RemoveTeam_Click" Width="20" Height="20">-</Button>
-                <Button Name="EditBtn" IsEnabled="{Binding ElementName=TeamList, Path=SelectedItems.Count}" Click="Edit_Click" Width="auto" Height="20">Edit</Button>
-                
+                <Button Name="RemoveTeamBtn" IsEnabled="{Binding ElementName=TeamList, Path=SelectedItems.Count}" Click="RemoveTeamBtn_Click" Width="20" Height="20">-</Button>
+                <Button Name="EditBtn" IsEnabled="{Binding ElementName=TeamList, Path=SelectedItems.Count}" Click="EditTeamBtn_Click" Width="auto" Height="20">Edit</Button>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
             
-
+        </StackPanel>
+        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="2">
             <Button Name="AddLeagueButton" Content="Start League" Click="AddLeague_Click">
                 <Button.IsEnabled>
                     <MultiBinding Converter="{StaticResource IsEnabledConverter}">
@@ -74,14 +58,13 @@
                     </MultiBinding>
                 </Button.IsEnabled>
             </Button>
-                <Button  Click="CloseCommandHandler_Click">Cancel</Button>
-            </StackPanel>
+            <Button  Click="CloseCommandHandler_Click">Cancel</Button>
+            <Button Click="SaveEditLeagueBtn_Click" Name="SaveEditLeagueBtn">Save</Button>
         </StackPanel>
-        
 
-        
 
-        
+
+
 
     </Grid>
 </Page>

@@ -8,13 +8,14 @@ using knatteligan.Domain.ValueObjects;
 using knatteligan.Helpers;
 using knatteligan.Repositories;
 using knatteligan.Services;
+using MahApps.Metro.Controls;
 
 namespace KnatteliganWPF
 {
     /// <summary>
     /// Interaction logic for AddPlayerWindow.xaml
     /// </summary>
-    public partial class AddPlayerWindow : Window
+    public partial class AddPlayerWindow : MetroWindow
     {
         public Player Player { get; set; }
         public PersonName PlayerName { get; set; }

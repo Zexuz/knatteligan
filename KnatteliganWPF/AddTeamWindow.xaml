@@ -10,7 +10,10 @@
         mc:Ignorable="d"
         Activated="AddTeamWindowActivated"
         Title="Team" Height="400" Width="400"
-                      ResizeMode="NoResize">
+                      ResizeMode="NoResize"
+                      BorderBrush="{DynamicResource AccentColorBrush}"
+                      BorderThickness="1"
+                      WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <converters:EmailToStringConverter x:Key="EmailToStringConverter"/>

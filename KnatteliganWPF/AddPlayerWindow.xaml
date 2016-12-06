@@ -1,105 +1,96 @@
-﻿<Window x:Class="KnatteliganWPF.AddPlayerWindow"
+﻿<Controls:MetroWindow x:Class="KnatteliganWPF.AddPlayerWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:validationRules="clr-namespace:KnatteliganWPF.ValidationRules"
         xmlns:converters="clr-namespace:KnatteliganWPF.Converters"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:KnatteliganWPF"
         mc:Ignorable="d"
-        Title="AddPlayerWindow" Height="300" Width="250"
-        Activated="AddPlayerWindowActivated">
+        Title="AddPlayerWindow" Height="380" Width="275"
+        Activated="AddPlayerWindowActivated"
+                      ResizeMode="NoResize"
+                      BorderBrush="{DynamicResource AccentColorBrush}"
+                      BorderThickness="1"
+                      WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <converters:PersonNameToStringConverter x:Key="PersonNameToStringConverter"/>
         <converters:IsEnabledConverter x:Key="IsEnabledConverter"/>
     </Window.Resources>
-    
-    <Grid Margin="0,0,2,0">
+
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="270"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-
-            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Margin="10 5 0 0">Name:</TextBlock>
-        
-        <TextBox Name="PersonNameTextBox" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalContentAlignment="Center" Margin="10 0 0 0"
-            ToolTip="{Binding ElementName=PersonNameTextBox, Path=(Validation.Errors)[0].ErrorContent}">
-            <TextBox.Text>
-                <Binding Path="PlayerName" UpdateSourceTrigger="PropertyChanged"
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+            <TextBlock>Name</TextBlock>
+            <TextBox Name="PersonNameTextBox" ToolTip="{Binding ElementName=PersonNameTextBox, Path=(Validation.Errors)[0].ErrorContent}">
+                <TextBox.Text>
+                    <Binding Path="PlayerName" UpdateSourceTrigger="PropertyChanged"
                          Converter="{StaticResource PersonNameToStringConverter}">
-                    <Binding.ValidationRules>
-                        <validationRules:PersonNameValidationRule/>
-                    </Binding.ValidationRules>
-                </Binding>
-            </TextBox.Text>
-        </TextBox>
-        
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3" Margin="10 5 0 0">Personal number:</TextBlock>
-        
-        <TextBox Name="PersonalNumberTextBox" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalContentAlignment="Center" Margin="10 0 0 0"
-                 ToolTip="{Binding ElementName=PersonalNumberTextBox, Path=(Validation.Errors)[0].ErrorContent}">
-            <TextBox.Text>
-                <Binding Path="PersonalNumber" UpdateSourceTrigger="PropertyChanged" >
-                    <Binding.ValidationRules>
-                        <validationRules:PersonalNumberValidationRule/>
-                    </Binding.ValidationRules>
-                </Binding>
-            </TextBox.Text>
-        </TextBox>
-        
-        <TextBlock IsHitTestVisible="False" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Text="YYMMDD-NNNN" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15 0 0 0" Foreground="DarkGray">
-            <TextBlock.Style>
-                <Style TargetType="{x:Type TextBlock}">
-                    <Setter Property="Visibility" Value="Collapsed"/>
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding Text, ElementName=SocialSecurityNumberTextBox}" Value="">
-                            <Setter Property="Visibility" Value="Visible"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBlock.Style>
-        </TextBlock>
-        <ListBox Name="FreeAgentsList" MouseDoubleClick="FreeAgentsList_OnMouseDoubleClick" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="4" BorderThickness="1">
+                        <Binding.ValidationRules>
+                            <validationRules:PersonNameValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
+            <TextBlock>Personal number</TextBlock>
+            <TextBox Name="PersonalNumberTextBox" ToolTip="{Binding ElementName=PersonalNumberTextBox, Path=(Validation.Errors)[0].ErrorContent}">
+                <TextBox.Text>
+                    <Binding Path="PersonalNumber" UpdateSourceTrigger="PropertyChanged" >
+                        <Binding.ValidationRules>
+                            <validationRules:PersonalNumberValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
+            <TextBlock IsHitTestVisible="False" Text="YYMMDD-NNNN">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=SocialSecurityNumberTextBox}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <TextBlock Name="FreeAgentsHeader" Text="Free Agents"></TextBlock>
+            <ListBox Name="FreeAgentsList" MouseDoubleClick="FreeAgentsList_OnMouseDoubleClick" BorderThickness="1"></ListBox>
             
-        </ListBox>
-        <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Grid.ColumnSpan="2">PlayerList</TextBlock>
+        </StackPanel>
 
-        <Button Grid.Row="6" Grid.Column="1" Margin="5" Click="CloseCommandHandler_Clicked">Cancel</Button>
-        <Button Name="AddPlayerBtn"  Grid.Row="6" Grid.Column="2"  Margin="5" Content="Add" Click="AddPlayerClick">
-            <Button.IsEnabled>
-                <MultiBinding Converter="{StaticResource IsEnabledConverter}">
-                    <Binding ElementName="PersonNameTextBox" Path="(Validation.Errors)[0]"/>
-                    <Binding ElementName="PersonNameTextBox" Path="Text"/>
-                    <Binding ElementName="PersonalNumberTextBox" Path="(Validation.Errors)[0]"/>
-                    <Binding ElementName="PersonalNumberTextBox" Path="Text"/>
-                </MultiBinding>
-            </Button.IsEnabled>
-        </Button>
-
-        <Button Name="SaveEditBtn" Content="Save" HorizontalAlignment="Left" Margin="5.333,5,0,0" Grid.Row="6" VerticalAlignment="Top" Width="50" Height="20" Click="SaveEditBtn_Click" Grid.Column="2">
-            <Button.IsEnabled>
-                <MultiBinding Converter="{StaticResource IsEnabledConverter}">
-                    <Binding ElementName="PersonNameTextBox" Path="(Validation.Errors)[0]"/>
-                    <Binding ElementName="PersonNameTextBox" Path="Text"/>
-                    <Binding ElementName="PersonalNumberTextBox" Path="(Validation.Errors)[0]"/>
-                    <Binding ElementName="PersonalNumberTextBox" Path="Text"/>
-                </MultiBinding>
-            </Button.IsEnabled>
-        </Button>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button Click="CloseCommandHandler_Clicked">Cancel</Button>
+            <Button Name="AddPlayerBtn" Content="Add" Click="AddPlayerClick">
+                <Button.IsEnabled>
+                    <MultiBinding Converter="{StaticResource IsEnabledConverter}">
+                        <Binding ElementName="PersonNameTextBox" Path="(Validation.Errors)[0]"/>
+                        <Binding ElementName="PersonNameTextBox" Path="Text"/>
+                        <Binding ElementName="PersonalNumberTextBox" Path="(Validation.Errors)[0]"/>
+                        <Binding ElementName="PersonalNumberTextBox" Path="Text"/>
+                    </MultiBinding>
+                </Button.IsEnabled>
+            </Button>
+            <Button Name="SaveEditBtn" Content="Save" Click="SaveEditBtn_Click" >
+                <Button.IsEnabled>
+                    <MultiBinding Converter="{StaticResource IsEnabledConverter}">
+                        <Binding ElementName="PersonNameTextBox" Path="(Validation.Errors)[0]"/>
+                        <Binding ElementName="PersonNameTextBox" Path="Text"/>
+                        <Binding ElementName="PersonalNumberTextBox" Path="(Validation.Errors)[0]"/>
+                        <Binding ElementName="PersonalNumberTextBox" Path="Text"/>
+                    </MultiBinding>
+                </Button.IsEnabled>
+            </Button>
+        </StackPanel>
     </Grid>
-</Window>
+</Controls:MetroWindow>

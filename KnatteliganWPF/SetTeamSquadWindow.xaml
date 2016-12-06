@@ -10,7 +10,8 @@
         Activated="WindowActivated"
         Title="Match Day Squad" Height="400" Width="250"
                       ResizeMode="NoResize"
-        d:DataContext="{d:DesignInstance}">
+        d:DataContext="{d:DesignInstance}"
+                      WindowStartupLocation="CenterOwner">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
@@ -23,7 +24,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Check boxes to fill Match Day Squad" Grid.ColumnSpan="2" Margin="5"></TextBlock>
+        <TextBlock Text="Pick Squad"  Grid.ColumnSpan="2" Margin="5"></TextBlock>
         
         <ListBox Name="PlayerListCeckBoxes" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  ItemsSource="{Binding PlayerList}" />
 

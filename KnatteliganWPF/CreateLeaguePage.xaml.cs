@@ -35,15 +35,43 @@ namespace KnatteliganWPF
 
             if (isEdit)
             {
-                EditLeagueBtn.Visibility = Visibility.Visible;
+                SaveEditLeagueBtn.Visibility = Visibility.Visible;
                 AddLeagueButton.Visibility = Visibility.Hidden;
             }
             else
             {
-                EditLeagueBtn.Visibility = Visibility.Hidden;
+                SaveEditLeagueBtn.Visibility = Visibility.Hidden;
                 AddLeagueButton.Visibility = Visibility.Visible;
+                
             }
 
+        }
+
+        public CreateLeaguePage(bool isEdit, League league)
+        {
+            InitializeComponent();
+            DataContext = this;
+            _leagueService = new LeagueService();
+            _teamService = new TeamService();
+            _personService = new PersonService();
+            Teams = new ObservableCollection<Team>();
+            foreach (var teamId in league.TeamIds)
+            {
+                Teams.Add(_teamService.FindById(teamId));
+            }
+            TeamList.ItemsSource = Teams;
+
+            if (isEdit)
+            {
+                SaveEditLeagueBtn.Visibility = Visibility.Visible;
+                AddLeagueButton.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                SaveEditLeagueBtn.Visibility = Visibility.Hidden;
+                AddLeagueButton.Visibility = Visibility.Visible;
+
+            }
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -64,14 +92,7 @@ namespace KnatteliganWPF
         }
 
     
-        private void RemoveTeam_Click(object sender, RoutedEventArgs e)
-        {
-            var team = (Team)TeamList.SelectedItem;
-            if (team == null) return;
 
-            _teamService.Remove(team);
-            Teams.Remove(team);
-        }
 
 
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
@@ -117,7 +138,7 @@ namespace KnatteliganWPF
             NavigationService.GoBack();
         }
 
-        private void RemoveTeam_Click(object sender, RoutedEventArgs e)
+        private void RemoveTeamBtn_Click(object sender, RoutedEventArgs e)
         {
             var team = (Team)TeamList.SelectedItem;
             if(team== null) return;
@@ -126,7 +147,7 @@ namespace KnatteliganWPF
             Teams.Remove(team);
         }
 
-        private void EditTeam_Click(object sender, RoutedEventArgs e)
+        private void EditTeamBtn_Click(object sender, RoutedEventArgs e)
         {
             var team = (Team)TeamList.SelectedItem;
             if(team== null) return;

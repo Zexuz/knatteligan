@@ -26,8 +26,7 @@ namespace KnatteliganWPF
             League = league;
             _matchRepositoryService = new MatchService();
             _teamService = new TeamService();
-            _leagueService = new LeagueService();
-            LeagueNameHeader.Text = _leagueService.FindById(_currentLeagueId).Name.Value;
+            LeagueNameHeader.Text = League.Name.Value;
 
 
 
@@ -51,8 +50,8 @@ namespace KnatteliganWPF
             var listItem = sender as ListBox;
             if (listItem?.SelectedItems == null || listItem.SelectedItems.Count == 0) return;
             var match = (Match)listItem.SelectedItems[0];
-            var league = _leagueService.FindById(_currentLeagueId);
-            NavigationService?.Navigate(new MatchProtocolPage(match, league));
+            
+            NavigationService?.Navigate(new MatchProtocolPage(match, League));
         }
 
         private void ManageLeagueBtn_OnClick(object sender, RoutedEventArgs e)
@@ -61,7 +60,7 @@ namespace KnatteliganWPF
             var teams = League.TeamIds.Select(_teamService.FindById);
             var teamsOc = new ObservableCollection<Team>(teams);
 
-            NavigationService?.Navigate(new CreateLeaguePage(true)
+            NavigationService?.Navigate(new CreateLeaguePage(true, League)
             {
                 League = League,
                 LeagueName = League.Name,

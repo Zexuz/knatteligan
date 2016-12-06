@@ -10,7 +10,7 @@
                       ResizeMode="NoResize"
                       BorderBrush="{DynamicResource AccentColorBrush}"
                       BorderThickness="1"
-                      
+                      WindowStartupLocation="CenterScreen"
                       >
     <Grid>
         

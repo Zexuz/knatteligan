@@ -55,10 +55,10 @@
         <DatePicker Name="DatePicker" Width="110" Height="20" Grid.Row="1" Grid.Column="1" />
         <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1">
             <TextBlock Text="Add" HorizontalAlignment="Center" Margin="5,40,0,0" FontSize="10" ></TextBlock>
-            <Button Name="AddGoalButton" IsEnabled="False" Margin="5,0,0,0" HorizontalAlignment="Center" Content="Goal" Click="AddGoal_OnClick"/>
-            <Button Name="AddAssistButton" IsEnabled="False" Margin="5,0,0,0" HorizontalAlignment="Center" Content="Assist" Click="AddAssist_OnClick"/>
-            <Button Name="AddYellowCardButton" IsEnabled="False" Margin="5,0,0,0" HorizontalAlignment="Center" Content="Yellow Card" Click="AddYellowCard_OnClick"/>
-            <Button Name="AddRedCardButton" IsEnabled="False" Margin="5,0,0,0" HorizontalAlignment="Center" Content="Red Card" Click="AddRedCard_OnClick"/>
+            <Button Name="AddGoalButton" IsEnabled="False" Margin="5,0,0,0" HorizontalAlignment="Center" Content="Goal" Click="AddGoal_OnClick"  Width="90"/>
+            <Button Name="AddAssistButton" IsEnabled="False" Margin="5,0,0,0" HorizontalAlignment="Center" Content="Assist" Click="AddAssist_OnClick"  Width="90"/>
+            <Button Name="AddYellowCardButton" IsEnabled="False" Margin="5,0,0,0" HorizontalAlignment="Center" Content="Yellow Card" Click="AddYellowCard_OnClick" Width="90"/>
+            <Button Name="AddRedCardButton" IsEnabled="False" Margin="5,0,0,0" HorizontalAlignment="Center" Content="Red Card" Click="AddRedCard_OnClick"  Width="90"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Margin="5,20,0,0">
                 <Button  Click="CancelProtocol_OnClick">Cancel</Button>
                 <Button Click="SaveProtocol_OnClick">Save</Button>

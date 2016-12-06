@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using knatteligan.Helpers;
 
@@ -13,8 +14,8 @@ namespace knatteligan.Repositories
 
         public static string GetFilePath(string fileName)
         {
-            var path = Directory.GetCurrentDirectory();
-            path = $"{Directory.GetParent(path).Parent.FullName}\\Resources\\XMLData\\";
+            var path = Directory.GetCurrentDirectory() + "\\Resources\\XMLData\\";
+            Trace.WriteLine(path);
             var combinedPath = Path.Combine(path, fileName);
             return new Uri($"{path}{combinedPath}").LocalPath;
         }

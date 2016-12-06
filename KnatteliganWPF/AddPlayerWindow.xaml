@@ -8,7 +8,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:KnatteliganWPF"
         mc:Ignorable="d"
-        Title="AddPlayerWindow" Height="380" Width="275"
+        Title="Player" Height="380" Width="275"
         Activated="AddPlayerWindowActivated"
                       ResizeMode="NoResize"
                       BorderBrush="{DynamicResource AccentColorBrush}"
@@ -22,15 +22,15 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="270"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="260"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
-            <TextBlock>Name</TextBlock>
-            <TextBox Name="PersonNameTextBox" ToolTip="{Binding ElementName=PersonNameTextBox, Path=(Validation.Errors)[0].ErrorContent}">
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" >
+            <TextBlock Margin="5">Name</TextBlock>
+            <TextBox Name="PersonNameTextBox" ToolTip="{Binding ElementName=PersonNameTextBox, Path=(Validation.Errors)[0].ErrorContent}" Margin="5">
                 <TextBox.Text>
                     <Binding Path="PlayerName" UpdateSourceTrigger="PropertyChanged"
                          Converter="{StaticResource PersonNameToStringConverter}">
@@ -41,8 +41,8 @@
                 </TextBox.Text>
             </TextBox>
 
-            <TextBlock>Personal number</TextBlock>
-            <TextBox Name="PersonalNumberTextBox" ToolTip="{Binding ElementName=PersonalNumberTextBox, Path=(Validation.Errors)[0].ErrorContent}">
+            <TextBlock Margin="5">Personal number</TextBlock>
+            <TextBox Name="PersonalNumberTextBox" ToolTip="{Binding ElementName=PersonalNumberTextBox, Path=(Validation.Errors)[0].ErrorContent}" Margin="5">
                 <TextBox.Text>
                     <Binding Path="PersonalNumber" UpdateSourceTrigger="PropertyChanged" >
                         <Binding.ValidationRules>
@@ -64,13 +64,11 @@
                     </Style>
                 </TextBlock.Style>
             </TextBlock>
-            <TextBlock Name="FreeAgentsHeader" Text="Free Agents"></TextBlock>
-            <ListBox Name="FreeAgentsList" MouseDoubleClick="FreeAgentsList_OnMouseDoubleClick" BorderThickness="1"></ListBox>
-            
+            <TextBlock Name="FreeAgentsHeader" Text="Free Agents" Margin="5"></TextBlock>
+            <ListBox Name="FreeAgentsList" MouseDoubleClick="FreeAgentsList_OnMouseDoubleClick" Margin="5" Height="240"></ListBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Button Click="CloseCommandHandler_Clicked">Cancel</Button>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
             <Button Name="AddPlayerBtn" Content="Add" Click="AddPlayerClick">
                 <Button.IsEnabled>
                     <MultiBinding Converter="{StaticResource IsEnabledConverter}">
@@ -81,6 +79,8 @@
                     </MultiBinding>
                 </Button.IsEnabled>
             </Button>
+            <Button Click="CloseCommandHandler_Clicked">Cancel</Button>
+            
             <Button Name="SaveEditBtn" Content="Save" Click="SaveEditBtn_Click" >
                 <Button.IsEnabled>
                     <MultiBinding Converter="{StaticResource IsEnabledConverter}">

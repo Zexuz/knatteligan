@@ -40,27 +40,27 @@
 
             <TextBlock ToolTip="Minumum 16 Teams to Start" Margin="0,5,0,0">Teams</TextBlock>
 
-            <ListBox Name="TeamList" MouseUp="Page_Loaded" Height="280" Width="400"/>
+            <ListBox Name="TeamList" MouseUp="Page_Loaded" Height="260" Width="380"/>
             <StackPanel Orientation="Horizontal">
                 <Button Click="AddTeam_Clicked"  Width="20" Height="20">+</Button>
                 <Button Name="RemoveTeamBtn" IsEnabled="{Binding ElementName=TeamList, Path=SelectedItems.Count}" Click="RemoveTeamBtn_Click" Width="20" Height="20">-</Button>
                 <Button Name="EditBtn" IsEnabled="{Binding ElementName=TeamList, Path=SelectedItems.Count}" Click="EditTeamBtn_Click" Width="auto" Height="20">Edit</Button>
             </StackPanel>
-            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="2">
+                <Button Name="AddLeagueButton" Content="Start League" Click="AddLeague_Click">
+                    <Button.IsEnabled>
+                        <MultiBinding Converter="{StaticResource IsEnabledConverter}">
+                            <Binding ElementName="leagueName" Path="(Validation.Errors)[0]"/>
+                            <Binding ElementName="leagueName" Path="Text"/>
+                            <Binding ElementName="TeamList" Path="Items.Count"/>
+                        </MultiBinding>
+                    </Button.IsEnabled>
+                </Button>
+                <Button  Click="CloseCommandHandler_Click">Cancel</Button>
+                <Button Click="SaveEditLeagueBtn_Click" Name="SaveEditLeagueBtn">Save</Button>
+            </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="2">
-            <Button Name="AddLeagueButton" Content="Start League" Click="AddLeague_Click">
-                <Button.IsEnabled>
-                    <MultiBinding Converter="{StaticResource IsEnabledConverter}">
-                        <Binding ElementName="leagueName" Path="(Validation.Errors)[0]"/>
-                        <Binding ElementName="leagueName" Path="Text"/>
-                        <Binding ElementName="TeamList" Path="Items.Count"/>
-                    </MultiBinding>
-                </Button.IsEnabled>
-            </Button>
-            <Button  Click="CloseCommandHandler_Click">Cancel</Button>
-            <Button Click="SaveEditLeagueBtn_Click" Name="SaveEditLeagueBtn">Save</Button>
-        </StackPanel>
+       
 
 
 

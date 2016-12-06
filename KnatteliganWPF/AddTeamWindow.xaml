@@ -85,7 +85,7 @@
             </TextBox>
 
             <TextBlock>Phone Number</TextBlock>
-            <TextBox Name="PhoneNumberTextBox" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="7"
+            <TextBox Name="PhoneNumberTextBox" 
                  ToolTip="{Binding ElementName=PhoneNumberTextBox, Path=(Validation.Errors)[0].ErrorContent}">
                 <TextBox.Text>
                     <Binding Path="PhoneNumber" UpdateSourceTrigger="PropertyChanged"

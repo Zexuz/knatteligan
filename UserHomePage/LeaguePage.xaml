@@ -5,45 +5,22 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:UserHomePage"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="400" d:DesignWidth="700"
       Title="LeaguePage">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="320"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="500" />
+            <ColumnDefinition Width="200" />
         </Grid.ColumnDefinitions>
 
-        <TextBox Name="SearchTextBox" Grid.RowSpan="2" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Row="1"
-                 Grid.Column="8"
-                 TextChanged="searchTextBox_TextChanged" />
-        <TextBlock IsHitTestVisible="False" Grid.ColumnSpan="3" VerticalAlignment="Center" Grid.Row="1" Grid.Column="8"
-                   Text="Search..." HorizontalAlignment="Left" Margin="5" Foreground="DarkGray">
+        <TextBox Grid.Row="0" Grid.Column="1" Name="SearchTextBox" VerticalAlignment="Center" TextChanged="searchTextBox_TextChanged" Margin="5" />
+        <TextBlock Grid.Row="0" Grid.Column="1" IsHitTestVisible="False" Text="Search..." HorizontalAlignment="Left" Margin="5">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed" />
@@ -55,24 +32,33 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <ListBox Name="SearchList" MouseDoubleClick="SearchList_OnMouseDoubleClick" Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="9" />
-        <Button Grid.Row="11" Grid.Column="4" Grid.ColumnSpan="3" Click="Players_Click" Height="23" Margin="0,0.333,27,0" VerticalAlignment="Top">Players</Button>
-        <Button Grid.Row="11" Grid.Column="6" Grid.ColumnSpan="2" Click="Button_Click_1">Matches</Button>
-
-        <DataGrid HorizontalAlignment="Stretch" ColumnWidth="*" IsReadOnly="True"
-                  Margin="29,28.333,0,0" Grid.Row="1" VerticalAlignment="Stretch" Grid.ColumnSpan="8" Grid.RowSpan="10"
+        <ListBox Grid.Row="1" Grid.Column="1"  Name="SearchList" MouseDoubleClick="SearchList_OnMouseDoubleClick" Margin="5"/>
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Orientation="Vertical">
+            <DataGrid HorizontalAlignment="Stretch" IsReadOnly="True"
+                   VerticalAlignment="Stretch" 
+                      
                   Name="DataGrid"
-                  MouseDoubleClick="DataGrid_OnMouseDoubleClick">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Team" Binding="{Binding Path=Name.Value}" />
-                <DataGridTextColumn Header="W" Binding="{Binding Path=WonMatchIds.Count}" />
-                <DataGridTextColumn Header="L" Binding="{Binding Path=LostMatchIds.Count}" />
-                <DataGridTextColumn Header="D" Binding="{Binding Path=DrawMatchIds.Count}" />
-                <DataGridTextColumn Header="Gp" Binding="{Binding Path=GamesPlayedCount}" />
-                <DataGridTextColumn Header="Pts" Binding="{Binding Path=Points}"/>
-                <DataGridTextColumn Header="+/-" Binding="{Binding Path=DeltaScore}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+                  MouseDoubleClick="DataGrid_OnMouseDoubleClick" Margin="5"
+                  LoadingRow="DataGrid_OnLoadingRow"
+                      Height="300">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="165" Header="Team" Binding="{Binding Path=Name.Value}" />
+                    <DataGridTextColumn Width="60" Header="Gp" Binding="{Binding Path=GamesPlayedCount}" />
+                    <DataGridTextColumn Width="60" Header="W" Binding="{Binding Path=WonMatchIds.Count}" />
+                    <DataGridTextColumn Width="60" Header="D" Binding="{Binding Path=DrawMatchIds.Count}" />
+                    <DataGridTextColumn Width="60" Header="L" Binding="{Binding Path=LostMatchIds.Count}" />
+                    <DataGridTextColumn Header="+/-" Binding="{Binding Path=DeltaScore}"/>
+                    <DataGridTextColumn Header="Pts" Binding="{Binding Path=Points}"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Button  Click="Players_Click">Players</Button>
+                <Button  Click="Button_Click_1">Matches</Button>
+                <TextBlock Name="LeagueNameTag" Margin="5" FontWeight="Bold"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+
 
     </Grid>
 

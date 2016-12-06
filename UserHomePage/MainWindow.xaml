@@ -6,7 +6,11 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:UserHomePage"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="400">
+        Title="Football Stats" Height="400" Width="700"
+                      ResizeMode="NoResize"
+                      BorderBrush="{DynamicResource AccentColorBrush}"
+                      BorderThickness="1"
+                      WindowStartupLocation="CenterScreen">
 
     <Grid>
         <Frame Name="MainFrame"/>

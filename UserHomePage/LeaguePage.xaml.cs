@@ -29,6 +29,7 @@ namespace UserHomePage
             _searchService = new SearchService();
             _league = league;
             DataGrid.ItemsSource = _league.TeamIds.Select(_teamService.FindById);
+            LeagueNameTag.Text = _league.Name.Value;
         }
 
         private void ManageLeague_Clicked(object sender, MouseButtonEventArgs e)
@@ -90,6 +91,11 @@ namespace UserHomePage
                 var league = (League)leagueObject;
                 NavigationService?.Navigate(new LeaguePage(league));
             }
+        }
+
+        private void DataGrid_OnLoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            e.Row.Header = (e.Row.GetIndex() + 1).ToString(); 
         }
     }
 }

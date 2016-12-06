@@ -85,8 +85,6 @@ namespace knatteligan.Repositories
 
         #endregion
 
-        //TODO: Just one search method for both coach and player.
-
         public Player FindPlayerById(Guid id)
         {
             return _players.Find(player => player.Id == id);

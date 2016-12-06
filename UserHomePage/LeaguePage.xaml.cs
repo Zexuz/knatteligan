@@ -32,20 +32,15 @@ namespace UserHomePage
             LeagueNameTag.Text = _league.Name.Value;
         }
 
-        private void ManageLeague_Clicked(object sender, MouseButtonEventArgs e)
-        {
-            throw new Exception();
-        }
-
         private void searchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             var searchText = SearchTextBox.Text;
-            var foundMatch = _searchService.Search(searchText, true);
+            var searchResultItems = _searchService.Search(searchText, true);
             if (string.IsNullOrEmpty(searchText))
             {
-                foundMatch = new List<SearchResultItem>();
+                searchResultItems = new List<SearchResultItem>();
             }
-            SearchList.ItemsSource = foundMatch;
+            SearchList.ItemsSource = searchResultItems;
         }
 
         private void Players_Click(object sender, RoutedEventArgs e)
@@ -56,46 +51,44 @@ namespace UserHomePage
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new SerieSchedulePage(_league.Id));
+            NavigationService?.Navigate(new SerieSchedulePage(_league));
         }
 
         private void DataGrid_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var team = (Team)DataGrid.SelectedItem;
-            if(team== null) return;
-
-            NavigationService?.Navigate(new TeamPage(team.Id));
+            if (team == null) return;
+            NavigationService?.Navigate(new TeamPage(team));
         }
 
 
         private void SearchList_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (SearchList.SelectedItems == null ||SearchList.SelectedItems.Count ==0) return;
+            if (SearchList.SelectedItems == null || SearchList.SelectedItems.Count == 0) return;
 
             if (SearchList.SelectedItem.GetType() == typeof(TeamSearchResultItem))
             {
-                var teamObject = ((TeamSearchResultItem)SearchList.SelectedItem).ResultItem;
-                var team = (Team)teamObject;
-                NavigationService?.Navigate(new TeamPage(team.Id));
+                var team = (Team)((TeamSearchResultItem)SearchList.SelectedItem).ResultItem;
+                NavigationService?.Navigate(new TeamPage(team));
             }
+
             if (SearchList.SelectedItem is PlayerSearchResultItem)
             {
-                var playerObject = ((PlayerSearchResultItem)SearchList.SelectedItem).ResultItem;
-                var player = (Player)playerObject;
+                var player = (Player)((PlayerSearchResultItem)SearchList.SelectedItem).ResultItem;
                 var team = _teamService.FindTeamByPlayerId(player.Id);
                 NavigationService?.Navigate(new PlayerStatsPage(team));
             }
+
             else if (SearchList.SelectedItem.GetType() == typeof(LeagueSearchResultItem))
             {
-                var leagueObject = ((LeagueSearchResultItem)SearchList.SelectedItem).ResultItem;
-                var league = (League)leagueObject;
+                var league = (League)((LeagueSearchResultItem)SearchList.SelectedItem).ResultItem;
                 NavigationService?.Navigate(new LeaguePage(league));
             }
         }
 
         private void DataGrid_OnLoadingRow(object sender, DataGridRowEventArgs e)
         {
-            e.Row.Header = (e.Row.GetIndex() + 1).ToString(); 
+            e.Row.Header = (e.Row.GetIndex() + 1).ToString();
         }
     }
 }

@@ -49,24 +49,23 @@ namespace UserHomePage
         private void SearchList_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (SearchList.SelectedItem == null) return;
-            if (SearchList.SelectedItem.GetType() == typeof(TeamSearchResultItem))
+
+            if (SearchList.SelectedItem is TeamSearchResultItem)
             {
-                var teamObject = ((TeamSearchResultItem)SearchList.SelectedItem).ResultItem;
-                var team = (Team)teamObject;
-                NavigationService?.Navigate(new TeamPage(team.Id));
+                var team = (Team)((TeamSearchResultItem)SearchList.SelectedItem).ResultItem;
+                NavigationService?.Navigate(new TeamPage(team));
             }
+
             if (SearchList.SelectedItem is PlayerSearchResultItem)
             {
-                var playerObject = ((PlayerSearchResultItem)SearchList.SelectedItem).ResultItem;
-                var player = (Player)playerObject;
+                var player = (Player)((PlayerSearchResultItem)SearchList.SelectedItem).ResultItem;
                 var team = _teamService.FindTeamByPlayerId(player.Id);
                 NavigationService?.Navigate(new PlayerStatsPage(team));
-
             }
+
             else if (SearchList.SelectedItem.GetType() == typeof(LeagueSearchResultItem))
             {
-                var leagueObject = ((LeagueSearchResultItem)SearchList.SelectedItem).ResultItem;
-                var league = (League)leagueObject;
+                var league = (League)((LeagueSearchResultItem)SearchList.SelectedItem).ResultItem;
                 NavigationService?.Navigate(new LeaguePage(league));
             }
         }

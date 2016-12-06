@@ -35,7 +35,6 @@
             Grid.RowSpan="8"
             Grid.ColumnSpan="2"
                Name="GameWeeksList"
-            ItemsSource="{DynamicResource Drinks}"
             SelectionChanged ="GameWeeksList_Click">
             <ListView.View>
                 <GridView>

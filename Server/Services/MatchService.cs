@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Runtime.InteropServices;
 using knatteligan.Domain.Entities;
 using knatteligan.Repositories;
 
@@ -224,7 +223,7 @@ namespace knatteligan.Services
 
                 var matchEvents = player.MatchEvents
                     .Select(matchEventService.FindById)
-                    .Where(e => e.MatchId == match.Id);
+                    .Where(e => e.MatchId == match.Id).ToList();
 
 
                 var yellowCards = 0;

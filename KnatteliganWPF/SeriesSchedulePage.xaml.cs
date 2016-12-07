@@ -5,7 +5,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using knatteligan.Domain.Entities;
-using knatteligan.Domain.ValueObjects;
 using knatteligan.Helpers;
 using knatteligan.Services;
 
@@ -28,14 +27,11 @@ namespace KnatteliganWPF
             _teamService = new TeamService();
             LeagueNameHeader.Text = League.Name.Value;
 
-
-
         }
 
         private void SeriesSchedulePage_OnLoaded(object sender, RoutedEventArgs e)
         {
             GameWeeksList.ItemsSource = GameWeeks;
-            
         }
 
         private void listView_Click(object sender, SelectionChangedEventArgs e)
@@ -50,7 +46,7 @@ namespace KnatteliganWPF
             var listItem = sender as ListBox;
             if (listItem?.SelectedItems == null || listItem.SelectedItems.Count == 0) return;
             var match = (Match)listItem.SelectedItems[0];
-            
+
             NavigationService?.Navigate(new MatchProtocolPage(match, League));
         }
 

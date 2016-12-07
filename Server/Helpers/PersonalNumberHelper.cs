@@ -4,7 +4,7 @@ using knatteligan.Domain.ValueObjects;
 
 namespace knatteligan.Helpers
 {
-    public class PersonalNumberHelper
+    public static class PersonalNumberHelper
     {
         private const string Dash10RegExString = @"^(\d{2})(\d{2})(\d{2})-(\d{4})$";
         private const string NoDash10RegExString = @"^(\d{2})(\d{2})(\d{2})(\d{4})$";

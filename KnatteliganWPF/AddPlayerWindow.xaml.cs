@@ -7,7 +7,6 @@ using System.Windows.Input;
 using knatteligan.Domain.ValueObjects;
 using knatteligan.Helpers;
 using knatteligan.Repositories;
-using knatteligan.Services;
 using MahApps.Metro.Controls;
 
 namespace KnatteliganWPF
@@ -41,17 +40,17 @@ namespace KnatteliganWPF
 
             if (playersFromTeam == null)
                 playersFromTeam = new List<Player>();
-            var freeAgents = PersonRepository.GetInstance().GetAllPlayers().Where(x => x.HasTeam.Equals(false));
+            var freePlayers = PersonRepository.GetInstance().GetAllPlayers().Where(x => x.HasTeam.Equals(false));
             var playersFromTeamId = playersFromTeam.Select(p => p.Id).ToList();
-            var aviliobePlayers  = freeAgents.Where(player => !playersFromTeamId.Contains(player.Id)).ToList();
+            var availablePlayers  = freePlayers.Where(player => !playersFromTeamId.Contains(player.Id)).ToList();
 
             if (isEdit)
             {
-                FreeAgentsList.Visibility = Visibility.Hidden;
+                FreePlayersList.Visibility = Visibility.Hidden;
                 FreeAgentsHeader.Visibility = Visibility.Hidden;
             }
                 
-            FreeAgentsList.ItemsSource = aviliobePlayers;
+            FreePlayersList.ItemsSource = availablePlayers;
 
         }
 
@@ -67,7 +66,7 @@ namespace KnatteliganWPF
         {
             if (PersonNameTextBox.Text.Length > 0 || PersonalNumberTextBox.Text.Length > 0)
             {
-                MessageBoxResult result = MessageBox.Show("Are you sure you want to cancel?", "Message", MessageBoxButton.YesNo);
+                var result = MessageBox.Show("Are you sure you want to cancel?", "Message", MessageBoxButton.YesNo);
                 switch (result)
                 {
                     case MessageBoxResult.Yes:
@@ -106,10 +105,9 @@ namespace KnatteliganWPF
         }
 
 
-        private void FreeAgentsList_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void FreePlayersList_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Player = (Player)FreeAgentsList.SelectedItem;
-            
+            Player = (Player)FreePlayersList.SelectedItem;
             DialogResult = true;
             Close();
         }

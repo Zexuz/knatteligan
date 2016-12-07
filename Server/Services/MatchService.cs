@@ -222,7 +222,7 @@ namespace knatteligan.Services
 
                 var matchEvents = player.MatchEvents
                     .Select(matchEventService.FindById)
-                    .Where(e => e.MatchId == match.Id);
+                    .Where(e => e.MatchId == match.Id).ToList();
 
 
                 var yellowCards = 0;

@@ -10,7 +10,6 @@ namespace knatteligan.Domain.Entities
 
         public bool HasTeam { get; set; }
 
-
         public Player() { }
 
         public Player(PersonName name, PersonalNumber personalNumber) : base(name, personalNumber)

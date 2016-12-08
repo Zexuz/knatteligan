@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
@@ -73,9 +72,9 @@ namespace KnatteliganWPF
 
             var newPlayer = addPlayerWindow.Player;
 
-            var playerAlredyExist = _personService.FindPlayerById(newPlayer.Id) != null;
+            var playerAlreadyExists = _personService.FindPlayerById(newPlayer.Id) != null;
 
-            if (!playerAlredyExist)
+            if (!playerAlreadyExists)
                 _personService.Add(newPlayer);
             Players.Add(addPlayerWindow.Player);
         }
@@ -85,7 +84,7 @@ namespace KnatteliganWPF
             if (TeamNameTxt.Text.Length > 0 || CoachNameTextBox.Text.Length > 0 || PersonalNumberTextBox.Text.Length > 0 ||
                 PhoneNumberTextBox.Text.Length > 0 || CoachEmailTextBox.Text.Length > 0)
             {
-                MessageBoxResult result = MessageBox.Show("Are you sure you want to cancel?", "Message",
+                var result = MessageBox.Show("Are you sure you want to cancel?", "Message",
                     MessageBoxButton.YesNo);
                 switch (result)
                 {
@@ -108,10 +107,9 @@ namespace KnatteliganWPF
             Team = new Team(TeamName, Players, Coach);
             foreach (var item in PlayerList.Items)
             {
-                var player = (Player) item;
+                var player = (Player)item;
                 player.HasTeam = true;
             }
-            //TODO bertil
             DialogResult = true;
             Close();
         }
@@ -137,12 +135,12 @@ namespace KnatteliganWPF
 
         private void RemovePlayerBtn_Click(object sender, RoutedEventArgs e)
         {
-            var player = (Player) PlayerList.SelectedItem;
+            var player = (Player)PlayerList.SelectedItem;
 
             if (player == null) return;
             player.HasTeam = false;
 
-            TeamService teamService = new TeamService();
+            var teamService = new TeamService();
             teamService.Save();
             _personService.Save();
             Players.Remove(player);
@@ -150,7 +148,7 @@ namespace KnatteliganWPF
 
         private void EditPlayerBtn_Click(object sender, RoutedEventArgs e)
         {
-            var player = (Player) PlayerList.SelectedItem;
+            var player = (Player)PlayerList.SelectedItem;
             if (player == null) return;
 
             var addPlayerWindow = new AddPlayerWindow(true, null)
@@ -164,7 +162,6 @@ namespace KnatteliganWPF
             if (!addPlayerResult.HasValue) return;
 
             _personService.Edit(addPlayerWindow.Player, addPlayerWindow.PlayerName, addPlayerWindow.PersonalNumber);
-            //TODO: Replace this hack
             Players.Remove(addPlayerWindow.Player);
             Players.Add(addPlayerWindow.Player);
         }

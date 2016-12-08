@@ -25,7 +25,6 @@ namespace knatteligan.Helpers
             var xmlSerializer = new XmlSerializer(list.GetType());
 
             using (var stream = new StreamWriter(fileName))
-            //using (var stream = File.Open(fileName, FileMode.Create))
             {
                 xmlSerializer.Serialize(stream, list);
             }

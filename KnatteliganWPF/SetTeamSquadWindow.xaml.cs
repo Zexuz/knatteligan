@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using knatteligan.Domain.Entities;
@@ -31,15 +30,18 @@ namespace KnatteliganWPF
             var listOfCheckBoxes = new List<CheckBox>();
             foreach (var player in players)
             {
-                var playerIsSuspenden = new MatchWeekService().IsPlayerSuspended(player.Id, matchId);
-                var checkBox = new CheckBox();
-                checkBox.Content = player.Name;
-                checkBox.Tag = player.Id;
-                checkBox.IsChecked = alreadySetPlayersId.Contains(player.Id);
-                checkBox.IsEnabled = !(alreadySetPlayersId.Contains(player.Id) || playerIsSuspenden);
+                var isPlayerSuspended = new MatchWeekService().IsPlayerSuspended(player.Id, matchId);
+
+                var checkBox = new CheckBox
+                {
+                    Content = player.Name,
+                    Tag = player.Id,
+                    IsChecked = alreadySetPlayersId.Contains(player.Id),
+                    IsEnabled = !(alreadySetPlayersId.Contains(player.Id) || isPlayerSuspended)
+                };
+
                 listOfCheckBoxes.Add(checkBox);
             }
-
 
             PlayerList = new ObservableCollection<CheckBox>(listOfCheckBoxes);
             DataContext = this;

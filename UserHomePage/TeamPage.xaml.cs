@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -15,32 +14,32 @@ namespace UserHomePage
     {
         private readonly MatchService _matchService;
         private readonly TeamService _teamService;
-        private readonly Guid _teamId;
-        public TeamPage(Guid teamId)
+        private readonly Team _team;
+
+        public TeamPage(Team team)
 
         {
             InitializeComponent();
-            _teamId = teamId;
+            _team = team;
             _matchService = new MatchService();
             _teamService = new TeamService();
-            var teamMatchList = _matchService.GetAll().Where(m => m.HomeTeamId == teamId || m.AwayTeamId == teamId).OrderBy(m => m.MatchDate);
-            TeamMatchList.ItemsSource = teamMatchList;
-            TeamNameTxt.Text = _teamService.FindById(teamId).Name.Value;
+            var teamMatches = _matchService.GetAll().Where(m => m.HomeTeamId == team.Id || m.AwayTeamId == team.Id).OrderBy(m => m.MatchDate);
+            TeamMatchList.ItemsSource = teamMatches;
+            TeamNameTxt.Text = _teamService.FindById(team.Id).Name.Value;
         }
 
         private void TeamMatchList_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var listItem = sender as ListBox;
-            if (listItem?.SelectedItems == null||listItem.SelectedItems.Count ==0) return;
+            if (listItem?.SelectedItems == null || listItem.SelectedItems.Count == 0) return;
             var match = (Match)listItem.SelectedItems[0];
             NavigationService?.Navigate(new MatchProtocolPage(match));
         }
 
         private void Players_OnClick(object sender, RoutedEventArgs e)
         {
-            var team = _teamService.FindById(_teamId);
+            var team = _teamService.FindById(_team.Id);
             NavigationService?.Navigate(new PlayerStatsPage(team));
-
         }
 
     }

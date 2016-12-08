@@ -10,6 +10,7 @@ namespace knatteligan.Domain.Entities
         public LeagueName Name { get; set; }
         public List<Guid> TeamIds { get; set; }
         public SerializableDictionary<int, MatchWeek> MatchWeeks { get; set; }
+        //TODO: Not used prop?
         public DateTime StartDate { get; set; }
 
         public League() { }

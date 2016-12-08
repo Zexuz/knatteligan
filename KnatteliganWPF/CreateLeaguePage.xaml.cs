@@ -87,15 +87,10 @@ namespace KnatteliganWPF
             League.TeamIds = Teams.Select(x => x.Id).ToList();
             _leagueService.Edit(League, LeagueName, Teams.Select(x => x.Id).ToList());
 
-            //TODO: INotifyPropChanged
             MainPage.Leagues.Remove(League);
             MainPage.Leagues.Add(League);
             NavigationService?.GoBack();
         }
-
-    
-
-
 
         private void AddTeam_Clicked(object sender, RoutedEventArgs e)
         {
@@ -137,7 +132,7 @@ namespace KnatteliganWPF
             _leagueService.Add(League);
             new PersonService().Save();
             new TeamService().Save();
-            NavigationService.GoBack();
+            NavigationService?.GoBack();
         }
 
         private void RemoveTeamBtn_Click(object sender, RoutedEventArgs e)
@@ -174,7 +169,6 @@ namespace KnatteliganWPF
             if (!addTeamResult.HasValue) return;
 
             _teamService.Edit(addTeamWindow.Team, addTeamWindow.TeamName, addTeamWindow.Players, addTeamWindow.Coach);
-            //TODO: Replace this hack
             Teams.Remove(addTeamWindow.Team);
             Teams.Add(addTeamWindow.Team);
         }
@@ -188,7 +182,7 @@ namespace KnatteliganWPF
                 switch (result)
                 { 
                     case MessageBoxResult.Yes:
-                        NavigationService.GoBack();
+                        NavigationService?.GoBack();
                         break;
                     case MessageBoxResult.No:
                         break;        
@@ -197,7 +191,5 @@ namespace KnatteliganWPF
             }
             else NavigationService?.GoBack();
         }
-
-       
     }
 }

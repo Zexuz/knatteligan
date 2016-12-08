@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Controls;
@@ -20,7 +19,7 @@ namespace UserHomePage
         private readonly MatchService _matchRepositoryService;
         private readonly LeagueService _leagueService;
 
-        public SerieSchedulePage(Guid currentLeagueId)
+        public SerieSchedulePage(League league)
         {
             _leagueService = new LeagueService();
             GameWeeks = _leagueService.FindById(currentLeagueId).MatchWeeks;
@@ -28,6 +27,8 @@ namespace UserHomePage
             InitializeComponent();
             HeaderYo.Text = _leagueService.FindById(currentLeagueId).Name.Value;
             DataContext = this;
+            GameWeeks = league.MatchWeeks;
+            _matchRepositoryService = new MatchService();
         }
 
         private void SerieSchedulePage_Loaded(object sender, System.Windows.RoutedEventArgs e)
@@ -40,14 +41,14 @@ namespace UserHomePage
         private void GameWeeksList_Click(object sender, SelectionChangedEventArgs e)
         {
             var currentMatchWeek = (KeyValuePair<int, MatchWeek>)e.AddedItems[0];
-            var matches = currentMatchWeek.Value.MatchIds.Select(guid => _matchRepositoryService.FindById(guid));
-            CurrentMatchWeekMatches.ItemsSource = new ObservableCollection<Match>(matches);
+            var matches = currentMatchWeek.Value.MatchIds.Select(guid => _matchRepositoryService.FindById(guid)).ToList();
+            CurrentMatchWeekMatches.ItemsSource = matches;
         }
 
         private void CurrentMatchWeekMatches_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var listItem = sender as ListBox;
-            if (listItem?.SelectedItems == null ||listItem.SelectedItems.Count ==0) return;
+            if (listItem?.SelectedItems == null || listItem.SelectedItems.Count == 0) return;
 
             var match = (Match)listItem.SelectedItems[0];
             NavigationService?.Navigate(new MatchProtocolPage(match));
@@ -58,7 +59,5 @@ namespace UserHomePage
             var matches = _matchRepositoryService.GetAll();
             CurrentMatchWeekMatches.ItemsSource = new ObservableCollection<Match>(matches);
         }
-
-      
     }
 }

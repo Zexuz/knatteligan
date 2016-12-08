@@ -65,7 +65,7 @@
                 </TextBlock.Style>
             </TextBlock>
             <TextBlock Name="FreeAgentsHeader" Text="Free Agents" Margin="5"></TextBlock>
-            <ListBox Name="FreeAgentsList" MouseDoubleClick="FreeAgentsList_OnMouseDoubleClick" Margin="5" Height="240"></ListBox>
+            <ListBox Name="FreePlayersList" MouseDoubleClick="FreePlayersList_OnMouseDoubleClick" Margin="5" Height="240"></ListBox>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">

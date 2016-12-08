@@ -27,7 +27,7 @@ namespace KnatteliganWPF
         private readonly PersonService _personService;
         private readonly MatchService _matchService;
         private readonly TeamService _teamService;
-        
+
 
         private ListBox _currentFocusedListBox;
         private readonly ObservableCollection<MatchEvent> _matchEventsHome;
@@ -42,8 +42,8 @@ namespace KnatteliganWPF
             _personService = new PersonService();
             _matchService = new MatchService();
             var str = league.Name.ToString();
-            
-            
+
+
 
             Match = match;
             AwayTeam = _teamService.FindById(match.AwayTeamId);
@@ -275,7 +275,7 @@ namespace KnatteliganWPF
             AwayTeamGoals.Text = awayGoal.ToList().Count.ToString();
         }
 
-        private List<MatchEvent> GetMatchEventsForTeam(Team team)
+        private IEnumerable<MatchEvent> GetMatchEventsForTeam(Team team)
         {
             var list = _matchEventsTemp.Where(mEvent => team.PlayerIds.Contains(mEvent.PlayerId));
             return list.ToList();

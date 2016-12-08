@@ -37,23 +37,18 @@ namespace UserHomePage
                 .Select(matchEventService.FindById)
                 .Where(mEvent => match.AwayTeamSquadId.Contains(mEvent.PlayerId));
 
-            var homeGoal = homeTeamEvents.Where(e => e.GetType() == MatchEvents.Goal);
-            var awayGoal = awayTeamEvents.Where(e => e.GetType() == MatchEvents.Goal);
+            var homeTeamGoals = homeTeamEvents.Where(e => e.GetType() == MatchEvents.Goal);
+            var awayTeamGoals = awayTeamEvents.Where(e => e.GetType() == MatchEvents.Goal);
 
 
             ShowDate.Text = match.MatchDate.ToString("dd-MM-yy");
             //MatchWeek.Text = matchWeek.ToString();
             HomeTeamName.Text = teamService.FindById(match.HomeTeamId).Name.Value;
             AwayTeamName.Text = teamService.FindById(match.AwayTeamId).Name.Value;
-            HomeTeamGoals.Text = homeGoal.ToList().Count.ToString();
-            AwayTeamGoals.Text = awayGoal.ToList().Count.ToString();
+            HomeTeamGoals.Text = homeTeamGoals.ToList().Count.ToString();
+            AwayTeamGoals.Text = awayTeamGoals.ToList().Count.ToString();
             HomeTeamMatchEvents.ItemsSource = homeTeamEvents;
             AwayTeamMatchEvents.ItemsSource = awayTeamEvents;
-        }
-
-        private void MatchProtocolPage_OnLoaded(object sender, RoutedEventArgs e)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

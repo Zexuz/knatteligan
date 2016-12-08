@@ -17,7 +17,7 @@ namespace knatteligan.Helpers
                 .Select(mEvent => mEvent.Id).ToList();
         }
 
-        public static List<PlayerStatsInfoItem> Sort(List<Team> teams, PlayerSortByTypes type, bool desc)
+        public static IEnumerable<PlayerStatsInfoItem> Sort(IEnumerable<Team> teams, PlayerSortByTypes type, bool desc)
         {
             var list = (
                 from team in teams

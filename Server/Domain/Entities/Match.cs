@@ -48,14 +48,14 @@ namespace knatteligan.Domain.Entities
             if (IsPlayed)
             {
                 return
-                    $"{new TeamService().FindById(HomeTeamId).Name} - {TeamRepository.GetInstance().FindBy(AwayTeamId).Name} " +
+                    $"{MatchDate.Day + "/" + MatchDate.Month} {new TeamService().FindById(HomeTeamId).Name} - {TeamRepository.GetInstance().FindBy(AwayTeamId).Name} " +
                     $"{allGoals.Count(x => x.MatchId == Id && x.TeamId == HomeTeamId)}" +
                     $" - " +
                     $"{allGoals.Count(x => x.MatchId == this.Id && x.TeamId == AwayTeamId)}";
             }
 
             return
-                $"{TeamRepository.GetInstance().FindBy(HomeTeamId).Name} - {TeamRepository.GetInstance().FindBy(AwayTeamId).Name} ";
+                $"{MatchDate.Day + "/" + MatchDate.Month} {TeamRepository.GetInstance().FindBy(HomeTeamId).Name} - {TeamRepository.GetInstance().FindBy(AwayTeamId).Name}";
         }
     }
 }

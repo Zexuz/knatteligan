@@ -26,6 +26,8 @@ namespace UserHomePage
             var teamMatches = _matchService.GetAll().Where(m => m.HomeTeamId == team.Id || m.AwayTeamId == team.Id).OrderBy(m => m.MatchDate);
             TeamMatchList.ItemsSource = teamMatches;
             TeamNameTxt.Text = _teamService.FindById(team.Id).Name.Value;
+            var leagueService = new LeagueService();
+            LgName.Text = leagueService.GetAll().First(x => x.TeamIds.Contains(team.Id)).Name.Value;
         }
 
         private void TeamMatchList_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)

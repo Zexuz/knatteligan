@@ -5,47 +5,33 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:UserHomePage"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="400" d:DesignWidth="700"
       Title="PlayerStatsPage">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="350" />
+           
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-
         </Grid.ColumnDefinitions>
-        <DataGrid HorizontalAlignment="Stretch" ColumnWidth="*" IsReadOnly="True" VerticalAlignment="Stretch"
-                  Grid.ColumnSpan="6" Grid.RowSpan="13"
-                  Name="PlayersDataGrid"
-                    >
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Path=Name.Name}" />
-                <DataGridTextColumn Header="Team" Binding="{Binding Path=TeamName.Value}" Visibility="{Binding ElementName=PlayerStats, Path=OnlyOneTeam}" />
-                <DataGridTextColumn Header="G" Binding="{Binding Path=GoalIds.Count}"  />
-                <DataGridTextColumn Header="A" Binding="{Binding Path=AssistIds.Count}" />
-                <DataGridTextColumn Header="YC" Binding="{Binding Path=YellowCardIds.Count}" />
-                <DataGridTextColumn Header="RC" Binding="{Binding Path=RedCardIds.Count}" />
-            </DataGrid.Columns>
-        </DataGrid>
+        <StackPanel Grid.Row="0" Height="Auto" VerticalAlignment="Top" Grid.RowSpan="2" >
+            <TextBlock Name="Header" FontSize="16" Margin="5"></TextBlock>
+            <TextBlock Name="SubHeader" FontSize="12"  Visibility="Collapsed" Margin="5"></TextBlock>
+            <DataGrid Height="270" HorizontalAlignment="Stretch" ColumnWidth="*" IsReadOnly="True" VerticalAlignment="Stretch" Name="PlayersDataGrid" Margin="5">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Path=Name.Name}" />
+                    <DataGridTextColumn Header="Team" Binding="{Binding Path=TeamName.Value}" Visibility="{Binding ElementName=PlayerStats, Path=OnlyOneTeam}" />
+                    <DataGridTextColumn Header="G" Binding="{Binding Path=GoalIds.Count}"  />
+                    <DataGridTextColumn Header="A" Binding="{Binding Path=AssistIds.Count}" />
+                    <DataGridTextColumn Header="YC" Binding="{Binding Path=YellowCardIds.Count}" />
+                    <DataGridTextColumn Header="RC" Binding="{Binding Path=RedCardIds.Count}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        
+        
     </Grid>
 
 </Page>

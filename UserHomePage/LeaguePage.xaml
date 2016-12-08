@@ -53,8 +53,8 @@
                 </DataGrid.Columns>
             </DataGrid>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Button  Click="Players_Click">Players</Button>
-                <Button  Click="Button_Click_1">Matches</Button>
+                <Button  Click="Players_Click">Player Stats</Button>
+                <Button  Click="Button_Click_1">Match List</Button>
                 <TextBlock Name="LeagueNameTag" Margin="5" FontWeight="Bold"></TextBlock>
             </StackPanel>
         </StackPanel>

@@ -42,7 +42,7 @@
 
             <ListBox Name="TeamList" MouseUp="Page_Loaded" Height="260" Width="380"/>
             <StackPanel Orientation="Horizontal">
-                <Button Click="AddTeam_Clicked"  Width="20" Height="20">+</Button>
+                <Button Click="AddTeam_Clicked" Name="AddTeamBtn"  Width="20" Height="20">+</Button>
                 <Button Name="RemoveTeamBtn" IsEnabled="{Binding ElementName=TeamList, Path=SelectedItems.Count}" Click="RemoveTeamBtn_Click" Width="20" Height="20">-</Button>
                 <Button Name="EditBtn" IsEnabled="{Binding ElementName=TeamList, Path=SelectedItems.Count}" Click="EditTeamBtn_Click" Width="auto" Height="20">Edit</Button>
             </StackPanel>

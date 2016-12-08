@@ -55,6 +55,8 @@ namespace KnatteliganWPF
             _teamService = new TeamService();
             _personService = new PersonService();
             Teams = new ObservableCollection<Team>();
+            AddTeamBtn.Visibility = Visibility.Collapsed;
+            RemoveTeamBtn.Visibility = Visibility.Collapsed;
             foreach (var teamId in league.TeamIds)
             {
                 Teams.Add(_teamService.FindById(teamId));

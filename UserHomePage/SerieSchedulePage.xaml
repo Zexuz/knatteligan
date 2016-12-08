@@ -29,7 +29,7 @@
                 </ListView.View>
             </ListView>
 
-            <ListView Name="CurrentMatchWeekMatches" MouseDoubleClick="CurrentMatchWeekMatches_OnMouseDoubleClick">
+            <ListView Name="CurrentMatchWeekMatches" MouseDoubleClick="CurrentMatchWeekMatches_OnMouseDoubleClick" Width="230">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Matches" />

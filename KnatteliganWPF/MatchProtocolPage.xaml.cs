@@ -216,6 +216,8 @@ namespace KnatteliganWPF
             AddYellowCardButton.IsEnabled = true;
             AddRedCardButton.IsEnabled = true;
 
+            Trace.WriteLine(GetSelectedPlayerFromList().Name);
+
             if (listBox?.SelectedItems == null || listBox.SelectedItems.Count == 0) return;
             var player = (Player)listBox.SelectedItem;
             PlayerHasMaxCardsOnHim(player);
@@ -300,10 +302,9 @@ namespace KnatteliganWPF
             }
         }
 
-        private void List_OnLostFocus(object sender, RoutedEventArgs e)
+        private void List_OnGotFocus(object sender, RoutedEventArgs e)
         {
-            var list = sender as ListBox;
-            if (list != null) list.SelectedItem = null;
+            if (_currentFocusedListBox != null) _currentFocusedListBox.SelectedItem = null;
         }
     }
 }

@@ -21,11 +21,11 @@ namespace UserHomePage
 
         public SerieSchedulePage(League league)
         {
-            _leagueService = new LeagueService();
-            GameWeeks = _leagueService.FindById(currentLeagueId).MatchWeeks;
-            _matchRepositoryService = new MatchService();
             InitializeComponent();
-            HeaderYo.Text = _leagueService.FindById(currentLeagueId).Name.Value;
+            _leagueService = new LeagueService();
+            GameWeeks = league.MatchWeeks;
+            _matchRepositoryService = new MatchService();
+            HeaderYo.Text = league.Name.Value;
             DataContext = this;
             GameWeeks = league.MatchWeeks;
             _matchRepositoryService = new MatchService();

@@ -18,18 +18,22 @@ namespace UserHomePage
         public SerializableDictionary<int, MatchWeek> GameWeeks { get; set; }
 
         private readonly MatchService _matchRepositoryService;
+        private readonly LeagueService _leagueService;
 
         public SerieSchedulePage(Guid currentLeagueId)
         {
-            GameWeeks = new LeagueService().FindById(currentLeagueId).MatchWeeks;
+            _leagueService = new LeagueService();
+            GameWeeks = _leagueService.FindById(currentLeagueId).MatchWeeks;
             _matchRepositoryService = new MatchService();
             InitializeComponent();
+            HeaderYo.Text = _leagueService.FindById(currentLeagueId).Name.Value;
             DataContext = this;
         }
 
         private void SerieSchedulePage_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            Resources["Drinks"] = GameWeeks;
+            GameWeeksList.ItemsSource = GameWeeks;
+            
 
         }
 

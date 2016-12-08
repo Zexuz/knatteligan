@@ -17,10 +17,15 @@ namespace UserHomePage
         public Match Match { get; set; }
         public List<Player> HomeTeamPlayers { get; set; }
         public List<Player> AwayTeamPlayers { get; set; }
+        private readonly LeagueService _leagueService;
 
-        public MatchProtocolPage(Match match /*Guid matchID, Guid leagueId*/) //fixa id
+        public MatchProtocolPage(Match match) 
         {
             InitializeComponent();
+            _leagueService = new LeagueService();
+
+            var league = _leagueService.GetAll().First(x => x.TeamIds.Contains(match.HomeTeamId));
+            LeagueName.Text = league.Name.Value;
             var teamService = new TeamService();
             var matchEventService = new MatchEventService();
 

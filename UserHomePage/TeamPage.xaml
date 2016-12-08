@@ -5,26 +5,27 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:UserHomePage"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="400" d:DesignWidth="700"
       Title="TeamPage">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition Height="200"></RowDefinition>
-            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="230"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <StackPanel>
-            <TextBlock Name="TeamNameTxt" Grid.Row="0"></TextBlock>
+        <StackPanel Grid.Row="0" Grid.RowSpan="2" Width="400" HorizontalAlignment="Left">
+            <TextBlock Name="TeamNameTxt" Margin="5" FontSize="16" FontWeight="Bold"></TextBlock>
+            <ListBox Name="TeamMatchList" MouseDoubleClick="TeamMatchList_OnMouseDoubleClick" Width="400" Height="260" HorizontalAlignment="Left" Margin="5"/>
 
-            <StackPanel Orientation="Horizontal">
-                <Button Click="Players_OnClick">Player stats</Button>
-            </StackPanel>
+           
+
         </StackPanel>
-        
-        <ListBox Grid.Row="1" Name="TeamMatchList" MouseDoubleClick="TeamMatchList_OnMouseDoubleClick">
+        <Button Grid.Row="2" Click="Players_OnClick" Width="100" HorizontalAlignment="Left" Margin="5,0,10,0" VerticalAlignment="Bottom">Player stats</Button>
 
-        </ListBox>
+
+
+
     </Grid>
 </Page>

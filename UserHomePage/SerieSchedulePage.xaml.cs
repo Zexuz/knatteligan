@@ -17,12 +17,10 @@ namespace UserHomePage
         public SerializableDictionary<int, MatchWeek> GameWeeks { get; set; }
 
         private readonly MatchService _matchRepositoryService;
-        private readonly LeagueService _leagueService;
 
         public SerieSchedulePage(League league)
         {
             InitializeComponent();
-            _leagueService = new LeagueService();
             GameWeeks = league.MatchWeeks;
             _matchRepositoryService = new MatchService();
             HeaderYo.Text = league.Name.Value;
@@ -34,8 +32,6 @@ namespace UserHomePage
         private void SerieSchedulePage_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
             GameWeeksList.ItemsSource = GameWeeks;
-            
-
         }
 
         private void GameWeeksList_Click(object sender, SelectionChangedEventArgs e)

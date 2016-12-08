@@ -16,12 +16,12 @@ namespace KnatteliganWPF
         public SerializableDictionary<int, MatchWeek> GameWeeks { get; set; }
         private readonly MatchService _matchRepositoryService;
         private readonly TeamService _teamService;
+        private MatchWeek _currentMatchWeek;
 
         public SeriesSchedulePage(League league)
         {
             InitializeComponent();
             DataContext = this;
-
             League = league;
             _matchRepositoryService = new MatchService();
             _teamService = new TeamService();
@@ -32,13 +32,20 @@ namespace KnatteliganWPF
         private void SeriesSchedulePage_OnLoaded(object sender, RoutedEventArgs e)
         {
             GameWeeksList.ItemsSource = GameWeeks;
+            if (_currentMatchWeek != null)
+            {
+                var matches = _currentMatchWeek.MatchIds.Select(guid => _matchRepositoryService.FindById(guid));
+                CurrentMatchWeekMatches.ItemsSource = matches;
+
+            }
         }
 
         private void listView_Click(object sender, SelectionChangedEventArgs e)
         {
             var currentMatchWeek = (KeyValuePair<int, MatchWeek>)e.AddedItems[0];
+            _currentMatchWeek = currentMatchWeek.Value;
             var matches = currentMatchWeek.Value.MatchIds.Select(guid => _matchRepositoryService.FindById(guid));
-            CurrentMatchWeekMatches.ItemsSource = new ObservableCollection<Match>(matches);
+            CurrentMatchWeekMatches.ItemsSource = matches;
         }
 
         private void CurrentMatchWeekMatches_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)

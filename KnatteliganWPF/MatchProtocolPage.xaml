@@ -40,7 +40,7 @@
 
         <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Vertical">
             <Button Click="ButtonAddHomeTeamSquad_OnClick" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5" Content="Home Team Squad" />
-            <ListBox Name="HomeTeamList" MouseUp="List_OnMouseUp" HorizontalContentAlignment="Right" Margin="5" MaxHeight="210"  LostFocus="List_OnLostFocus"  />
+            <ListBox Name="HomeTeamList" MouseUp="List_OnMouseUp" HorizontalContentAlignment="Right" Margin="5" MaxHeight="210"  GotFocus="List_OnGotFocus"  />
         </StackPanel>
 
         <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center">
@@ -88,7 +88,7 @@
 
         <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Vertical">
             <Button Click="ButtonAddAwayTeamSquad_OnClick" Content="Away Team Squad" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5" />
-            <ListBox Name="AwayTeamList" MouseUp="List_OnMouseUp" HorizontalContentAlignment="Left" Margin="5" MaxHeight="210" LostFocus="List_OnLostFocus"   />
+            <ListBox Name="AwayTeamList" MouseUp="List_OnMouseUp" HorizontalContentAlignment="Left" Margin="5" MaxHeight="210" GotFocus="List_OnGotFocus"   />
         </StackPanel>
 
 
